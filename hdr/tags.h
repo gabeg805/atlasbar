@@ -1,11 +1,8 @@
-#include <gtk/gtk.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
+// Header guard
 #ifndef TAGS_H
 #define TAGS_H
 
-void display_tags(GtkWidget *bar, PangoAttrList *attrList, int screen);
+// Public functions
+void display_tags(int screen);
 
 #endif

@@ -46,6 +46,9 @@
 // 
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
+//     gabeg Nov 02 2014 <> Made it so that the wifi widget did not have to rely on 
+//                          the gbar frame (being passed in as a parameter). 
+// 
 // **********************************************************************************
 
 
@@ -55,6 +58,7 @@
 // /////////////////////////////////
 
 // Includes
+#include "../hdr/globals.h"
 #include "../hdr/wifi.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
@@ -62,15 +66,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define   XPOS              45
+#define   YPOS              0
 #define   ICON_DIR   "/home/gabeg/.config/awesome/img/icons/wifi/"
 #define   ICON_EXT   ".png"
 
 
 // Declares
-int get_wifi();
-char * get_wifi_icon();
-gboolean set_wifi_icon(gpointer data);
-void display_wifi(GtkWidget *bar);
+static int get_wifi();
+static char * get_wifi_icon();
+static gboolean set_wifi_icon(gpointer data);
+void display_wifi();
 
 
 
@@ -79,7 +85,7 @@ void display_wifi(GtkWidget *bar);
 // ///////////////////////////////
 
 // Return current wifi level
-int get_wifi() {
+static int get_wifi() {
     
     // Get output from command
     char *cmd = "iw dev wlp1s0 link | grep signal | sed 's/^[ \\t]*//' | cut -f2 -d' '";
@@ -97,7 +103,7 @@ int get_wifi() {
 
 
 // Return the proper wifi icon
-char * get_wifi_icon() {
+static char * get_wifi_icon() {
     
     // Initialize variables
     int level = get_wifi();    
@@ -136,7 +142,7 @@ char * get_wifi_icon() {
 // /////////////////////////
 
 // Update the wifi widget
-gboolean set_wifi_icon(gpointer data) {
+static gboolean set_wifi_icon(gpointer data) {
     
     // Extract widget from pointer
     GtkWidget *widget = (GtkWidget *) data;
@@ -160,15 +166,22 @@ gboolean set_wifi_icon(gpointer data) {
 // ///////////////////////////////
 
 // Display the wifi widget
-void display_wifi(GtkWidget *bar) {
+void display_wifi() {
     
     // Initialize widgets
+    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *wifi = gtk_image_new();
     
     // Set widget icon
     char *wifi_icon = get_wifi_icon();
     gtk_image_set_from_file(GTK_IMAGE(wifi), wifi_icon);
     
-    // Handle widget signals
-    widget_event(bar, wifi, 5, set_wifi_icon);
+    // Setup widget
+    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    setup_widget(win, NULL, pos);
+    widget_mouse_enter(win, wifi, 5, set_wifi_icon);
+    
+    // Display widgets
+    gtk_widget_show(wifi);
+    gtk_widget_show(win);
 }

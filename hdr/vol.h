@@ -1,11 +1,8 @@
-#include <gtk/gtk.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
+// Header guard
 #ifndef VOL_H
 #define VOL_H
 
-void display_volume(GtkWidget *bar);
+// Public functions
+void display_volume();
 
 #endif

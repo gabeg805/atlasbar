@@ -1,11 +1,8 @@
-#include <gtk/gtk.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
+// Header guard
 #ifndef BAT_H
 #define BAT_H
 
-void display_battery(GtkWidget *bar);
+// Public functions
+void display_battery();
 
 #endif

@@ -59,6 +59,7 @@
 // /////////////////////////////////
 
 // Includes
+#include "../hdr/globals.h"
 #include "../hdr/util.h"
 #include "../hdr/bat.h"
 #include "../hdr/bright.h"
@@ -74,60 +75,16 @@
 #include <signal.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
+#define GBAR_LOG "/home/gabeg/.config/dwm/src/gbar/log/gbar.log"
 
 // Declares
-void setup_window(GtkWidget *window, GtkWidget *bar);
-void set_style();
 
 PangoAttrList *attrList;
 GdkRGBA color = {0.19, 0.19, 0.23, 1};
-
-
-
-// //////////////////////////////////
-// ///// SETUP STATUSBAR WINDOW /////
-// //////////////////////////////////
-
-// Setup gbar root window
-void setup_window(GtkWidget *window, GtkWidget *bar) {
-    
-    // Get screen resolution
-    Display* display = XOpenDisplay(NULL);
-    Screen*  screen = DefaultScreenOfDisplay(display);
-    int width  = screen->width;
-    
-    // Set window attributes
-    gtk_window_move(GTK_WINDOW(window), 0, 0);
-    gtk_window_set_default_size(GTK_WINDOW(window), width, 20);
-    gtk_widget_override_background_color(window, GTK_STATE_NORMAL, &color);
-    
-    // GTK signal
-    gtk_container_add(GTK_CONTAINER(window), bar);
-    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-}
-
-
-
-// Setup font attributes for text on the statusbar
-void set_style() {
-    
-    // Define text attributes
-    char *font = "Inconsolata";
-    int fsize  = 8*1024;
-    
-    attrList = pango_attr_list_new();
-    PangoAttribute *attrFont = pango_attr_family_new(font);
-    PangoAttribute *attrSize = pango_attr_size_new(fsize);
-    PangoAttribute *attrColor = pango_attr_foreground_new(65535, 65535, 65535);
-    
-    // Add attributes to the list (and increase the reference counter)
-    attrList = pango_attr_list_ref(attrList);
-    attrList = pango_attr_list_ref(attrList);
-    pango_attr_list_insert(attrList, attrSize);
-    pango_attr_list_insert(attrList, attrFont);
-    pango_attr_list_insert(attrList, attrColor);
-}
+int screen_width;
+int bar_height;
 
 
 
@@ -148,6 +105,12 @@ int main(int argc, char**argv) {
     pid_t pid = fork();
     if ( pid == 0 ) {
         
+        // Get screen resolution
+        Display* display = XOpenDisplay(NULL);
+        Screen*  screen = DefaultScreenOfDisplay(display);
+        screen_width  = screen->width;
+        bar_height = 20;
+        
         // Initialize gtk toolkit
         gtk_init(&argc, &argv);
         
@@ -160,24 +123,27 @@ int main(int argc, char**argv) {
         set_style();
         
         // Display widgets
-        display_date(bar, attrList);    
-        display_battery(bar);
-        display_wifi(bar);
-        display_volume(bar);
-        display_brightness(bar);
-        display_tags(bar, attrList, atoi(argv[1]));
-        
         gtk_widget_show(bar);
         gtk_widget_show(window);
+
+        display_tags(atoi(argv[1]));
+        display_date(attrList);
+        display_battery();
+        display_wifi();
+        display_volume();
+        display_brightness();
         
-        // Kill previous invocations of gbar
-        kill_gbar();
+        // Write PID to file
+        file_write(GBAR_LOG, "w", "%d", getpid());
         
         // Run the gtk loop
         gtk_main();
         
         return 0;
     }
+    
+    kill_gbar();
+    remove(GBAR_LOG);
     
     return 0;
 }

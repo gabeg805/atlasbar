@@ -1,11 +1,8 @@
-#include <gtk/gtk.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
+// Header guard
 #ifndef WIFI_H
 #define WIFI_H
 
-void display_wifi(GtkWidget *bar);
+// Public functions
+void display_wifi();
 
 #endif

@@ -42,6 +42,9 @@
 // 
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
+//     gabeg Nov 02 2014 <> Made it so that the date widget did not have to rely on 
+//                          the gbar frame (being passed in as a parameter). 
+// 
 // **********************************************************************************
 
 
@@ -51,14 +54,19 @@
 // /////////////////////////////////
 
 // Includes
+#include "../hdr/globals.h"
 #include "../hdr/date.h"
+#include "../hdr/util.h"
 #include <gtk/gtk.h>
+#include <time.h>
+
+#define   XPOS              640
+#define   YPOS              0
+
 
 // Declares
-gboolean set_date_label(gpointer data);
-void display_date(GtkWidget *bar, PangoAttrList *attrList);
-
-PangoAttrList *STYLE;
+static gboolean set_date_label(gpointer data);
+void display_date();
 
 
 
@@ -67,7 +75,7 @@ PangoAttrList *STYLE;
 // //////////////////////////
 
 // Set the label for the date widget
-gboolean set_date_label(gpointer data) {
+static gboolean set_date_label(gpointer data) {
     
     // Define date widget
     GtkWidget *date = (GtkWidget *) data;
@@ -83,7 +91,7 @@ gboolean set_date_label(gpointer data) {
     strftime(time_string, sizeof(time_string), fmt, tmp);
     
     // Set the label text and font
-    gtk_label_set_attributes(GTK_LABEL(date), STYLE);
+    gtk_label_set_attributes(GTK_LABEL(date), attrList);
     gtk_label_set_text(GTK_LABEL(date), time_string);
     
     return TRUE;
@@ -96,17 +104,19 @@ gboolean set_date_label(gpointer data) {
 // ///////////////////////////////
 
 // Display the date widget
-void display_date(GtkWidget *bar, PangoAttrList *attrList) {
+void display_date() {
     
     // Setup the date widget
+    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *date = gtk_label_new("");
-    STYLE = attrList;
     set_date_label(date);
     
-    // Put it on the main bar gui 
+    // Setup widget
+    int pos[4] = {XPOS, YPOS, 0, bar_height};
+    setup_widget(win, date, pos);
     g_timeout_add_seconds(60, set_date_label, date);
-    gtk_box_set_center_widget(GTK_BOX(bar), date);
-        
-    // Displat the date widget
+    
+    // Display widgets
     gtk_widget_show(date);
+    gtk_widget_show(win);
 }

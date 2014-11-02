@@ -53,6 +53,9 @@
 //     gabeg Oct 04 2014 <> Added the header and included a function to check if
 //                          mute is toggled.
 // 
+//     gabeg Nov 02 2014 <> Made it so that the volume widget did not have to 
+//                          rely on the gbar frame (being passed in as a parameter). 
+// 
 // **********************************************************************************
 
 
@@ -62,6 +65,7 @@
 // /////////////////////////////////
 
 // Includes
+#include "../hdr/globals.h"
 #include "../hdr/vol.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
@@ -70,6 +74,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define   XPOS              75
+#define   YPOS              0
 #define   PIDOF          "pidof"
 #define   MUSIC_PLAYER   "mocp"
 #define   ICON_DIR       "/home/gabeg/.config/awesome/img/icons/vol/"
@@ -77,12 +83,12 @@
 
 
 // Declares
-int is_mute();
-pid_t is_playing();
-int get_volume();
-char * get_volume_icon();
-gboolean set_volume_icon(gpointer data);
-void display_volume(GtkWidget *bar);
+static int is_mute();
+static pid_t is_playing();
+static int get_volume();
+static char * get_volume_icon();
+static gboolean set_volume_icon(gpointer data);
+void display_volume();
 
 
 
@@ -91,7 +97,7 @@ void display_volume(GtkWidget *bar);
 // ////////////////////////////////
 
 // Check if mute is toggled
-int is_mute() {
+static int is_mute() {
     
     // Get output from command
     char *cmd = "amixer get Master | tail -1 | awk '{print $6}' | sed -e 's/\\[//; s/\\]//; s/\\%//'";
@@ -110,7 +116,7 @@ int is_mute() {
 
 
 // Check if music player is running
-pid_t is_playing() {
+static pid_t is_playing() {
     
     // Piece together command to check if music player is running
     size_t sz = strlen(PIDOF) + strlen(MUSIC_PLAYER) + 2;
@@ -136,7 +142,7 @@ pid_t is_playing() {
 // /////////////////////////////////
 
 // Return current volume level
-int get_volume() {
+static int get_volume() {
     
     // Get output from command
     char *cmd = "amixer get Master | tail -1 | awk '{print $4}' | sed -e 's/\\[//; s/\\]//; s/\\%//'";
@@ -154,7 +160,7 @@ int get_volume() {
 
 
 // Return the proper volume icon
-char * get_volume_icon() {
+static char * get_volume_icon() {
     
     // Initialize variables
     int level = get_volume();    
@@ -216,7 +222,7 @@ char * get_volume_icon() {
 // ///////////////////////////
 
 // Set the volume widget icon
-gboolean set_volume_icon(gpointer data) {
+static gboolean set_volume_icon(gpointer data) {
     
     // Extract widget from pointer
     GtkWidget *widget = (GtkWidget *) data;
@@ -240,9 +246,10 @@ gboolean set_volume_icon(gpointer data) {
 // /////////////////////////////////
 
 // Display the volume widget
-void display_volume(GtkWidget *bar) {
+void display_volume() {
     
     // Initialize volume widget
+    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *vol = gtk_image_new();
     
     // Set volume icon
@@ -250,5 +257,11 @@ void display_volume(GtkWidget *bar) {
     gtk_image_set_from_file(GTK_IMAGE(vol), vol_icon);
     
     // Enable events on volume widget
-    widget_event(bar, vol, 0, set_volume_icon);
+    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    setup_widget(win, NULL, pos);
+    widget_mouse_enter(win, vol, 0, set_volume_icon);
+    
+    // Display widgets
+    gtk_widget_show(vol);
+    gtk_widget_show(win);
 }

@@ -47,6 +47,9 @@
 // 
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
+//     gabeg Nov 02 2014 <> Made it so that the brightness widget did not have to 
+//                          rely on the gbar frame (being passed in as a parameter). 
+// 
 // **********************************************************************************
 
 
@@ -56,6 +59,7 @@
 // /////////////////////////////////
 
 // Includes
+#include "../hdr/globals.h"
 #include "../hdr/bright.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
@@ -64,6 +68,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define   XPOS              105
+#define   YPOS              0
 #define   ICON_DIR          "/home/gabeg/.config/awesome/img/icons/bright/"
 #define   ICON_EXT          ".png"
 #define   BRIGHT_NOW_FILE   "/sys/class/backlight/intel_backlight/brightness"
@@ -71,10 +77,10 @@
 
 
 // Declares
-int get_brightness();
-char * get_brightness_icon();
-gboolean set_brightness_icon(gpointer data);
-void display_brightness(GtkWidget *bar);
+static int get_brightness();
+static char * get_brightness_icon();
+static gboolean set_brightness_icon(gpointer data);
+void display_brightness();
 
 
 
@@ -83,7 +89,7 @@ void display_brightness(GtkWidget *bar);
 // /////////////////////////////////////
 
 // Return current brightness level
-int get_brightness() {
+static int get_brightness() {
     
     // Initialize file handler
     FILE *handle;
@@ -111,7 +117,7 @@ int get_brightness() {
 
 
 // Return the proper brightness icon
-char * get_brightness_icon() {
+static char * get_brightness_icon() {
     
     // Initialize variables
     int level = get_brightness();    
@@ -151,7 +157,7 @@ char * get_brightness_icon() {
 // ///////////////////////////////
 
 // Update the brightness widget
-gboolean set_brightness_icon(gpointer data) {    
+static gboolean set_brightness_icon(gpointer data) {    
     
     // Extract widget from pointer
     GtkWidget *widget = (GtkWidget *) data;
@@ -175,15 +181,22 @@ gboolean set_brightness_icon(gpointer data) {
 // /////////////////////////////////////
 
 // Display the brightness widget
-void display_brightness(GtkWidget *bar) {
+void display_brightness() {
     
     // Initialize brightness widget
+    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *bright = gtk_image_new();     
-        
+    
     // Set brightness icon
     char *bright_icon = get_brightness_icon();
     gtk_image_set_from_file(GTK_IMAGE(bright), bright_icon);
     
-    // Enable events on volume widget
-    widget_event(bar, bright, 0, set_brightness_icon);
+    // Setup widget
+    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    setup_widget(win, NULL, pos);
+    widget_mouse_enter(win, bright, 0, set_brightness_icon);
+    
+    // Display widgets
+    gtk_widget_show(bright);
+    gtk_widget_show(win);
 }

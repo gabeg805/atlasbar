@@ -4,7 +4,7 @@ CFLAGS  = -g -Wall -lX11
 CFLAGS += `pkg-config $(LIBS) --cflags --libs`
 
 PROGRAM = gbar
-NAMES   = $(PROGRAM) bat bright date tags vol wifi util
+NAMES   = $(PROGRAM) bat bright date tags vol wifi util 
 SOURCES = $(addprefix ./src/, $(addsuffix .c, $(NAMES)))
 HEADERS = $(addprefix ./hdr/, $(addsuffix .h, $(NAMES)))
 OBJECTS = $(addprefix ./obj/, $(addsuffix .o, $(NAMES)))
@@ -19,4 +19,5 @@ $(PROGRAM): $(OBJECTS)
 
 .PHONY: clean
 clean : 
-	-rm -f $(OBJECTS)
+	@rm -v -f $(OBJECTS)
+	@rm -v -f $(PROGRAM)

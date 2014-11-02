@@ -48,6 +48,9 @@
 // 
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
+//     gabeg Nov 02 2014 <> Made it so that the battery widget did not have to rely 
+//                          on the gbar frame (being passed in as a parameter). 
+// 
 // **********************************************************************************
 
 
@@ -57,6 +60,7 @@
 // /////////////////////////////////
 
 // Includes
+#include "../hdr/globals.h"
 #include "../hdr/bat.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
@@ -64,6 +68,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define   XPOS              20
+#define   YPOS              0
 #define   CHARGE_NOW_FILE      "/sys/class/power_supply/BAT0/charge_now"
 #define   CHARGE_FULL_FILE     "/sys/class/power_supply/BAT0/charge_full"
 #define   CHARGE_STATUS_FILE   "/sys/class/power_supply/BAT0/status"
@@ -72,10 +78,10 @@
 #define   ICON_EXT             ".png"
 
 // Declares
-int get_charge();
-char * get_battery_icon();
-gboolean set_battery_icon(gpointer data);
-void display_battery(GtkWidget *bar);
+static int get_charge();
+static char * get_battery_icon();
+static gboolean set_battery_icon(gpointer data);
+void display_battery();
 
 
 
@@ -84,7 +90,7 @@ void display_battery(GtkWidget *bar);
 // //////////////////////////////////
 
 // Return the battery charge level
-int get_charge() {
+static int get_charge() {
     
     // Initialize file handler
     FILE *handle;
@@ -123,7 +129,7 @@ int get_charge() {
 
 
 // Return the proper battery icon
-char * get_battery_icon() {
+static char * get_battery_icon() {
     
     // Initialize variables
     int charge = get_charge();    
@@ -155,7 +161,7 @@ char * get_battery_icon() {
 // ////////////////////////////
 
 // Set the battery icon on the widget
-gboolean set_battery_icon(gpointer data) {
+static gboolean set_battery_icon(gpointer data) {
     
     // Get battery icon
     char *bat_icon = get_battery_icon();
@@ -180,15 +186,22 @@ gboolean set_battery_icon(gpointer data) {
 // //////////////////////////////////
 
 // Display the battery widget
-void display_battery(GtkWidget *bar) {
+void display_battery() {
     
     // Initialize widgets
+    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *bat = gtk_image_new();
     
     // Set widget icon
     char *bat_icon = get_battery_icon();
     gtk_image_set_from_file(GTK_IMAGE(bat), bat_icon);
     
-    // Enable events on battery widget
-    widget_event(bar, bat, 120, set_battery_icon);
+    // Setup widget
+    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    setup_widget(win, NULL, pos);
+    widget_mouse_enter(win, bat, 120, set_battery_icon);
+    
+    // Display widgets
+    gtk_widget_show(bat);
+    gtk_widget_show(win);
 }
