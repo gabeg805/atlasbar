@@ -52,7 +52,9 @@ If you have any problems, feel free to email me at 'gabeg@bu.edu'.
 Potential Problems
 ==================
 
-Unknown
+- X11 restarts sometimes which makes all windows go to first workspace.
+- Program for getting percentages often reads that it does not understand a well 
+  defined (0-100) percentage.
 
 
 
