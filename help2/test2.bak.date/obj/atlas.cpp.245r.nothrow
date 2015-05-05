@@ -1,0 +1,957 @@
+
+;; Function int main(int, char**) (main, funcdef_no=7427, decl_uid=231377, symbol_order=2921)
+
+
+
+int main(int, char**)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 3 [bx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 0 [ax] 3 [bx] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 3[bx] 4[si] 5[di] 6[bp] 7[sp] 17[flags] 37[r8]
+;;  ref usage 	r0={45d,27u} r1={29d,3u} r2={21d,1u} r3={9d,6u} r4={24d,5u} r5={38d,19u} r6={3d,41u} r7={7d,46u} r8={19d} r9={19d} r10={19d} r11={19d} r12={19d} r13={19d} r14={19d} r15={19d} r16={6u} r17={21d} r18={19d} r19={19d} r20={1d,7u} r21={20d} r22={20d} r23={20d} r24={20d} r25={20d} r26={20d} r27={20d} r28={20d} r29={19d} r30={19d} r31={19d} r32={19d} r33={19d} r34={19d} r35={19d} r36={19d} r37={21d,1u} r38={20d} r39={19d} r40={19d} r45={19d} r46={19d} r47={19d} r48={19d} r49={19d} r50={19d} r51={19d} r52={19d} r53={19d} r54={19d} r55={19d} r56={19d} r57={19d} r58={19d} r59={19d} r60={19d} r61={19d} r62={19d} r63={19d} r64={19d} r65={19d} r66={19d} r67={19d} r68={19d} r69={19d} r70={19d} r71={19d} r72={19d} r73={19d} r74={19d} r75={19d} r76={19d} 
+;;    total ref usage 1549{1387d,162u,0e} in 87{68 regular + 19 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 172 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 172 5 173 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/atlas.cpp:72 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 173 172 174 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/atlas.cpp:72 89 {*movdi_internal}
+     (nil))
+(insn/f 174 173 175 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg:DI 3 bx)) src/atlas.cpp:72 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 175 174 176 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -88 [0xffffffffffffffa8])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/atlas.cpp:72 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 176 175 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 176 3 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -84 [0xffffffffffffffac])) [0 argc+0 S4 A32])
+        (reg:SI 5 di [ argc ])) src/atlas.cpp:72 90 {*movsi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -96 [0xffffffffffffffa0])) [0 argv+0 S8 A64])
+        (reg:DI 4 si [ argv ])) src/atlas.cpp:72 89 {*movdi_internal}
+     (nil))
+(note 4 3 167 2 NOTE_INSN_FUNCTION_BEG)
+(insn 167 4 8 2 (set (reg:DI 0 ax [88])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -48 [0xffffffffffffffd0]))) src/atlas.cpp:77 214 {*leadi}
+     (nil))
+(insn 8 167 9 2 (set (reg:DI 4 si)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7f103a728390 *.LC0>)) src/atlas.cpp:77 89 {*movdi_internal}
+     (nil))
+(insn 9 8 183 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [88])) src/atlas.cpp:77 89 {*movdi_internal}
+     (nil))
+(note 183 9 10 2 0 NOTE_INSN_EH_REGION_BEG)
+(call_insn 10 183 184 2 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringC1EPKc") [flags 0x41]  <function_decl 0x7f1042893a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 184 10 168 2 0 NOTE_INSN_EH_REGION_END)
+(insn 168 184 169 2 (set (reg:DI 0 ax [89])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/atlas.cpp:77 214 {*leadi}
+     (nil))
+(insn 169 168 170 2 (set (reg:DI 2 cx [90])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -48 [0xffffffffffffffd0]))) src/atlas.cpp:77 214 {*leadi}
+     (nil))
+(insn 170 169 171 2 (set (reg:DI 1 dx [91])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -96 [0xffffffffffffffa0]))) src/atlas.cpp:77 214 {*leadi}
+     (nil))
+(insn 171 170 15 2 (set (reg:DI 4 si [92])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -84 [0xffffffffffffffac]))) src/atlas.cpp:77 214 {*leadi}
+     (nil))
+(insn 15 171 19 2 (set (reg:SI 37 r8)
+        (const_int 0 [0])) src/atlas.cpp:77 90 {*movsi_internal}
+     (nil))
+(insn 19 15 185 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [89])) src/atlas.cpp:77 89 {*movdi_internal}
+     (nil))
+(note 185 19 20 2 1 NOTE_INSN_EH_REGION_BEG)
+(call_insn 20 185 186 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk11Application6createERiRPPcRKN4Glib7ustringEN3Gio16ApplicationFlagsE") [flags 0x41]  <function_decl 0x7f103cec1400 create>) [0 create S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 2 [0x2])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (expr_list:SI (use (reg:SI 37 r8))
+                        (nil)))))))
+(note 186 20 21 1 NOTE_INSN_EH_REGION_END)
+(note 21 186 166 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 166 21 23 3 (set (reg:DI 0 ax [93])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -48 [0xffffffffffffffd0]))) src/atlas.cpp:77 214 {*leadi}
+     (nil))
+(insn 23 166 187 3 (set (reg:DI 5 di)
+        (reg:DI 0 ax [93])) src/atlas.cpp:77 89 {*movdi_internal}
+     (nil))
+(note 187 23 24 3 2 NOTE_INSN_EH_REGION_BEG)
+(call_insn 24 187 188 3 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7f104289e600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 3 [0x3])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 188 24 25 2 NOTE_INSN_EH_REGION_END)
+(note 25 188 164 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 164 25 165 4 (set (reg:DI 1 dx [94])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 165 164 28 4 (set (reg:DI 0 ax [95])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 28 165 29 4 (set (reg:DI 4 si)
+        (reg:DI 1 dx [94])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(insn 29 28 189 4 (set (reg:DI 5 di)
+        (reg:DI 0 ax [95])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(note 189 29 30 4 3 NOTE_INSN_EH_REGION_BEG)
+(call_insn 30 189 190 4 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC1ERKS3_") [flags 0x1]  <function_decl 0x7f103ad91a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 4 [0x4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 190 30 31 3 NOTE_INSN_EH_REGION_END)
+(note 31 190 162 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 162 31 163 5 (set (reg:DI 1 dx [96])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 163 162 34 5 (set (reg:DI 0 ax [97])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -80 [0xffffffffffffffb0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 34 163 35 5 (set (reg:DI 4 si)
+        (reg:DI 1 dx [96])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(insn 35 34 191 5 (set (reg:DI 5 di)
+        (reg:DI 0 ax [97])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(note 191 35 36 5 4 NOTE_INSN_EH_REGION_BEG)
+(call_insn 36 191 192 5 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarC1EN4Glib6RefPtrIN3Gtk11ApplicationEEE") [flags 0x41]  <function_decl 0x7f103ad69900 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 5 [0x5])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 192 36 37 4 NOTE_INSN_EH_REGION_END)
+(note 37 192 161 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 161 37 39 6 (set (reg:DI 0 ax [98])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 39 161 193 6 (set (reg:DI 5 di)
+        (reg:DI 0 ax [98])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(note 193 39 40 6 5 NOTE_INSN_EH_REGION_BEG)
+(call_insn 40 193 194 6 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 6 [0x6])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 194 40 41 5 NOTE_INSN_EH_REGION_END)
+(note 41 194 195 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(note 195 41 42 7 6 NOTE_INSN_EH_REGION_BEG)
+(call_insn 42 195 43 7 (call (mem:QI (symbol_ref:DI ("_Z12display_datev") [flags 0x41]  <function_decl 0x7f103ad85b00 display_date>) [0 display_date S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:81 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 7 [0x7])
+        (nil))
+    (nil))
+(note 43 42 160 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 160 43 45 8 (set (reg:DI 0 ax [99])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -80 [0xffffffffffffffb0]))) src/atlas.cpp:82 214 {*leadi}
+     (nil))
+(insn 45 160 46 8 (set (reg:DI 5 di)
+        (reg:DI 0 ax [99])) src/atlas.cpp:82 89 {*movdi_internal}
+     (nil))
+(call_insn 46 45 196 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("_ZN9StatusBar3runEv") [flags 0x41]  <function_decl 0x7f103ad69e00 run>) [0 run S1 A8])
+            (const_int 0 [0]))) src/atlas.cpp:82 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 7 [0x7])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 196 46 117 6 NOTE_INSN_EH_REGION_END)
+(note 117 196 47 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 47 117 159 9 (set (reg:SI 3 bx [orig:83 D.237782 ] [83])
+        (reg:SI 0 ax)) src/atlas.cpp:82 90 {*movsi_internal}
+     (nil))
+(insn 159 47 50 9 (set (reg:DI 0 ax [100])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -80 [0xffffffffffffffb0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 50 159 197 9 (set (reg:DI 5 di)
+        (reg:DI 0 ax [100])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(note 197 50 51 9 7 NOTE_INSN_EH_REGION_BEG)
+(call_insn 51 197 198 9 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 4 [0x4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 198 51 52 7 NOTE_INSN_EH_REGION_END)
+(note 52 198 158 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 158 52 54 10 (set (reg:DI 0 ax [101])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/atlas.cpp:106 214 {*leadi}
+     (nil))
+(insn 54 158 199 10 (set (reg:DI 5 di)
+        (reg:DI 0 ax [101])) src/atlas.cpp:106 89 {*movdi_internal}
+     (nil))
+(note 199 54 55 10 8 NOTE_INSN_EH_REGION_BEG)
+(call_insn 55 199 200 10 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:106 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 200 55 58 10 8 NOTE_INSN_EH_REGION_END)
+(insn 58 200 143 10 (set (reg:SI 0 ax [orig:87 <retval> ] [87])
+        (reg:SI 3 bx [orig:83 D.237782 ] [83])) 90 {*movsi_internal}
+     (nil))
+(jump_insn 143 58 144 10 (set (pc)
+        (label_ref 142)) 636 {jump}
+     (nil)
+ -> 142)
+(barrier 144 143 118)
+(code_label/s 118 144 120 11 9 "" [1 uses])
+(note 120 118 119 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 119 120 157 11 (set (reg:DI 3 bx [104])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 157 119 64 11 (set (reg:DI 0 ax [103])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -48 [0xffffffffffffffd0]))) 214 {*leadi}
+     (nil))
+(insn 64 157 65 11 (set (reg:DI 5 di)
+        (reg:DI 0 ax [103])) 89 {*movdi_internal}
+     (nil))
+(call_insn 65 64 66 11 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7f104289e600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -3 [0xfffffffffffffffd])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 66 65 67 11 (set (reg/f:DI 0 ax [orig:84 D.237779 ] [84])
+        (reg:DI 3 bx [104])) 89 {*movdi_internal}
+     (nil))
+(insn 67 66 201 11 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:84 D.237779 ] [84])) 89 {*movdi_internal}
+     (nil))
+(note 201 67 68 11 9 NOTE_INSN_EH_REGION_BEG)
+(call_insn 68 201 202 11 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 202 68 69 9 NOTE_INSN_EH_REGION_END)
+(barrier 69 202 121)
+(code_label/s 121 69 123 12 10 "" [1 uses])
+(note 123 121 122 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 122 123 156 12 (set (reg:DI 3 bx [106])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 156 122 73 12 (set (reg:DI 0 ax [105])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) 214 {*leadi}
+     (nil))
+(insn 73 156 74 12 (set (reg:DI 5 di)
+        (reg:DI 0 ax [105])) 89 {*movdi_internal}
+     (nil))
+(call_insn 74 73 75 12 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -5 [0xfffffffffffffffb])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 75 74 76 12 (set (reg/f:DI 0 ax [orig:85 D.237780 ] [85])
+        (reg:DI 3 bx [106])) 89 {*movdi_internal}
+     (nil))
+(insn 76 75 203 12 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:85 D.237780 ] [85])) 89 {*movdi_internal}
+     (nil))
+(note 203 76 77 12 10 NOTE_INSN_EH_REGION_BEG)
+(call_insn 77 203 204 12 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 204 77 78 10 NOTE_INSN_EH_REGION_END)
+(barrier 78 204 130)
+(code_label/s 130 78 133 13 12 "" [1 uses])
+(note 133 130 131 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 131 133 155 13 (set (reg:DI 3 bx [109])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 155 131 82 13 (set (reg:DI 0 ax [107])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) 214 {*leadi}
+     (nil))
+(insn 82 155 83 13 (set (reg:DI 5 di)
+        (reg:DI 0 ax [107])) 89 {*movdi_internal}
+     (nil))
+(call_insn 83 82 145 13 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -8 [0xfffffffffffffff8])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 145 83 146 13 (set (pc)
+        (label_ref 104)) 636 {jump}
+     (nil)
+ -> 104)
+(barrier 146 145 134)
+(code_label/s 134 146 137 14 13 "" [1 uses])
+(note 137 134 135 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 135 137 154 14 (set (reg:DI 3 bx [113])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 154 135 91 14 (set (reg:DI 0 ax [112])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -80 [0xffffffffffffffb0]))) 214 {*leadi}
+     (nil))
+(insn 91 154 92 14 (set (reg:DI 5 di)
+        (reg:DI 0 ax [112])) 89 {*movdi_internal}
+     (nil))
+(call_insn 92 91 147 14 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -10 [0xfffffffffffffff6])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 147 92 148 14 (set (pc)
+        (label_ref 104)) 636 {jump}
+     (nil)
+ -> 104)
+(barrier 148 147 138)
+(code_label/s 138 148 141 15 14 "" [1 uses])
+(note 141 138 139 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 139 141 153 15 (set (reg:DI 3 bx [116])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 153 139 100 15 (set (reg:DI 0 ax [115])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -80 [0xffffffffffffffb0]))) src/atlas.cpp:80 214 {*leadi}
+     (nil))
+(insn 100 153 101 15 (set (reg:DI 5 di)
+        (reg:DI 0 ax [115])) src/atlas.cpp:80 89 {*movdi_internal}
+     (nil))
+(call_insn 101 100 149 15 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -12 [0xfffffffffffffff4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 149 101 150 15 (set (pc)
+        (label_ref 104)) 636 {jump}
+     (nil)
+ -> 104)
+(barrier 150 149 124)
+(code_label/s 124 150 129 16 11 "" [1 uses])
+(note 129 124 125 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 125 129 104 16 (set (reg:DI 3 bx [108])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(code_label 104 125 105 17 6 "" [3 uses])
+(note 105 104 152 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+(insn 152 105 107 17 (set (reg:DI 0 ax [118])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/atlas.cpp:106 214 {*leadi}
+     (nil))
+(insn 107 152 108 17 (set (reg:DI 5 di)
+        (reg:DI 0 ax [118])) src/atlas.cpp:106 89 {*movdi_internal}
+     (nil))
+(call_insn 108 107 109 17 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:106 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -13 [0xfffffffffffffff3])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 109 108 110 17 (set (reg/f:DI 0 ax [orig:86 D.237781 ] [86])
+        (reg:DI 3 bx [108])) 89 {*movdi_internal}
+     (nil))
+(insn 110 109 205 17 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:86 D.237781 ] [86])) 89 {*movdi_internal}
+     (nil))
+(note 205 110 111 17 11 NOTE_INSN_EH_REGION_BEG)
+(call_insn 111 205 206 17 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 206 111 112 11 NOTE_INSN_EH_REGION_END)
+(barrier 112 206 142)
+(code_label 142 112 116 18 15 "" [1 uses])
+(note 116 142 115 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+(insn 115 116 177 18 (use (reg/i:SI 0 ax)) src/atlas.cpp:107 -1
+     (nil))
+(note 177 115 178 18 NOTE_INSN_EPILOGUE_BEG)
+(insn 178 177 179 18 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 88 [0x58])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/atlas.cpp:107 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(insn 179 178 180 18 (set (reg:DI 3 bx)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/atlas.cpp:107 75 {*popdi1}
+     (nil))
+(insn/f 180 179 181 18 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/atlas.cpp:107 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 181 180 182 18 (simple_return) src/atlas.cpp:107 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 182 181 151)
+(note 151 182 0 NOTE_INSN_DELETED)
+
+;; Function Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEED2Ev, funcdef_no=7703, decl_uid=231500, symbol_order=3197)
+
+
+
+Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={14d,12u} r1={10d,8u} r2={3d,1u} r4={2d} r5={3d,2u} r6={3d,13u} r7={4d,10u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={8d,1u} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 168{120d,48u,0e} in 31{30 regular + 1 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 50 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 50 4 51 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:205 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 51 50 52 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:205 89 {*movdi_internal}
+     (nil))
+(insn/f 52 51 53 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:205 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 53 52 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 53 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:205 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [108])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 0 ax [orig:83 D.237785 ] [83])
+        (mem/f/j:DI (reg/f:DI 0 ax [108]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 0 ax [orig:83 D.237785 ] [83])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 4 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 47)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 596 {*jcc_1}
+     (nil)
+ -> 47)
+(note 10 9 20 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 20 10 21 3 (set (reg/f:DI 0 ax [111])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 21 20 22 3 (set (reg/f:DI 1 dx [orig:91 D.237785 ] [91])
+        (mem/f/j:DI (reg/f:DI 0 ax [111]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 22 21 23 3 (set (reg/f:DI 0 ax [112])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 23 22 24 3 (set (reg/f:DI 0 ax [orig:92 D.237785 ] [92])
+        (mem/f/j:DI (reg/f:DI 0 ax [112]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 24 23 25 3 (set (reg/f:DI 0 ax [orig:93 D.237786 ] [93])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:92 D.237785 ] [92]) [0 _11->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 25 24 26 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:94 D.237786 ] [94])
+                (plus:DI (reg/f:DI 0 ax [orig:93 D.237786 ] [93])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 26 25 28 3 (set (reg:DI 0 ax [orig:95 D.237787 ] [95])
+        (mem:DI (reg/f:DI 0 ax [orig:94 D.237786 ] [94]) [0 MEM[(long int *)_13]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 28 26 29 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:97 D.237789 ] [97])
+                (plus:DI (reg:DI 0 ax [orig:96 D.237788 ] [96])
+                    (reg/f:DI 1 dx [orig:91 D.237785 ] [91])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 29 28 30 3 (set (reg/f:DI 0 ax [orig:98 D.237786 ] [98])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:97 D.237789 ] [97]) [0 _16->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 30 29 31 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:99 D.237786 ] [99])
+                (plus:DI (reg/f:DI 0 ax [orig:98 D.237786 ] [98])
+                    (const_int 24 [0x18])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 31 30 32 3 (set (reg/f:DI 0 ax [orig:100 D.237790 ] [100])
+        (mem/f:DI (reg/f:DI 0 ax [orig:99 D.237786 ] [99]) [0 *_18+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 32 31 33 3 (set (reg/f:DI 1 dx [113])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 33 32 34 3 (set (reg/f:DI 2 cx [orig:101 D.237785 ] [101])
+        (mem/f/j:DI (reg/f:DI 1 dx [113]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 34 33 35 3 (set (reg/f:DI 1 dx [114])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 35 34 36 3 (set (reg/f:DI 1 dx [orig:102 D.237785 ] [102])
+        (mem/f/j:DI (reg/f:DI 1 dx [114]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 36 35 37 3 (set (reg/f:DI 1 dx [orig:103 D.237786 ] [103])
+        (mem/f/j:DI (reg/f:DI 1 dx [orig:102 D.237785 ] [102]) [0 _21->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 37 36 38 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:104 D.237786 ] [104])
+                (plus:DI (reg/f:DI 1 dx [orig:103 D.237786 ] [103])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 38 37 40 3 (set (reg:DI 1 dx [orig:105 D.237787 ] [105])
+        (mem:DI (reg/f:DI 1 dx [orig:104 D.237786 ] [104]) [0 MEM[(long int *)_23]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 40 38 41 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:107 D.237789 ] [107])
+                (plus:DI (reg:DI 1 dx [orig:106 D.237788 ] [106])
+                    (reg/f:DI 2 cx [orig:101 D.237785 ] [101])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 41 40 42 3 (set (reg:DI 5 di)
+        (reg/f:DI 1 dx [orig:107 D.237789 ] [107])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(call_insn 42 41 47 3 (call (mem:QI (reg/f:DI 0 ax [orig:100 D.237790 ] [100]) [0 *OBJ_TYPE_REF(_19;(const struct ObjectBase)_9->3) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 47 42 48 4 16 "" [1 uses])
+(note 48 47 54 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(note 54 48 55 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 55 54 56 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:209 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 56 55 57 4 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:209 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 57 56 49)
+(note 49 57 0 NOTE_INSN_DELETED)
+
+;; Function Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC2ERKS3_, funcdef_no=7706, decl_uid=231484, symbol_order=3200)
+
+
+
+Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={16d,14u} r1={11d,9u} r2={3d,1u} r4={2d,1u} r5={3d,2u} r6={3d,16u} r7={4d,10u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={8d,1u} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 178{123d,55u,0e} in 36{35 regular + 1 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 53 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 53 5 54 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:218 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 54 53 55 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:218 89 {*movdi_internal}
+     (nil))
+(insn/f 55 54 56 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:218 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 56 55 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 56 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:218 89 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])
+        (reg:DI 4 si [ src ])) /usr/include/glibmm-2.4/glibmm/refptr.h:218 89 {*movdi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:DI 0 ax [109])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 1 dx [orig:83 D.237791 ] [83])
+        (mem/f/j:DI (reg/f:DI 0 ax [109]) [0 src_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (set (reg/f:DI 0 ax [110])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 10 9 11 2 (set (mem/f/j:DI (reg/f:DI 0 ax [110]) [0 this_3(D)->pCppObject_+0 S8 A64])
+        (reg/f:DI 1 dx [orig:83 D.237791 ] [83])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg/f:DI 0 ax [111])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 89 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg/f:DI 0 ax [orig:84 D.237791 ] [84])
+        (mem/f/j:DI (reg/f:DI 0 ax [111]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 89 {*movdi_internal}
+     (nil))
+(insn 13 12 14 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 0 ax [orig:84 D.237791 ] [84])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 4 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 14 13 15 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 50)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 596 {*jcc_1}
+     (nil)
+ -> 50)
+(note 15 14 25 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 25 15 26 3 (set (reg/f:DI 0 ax [114])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 26 25 27 3 (set (reg/f:DI 1 dx [orig:92 D.237791 ] [92])
+        (mem/f/j:DI (reg/f:DI 0 ax [114]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 27 26 28 3 (set (reg/f:DI 0 ax [115])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 28 27 29 3 (set (reg/f:DI 0 ax [orig:93 D.237791 ] [93])
+        (mem/f/j:DI (reg/f:DI 0 ax [115]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 29 28 30 3 (set (reg/f:DI 0 ax [orig:94 D.237792 ] [94])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:93 D.237791 ] [93]) [0 _13->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 30 29 31 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:95 D.237792 ] [95])
+                (plus:DI (reg/f:DI 0 ax [orig:94 D.237792 ] [94])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 31 30 33 3 (set (reg:DI 0 ax [orig:96 D.237793 ] [96])
+        (mem:DI (reg/f:DI 0 ax [orig:95 D.237792 ] [95]) [0 MEM[(long int *)_15]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 33 31 34 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:98 D.237795 ] [98])
+                (plus:DI (reg:DI 0 ax [orig:97 D.237794 ] [97])
+                    (reg/f:DI 1 dx [orig:92 D.237791 ] [92])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 34 33 35 3 (set (reg/f:DI 0 ax [orig:99 D.237792 ] [99])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:98 D.237795 ] [98]) [0 _18->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 35 34 36 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:100 D.237792 ] [100])
+                (plus:DI (reg/f:DI 0 ax [orig:99 D.237792 ] [99])
+                    (const_int 16 [0x10])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 36 35 37 3 (set (reg/f:DI 0 ax [orig:101 D.237796 ] [101])
+        (mem/f:DI (reg/f:DI 0 ax [orig:100 D.237792 ] [100]) [0 *_20+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 37 36 38 3 (set (reg/f:DI 1 dx [116])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 38 37 39 3 (set (reg/f:DI 2 cx [orig:102 D.237791 ] [102])
+        (mem/f/j:DI (reg/f:DI 1 dx [116]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 39 38 40 3 (set (reg/f:DI 1 dx [117])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 40 39 41 3 (set (reg/f:DI 1 dx [orig:103 D.237791 ] [103])
+        (mem/f/j:DI (reg/f:DI 1 dx [117]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 41 40 42 3 (set (reg/f:DI 1 dx [orig:104 D.237792 ] [104])
+        (mem/f/j:DI (reg/f:DI 1 dx [orig:103 D.237791 ] [103]) [0 _23->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 42 41 43 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:105 D.237792 ] [105])
+                (plus:DI (reg/f:DI 1 dx [orig:104 D.237792 ] [104])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 43 42 45 3 (set (reg:DI 1 dx [orig:106 D.237793 ] [106])
+        (mem:DI (reg/f:DI 1 dx [orig:105 D.237792 ] [105]) [0 MEM[(long int *)_25]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 45 43 46 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:108 D.237795 ] [108])
+                (plus:DI (reg:DI 1 dx [orig:107 D.237794 ] [107])
+                    (reg/f:DI 2 cx [orig:102 D.237791 ] [102])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 46 45 47 3 (set (reg:DI 5 di)
+        (reg/f:DI 1 dx [orig:108 D.237795 ] [108])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(call_insn 47 46 50 3 (call (mem:QI (reg/f:DI 0 ax [orig:101 D.237796 ] [101]) [0 *OBJ_TYPE_REF(_21;(const struct ObjectBase)_11->2) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 50 47 51 4 19 "" [1 uses])
+(note 51 50 57 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(note 57 51 58 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 58 57 59 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:224 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 59 58 60 4 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:224 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 60 59 52)
+(note 52 60 0 NOTE_INSN_DELETED)
+
+;; Function void __static_initialization_and_destruction_0(int, int) (_Z41__static_initialization_and_destruction_0ii, funcdef_no=8152, decl_uid=237688, symbol_order=3706)
+
+
+
+void __static_initialization_and_destruction_0(int, int)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={3d} r1={4d,1u} r2={3d} r4={4d,2u} r5={5d,3u} r6={3d,12u} r7={4d,12u} r8={2d} r9={2d} r10={2d} r11={2d} r12={2d} r13={2d} r14={2d} r15={2d} r17={5d,2u} r18={2d} r19={2d} r20={1d,1u} r21={3d} r22={3d} r23={3d} r24={3d} r25={3d} r26={3d} r27={3d} r28={3d} r29={2d} r30={2d} r31={2d} r32={2d} r33={2d} r34={2d} r35={2d} r36={2d} r37={3d} r38={3d} r39={2d} r40={2d} r45={2d} r46={2d} r47={2d} r48={2d} r49={2d} r50={2d} r51={2d} r52={2d} r53={2d} r54={2d} r55={2d} r56={2d} r57={2d} r58={2d} r59={2d} r60={2d} r61={2d} r62={2d} r63={2d} r64={2d} r65={2d} r66={2d} r67={2d} r68={2d} r69={2d} r70={2d} r71={2d} r72={2d} r73={2d} r74={2d} r75={2d} r76={2d} 
+;;    total ref usage 199{166d,33u,0e} in 17{15 regular + 2 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 24 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 24 5 25 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/atlas.cpp:107 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 25 24 26 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/atlas.cpp:107 89 {*movdi_internal}
+     (nil))
+(insn/f 26 25 27 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/atlas.cpp:107 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 27 26 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 27 3 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+        (reg:SI 5 di [ __initialize_p ])) src/atlas.cpp:107 90 {*movsi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+        (reg:SI 4 si [ __priority ])) src/atlas.cpp:107 90 {*movsi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                    (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+            (const_int 1 [0x1]))) src/atlas.cpp:107 7 {*cmpsi_1}
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 21)
+            (pc))) src/atlas.cpp:107 596 {*jcc_1}
+     (nil)
+ -> 21)
+(note 9 8 10 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                    (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+            (const_int 65535 [0xffff]))) src/atlas.cpp:107 7 {*cmpsi_1}
+     (nil))
+(jump_insn 11 10 12 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 21)
+            (pc))) src/atlas.cpp:107 596 {*jcc_1}
+     (nil)
+ -> 21)
+(note 12 11 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7f103ad88be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(call_insn 14 13 15 4 (call (mem:QI (symbol_ref:DI ("_ZNSt8ios_base4InitC1Ev") [flags 0x41]  <function_decl 0x7f1042ec2e00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) /usr/include/c++/4.9.2/iostream:74 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 15 14 16 4 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7f103a6dcda8 __dso_handle>)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(insn 16 15 17 4 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7f103ad88be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(insn 17 16 18 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZNSt8ios_base4InitD1Ev") [flags 0x41]  <function_decl 0x7f1042ec9000 __comp_dtor >)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(call_insn 18 17 21 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7f103a6d9e00 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) /usr/include/c++/4.9.2/iostream:74 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(code_label 21 18 22 5 21 "" [2 uses])
+(note 22 21 28 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(note 28 22 29 5 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 29 28 30 5 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/atlas.cpp:107 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 30 29 31 5 (simple_return) src/atlas.cpp:107 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 31 30 23)
+(note 23 31 0 NOTE_INSN_DELETED)
+
+;; Function (static initializers for src/atlas.cpp) (_GLOBAL__sub_I_main, funcdef_no=8153, decl_uid=237694, symbol_order=4231)
+
+
+
+(static initializers for src/atlas.cpp)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 4[si] 5[di] 6[bp] 7[sp]
+;;  ref usage 	r0={2d} r1={2d} r2={2d} r4={3d,1u} r5={3d,1u} r6={3d,3u} r7={3d,6u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={1d} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 104{92d,12u,0e} in 7{6 regular + 1 call} insns.
+(note 1 0 3 NOTE_INSN_DELETED)
+(note 3 1 11 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 11 3 12 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/atlas.cpp:107 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 12 11 13 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/atlas.cpp:107 89 {*movdi_internal}
+     (nil))
+(note 13 12 2 2 NOTE_INSN_PROLOGUE_END)
+(note 2 13 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:SI 4 si)
+        (const_int 65535 [0xffff])) src/atlas.cpp:107 90 {*movsi_internal}
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) src/atlas.cpp:107 90 {*movsi_internal}
+     (nil))
+(call_insn 7 6 14 2 (call (mem:QI (symbol_ref:DI ("_Z41__static_initialization_and_destruction_0ii") [flags 0x3]  <function_decl 0x7f103a6d9d00 __static_initialization_and_destruction_0>) [0 __static_initialization_and_destruction_0 S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:107 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(note 14 7 15 2 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 15 14 16 2 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/atlas.cpp:107 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 16 15 17 2 (simple_return) src/atlas.cpp:107 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 17 16 10)
+(note 10 17 0 NOTE_INSN_DELETED)

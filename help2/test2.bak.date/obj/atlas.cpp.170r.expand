@@ -1,0 +1,3503 @@
+
+;; Function int main(int, char**) (main, funcdef_no=7427, decl_uid=231377, symbol_order=2921)
+
+int main(int, char**) (int argc, char * * argv)
+{
+  void * D.237781;
+  void * D.237780;
+  void * D.237779;
+  int D.237702;
+  struct StatusBar Atlas;
+  struct RefPtr mainApp;
+  int D.237696;
+  struct RefPtr D.231525;
+  const struct ustring D.231504;
+  int _1;
+  int _2;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  Glib::ustring::ustring (&D.231504, "org.gtkmm.examples.base");
+  mainApp = Gtk::Application::create (&argc, &argv, &D.231504, 0); [return slot optimization]
+;;    succ:       12
+;;                3
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  Glib::ustring::~ustring (&D.231504);
+;;    succ:       13
+;;                4
+
+;;   basic block 4, loop depth 0
+;;    pred:       3
+  D.231504 ={v} {CLOBBER};
+  Glib::RefPtr<Gtk::Application>::RefPtr (&D.231525, &mainApp);
+;;    succ:       17
+;;                5
+
+;;   basic block 5, loop depth 0
+;;    pred:       4
+  StatusBar::StatusBar (&Atlas, &D.231525);
+;;    succ:       14
+;;                6
+
+;;   basic block 6, loop depth 0
+;;    pred:       5
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&D.231525);
+;;    succ:       15
+;;                7
+
+;;   basic block 7, loop depth 0
+;;    pred:       6
+  D.231525 ={v} {CLOBBER};
+  display_date ();
+;;    succ:       16
+;;                8
+
+;;   basic block 8, loop depth 0
+;;    pred:       7
+  _1 = StatusBar::run (&Atlas);
+;;    succ:       16
+;;                9
+
+;;   basic block 9, loop depth 0
+;;    pred:       8
+  _2 = _1;
+  StatusBar::~StatusBar (&Atlas);
+;;    succ:       17
+;;                10
+
+;;   basic block 10, loop depth 0
+;;    pred:       9
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+  mainApp ={v} {CLOBBER};
+  Atlas ={v} {CLOBBER};
+;;    succ:       11
+
+;;   basic block 11, loop depth 0
+;;    pred:       10
+<L3>:
+  return _2;
+;;    succ:       EXIT
+
+;;   basic block 12, loop depth 0
+;;    pred:       2
+<L4>:
+  Glib::ustring::~ustring (&D.231504);
+  D.231504 ={v} {CLOBBER};
+  _3 = __builtin_eh_pointer (2);
+  __builtin_unwind_resume (_3);
+;;    succ:      
+
+;;   basic block 13, loop depth 0
+;;    pred:       3
+<L5>:
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+  _4 = __builtin_eh_pointer (4);
+  __builtin_unwind_resume (_4);
+;;    succ:      
+
+;;   basic block 14, loop depth 0
+;;    pred:       5
+<L6>:
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&D.231525);
+  D.231525 ={v} {CLOBBER};
+  __builtin_eh_copy_values (6, 7);
+  goto <bb 17> (<L9>);
+;;    succ:       17
+
+;;   basic block 15, loop depth 0
+;;    pred:       6
+<L7>:
+  StatusBar::~StatusBar (&Atlas);
+  __builtin_eh_copy_values (6, 9);
+  goto <bb 17> (<L9>);
+;;    succ:       17
+
+;;   basic block 16, loop depth 0
+;;    pred:       7
+;;                8
+<L8>:
+  StatusBar::~StatusBar (&Atlas);
+  __builtin_eh_copy_values (6, 11);
+;;    succ:       17
+
+;;   basic block 17, loop depth 0
+;;    pred:       4
+;;                9
+;;                14
+;;                15
+;;                16
+<L9>:
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+  _5 = __builtin_eh_pointer (6);
+  __builtin_unwind_resume (_5);
+;;    succ:      
+
+}
+
+
+
+Partition map 
+
+Partition 1 (_1 - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (_4 - 4 )
+Partition 5 (_5 - 5 )
+
+
+Partition map 
+
+Partition 0 (_1 - 1 )
+Partition 1 (_2 - 2 )
+
+
+Live on entry to BB2 : 
+
+Live on entry to BB3 : 
+
+Live on entry to BB4 : 
+
+Live on entry to BB5 : 
+
+Live on entry to BB6 : 
+
+Live on entry to BB7 : 
+
+Live on entry to BB8 : 
+
+Live on entry to BB9 : _1  
+
+Live on entry to BB10 : _2  
+
+Live on entry to BB11 : _2  
+
+Live on entry to BB12 : 
+
+Live on entry to BB13 : 
+
+Live on entry to BB14 : 
+
+Live on entry to BB15 : 
+
+Live on entry to BB16 : 
+
+Live on entry to BB17 : 
+
+Conflict graph:
+
+After sorting:
+Sorted Coalesce list:
+(1) _1 <-> _2
+
+Partition map 
+
+Partition 0 (_1 - 1 )
+Partition 1 (_2 - 2 )
+
+Coalesce list: (1)_1 & (2)_2 [map: 0, 1] : Success -> 0
+After Coalescing:
+
+Partition map 
+
+Partition 0 (_1 - 1 2 )
+Partition 1 (_3 - 3 )
+Partition 2 (_4 - 4 )
+Partition 3 (_5 - 5 )
+
+int main(int, char**) (int argc, char * * argv)
+{
+  void * D.237781;
+  void * D.237780;
+  void * D.237779;
+  int D.237702;
+  struct StatusBar Atlas;
+  struct RefPtr mainApp;
+  int D.237696;
+  struct RefPtr D.231525;
+  const struct ustring D.231504;
+  int _1;
+  int _2;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  Glib::ustring::ustring (&D.231504, "org.gtkmm.examples.base");
+  mainApp = Gtk::Application::create (&argc, &argv, &D.231504, 0); [return slot optimization]
+;;    succ:       12
+;;                3
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  Glib::ustring::~ustring (&D.231504);
+;;    succ:       13
+;;                4
+
+;;   basic block 4, loop depth 0
+;;    pred:       3
+  D.231504 ={v} {CLOBBER};
+  Glib::RefPtr<Gtk::Application>::RefPtr (&D.231525, &mainApp);
+;;    succ:       17
+;;                5
+
+;;   basic block 5, loop depth 0
+;;    pred:       4
+  StatusBar::StatusBar (&Atlas, &D.231525);
+;;    succ:       14
+;;                6
+
+;;   basic block 6, loop depth 0
+;;    pred:       5
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&D.231525);
+;;    succ:       15
+;;                7
+
+;;   basic block 7, loop depth 0
+;;    pred:       6
+  D.231525 ={v} {CLOBBER};
+  display_date ();
+;;    succ:       16
+;;                8
+
+;;   basic block 8, loop depth 0
+;;    pred:       7
+  _1 = StatusBar::run (&Atlas);
+;;    succ:       16
+;;                9
+
+;;   basic block 9, loop depth 0
+;;    pred:       8
+  _2 = _1;
+  StatusBar::~StatusBar (&Atlas);
+;;    succ:       17
+;;                10
+
+;;   basic block 10, loop depth 0
+;;    pred:       9
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+  mainApp ={v} {CLOBBER};
+  Atlas ={v} {CLOBBER};
+;;    succ:       11
+
+;;   basic block 11, loop depth 0
+;;    pred:       10
+<L3>:
+  return _2;
+;;    succ:       EXIT
+
+;;   basic block 12, loop depth 0
+;;    pred:       2
+<L4>:
+  Glib::ustring::~ustring (&D.231504);
+  D.231504 ={v} {CLOBBER};
+  _3 = __builtin_eh_pointer (2);
+  __builtin_unwind_resume (_3);
+;;    succ:      
+
+;;   basic block 13, loop depth 0
+;;    pred:       3
+<L5>:
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+  _4 = __builtin_eh_pointer (4);
+  __builtin_unwind_resume (_4);
+;;    succ:      
+
+;;   basic block 14, loop depth 0
+;;    pred:       5
+<L6>:
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&D.231525);
+  D.231525 ={v} {CLOBBER};
+  __builtin_eh_copy_values (6, 7);
+  goto <bb 17> (<L9>);
+;;    succ:       17
+
+;;   basic block 15, loop depth 0
+;;    pred:       6
+<L7>:
+  StatusBar::~StatusBar (&Atlas);
+  __builtin_eh_copy_values (6, 9);
+  goto <bb 17> (<L9>);
+;;    succ:       17
+
+;;   basic block 16, loop depth 0
+;;    pred:       7
+;;                8
+<L8>:
+  StatusBar::~StatusBar (&Atlas);
+  __builtin_eh_copy_values (6, 11);
+;;    succ:       17
+
+;;   basic block 17, loop depth 0
+;;    pred:       4
+;;                9
+;;                14
+;;                15
+;;                16
+<L9>:
+  Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+  _5 = __builtin_eh_pointer (6);
+  __builtin_unwind_resume (_5);
+;;    succ:      
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; Glib::ustring::ustring (&D.231504, "org.gtkmm.examples.base");
+
+(insn 7 6 8 (parallel [
+            (set (reg:DI 88)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 8 7 9 (set (reg:DI 4 si)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7f103a728390 *.LC0>)) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 9 8 10 (set (reg:DI 5 di)
+        (reg:DI 88)) src/atlas.cpp:77 -1
+     (nil))
+
+(call_insn 10 9 0 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringC1EPKc") [flags 0x41]  <function_decl 0x7f1042893a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+
+;; mainApp = Gtk::Application::create (&argc, &argv, &D.231504, 0); [return slot optimization]
+
+(insn 11 10 12 (parallel [
+            (set (reg:DI 89)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 12 11 13 (parallel [
+            (set (reg:DI 90)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 13 12 14 (parallel [
+            (set (reg:DI 91)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -80 [0xffffffffffffffb0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 14 13 15 (parallel [
+            (set (reg:DI 92)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -68 [0xffffffffffffffbc])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 15 14 16 (set (reg:SI 37 r8)
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 16 15 17 (set (reg:DI 2 cx)
+        (reg:DI 90)) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 17 16 18 (set (reg:DI 1 dx)
+        (reg:DI 91)) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 18 17 19 (set (reg:DI 4 si)
+        (reg:DI 92)) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 19 18 20 (set (reg:DI 5 di)
+        (reg:DI 89)) src/atlas.cpp:77 -1
+     (nil))
+
+(call_insn 20 19 0 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk11Application6createERiRPPcRKN4Glib7ustringEN3Gio16ApplicationFlagsE") [flags 0x41]  <function_decl 0x7f103cec1400 create>) [0 create S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (expr_list:REG_EH_REGION (const_int 2 [0x2])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (expr_list:SI (use (reg:SI 37 r8))
+                        (nil)))))))
+
+;; Generating RTL for gimple basic block 3
+
+;; Glib::ustring::~ustring (&D.231504);
+
+(insn 22 21 23 (parallel [
+            (set (reg:DI 93)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+
+(insn 23 22 24 (set (reg:DI 5 di)
+        (reg:DI 93)) src/atlas.cpp:77 -1
+     (nil))
+
+(call_insn 24 23 0 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7f104289e600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (expr_list:REG_EH_REGION (const_int 3 [0x3])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; Generating RTL for gimple basic block 4
+
+;; D.231504 ={v} {CLOBBER};
+
+(nil)
+
+;; Glib::RefPtr<Gtk::Application>::RefPtr (&D.231525, &mainApp);
+
+(insn 26 25 27 (parallel [
+            (set (reg:DI 94)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 27 26 28 (parallel [
+            (set (reg:DI 95)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 28 27 29 (set (reg:DI 4 si)
+        (reg:DI 94)) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 29 28 30 (set (reg:DI 5 di)
+        (reg:DI 95)) src/atlas.cpp:80 -1
+     (nil))
+
+(call_insn 30 29 0 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC1ERKS3_") [flags 0x1]  <function_decl 0x7f103ad91a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 4 [0x4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+
+;; Generating RTL for gimple basic block 5
+
+;; StatusBar::StatusBar (&Atlas, &D.231525);
+
+(insn 32 31 33 (parallel [
+            (set (reg:DI 96)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 33 32 34 (parallel [
+            (set (reg:DI 97)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 34 33 35 (set (reg:DI 4 si)
+        (reg:DI 96)) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 35 34 36 (set (reg:DI 5 di)
+        (reg:DI 97)) src/atlas.cpp:80 -1
+     (nil))
+
+(call_insn 36 35 0 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarC1EN4Glib6RefPtrIN3Gtk11ApplicationEEE") [flags 0x41]  <function_decl 0x7f103ad69900 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 5 [0x5])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+
+;; Generating RTL for gimple basic block 6
+
+;; Glib::RefPtr<Gtk::Application>::~RefPtr (&D.231525);
+
+(insn 38 37 39 (parallel [
+            (set (reg:DI 98)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 39 38 40 (set (reg:DI 5 di)
+        (reg:DI 98)) src/atlas.cpp:80 -1
+     (nil))
+
+(call_insn 40 39 0 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 6 [0x6])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; Generating RTL for gimple basic block 7
+
+;; D.231525 ={v} {CLOBBER};
+
+(nil)
+
+;; display_date ();
+
+(call_insn 42 41 0 (call (mem:QI (symbol_ref:DI ("_Z12display_datev") [flags 0x41]  <function_decl 0x7f103ad85b00 display_date>) [0 display_date S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:81 -1
+     (expr_list:REG_EH_REGION (const_int 7 [0x7])
+        (nil))
+    (nil))
+
+;; Generating RTL for gimple basic block 8
+
+;; _1 = StatusBar::run (&Atlas);
+
+(insn 44 43 45 (parallel [
+            (set (reg:DI 99)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:82 -1
+     (nil))
+
+(insn 45 44 46 (set (reg:DI 5 di)
+        (reg:DI 99)) src/atlas.cpp:82 -1
+     (nil))
+
+(call_insn 46 45 47 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("_ZN9StatusBar3runEv") [flags 0x41]  <function_decl 0x7f103ad69e00 run>) [0 run S1 A8])
+            (const_int 0 [0]))) src/atlas.cpp:82 -1
+     (expr_list:REG_EH_REGION (const_int 7 [0x7])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+(insn 47 46 0 (set (reg:SI 83 [ D.237782 ])
+        (reg:SI 0 ax)) src/atlas.cpp:82 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 9
+
+;; _2 = _1;
+
+(nil)
+
+;; StatusBar::~StatusBar (&Atlas);
+
+(insn 49 48 50 (parallel [
+            (set (reg:DI 100)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 50 49 51 (set (reg:DI 5 di)
+        (reg:DI 100)) src/atlas.cpp:80 -1
+     (nil))
+
+(call_insn 51 50 0 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 4 [0x4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; Generating RTL for gimple basic block 10
+
+;; Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+
+(insn 53 52 54 (parallel [
+            (set (reg:DI 101)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:106 -1
+     (nil))
+
+(insn 54 53 55 (set (reg:DI 5 di)
+        (reg:DI 101)) src/atlas.cpp:106 -1
+     (nil))
+
+(call_insn 55 54 0 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:106 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; mainApp ={v} {CLOBBER};
+
+(nil)
+
+;; Atlas ={v} {CLOBBER};
+
+(nil)
+
+;; Generating RTL for gimple basic block 11
+
+;; <L3>:
+
+(code_label 56 55 57 2 "" [0 uses])
+
+(note 57 56 0 NOTE_INSN_BASIC_BLOCK)
+
+;; return _2;
+
+(insn 58 57 59 (set (reg:SI 87 [ <retval> ])
+        (reg:SI 83 [ D.237782 ])) -1
+     (nil))
+
+(jump_insn 59 58 60 (set (pc)
+        (label_ref 0)) -1
+     (nil))
+
+(barrier 60 59 0)
+
+;; Generating RTL for gimple basic block 12
+
+;; <L4>:
+
+(code_label 61 60 62 3 "" [0 uses])
+
+(note 62 61 0 NOTE_INSN_BASIC_BLOCK)
+
+;; Glib::ustring::~ustring (&D.231504);
+
+(insn 63 62 64 (parallel [
+            (set (reg:DI 103)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+
+(insn 64 63 65 (set (reg:DI 5 di)
+        (reg:DI 103)) -1
+     (nil))
+
+(call_insn 65 64 0 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7f104289e600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -3 [0xfffffffffffffffd])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; D.231504 ={v} {CLOBBER};
+
+(nil)
+
+;; _3 = __builtin_eh_pointer (2);
+
+(insn 66 65 0 (set (reg/f:DI 84 [ D.237779 ])
+        (reg:DI 104)) -1
+     (nil))
+
+;; __builtin_unwind_resume (_3);
+
+(insn 67 66 68 (set (reg:DI 5 di)
+        (reg/f:DI 84 [ D.237779 ])) -1
+     (nil))
+
+(call_insn 68 67 69 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+(barrier 69 68 0)
+
+;; Generating RTL for gimple basic block 13
+
+;; <L5>:
+
+(code_label 70 69 71 4 "" [0 uses])
+
+(note 71 70 0 NOTE_INSN_BASIC_BLOCK)
+
+;; Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+
+(insn 72 71 73 (parallel [
+            (set (reg:DI 105)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+
+(insn 73 72 74 (set (reg:DI 5 di)
+        (reg:DI 105)) -1
+     (nil))
+
+(call_insn 74 73 0 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -5 [0xfffffffffffffffb])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; _4 = __builtin_eh_pointer (4);
+
+(insn 75 74 0 (set (reg/f:DI 85 [ D.237780 ])
+        (reg:DI 106)) -1
+     (nil))
+
+;; __builtin_unwind_resume (_4);
+
+(insn 76 75 77 (set (reg:DI 5 di)
+        (reg/f:DI 85 [ D.237780 ])) -1
+     (nil))
+
+(call_insn 77 76 78 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+(barrier 78 77 0)
+
+;; Generating RTL for gimple basic block 14
+
+;; <L6>:
+
+(code_label 79 78 80 5 "" [0 uses])
+
+(note 80 79 0 NOTE_INSN_BASIC_BLOCK)
+
+;; Glib::RefPtr<Gtk::Application>::~RefPtr (&D.231525);
+
+(insn 81 80 82 (parallel [
+            (set (reg:DI 107)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+
+(insn 82 81 83 (set (reg:DI 5 di)
+        (reg:DI 107)) -1
+     (nil))
+
+(call_insn 83 82 0 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -8 [0xfffffffffffffff8])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; D.231525 ={v} {CLOBBER};
+
+(nil)
+
+;; __builtin_eh_copy_values (6, 7);
+
+(insn 84 83 85 (set (reg:DI 108)
+        (reg:DI 109)) -1
+     (nil))
+
+(insn 85 84 0 (set (reg:DI 110)
+        (reg:DI 111)) -1
+     (nil))
+
+;; Generating RTL for gimple basic block 15
+
+;; <L7>:
+
+(code_label 88 87 89 7 "" [0 uses])
+
+(note 89 88 0 NOTE_INSN_BASIC_BLOCK)
+
+;; StatusBar::~StatusBar (&Atlas);
+
+(insn 90 89 91 (parallel [
+            (set (reg:DI 112)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+
+(insn 91 90 92 (set (reg:DI 5 di)
+        (reg:DI 112)) -1
+     (nil))
+
+(call_insn 92 91 0 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -10 [0xfffffffffffffff6])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; __builtin_eh_copy_values (6, 9);
+
+(insn 93 92 94 (set (reg:DI 108)
+        (reg:DI 113)) -1
+     (nil))
+
+(insn 94 93 0 (set (reg:DI 110)
+        (reg:DI 114)) -1
+     (nil))
+
+;; Generating RTL for gimple basic block 16
+
+;; <L8>:
+
+(code_label 97 96 98 8 "" [0 uses])
+
+(note 98 97 0 NOTE_INSN_BASIC_BLOCK)
+
+;; StatusBar::~StatusBar (&Atlas);
+
+(insn 99 98 100 (parallel [
+            (set (reg:DI 115)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+
+(insn 100 99 101 (set (reg:DI 5 di)
+        (reg:DI 115)) src/atlas.cpp:80 -1
+     (nil))
+
+(call_insn 101 100 0 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int -12 [0xfffffffffffffff4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; __builtin_eh_copy_values (6, 11);
+
+(insn 102 101 103 (set (reg:DI 108)
+        (reg:DI 116)) -1
+     (nil))
+
+(insn 103 102 0 (set (reg:DI 110)
+        (reg:DI 117)) -1
+     (nil))
+
+;; Generating RTL for gimple basic block 17
+
+;; <L9>:
+
+(code_label 104 103 105 6 "" [0 uses])
+
+(note 105 104 0 NOTE_INSN_BASIC_BLOCK)
+
+;; Glib::RefPtr<Gtk::Application>::~RefPtr (&mainApp);
+
+(insn 106 105 107 (parallel [
+            (set (reg:DI 118)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:106 -1
+     (nil))
+
+(insn 107 106 108 (set (reg:DI 5 di)
+        (reg:DI 118)) src/atlas.cpp:106 -1
+     (nil))
+
+(call_insn 108 107 0 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:106 -1
+     (expr_list:REG_EH_REGION (const_int -13 [0xfffffffffffffff3])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; _5 = __builtin_eh_pointer (6);
+
+(insn 109 108 0 (set (reg/f:DI 86 [ D.237781 ])
+        (reg:DI 108)) -1
+     (nil))
+
+;; __builtin_unwind_resume (_5);
+
+(insn 110 109 111 (set (reg:DI 5 di)
+        (reg/f:DI 86 [ D.237781 ])) -1
+     (nil))
+
+(call_insn 111 110 112 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+(barrier 112 111 0)
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 11 into block 10...
+Merged blocks 10 and 11.
+Merged 10 and 11 without moving.
+Merging block 13 into block 12...
+Merged blocks 12 and 13.
+Merged 12 and 13 without moving.
+Merging block 15 into block 14...
+Merged blocks 14 and 15.
+Merged 14 and 15 without moving.
+Merging block 17 into block 16...
+Merged blocks 16 and 17.
+Merged 16 and 17 without moving.
+Merging block 19 into block 18...
+Merged blocks 18 and 19.
+Merged 18 and 19 without moving.
+Merging block 21 into block 20...
+Merged blocks 20 and 21.
+Merged 20 and 21 without moving.
+Merging block 23 into block 22...
+Merged blocks 22 and 23.
+Merged 22 and 23 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -68 [0xffffffffffffffbc])) [0 argc+0 S4 A32])
+        (reg:SI 5 di [ argc ])) src/atlas.cpp:72 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -80 [0xffffffffffffffb0])) [0 argv+0 S8 A64])
+        (reg:DI 4 si [ argv ])) src/atlas.cpp:72 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (parallel [
+            (set (reg:DI 88)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:DI 4 si)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7f103a728390 *.LC0>)) src/atlas.cpp:77 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 5 di)
+        (reg:DI 88)) src/atlas.cpp:77 -1
+     (nil))
+(call_insn 10 9 11 2 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringC1EPKc") [flags 0x41]  <function_decl 0x7f1042893a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 11 10 12 2 (parallel [
+            (set (reg:DI 89)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+(insn 12 11 13 2 (parallel [
+            (set (reg:DI 90)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+(insn 13 12 14 2 (parallel [
+            (set (reg:DI 91)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -80 [0xffffffffffffffb0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+(insn 14 13 15 2 (parallel [
+            (set (reg:DI 92)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -68 [0xffffffffffffffbc])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+(insn 15 14 16 2 (set (reg:SI 37 r8)
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (nil))
+(insn 16 15 17 2 (set (reg:DI 2 cx)
+        (reg:DI 90)) src/atlas.cpp:77 -1
+     (nil))
+(insn 17 16 18 2 (set (reg:DI 1 dx)
+        (reg:DI 91)) src/atlas.cpp:77 -1
+     (nil))
+(insn 18 17 19 2 (set (reg:DI 4 si)
+        (reg:DI 92)) src/atlas.cpp:77 -1
+     (nil))
+(insn 19 18 20 2 (set (reg:DI 5 di)
+        (reg:DI 89)) src/atlas.cpp:77 -1
+     (nil))
+(call_insn 20 19 21 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk11Application6createERiRPPcRKN4Glib7ustringEN3Gio16ApplicationFlagsE") [flags 0x41]  <function_decl 0x7f103cec1400 create>) [0 create S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (expr_list:REG_EH_REGION (const_int 2 [0x2])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (expr_list:SI (use (reg:SI 37 r8))
+                        (nil)))))))
+;;  succ:       14 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              4 (FALLTHRU)
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 21 20 22 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 22 21 23 4 (parallel [
+            (set (reg:DI 93)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:77 -1
+     (nil))
+(insn 23 22 24 4 (set (reg:DI 5 di)
+        (reg:DI 93)) src/atlas.cpp:77 -1
+     (nil))
+(call_insn 24 23 25 4 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7f104289e600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:77 -1
+     (expr_list:REG_EH_REGION (const_int 3 [0x3])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       16 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              5 (FALLTHRU)
+
+;; basic block 5, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 25 24 26 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 26 25 27 5 (parallel [
+            (set (reg:DI 94)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 27 26 28 5 (parallel [
+            (set (reg:DI 95)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 28 27 29 5 (set (reg:DI 4 si)
+        (reg:DI 94)) src/atlas.cpp:80 -1
+     (nil))
+(insn 29 28 30 5 (set (reg:DI 5 di)
+        (reg:DI 95)) src/atlas.cpp:80 -1
+     (nil))
+(call_insn 30 29 31 5 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC1ERKS3_") [flags 0x1]  <function_decl 0x7f103ad91a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 4 [0x4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+;;  succ:       24 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+(note 31 30 32 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 32 31 33 6 (parallel [
+            (set (reg:DI 96)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 33 32 34 6 (parallel [
+            (set (reg:DI 97)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 34 33 35 6 (set (reg:DI 4 si)
+        (reg:DI 96)) src/atlas.cpp:80 -1
+     (nil))
+(insn 35 34 36 6 (set (reg:DI 5 di)
+        (reg:DI 97)) src/atlas.cpp:80 -1
+     (nil))
+(call_insn 36 35 37 6 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarC1EN4Glib6RefPtrIN3Gtk11ApplicationEEE") [flags 0x41]  <function_decl 0x7f103ad69900 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 5 [0x5])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+;;  succ:       18 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6 (FALLTHRU)
+(note 37 36 38 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 38 37 39 7 (parallel [
+            (set (reg:DI 98)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 39 38 40 7 (set (reg:DI 5 di)
+        (reg:DI 98)) src/atlas.cpp:80 -1
+     (nil))
+(call_insn 40 39 41 7 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 6 [0x6])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       20 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              8 (FALLTHRU)
+
+;; basic block 8, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7 (FALLTHRU)
+(note 41 40 42 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(call_insn 42 41 43 8 (call (mem:QI (symbol_ref:DI ("_Z12display_datev") [flags 0x41]  <function_decl 0x7f103ad85b00 display_date>) [0 display_date S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:81 -1
+     (expr_list:REG_EH_REGION (const_int 7 [0x7])
+        (nil))
+    (nil))
+;;  succ:       22 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              9 (FALLTHRU)
+
+;; basic block 9, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       8 (FALLTHRU)
+(note 43 42 44 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 44 43 45 9 (parallel [
+            (set (reg:DI 99)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:82 -1
+     (nil))
+(insn 45 44 46 9 (set (reg:DI 5 di)
+        (reg:DI 99)) src/atlas.cpp:82 -1
+     (nil))
+(call_insn 46 45 117 9 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("_ZN9StatusBar3runEv") [flags 0x41]  <function_decl 0x7f103ad69e00 run>) [0 run S1 A8])
+            (const_int 0 [0]))) src/atlas.cpp:82 -1
+     (expr_list:REG_EH_REGION (const_int 7 [0x7])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       22 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              10 (FALLTHRU)
+
+;; basic block 10, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 9, next block 12, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       9 (FALLTHRU)
+(note 117 46 47 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 47 117 49 10 (set (reg:SI 83 [ D.237782 ])
+        (reg:SI 0 ax)) src/atlas.cpp:82 -1
+     (nil))
+(insn 49 47 50 10 (parallel [
+            (set (reg:DI 100)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 50 49 51 10 (set (reg:DI 5 di)
+        (reg:DI 100)) src/atlas.cpp:80 -1
+     (nil))
+(call_insn 51 50 52 10 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int 4 [0x4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       24 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              12 (FALLTHRU)
+
+;; basic block 12, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 10, next block 14, flags: (NEW, REACHABLE, RTL)
+;;  pred:       10 (FALLTHRU)
+(note 52 51 53 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 53 52 54 12 (parallel [
+            (set (reg:DI 101)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:106 -1
+     (nil))
+(insn 54 53 55 12 (set (reg:DI 5 di)
+        (reg:DI 101)) src/atlas.cpp:106 -1
+     (nil))
+(call_insn 55 54 58 12 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:106 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 58 55 59 12 (set (reg:SI 87 [ <retval> ])
+        (reg:SI 83 [ D.237782 ])) -1
+     (nil))
+(jump_insn 59 58 60 12 (set (pc)
+        (label_ref 113)) -1
+     (nil)
+ -> 113)
+;;  succ:       26
+
+(barrier 60 59 118)
+;; basic block 14, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 12, next block 16, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (ABNORMAL,ABNORMAL_CALL,EH)
+(code_label/s 118 60 120 14 9 "" [1 uses])
+(note 120 118 119 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 119 120 63 14 (set (reg:DI 104)
+        (reg:DI 0 ax)) -1
+     (nil))
+(insn 63 119 64 14 (parallel [
+            (set (reg:DI 103)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+(insn 64 63 65 14 (set (reg:DI 5 di)
+        (reg:DI 103)) -1
+     (nil))
+(call_insn 65 64 66 14 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7f104289e600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -3 [0xfffffffffffffffd])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 66 65 67 14 (set (reg/f:DI 84 [ D.237779 ])
+        (reg:DI 104)) -1
+     (nil))
+(insn 67 66 68 14 (set (reg:DI 5 di)
+        (reg/f:DI 84 [ D.237779 ])) -1
+     (nil))
+(call_insn 68 67 69 14 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:      
+
+(barrier 69 68 121)
+;; basic block 16, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 14, next block 18, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (ABNORMAL,ABNORMAL_CALL,EH)
+(code_label/s 121 69 123 16 10 "" [1 uses])
+(note 123 121 122 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 122 123 72 16 (set (reg:DI 106)
+        (reg:DI 0 ax)) -1
+     (nil))
+(insn 72 122 73 16 (parallel [
+            (set (reg:DI 105)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+(insn 73 72 74 16 (set (reg:DI 5 di)
+        (reg:DI 105)) -1
+     (nil))
+(call_insn 74 73 75 16 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -5 [0xfffffffffffffffb])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 75 74 76 16 (set (reg/f:DI 85 [ D.237780 ])
+        (reg:DI 106)) -1
+     (nil))
+(insn 76 75 77 16 (set (reg:DI 5 di)
+        (reg/f:DI 85 [ D.237780 ])) -1
+     (nil))
+(call_insn 77 76 78 16 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:      
+
+(barrier 78 77 130)
+;; basic block 18, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 16, next block 20, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6 (ABNORMAL,ABNORMAL_CALL,EH)
+(code_label/s 130 78 133 18 12 "" [1 uses])
+(note 133 130 131 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+(insn 131 133 132 18 (set (reg:DI 109)
+        (reg:DI 0 ax)) -1
+     (nil))
+(insn 132 131 81 18 (set (reg:DI 111)
+        (reg:DI 1 dx)) -1
+     (nil))
+(insn 81 132 82 18 (parallel [
+            (set (reg:DI 107)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+(insn 82 81 83 18 (set (reg:DI 5 di)
+        (reg:DI 107)) -1
+     (nil))
+(call_insn 83 82 84 18 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -8 [0xfffffffffffffff8])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 84 83 85 18 (set (reg:DI 108)
+        (reg:DI 109)) -1
+     (nil))
+(insn 85 84 86 18 (set (reg:DI 110)
+        (reg:DI 111)) -1
+     (nil))
+(jump_insn 86 85 87 18 (set (pc)
+        (label_ref 104)) -1
+     (nil)
+ -> 104)
+;;  succ:       25
+
+(barrier 87 86 134)
+;; basic block 20, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 18, next block 22, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7 (ABNORMAL,ABNORMAL_CALL,EH)
+(code_label/s 134 87 137 20 13 "" [1 uses])
+(note 137 134 135 20 [bb 20] NOTE_INSN_BASIC_BLOCK)
+(insn 135 137 136 20 (set (reg:DI 113)
+        (reg:DI 0 ax)) -1
+     (nil))
+(insn 136 135 90 20 (set (reg:DI 114)
+        (reg:DI 1 dx)) -1
+     (nil))
+(insn 90 136 91 20 (parallel [
+            (set (reg:DI 112)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+(insn 91 90 92 20 (set (reg:DI 5 di)
+        (reg:DI 112)) -1
+     (nil))
+(call_insn 92 91 93 20 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_EH_REGION (const_int -10 [0xfffffffffffffff6])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 93 92 94 20 (set (reg:DI 108)
+        (reg:DI 113)) -1
+     (nil))
+(insn 94 93 95 20 (set (reg:DI 110)
+        (reg:DI 114)) -1
+     (nil))
+(jump_insn 95 94 96 20 (set (pc)
+        (label_ref 104)) -1
+     (nil)
+ -> 104)
+;;  succ:       25
+
+(barrier 96 95 138)
+;; basic block 22, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 20, next block 24, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              9 (ABNORMAL,ABNORMAL_CALL,EH)
+(code_label/s 138 96 141 22 14 "" [1 uses])
+(note 141 138 139 22 [bb 22] NOTE_INSN_BASIC_BLOCK)
+(insn 139 141 140 22 (set (reg:DI 116)
+        (reg:DI 0 ax)) -1
+     (nil))
+(insn 140 139 99 22 (set (reg:DI 117)
+        (reg:DI 1 dx)) -1
+     (nil))
+(insn 99 140 100 22 (parallel [
+            (set (reg:DI 115)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -64 [0xffffffffffffffc0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:80 -1
+     (nil))
+(insn 100 99 101 22 (set (reg:DI 5 di)
+        (reg:DI 115)) src/atlas.cpp:80 -1
+     (nil))
+(call_insn 101 100 102 22 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD1Ev") [flags 0x41]  <function_decl 0x7f103ad85200 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:80 -1
+     (expr_list:REG_EH_REGION (const_int -12 [0xfffffffffffffff4])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 102 101 103 22 (set (reg:DI 108)
+        (reg:DI 116)) -1
+     (nil))
+(insn 103 102 127 22 (set (reg:DI 110)
+        (reg:DI 117)) -1
+     (nil))
+(jump_insn 127 103 128 22 (set (pc)
+        (label_ref 104)) -1
+     (nil)
+ -> 104)
+;;  succ:       25
+
+(barrier 128 127 124)
+;; basic block 24, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 22, next block 25, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (ABNORMAL,ABNORMAL_CALL,EH)
+;;              10 (ABNORMAL,ABNORMAL_CALL,EH)
+(code_label/s 124 128 129 24 11 "" [1 uses])
+(note 129 124 125 24 [bb 24] NOTE_INSN_BASIC_BLOCK)
+(insn 125 129 126 24 (set (reg:DI 108)
+        (reg:DI 0 ax)) -1
+     (nil))
+(insn 126 125 104 24 (set (reg:DI 110)
+        (reg:DI 1 dx)) -1
+     (nil))
+;;  succ:       25 [100.0%]  (FALLTHRU)
+
+;; basic block 25, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 24, next block 26, flags: (NEW, REACHABLE, RTL)
+;;  pred:       24 [100.0%]  (FALLTHRU)
+;;              22
+;;              18
+;;              20
+(code_label 104 126 105 25 6 "" [3 uses])
+(note 105 104 106 25 [bb 25] NOTE_INSN_BASIC_BLOCK)
+(insn 106 105 107 25 (parallel [
+            (set (reg:DI 118)
+                (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/atlas.cpp:106 -1
+     (nil))
+(insn 107 106 108 25 (set (reg:DI 5 di)
+        (reg:DI 118)) src/atlas.cpp:106 -1
+     (nil))
+(call_insn 108 107 109 25 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7f103ad97000 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:106 -1
+     (expr_list:REG_EH_REGION (const_int -13 [0xfffffffffffffff3])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 109 108 110 25 (set (reg/f:DI 86 [ D.237781 ])
+        (reg:DI 108)) -1
+     (nil))
+(insn 110 109 111 25 (set (reg:DI 5 di)
+        (reg/f:DI 86 [ D.237781 ])) -1
+     (nil))
+(call_insn 111 110 112 25 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7f10484f0300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:      
+
+(barrier 112 111 113)
+;; basic block 26, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 25, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       12
+(code_label 113 112 116 26 1 "" [1 uses])
+(note 116 113 114 26 [bb 26] NOTE_INSN_BASIC_BLOCK)
+(insn 114 116 115 26 (set (reg/i:SI 0 ax)
+        (reg:SI 87 [ <retval> ])) src/atlas.cpp:107 -1
+     (nil))
+(insn 115 114 0 26 (use (reg/i:SI 0 ax)) src/atlas.cpp:107 -1
+     (nil))
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+
+
+;; Function Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEED2Ev, funcdef_no=7703, decl_uid=231500, symbol_order=3197)
+
+Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application] (struct RefPtr * const this)
+{
+  struct ObjectBase * D.237765;
+  sizetype D.237764;
+  long int D.237763;
+  int (*__vtbl_ptr_type) () * D.237762;
+  int (*__vtbl_ptr_type) () * D.237761;
+  struct Application * D.237760;
+  struct Application * D.237759;
+  int (*__vtbl_ptr_type) () D.237758;
+  int (*__vtbl_ptr_type) () * D.237757;
+  int (*__vtbl_ptr_type) () * D.237756;
+  struct ObjectBase * D.237755;
+  sizetype D.237754;
+  long int D.237753;
+  int (*__vtbl_ptr_type) () * D.237752;
+  int (*__vtbl_ptr_type) () * D.237751;
+  struct Application * D.237750;
+  struct Application * D.237749;
+  struct ObjectBase * D.237748;
+  sizetype D.237747;
+  long int D.237746;
+  int (*__vtbl_ptr_type) () * D.237745;
+  int (*__vtbl_ptr_type) () * D.237744;
+  struct Application * D.237743;
+  struct Application * D.237742;
+  struct Application * D.237739;
+  struct Application * _2;
+  struct Application * _3;
+  struct Application * _4;
+  int (*__vtbl_ptr_type) () * _5;
+  int (*__vtbl_ptr_type) () * _6;
+  long int _7;
+  sizetype _8;
+  struct ObjectBase * _9;
+  struct Application * _10;
+  struct Application * _11;
+  int (*__vtbl_ptr_type) () * _12;
+  int (*__vtbl_ptr_type) () * _13;
+  long int _14;
+  sizetype _15;
+  struct ObjectBase * _16;
+  int (*__vtbl_ptr_type) () * _17;
+  int (*__vtbl_ptr_type) () * _18;
+  int (*__vtbl_ptr_type) () _19;
+  struct Application * _20;
+  struct Application * _21;
+  int (*__vtbl_ptr_type) () * _22;
+  int (*__vtbl_ptr_type) () * _23;
+  long int _24;
+  sizetype _25;
+  struct ObjectBase * _26;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  _2 = this_1(D)->pCppObject_;
+  if (_2 != 0B)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  _3 = this_1(D)->pCppObject_;
+  _4 = this_1(D)->pCppObject_;
+  _5 = _4->D.181299.D.107647._vptr.Object;
+  _6 = _5 + 18446744073709551592;
+  _7 = MEM[(long int *)_6];
+  _8 = (sizetype) _7;
+  _9 = _3 + _8;
+  _10 = this_1(D)->pCppObject_;
+  _11 = this_1(D)->pCppObject_;
+  _12 = _11->D.181299.D.107647._vptr.Object;
+  _13 = _12 + 18446744073709551592;
+  _14 = MEM[(long int *)_13];
+  _15 = (sizetype) _14;
+  _16 = _10 + _15;
+  _17 = _16->_vptr.ObjectBase;
+  _18 = _17 + 24;
+  _19 = *_18;
+  _20 = this_1(D)->pCppObject_;
+  _21 = this_1(D)->pCppObject_;
+  _22 = _21->D.181299.D.107647._vptr.Object;
+  _23 = _22 + 18446744073709551592;
+  _24 = MEM[(long int *)_23];
+  _25 = (sizetype) _24;
+  _26 = _20 + _25;
+  OBJ_TYPE_REF(_19;(const struct ObjectBase)_9->3) (_26);
+;;    succ:       4
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;                3
+  MEM[(struct  &)this_1(D)] ={v} {CLOBBER};
+;;    succ:       5
+
+;;   basic block 5, loop depth 0
+;;    pred:       4
+<L3>:
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (this_1(D) - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (_8 - 8 )
+Partition 9 (_9 - 9 )
+Partition 10 (_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 12 (_12 - 12 )
+Partition 13 (_13 - 13 )
+Partition 14 (_14 - 14 )
+Partition 15 (_15 - 15 )
+Partition 16 (_16 - 16 )
+Partition 17 (_17 - 17 )
+Partition 18 (_18 - 18 )
+Partition 19 (_19 - 19 )
+Partition 20 (_20 - 20 )
+Partition 21 (_21 - 21 )
+Partition 22 (_22 - 22 )
+Partition 23 (_23 - 23 )
+Partition 24 (_24 - 24 )
+Partition 25 (_25 - 25 )
+Partition 26 (_26 - 26 )
+
+
+Partition map 
+
+Partition 0 (this_1(D) - 1 )
+
+
+Live on entry to BB2 : this_1(D)  
+
+Live on entry to BB3 : this_1(D)  
+
+Live on entry to BB4 : this_1(D)  
+
+Live on entry to BB5 : 
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (this_1(D) - 1 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (this_1(D) - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (_3 - 3 )
+Partition 3 (_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (_8 - 8 )
+Partition 8 (_9 - 9 )
+Partition 9 (_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (_12 - 12 )
+Partition 12 (_13 - 13 )
+Partition 13 (_14 - 14 )
+Partition 14 (_15 - 15 )
+Partition 15 (_16 - 16 )
+Partition 16 (_17 - 17 )
+Partition 17 (_18 - 18 )
+Partition 18 (_19 - 19 )
+Partition 19 (_20 - 20 )
+Partition 20 (_21 - 21 )
+Partition 21 (_22 - 22 )
+Partition 22 (_23 - 23 )
+Partition 23 (_24 - 24 )
+Partition 24 (_25 - 25 )
+Partition 25 (_26 - 26 )
+
+Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application] (struct RefPtr * const this)
+{
+  struct ObjectBase * D.237765;
+  sizetype D.237764;
+  long int D.237763;
+  int (*__vtbl_ptr_type) () * D.237762;
+  int (*__vtbl_ptr_type) () * D.237761;
+  struct Application * D.237760;
+  struct Application * D.237759;
+  int (*__vtbl_ptr_type) () D.237758;
+  int (*__vtbl_ptr_type) () * D.237757;
+  int (*__vtbl_ptr_type) () * D.237756;
+  struct ObjectBase * D.237755;
+  sizetype D.237754;
+  long int D.237753;
+  int (*__vtbl_ptr_type) () * D.237752;
+  int (*__vtbl_ptr_type) () * D.237751;
+  struct Application * D.237750;
+  struct Application * D.237749;
+  struct ObjectBase * D.237748;
+  sizetype D.237747;
+  long int D.237746;
+  int (*__vtbl_ptr_type) () * D.237745;
+  int (*__vtbl_ptr_type) () * D.237744;
+  struct Application * D.237743;
+  struct Application * D.237742;
+  struct Application * D.237739;
+  struct Application * _2;
+  struct Application * _3;
+  struct Application * _4;
+  int (*__vtbl_ptr_type) () * _5;
+  int (*__vtbl_ptr_type) () * _6;
+  long int _7;
+  sizetype _8;
+  struct ObjectBase * _9;
+  struct Application * _10;
+  struct Application * _11;
+  int (*__vtbl_ptr_type) () * _12;
+  int (*__vtbl_ptr_type) () * _13;
+  long int _14;
+  sizetype _15;
+  struct ObjectBase * _16;
+  int (*__vtbl_ptr_type) () * _17;
+  int (*__vtbl_ptr_type) () * _18;
+  int (*__vtbl_ptr_type) () _19;
+  struct Application * _20;
+  struct Application * _21;
+  int (*__vtbl_ptr_type) () * _22;
+  int (*__vtbl_ptr_type) () * _23;
+  long int _24;
+  sizetype _25;
+  struct ObjectBase * _26;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  _2 = this_1(D)->pCppObject_;
+  if (_2 != 0B)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  _3 = this_1(D)->pCppObject_;
+  _4 = this_1(D)->pCppObject_;
+  _5 = _4->D.181299.D.107647._vptr.Object;
+  _6 = _5 + 18446744073709551592;
+  _7 = MEM[(long int *)_6];
+  _8 = (sizetype) _7;
+  _9 = _3 + _8;
+  _10 = this_1(D)->pCppObject_;
+  _11 = this_1(D)->pCppObject_;
+  _12 = _11->D.181299.D.107647._vptr.Object;
+  _13 = _12 + 18446744073709551592;
+  _14 = MEM[(long int *)_13];
+  _15 = (sizetype) _14;
+  _16 = _10 + _15;
+  _17 = _16->_vptr.ObjectBase;
+  _18 = _17 + 24;
+  _19 = *_18;
+  _20 = this_1(D)->pCppObject_;
+  _21 = this_1(D)->pCppObject_;
+  _22 = _21->D.181299.D.107647._vptr.Object;
+  _23 = _22 + 18446744073709551592;
+  _24 = MEM[(long int *)_23];
+  _25 = (sizetype) _24;
+  _26 = _20 + _25;
+  OBJ_TYPE_REF(_19;(const struct ObjectBase)_9->3) (_26);
+;;    succ:       4
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;                3
+  MEM[(struct  &)this_1(D)] ={v} {CLOBBER};
+;;    succ:       5
+
+;;   basic block 5, loop depth 0
+;;    pred:       4
+<L3>:
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; _2 = this_1(D)->pCppObject_;
+
+(insn 6 5 7 (set (reg/f:DI 108)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+
+(insn 7 6 0 (set (reg/f:DI 83 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 108) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+
+;; if (_2 != 0B)
+
+(insn 8 7 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 83 [ D.237785 ])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+
+(jump_insn 9 8 0 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; _3 = this_1(D)->pCppObject_;
+
+(insn 11 10 12 (set (reg/f:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(insn 12 11 0 (set (reg/f:DI 84 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 109) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _4 = this_1(D)->pCppObject_;
+
+(insn 13 12 14 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(insn 14 13 0 (set (reg/f:DI 85 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 110) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _5 = _4->D.181299.D.107647._vptr.Object;
+
+(insn 15 14 0 (set (reg/f:DI 86 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 85 [ D.237785 ]) [0 _4->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _6 = _5 + 18446744073709551592;
+
+(insn 16 15 0 (parallel [
+            (set (reg/f:DI 87 [ D.237786 ])
+                (plus:DI (reg/f:DI 86 [ D.237786 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _7 = MEM[(long int *)_6];
+
+(insn 17 16 0 (set (reg:DI 88 [ D.237787 ])
+        (mem:DI (reg/f:DI 87 [ D.237786 ]) [0 MEM[(long int *)_6]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _8 = (sizetype) _7;
+
+(insn 18 17 0 (set (reg:DI 89 [ D.237788 ])
+        (reg:DI 88 [ D.237787 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _9 = _3 + _8;
+
+(insn 19 18 0 (parallel [
+            (set (reg/f:DI 90 [ D.237789 ])
+                (plus:DI (reg/f:DI 84 [ D.237785 ])
+                    (reg:DI 89 [ D.237788 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _10 = this_1(D)->pCppObject_;
+
+(insn 20 19 21 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(insn 21 20 0 (set (reg/f:DI 91 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 111) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _11 = this_1(D)->pCppObject_;
+
+(insn 22 21 23 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(insn 23 22 0 (set (reg/f:DI 92 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 112) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _12 = _11->D.181299.D.107647._vptr.Object;
+
+(insn 24 23 0 (set (reg/f:DI 93 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 92 [ D.237785 ]) [0 _11->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _13 = _12 + 18446744073709551592;
+
+(insn 25 24 0 (parallel [
+            (set (reg/f:DI 94 [ D.237786 ])
+                (plus:DI (reg/f:DI 93 [ D.237786 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _14 = MEM[(long int *)_13];
+
+(insn 26 25 0 (set (reg:DI 95 [ D.237787 ])
+        (mem:DI (reg/f:DI 94 [ D.237786 ]) [0 MEM[(long int *)_13]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _15 = (sizetype) _14;
+
+(insn 27 26 0 (set (reg:DI 96 [ D.237788 ])
+        (reg:DI 95 [ D.237787 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _16 = _10 + _15;
+
+(insn 28 27 0 (parallel [
+            (set (reg/f:DI 97 [ D.237789 ])
+                (plus:DI (reg/f:DI 91 [ D.237785 ])
+                    (reg:DI 96 [ D.237788 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _17 = _16->_vptr.ObjectBase;
+
+(insn 29 28 0 (set (reg/f:DI 98 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 97 [ D.237789 ]) [0 _16->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _18 = _17 + 24;
+
+(insn 30 29 0 (parallel [
+            (set (reg/f:DI 99 [ D.237786 ])
+                (plus:DI (reg/f:DI 98 [ D.237786 ])
+                    (const_int 24 [0x18])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _19 = *_18;
+
+(insn 31 30 0 (set (reg/f:DI 100 [ D.237790 ])
+        (mem/f:DI (reg/f:DI 99 [ D.237786 ]) [0 *_18+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _20 = this_1(D)->pCppObject_;
+
+(insn 32 31 33 (set (reg/f:DI 113)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(insn 33 32 0 (set (reg/f:DI 101 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 113) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _21 = this_1(D)->pCppObject_;
+
+(insn 34 33 35 (set (reg/f:DI 114)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(insn 35 34 0 (set (reg/f:DI 102 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 114) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _22 = _21->D.181299.D.107647._vptr.Object;
+
+(insn 36 35 0 (set (reg/f:DI 103 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 102 [ D.237785 ]) [0 _21->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _23 = _22 + 18446744073709551592;
+
+(insn 37 36 0 (parallel [
+            (set (reg/f:DI 104 [ D.237786 ])
+                (plus:DI (reg/f:DI 103 [ D.237786 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _24 = MEM[(long int *)_23];
+
+(insn 38 37 0 (set (reg:DI 105 [ D.237787 ])
+        (mem:DI (reg/f:DI 104 [ D.237786 ]) [0 MEM[(long int *)_23]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _25 = (sizetype) _24;
+
+(insn 39 38 0 (set (reg:DI 106 [ D.237788 ])
+        (reg:DI 105 [ D.237787 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; _26 = _20 + _25;
+
+(insn 40 39 0 (parallel [
+            (set (reg/f:DI 107 [ D.237789 ])
+                (plus:DI (reg/f:DI 101 [ D.237785 ])
+                    (reg:DI 106 [ D.237788 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+;; OBJ_TYPE_REF(_19;_9->3) (_26);
+
+(insn 41 40 42 (set (reg:DI 5 di)
+        (reg/f:DI 107 [ D.237789 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+
+(call_insn 42 41 0 (call (mem:QI (reg/f:DI 100 [ D.237790 ]) [0 *OBJ_TYPE_REF(_19;(const struct ObjectBase)_9->3) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 43 42 44 17 "" [0 uses])
+
+(note 44 43 0 NOTE_INSN_BASIC_BLOCK)
+
+;; MEM[(struct  &)this_1(D)] ={v} {CLOBBER};
+
+(nil)
+
+;; Generating RTL for gimple basic block 5
+
+;; <L3>:
+
+(code_label 45 44 46 18 "" [0 uses])
+
+(note 46 45 0 NOTE_INSN_BASIC_BLOCK)
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Edge 2->5 redirected to 7
+Merging block 5 into block 4...
+Merged blocks 4 and 5.
+Merged 4 and 5 without moving.
+Merging block 6 into block 4...
+Merged blocks 4 and 6.
+Merged 4 and 6 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:205 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 108)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 83 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 108) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 83 [ D.237785 ])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 -1
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 47)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 596 {*jcc_1}
+     (nil)
+ -> 47)
+;;  succ:       4 (FALLTHRU)
+;;              7
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 10 9 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 11 10 12 4 (set (reg/f:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 12 11 13 4 (set (reg/f:DI 84 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 109) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 13 12 14 4 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 14 13 15 4 (set (reg/f:DI 85 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 110) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 15 14 16 4 (set (reg/f:DI 86 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 85 [ D.237785 ]) [0 _4->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 16 15 17 4 (parallel [
+            (set (reg/f:DI 87 [ D.237786 ])
+                (plus:DI (reg/f:DI 86 [ D.237786 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 17 16 18 4 (set (reg:DI 88 [ D.237787 ])
+        (mem:DI (reg/f:DI 87 [ D.237786 ]) [0 MEM[(long int *)_6]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 18 17 19 4 (set (reg:DI 89 [ D.237788 ])
+        (reg:DI 88 [ D.237787 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 19 18 20 4 (parallel [
+            (set (reg/f:DI 90 [ D.237789 ])
+                (plus:DI (reg/f:DI 84 [ D.237785 ])
+                    (reg:DI 89 [ D.237788 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 20 19 21 4 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 21 20 22 4 (set (reg/f:DI 91 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 111) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 22 21 23 4 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 23 22 24 4 (set (reg/f:DI 92 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 112) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 24 23 25 4 (set (reg/f:DI 93 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 92 [ D.237785 ]) [0 _11->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 25 24 26 4 (parallel [
+            (set (reg/f:DI 94 [ D.237786 ])
+                (plus:DI (reg/f:DI 93 [ D.237786 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 26 25 27 4 (set (reg:DI 95 [ D.237787 ])
+        (mem:DI (reg/f:DI 94 [ D.237786 ]) [0 MEM[(long int *)_13]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 27 26 28 4 (set (reg:DI 96 [ D.237788 ])
+        (reg:DI 95 [ D.237787 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 28 27 29 4 (parallel [
+            (set (reg/f:DI 97 [ D.237789 ])
+                (plus:DI (reg/f:DI 91 [ D.237785 ])
+                    (reg:DI 96 [ D.237788 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 29 28 30 4 (set (reg/f:DI 98 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 97 [ D.237789 ]) [0 _16->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 30 29 31 4 (parallel [
+            (set (reg/f:DI 99 [ D.237786 ])
+                (plus:DI (reg/f:DI 98 [ D.237786 ])
+                    (const_int 24 [0x18])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 31 30 32 4 (set (reg/f:DI 100 [ D.237790 ])
+        (mem/f:DI (reg/f:DI 99 [ D.237786 ]) [0 *_18+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 32 31 33 4 (set (reg/f:DI 113)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 33 32 34 4 (set (reg/f:DI 101 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 113) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 34 33 35 4 (set (reg/f:DI 114)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 35 34 36 4 (set (reg/f:DI 102 [ D.237785 ])
+        (mem/f/j:DI (reg/f:DI 114) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 36 35 37 4 (set (reg/f:DI 103 [ D.237786 ])
+        (mem/f/j:DI (reg/f:DI 102 [ D.237785 ]) [0 _21->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 37 36 38 4 (parallel [
+            (set (reg/f:DI 104 [ D.237786 ])
+                (plus:DI (reg/f:DI 103 [ D.237786 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 38 37 39 4 (set (reg:DI 105 [ D.237787 ])
+        (mem:DI (reg/f:DI 104 [ D.237786 ]) [0 MEM[(long int *)_23]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 39 38 40 4 (set (reg:DI 106 [ D.237788 ])
+        (reg:DI 105 [ D.237787 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 40 39 41 4 (parallel [
+            (set (reg/f:DI 107 [ D.237789 ])
+                (plus:DI (reg/f:DI 101 [ D.237785 ])
+                    (reg:DI 106 [ D.237788 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(insn 41 40 42 4 (set (reg:DI 5 di)
+        (reg/f:DI 107 [ D.237789 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil))
+(call_insn 42 41 47 4 (call (mem:QI (reg/f:DI 100 [ D.237790 ]) [0 *OBJ_TYPE_REF(_19;(const struct ObjectBase)_9->3) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+;;              2
+(code_label 47 42 48 7 16 "" [1 uses])
+(note 48 47 0 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+
+
+;; Function Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC2ERKS3_, funcdef_no=7706, decl_uid=231484, symbol_order=3200)
+
+Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (struct RefPtr * const this, const struct RefPtr & src)
+{
+  struct ObjectBase * D.237737;
+  sizetype D.237736;
+  long int D.237735;
+  int (*__vtbl_ptr_type) () * D.237734;
+  int (*__vtbl_ptr_type) () * D.237733;
+  struct Application * D.237732;
+  struct Application * D.237731;
+  int (*__vtbl_ptr_type) () D.237730;
+  int (*__vtbl_ptr_type) () * D.237729;
+  int (*__vtbl_ptr_type) () * D.237728;
+  struct ObjectBase * D.237727;
+  sizetype D.237726;
+  long int D.237725;
+  int (*__vtbl_ptr_type) () * D.237724;
+  int (*__vtbl_ptr_type) () * D.237723;
+  struct Application * D.237722;
+  struct Application * D.237721;
+  struct ObjectBase * D.237720;
+  sizetype D.237719;
+  long int D.237718;
+  int (*__vtbl_ptr_type) () * D.237717;
+  int (*__vtbl_ptr_type) () * D.237716;
+  struct Application * D.237715;
+  struct Application * D.237714;
+  struct Application * D.237711;
+  struct Application * D.237710;
+  struct Application * _2;
+  struct Application * _4;
+  struct Application * _5;
+  struct Application * _6;
+  int (*__vtbl_ptr_type) () * _7;
+  int (*__vtbl_ptr_type) () * _8;
+  long int _9;
+  sizetype _10;
+  struct ObjectBase * _11;
+  struct Application * _12;
+  struct Application * _13;
+  int (*__vtbl_ptr_type) () * _14;
+  int (*__vtbl_ptr_type) () * _15;
+  long int _16;
+  sizetype _17;
+  struct ObjectBase * _18;
+  int (*__vtbl_ptr_type) () * _19;
+  int (*__vtbl_ptr_type) () * _20;
+  int (*__vtbl_ptr_type) () _21;
+  struct Application * _22;
+  struct Application * _23;
+  int (*__vtbl_ptr_type) () * _24;
+  int (*__vtbl_ptr_type) () * _25;
+  long int _26;
+  sizetype _27;
+  struct ObjectBase * _28;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  _2 = src_1(D)->pCppObject_;
+  this_3(D)->pCppObject_ = _2;
+  _4 = this_3(D)->pCppObject_;
+  if (_4 != 0B)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  _5 = this_3(D)->pCppObject_;
+  _6 = this_3(D)->pCppObject_;
+  _7 = _6->D.181299.D.107647._vptr.Object;
+  _8 = _7 + 18446744073709551592;
+  _9 = MEM[(long int *)_8];
+  _10 = (sizetype) _9;
+  _11 = _5 + _10;
+  _12 = this_3(D)->pCppObject_;
+  _13 = this_3(D)->pCppObject_;
+  _14 = _13->D.181299.D.107647._vptr.Object;
+  _15 = _14 + 18446744073709551592;
+  _16 = MEM[(long int *)_15];
+  _17 = (sizetype) _16;
+  _18 = _12 + _17;
+  _19 = _18->_vptr.ObjectBase;
+  _20 = _19 + 16;
+  _21 = *_20;
+  _22 = this_3(D)->pCppObject_;
+  _23 = this_3(D)->pCppObject_;
+  _24 = _23->D.181299.D.107647._vptr.Object;
+  _25 = _24 + 18446744073709551592;
+  _26 = MEM[(long int *)_25];
+  _27 = (sizetype) _26;
+  _28 = _22 + _27;
+  OBJ_TYPE_REF(_21;(const struct ObjectBase)_11->2) (_28);
+;;    succ:       4
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;                3
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (src_1(D) - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (this_3(D) - 3 )
+Partition 4 (_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (_8 - 8 )
+Partition 9 (_9 - 9 )
+Partition 10 (_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 12 (_12 - 12 )
+Partition 13 (_13 - 13 )
+Partition 14 (_14 - 14 )
+Partition 15 (_15 - 15 )
+Partition 16 (_16 - 16 )
+Partition 17 (_17 - 17 )
+Partition 18 (_18 - 18 )
+Partition 19 (_19 - 19 )
+Partition 20 (_20 - 20 )
+Partition 21 (_21 - 21 )
+Partition 22 (_22 - 22 )
+Partition 23 (_23 - 23 )
+Partition 24 (_24 - 24 )
+Partition 25 (_25 - 25 )
+Partition 26 (_26 - 26 )
+Partition 27 (_27 - 27 )
+Partition 28 (_28 - 28 )
+
+
+Partition map 
+
+Partition 0 (src_1(D) - 1 )
+Partition 1 (this_3(D) - 3 )
+
+
+Live on entry to BB2 : src_1(D)  this_3(D)  
+
+Live on entry to BB3 : this_3(D)  
+
+Live on entry to BB4 : 
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (src_1(D) - 1 )
+Partition 1 (this_3(D) - 3 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (src_1(D) - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (this_3(D) - 3 )
+Partition 3 (_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (_8 - 8 )
+Partition 8 (_9 - 9 )
+Partition 9 (_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (_12 - 12 )
+Partition 12 (_13 - 13 )
+Partition 13 (_14 - 14 )
+Partition 14 (_15 - 15 )
+Partition 15 (_16 - 16 )
+Partition 16 (_17 - 17 )
+Partition 17 (_18 - 18 )
+Partition 18 (_19 - 19 )
+Partition 19 (_20 - 20 )
+Partition 20 (_21 - 21 )
+Partition 21 (_22 - 22 )
+Partition 22 (_23 - 23 )
+Partition 23 (_24 - 24 )
+Partition 24 (_25 - 25 )
+Partition 25 (_26 - 26 )
+Partition 26 (_27 - 27 )
+Partition 27 (_28 - 28 )
+
+Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (struct RefPtr * const this, const struct RefPtr & src)
+{
+  struct ObjectBase * D.237737;
+  sizetype D.237736;
+  long int D.237735;
+  int (*__vtbl_ptr_type) () * D.237734;
+  int (*__vtbl_ptr_type) () * D.237733;
+  struct Application * D.237732;
+  struct Application * D.237731;
+  int (*__vtbl_ptr_type) () D.237730;
+  int (*__vtbl_ptr_type) () * D.237729;
+  int (*__vtbl_ptr_type) () * D.237728;
+  struct ObjectBase * D.237727;
+  sizetype D.237726;
+  long int D.237725;
+  int (*__vtbl_ptr_type) () * D.237724;
+  int (*__vtbl_ptr_type) () * D.237723;
+  struct Application * D.237722;
+  struct Application * D.237721;
+  struct ObjectBase * D.237720;
+  sizetype D.237719;
+  long int D.237718;
+  int (*__vtbl_ptr_type) () * D.237717;
+  int (*__vtbl_ptr_type) () * D.237716;
+  struct Application * D.237715;
+  struct Application * D.237714;
+  struct Application * D.237711;
+  struct Application * D.237710;
+  struct Application * _2;
+  struct Application * _4;
+  struct Application * _5;
+  struct Application * _6;
+  int (*__vtbl_ptr_type) () * _7;
+  int (*__vtbl_ptr_type) () * _8;
+  long int _9;
+  sizetype _10;
+  struct ObjectBase * _11;
+  struct Application * _12;
+  struct Application * _13;
+  int (*__vtbl_ptr_type) () * _14;
+  int (*__vtbl_ptr_type) () * _15;
+  long int _16;
+  sizetype _17;
+  struct ObjectBase * _18;
+  int (*__vtbl_ptr_type) () * _19;
+  int (*__vtbl_ptr_type) () * _20;
+  int (*__vtbl_ptr_type) () _21;
+  struct Application * _22;
+  struct Application * _23;
+  int (*__vtbl_ptr_type) () * _24;
+  int (*__vtbl_ptr_type) () * _25;
+  long int _26;
+  sizetype _27;
+  struct ObjectBase * _28;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  _2 = src_1(D)->pCppObject_;
+  this_3(D)->pCppObject_ = _2;
+  _4 = this_3(D)->pCppObject_;
+  if (_4 != 0B)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  _5 = this_3(D)->pCppObject_;
+  _6 = this_3(D)->pCppObject_;
+  _7 = _6->D.181299.D.107647._vptr.Object;
+  _8 = _7 + 18446744073709551592;
+  _9 = MEM[(long int *)_8];
+  _10 = (sizetype) _9;
+  _11 = _5 + _10;
+  _12 = this_3(D)->pCppObject_;
+  _13 = this_3(D)->pCppObject_;
+  _14 = _13->D.181299.D.107647._vptr.Object;
+  _15 = _14 + 18446744073709551592;
+  _16 = MEM[(long int *)_15];
+  _17 = (sizetype) _16;
+  _18 = _12 + _17;
+  _19 = _18->_vptr.ObjectBase;
+  _20 = _19 + 16;
+  _21 = *_20;
+  _22 = this_3(D)->pCppObject_;
+  _23 = this_3(D)->pCppObject_;
+  _24 = _23->D.181299.D.107647._vptr.Object;
+  _25 = _24 + 18446744073709551592;
+  _26 = MEM[(long int *)_25];
+  _27 = (sizetype) _26;
+  _28 = _22 + _27;
+  OBJ_TYPE_REF(_21;(const struct ObjectBase)_11->2) (_28);
+;;    succ:       4
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;                3
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; _2 = src_1(D)->pCppObject_;
+
+(insn 7 6 8 (set (reg/f:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+
+(insn 8 7 0 (set (reg/f:DI 83 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 109) [0 src_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+
+;; this_3(D)->pCppObject_ = _2;
+
+(insn 9 8 10 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+
+(insn 10 9 0 (set (mem/f/j:DI (reg/f:DI 110) [0 this_3(D)->pCppObject_+0 S8 A64])
+        (reg/f:DI 83 [ D.237791 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+
+;; _4 = this_3(D)->pCppObject_;
+
+(insn 11 10 12 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+
+(insn 12 11 0 (set (reg/f:DI 84 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 111) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+
+;; if (_4 != 0B)
+
+(insn 13 12 14 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 84 [ D.237791 ])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+
+(jump_insn 14 13 0 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; _5 = this_3(D)->pCppObject_;
+
+(insn 16 15 17 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(insn 17 16 0 (set (reg/f:DI 85 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 112) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _6 = this_3(D)->pCppObject_;
+
+(insn 18 17 19 (set (reg/f:DI 113)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(insn 19 18 0 (set (reg/f:DI 86 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 113) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _7 = _6->D.181299.D.107647._vptr.Object;
+
+(insn 20 19 0 (set (reg/f:DI 87 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 86 [ D.237791 ]) [0 _6->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _8 = _7 + 18446744073709551592;
+
+(insn 21 20 0 (parallel [
+            (set (reg/f:DI 88 [ D.237792 ])
+                (plus:DI (reg/f:DI 87 [ D.237792 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _9 = MEM[(long int *)_8];
+
+(insn 22 21 0 (set (reg:DI 89 [ D.237793 ])
+        (mem:DI (reg/f:DI 88 [ D.237792 ]) [0 MEM[(long int *)_8]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _10 = (sizetype) _9;
+
+(insn 23 22 0 (set (reg:DI 90 [ D.237794 ])
+        (reg:DI 89 [ D.237793 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _11 = _5 + _10;
+
+(insn 24 23 0 (parallel [
+            (set (reg/f:DI 91 [ D.237795 ])
+                (plus:DI (reg/f:DI 85 [ D.237791 ])
+                    (reg:DI 90 [ D.237794 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _12 = this_3(D)->pCppObject_;
+
+(insn 25 24 26 (set (reg/f:DI 114)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(insn 26 25 0 (set (reg/f:DI 92 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 114) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _13 = this_3(D)->pCppObject_;
+
+(insn 27 26 28 (set (reg/f:DI 115)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(insn 28 27 0 (set (reg/f:DI 93 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 115) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _14 = _13->D.181299.D.107647._vptr.Object;
+
+(insn 29 28 0 (set (reg/f:DI 94 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 93 [ D.237791 ]) [0 _13->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _15 = _14 + 18446744073709551592;
+
+(insn 30 29 0 (parallel [
+            (set (reg/f:DI 95 [ D.237792 ])
+                (plus:DI (reg/f:DI 94 [ D.237792 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _16 = MEM[(long int *)_15];
+
+(insn 31 30 0 (set (reg:DI 96 [ D.237793 ])
+        (mem:DI (reg/f:DI 95 [ D.237792 ]) [0 MEM[(long int *)_15]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _17 = (sizetype) _16;
+
+(insn 32 31 0 (set (reg:DI 97 [ D.237794 ])
+        (reg:DI 96 [ D.237793 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _18 = _12 + _17;
+
+(insn 33 32 0 (parallel [
+            (set (reg/f:DI 98 [ D.237795 ])
+                (plus:DI (reg/f:DI 92 [ D.237791 ])
+                    (reg:DI 97 [ D.237794 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _19 = _18->_vptr.ObjectBase;
+
+(insn 34 33 0 (set (reg/f:DI 99 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 98 [ D.237795 ]) [0 _18->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _20 = _19 + 16;
+
+(insn 35 34 0 (parallel [
+            (set (reg/f:DI 100 [ D.237792 ])
+                (plus:DI (reg/f:DI 99 [ D.237792 ])
+                    (const_int 16 [0x10])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _21 = *_20;
+
+(insn 36 35 0 (set (reg/f:DI 101 [ D.237796 ])
+        (mem/f:DI (reg/f:DI 100 [ D.237792 ]) [0 *_20+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _22 = this_3(D)->pCppObject_;
+
+(insn 37 36 38 (set (reg/f:DI 116)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(insn 38 37 0 (set (reg/f:DI 102 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 116) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _23 = this_3(D)->pCppObject_;
+
+(insn 39 38 40 (set (reg/f:DI 117)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(insn 40 39 0 (set (reg/f:DI 103 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 117) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _24 = _23->D.181299.D.107647._vptr.Object;
+
+(insn 41 40 0 (set (reg/f:DI 104 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 103 [ D.237791 ]) [0 _23->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _25 = _24 + 18446744073709551592;
+
+(insn 42 41 0 (parallel [
+            (set (reg/f:DI 105 [ D.237792 ])
+                (plus:DI (reg/f:DI 104 [ D.237792 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _26 = MEM[(long int *)_25];
+
+(insn 43 42 0 (set (reg:DI 106 [ D.237793 ])
+        (mem:DI (reg/f:DI 105 [ D.237792 ]) [0 MEM[(long int *)_25]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _27 = (sizetype) _26;
+
+(insn 44 43 0 (set (reg:DI 107 [ D.237794 ])
+        (reg:DI 106 [ D.237793 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; _28 = _22 + _27;
+
+(insn 45 44 0 (parallel [
+            (set (reg/f:DI 108 [ D.237795 ])
+                (plus:DI (reg/f:DI 102 [ D.237791 ])
+                    (reg:DI 107 [ D.237794 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+;; OBJ_TYPE_REF(_21;_11->2) (_28);
+
+(insn 46 45 47 (set (reg:DI 5 di)
+        (reg/f:DI 108 [ D.237795 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+
+(call_insn 47 46 0 (call (mem:QI (reg/f:DI 101 [ D.237796 ]) [0 *OBJ_TYPE_REF(_21;(const struct ObjectBase)_11->2) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 48 47 49 20 "" [0 uses])
+
+(note 49 48 0 NOTE_INSN_BASIC_BLOCK)
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Edge 2->5 redirected to 6
+Merging block 5 into block 4...
+Merged blocks 4 and 5.
+Merged 4 and 5 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:218 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])
+        (reg:DI 4 si [ src ])) /usr/include/glibmm-2.4/glibmm/refptr.h:218 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 83 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 109) [0 src_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+(insn 9 8 10 2 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+(insn 10 9 11 2 (set (mem/f/j:DI (reg/f:DI 110) [0 this_3(D)->pCppObject_+0 S8 A64])
+        (reg/f:DI 83 [ D.237791 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 -1
+     (nil))
+(insn 11 10 12 2 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+(insn 12 11 13 2 (set (reg/f:DI 84 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 111) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+(insn 13 12 14 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 84 [ D.237791 ])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 -1
+     (nil))
+(jump_insn 14 13 15 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 50)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 596 {*jcc_1}
+     (nil)
+ -> 50)
+;;  succ:       4 (FALLTHRU)
+;;              6
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 15 14 16 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 16 15 17 4 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 17 16 18 4 (set (reg/f:DI 85 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 112) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 18 17 19 4 (set (reg/f:DI 113)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 19 18 20 4 (set (reg/f:DI 86 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 113) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 20 19 21 4 (set (reg/f:DI 87 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 86 [ D.237791 ]) [0 _6->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 21 20 22 4 (parallel [
+            (set (reg/f:DI 88 [ D.237792 ])
+                (plus:DI (reg/f:DI 87 [ D.237792 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 22 21 23 4 (set (reg:DI 89 [ D.237793 ])
+        (mem:DI (reg/f:DI 88 [ D.237792 ]) [0 MEM[(long int *)_8]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 23 22 24 4 (set (reg:DI 90 [ D.237794 ])
+        (reg:DI 89 [ D.237793 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 24 23 25 4 (parallel [
+            (set (reg/f:DI 91 [ D.237795 ])
+                (plus:DI (reg/f:DI 85 [ D.237791 ])
+                    (reg:DI 90 [ D.237794 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 25 24 26 4 (set (reg/f:DI 114)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 26 25 27 4 (set (reg/f:DI 92 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 114) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 27 26 28 4 (set (reg/f:DI 115)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 28 27 29 4 (set (reg/f:DI 93 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 115) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 29 28 30 4 (set (reg/f:DI 94 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 93 [ D.237791 ]) [0 _13->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 30 29 31 4 (parallel [
+            (set (reg/f:DI 95 [ D.237792 ])
+                (plus:DI (reg/f:DI 94 [ D.237792 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 31 30 32 4 (set (reg:DI 96 [ D.237793 ])
+        (mem:DI (reg/f:DI 95 [ D.237792 ]) [0 MEM[(long int *)_15]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 32 31 33 4 (set (reg:DI 97 [ D.237794 ])
+        (reg:DI 96 [ D.237793 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 33 32 34 4 (parallel [
+            (set (reg/f:DI 98 [ D.237795 ])
+                (plus:DI (reg/f:DI 92 [ D.237791 ])
+                    (reg:DI 97 [ D.237794 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 34 33 35 4 (set (reg/f:DI 99 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 98 [ D.237795 ]) [0 _18->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 35 34 36 4 (parallel [
+            (set (reg/f:DI 100 [ D.237792 ])
+                (plus:DI (reg/f:DI 99 [ D.237792 ])
+                    (const_int 16 [0x10])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 36 35 37 4 (set (reg/f:DI 101 [ D.237796 ])
+        (mem/f:DI (reg/f:DI 100 [ D.237792 ]) [0 *_20+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 37 36 38 4 (set (reg/f:DI 116)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 38 37 39 4 (set (reg/f:DI 102 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 116) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 39 38 40 4 (set (reg/f:DI 117)
+        (mem/f/c:DI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 40 39 41 4 (set (reg/f:DI 103 [ D.237791 ])
+        (mem/f/j:DI (reg/f:DI 117) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 41 40 42 4 (set (reg/f:DI 104 [ D.237792 ])
+        (mem/f/j:DI (reg/f:DI 103 [ D.237791 ]) [0 _23->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 42 41 43 4 (parallel [
+            (set (reg/f:DI 105 [ D.237792 ])
+                (plus:DI (reg/f:DI 104 [ D.237792 ])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 43 42 44 4 (set (reg:DI 106 [ D.237793 ])
+        (mem:DI (reg/f:DI 105 [ D.237792 ]) [0 MEM[(long int *)_25]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 44 43 45 4 (set (reg:DI 107 [ D.237794 ])
+        (reg:DI 106 [ D.237793 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 45 44 46 4 (parallel [
+            (set (reg/f:DI 108 [ D.237795 ])
+                (plus:DI (reg/f:DI 102 [ D.237791 ])
+                    (reg:DI 107 [ D.237794 ])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(insn 46 45 47 4 (set (reg:DI 5 di)
+        (reg/f:DI 108 [ D.237795 ])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil))
+(call_insn 47 46 50 4 (call (mem:QI (reg/f:DI 101 [ D.237796 ]) [0 *OBJ_TYPE_REF(_21;(const struct ObjectBase)_11->2) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+;;              2
+(code_label 50 47 51 6 19 "" [1 uses])
+(note 51 50 0 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+
+
+;; Function void __static_initialization_and_destruction_0(int, int) (_Z41__static_initialization_and_destruction_0ii, funcdef_no=8152, decl_uid=237688, symbol_order=3706)
+
+void __static_initialization_and_destruction_0(int, int) (int __initialize_p, int __priority)
+{
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  if (__initialize_p_1(D) == 1)
+    goto <bb 3>;
+  else
+    goto <bb 5>;
+;;    succ:       3
+;;                5
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  if (__priority_2(D) == 65535)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+;;    succ:       4
+;;                5
+
+;;   basic block 4, loop depth 0
+;;    pred:       3
+  std::ios_base::Init::Init (&__ioinit);
+  __cxa_atexit (__comp_dtor , &__ioinit, &__dso_handle);
+;;    succ:       5
+
+;;   basic block 5, loop depth 0
+;;    pred:       2
+;;                4
+;;                3
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (__initialize_p_1(D) - 1 )
+Partition 2 (__priority_2(D) - 2 )
+
+
+Partition map 
+
+Partition 0 (__initialize_p_1(D) - 1 )
+Partition 1 (__priority_2(D) - 2 )
+
+
+Live on entry to BB2 : __initialize_p_1(D)  __priority_2(D)  
+
+Live on entry to BB3 : __priority_2(D)  
+
+Live on entry to BB4 : 
+
+Live on entry to BB5 : 
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (__initialize_p_1(D) - 1 )
+Partition 1 (__priority_2(D) - 2 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (__initialize_p_1(D) - 1 )
+Partition 1 (__priority_2(D) - 2 )
+
+void __static_initialization_and_destruction_0(int, int) (int __initialize_p, int __priority)
+{
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  if (__initialize_p_1(D) == 1)
+    goto <bb 3>;
+  else
+    goto <bb 5>;
+;;    succ:       3
+;;                5
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  if (__priority_2(D) == 65535)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+;;    succ:       4
+;;                5
+
+;;   basic block 4, loop depth 0
+;;    pred:       3
+  std::ios_base::Init::Init (&__ioinit);
+  __cxa_atexit (__comp_dtor , &__ioinit, &__dso_handle);
+;;    succ:       5
+
+;;   basic block 5, loop depth 0
+;;    pred:       2
+;;                4
+;;                3
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; if (__initialize_p_1(D) == 1)
+
+(insn 7 6 8 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+            (const_int 1 [0x1]))) src/atlas.cpp:107 -1
+     (nil))
+
+(jump_insn 8 7 0 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) src/atlas.cpp:107 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; if (__priority_2(D) == 65535)
+
+(insn 10 9 11 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+            (const_int 65535 [0xffff]))) src/atlas.cpp:107 -1
+     (nil))
+
+(jump_insn 11 10 0 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) src/atlas.cpp:107 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 4
+
+;; std::ios_base::Init::Init (&__ioinit);
+
+(insn 13 12 14 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7f103ad88be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+
+(call_insn 14 13 0 (call (mem:QI (symbol_ref:DI ("_ZNSt8ios_base4InitC1Ev") [flags 0x41]  <function_decl 0x7f1042ec2e00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; __cxa_atexit (__comp_dtor , &__ioinit, &__dso_handle);
+
+(insn 15 14 16 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7f103a6dcda8 __dso_handle>)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+
+(insn 16 15 17 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7f103ad88be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+
+(insn 17 16 18 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZNSt8ios_base4InitD1Ev") [flags 0x41]  <function_decl 0x7f1042ec9000 __comp_dtor >)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+
+(call_insn 18 17 0 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7f103a6d9e00 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) /usr/include/c++/4.9.2/iostream:74 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+
+;; Generating RTL for gimple basic block 5
+
+;; 
+
+(code_label 19 18 20 22 "" [0 uses])
+
+(note 20 19 0 NOTE_INSN_BASIC_BLOCK)
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Edge 2->6 redirected to 7
+Edge 4->6 redirected to 7
+Merging block 6 into block 5...
+Merged blocks 5 and 6.
+Merged 5 and 6 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+        (reg:SI 5 di [ __initialize_p ])) src/atlas.cpp:107 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+        (reg:SI 4 si [ __priority ])) src/atlas.cpp:107 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+            (const_int 1 [0x1]))) src/atlas.cpp:107 -1
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 21)
+            (pc))) src/atlas.cpp:107 596 {*jcc_1}
+     (nil)
+ -> 21)
+;;  succ:       4 (FALLTHRU)
+;;              7
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       2 (FALLTHRU)
+(note 9 8 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 78 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+            (const_int 65535 [0xffff]))) src/atlas.cpp:107 -1
+     (nil))
+(jump_insn 11 10 12 4 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 21)
+            (pc))) src/atlas.cpp:107 596 {*jcc_1}
+     (nil)
+ -> 21)
+;;  succ:       5 (FALLTHRU)
+;;              7
+
+;; basic block 5, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 12 11 13 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 5 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7f103ad88be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+(call_insn 14 13 15 5 (call (mem:QI (symbol_ref:DI ("_ZNSt8ios_base4InitC1Ev") [flags 0x41]  <function_decl 0x7f1042ec2e00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 15 14 16 5 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7f103a6dcda8 __dso_handle>)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+(insn 16 15 17 5 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7f103ad88be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+(insn 17 16 18 5 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZNSt8ios_base4InitD1Ev") [flags 0x41]  <function_decl 0x7f1042ec9000 __comp_dtor >)) /usr/include/c++/4.9.2/iostream:74 -1
+     (nil))
+(call_insn 18 17 21 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7f103a6d9e00 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) /usr/include/c++/4.9.2/iostream:74 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+;;  succ:       7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+;;              2
+;;              4
+(code_label 21 18 22 7 21 "" [2 uses])
+(note 22 21 0 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+
+
+;; Function (static initializers for src/atlas.cpp) (_GLOBAL__sub_I_main, funcdef_no=8153, decl_uid=237694, symbol_order=4231)
+
+(static initializers for src/atlas.cpp) ()
+{
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  __static_initialization_and_destruction_0 (1, 65535);
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+
+After Coalescing:
+
+Partition map 
+
+
+(static initializers for src/atlas.cpp) ()
+{
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  __static_initialization_and_destruction_0 (1, 65535);
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; __static_initialization_and_destruction_0 (1, 65535);
+
+(insn 5 4 6 (set (reg:SI 4 si)
+        (const_int 65535 [0xffff])) src/atlas.cpp:107 -1
+     (nil))
+
+(insn 6 5 7 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) src/atlas.cpp:107 -1
+     (nil))
+
+(call_insn 7 6 0 (call (mem:QI (symbol_ref:DI ("_Z41__static_initialization_and_destruction_0ii") [flags 0x3]  <function_decl 0x7f103a6d9d00 __static_initialization_and_destruction_0>) [0 __static_initialization_and_destruction_0 S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:107 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:SI 4 si)
+        (const_int 65535 [0xffff])) src/atlas.cpp:107 -1
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) src/atlas.cpp:107 -1
+     (nil))
+(call_insn 7 6 0 2 (call (mem:QI (symbol_ref:DI ("_Z41__static_initialization_and_destruction_0ii") [flags 0x3]  <function_decl 0x7f103a6d9d00 __static_initialization_and_destruction_0>) [0 __static_initialization_and_destruction_0 S1 A8])
+        (const_int 0 [0])) src/atlas.cpp:107 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+

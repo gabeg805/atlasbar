@@ -1,0 +1,2374 @@
+
+;; Function StatusBar::StatusBar(Glib::RefPtr<Gtk::Application>) (_ZN9StatusBarC2EN4Glib6RefPtrIN3Gtk11ApplicationEEE, funcdef_no=7428, decl_uid=231313, symbol_order=2925)
+
+
+
+StatusBar::StatusBar(Glib::RefPtr<Gtk::Application>)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 3 [bx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 3 [bx] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 3[bx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={17d,8u} r1={11d,1u} r2={9d} r3={3d,3u} r4={14d,6u} r5={17d,9u} r6={3d,14u} r7={7d,22u} r8={8d} r9={8d} r10={8d} r11={8d} r12={8d} r13={8d} r14={8d} r15={8d} r16={1u} r17={10d} r18={8d} r19={8d} r20={1d,2u} r21={9d} r22={9d} r23={9d} r24={9d} r25={9d} r26={9d} r27={9d} r28={9d} r29={8d} r30={8d} r31={8d} r32={8d} r33={8d} r34={8d} r35={8d} r36={8d} r37={9d} r38={9d} r39={8d} r40={8d} r45={8d} r46={8d} r47={8d} r48={8d} r49={8d} r50={8d} r51={8d} r52={8d} r53={8d} r54={8d} r55={8d} r56={8d} r57={8d} r58={8d} r59={8d} r60={8d} r61={8d} r62={8d} r63={8d} r64={8d} r65={8d} r66={8d} r67={8d} r68={8d} r69={8d} r70={8d} r71={8d} r72={8d} r73={8d} r74={8d} r75={8d} r76={8d} 
+;;    total ref usage 664{598d,66u,0e} in 42{34 regular + 8 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 56 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 56 5 57 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:60 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 57 56 58 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:60 89 {*movdi_internal}
+     (nil))
+(insn/f 58 57 59 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg:DI 3 bx)) src/StatusBar.cpp:60 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 59 58 60 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -40 [0xffffffffffffffd8])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:60 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 60 59 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 60 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:60 89 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -48 [0xffffffffffffffd0])) [0 mainApp+0 S8 A64])
+        (reg:DI 4 si [ mainApp ])) src/StatusBar.cpp:60 89 {*movdi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:DI 0 ax [84])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:60 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (mem/f/j:DI (reg/f:DI 0 ax [84]) [0 this_1(D)->_vptr.StatusBar+0 S8 A64])
+        (const:DI (plus:DI (symbol_ref/i:DI ("_ZTV9StatusBar")  <var_decl 0x7fe75aa3eed8 _ZTV9StatusBar>)
+                (const_int 16 [0x10])))) src/StatusBar.cpp:60 89 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 0 ax [85])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -48 [0xffffffffffffffd0])) [0 mainApp+0 S8 A64])) src/StatusBar.cpp:61 89 {*movdi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg:DI 4 si)
+        (reg:DI 0 ax [85])) src/StatusBar.cpp:61 89 {*movdi_internal}
+     (nil))
+(insn 11 10 67 2 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3appE") [flags 0x2]  <var_decl 0x7fe75aa3eab0 app>)) src/StatusBar.cpp:61 89 {*movdi_internal}
+     (nil))
+(note 67 11 12 2 0 NOTE_INSN_EH_REGION_BEG)
+(call_insn 12 67 54 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEEaSERKS3_") [flags 0x1]  <function_decl 0x7fe75aa49600 operator=>) [0 operator= S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:61 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 54 12 14 2 (set (reg:DI 0 ax [86])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:62 214 {*leadi}
+     (nil))
+(insn 14 54 15 2 (set (reg:DI 4 si)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fe75a4261c8 *.LC0>)) src/StatusBar.cpp:62 89 {*movdi_internal}
+     (nil))
+(insn 15 14 16 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [86])) src/StatusBar.cpp:62 89 {*movdi_internal}
+     (nil))
+(call_insn 16 15 68 2 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringC1EPKc") [flags 0x41]  <function_decl 0x7fe762551a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:62 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 68 16 55 2 0 NOTE_INSN_EH_REGION_END)
+(insn 55 68 18 2 (set (reg:DI 0 ax [87])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:62 214 {*leadi}
+     (nil))
+(insn 18 55 19 2 (set (reg:DI 4 si)
+        (reg:DI 0 ax [87])) src/StatusBar.cpp:62 89 {*movdi_internal}
+     (nil))
+(insn 19 18 69 2 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:62 89 {*movdi_internal}
+     (nil))
+(note 69 19 20 2 1 NOTE_INSN_EH_REGION_BEG)
+(call_insn 20 69 70 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk6Window9set_titleERKN4Glib7ustringE") [flags 0x41]  <function_decl 0x7fe75cbcb800 set_title>) [0 set_title S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:62 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 1 [0x1])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 70 20 21 1 NOTE_INSN_EH_REGION_END)
+(note 21 70 53 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 53 21 23 3 (set (reg:DI 0 ax [88])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:62 214 {*leadi}
+     (nil))
+(insn 23 53 71 3 (set (reg:DI 5 di)
+        (reg:DI 0 ax [88])) src/StatusBar.cpp:62 89 {*movdi_internal}
+     (nil))
+(note 71 23 24 3 2 NOTE_INSN_EH_REGION_BEG)
+(call_insn 24 71 25 3 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7fe76255d600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:62 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 25 24 26 3 (set (reg:SI 1 dx)
+        (const_int 100 [0x64])) src/StatusBar.cpp:63 90 {*movsi_internal}
+     (nil))
+(insn 26 25 27 3 (set (reg:SI 4 si)
+        (const_int 1366 [0x556])) src/StatusBar.cpp:63 90 {*movsi_internal}
+     (nil))
+(insn 27 26 28 3 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:63 89 {*movdi_internal}
+     (nil))
+(call_insn 28 27 29 3 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk6Window16set_default_sizeEii") [flags 0x41]  <function_decl 0x7fe75cbeba00 set_default_size>) [0 set_default_size S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:63 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (nil)))))
+(insn 29 28 30 3 (set (reg:SI 4 si)
+        (const_int 0 [0])) src/StatusBar.cpp:65 90 {*movsi_internal}
+     (nil))
+(insn 30 29 31 3 (set (reg:DI 5 di)
+        (const:DI (plus:DI (symbol_ref:DI ("_ZN9StatusBar3barE") [flags 0x2]  <var_decl 0x7fe75aa3ec78 bar>)
+                (const_int 32 [0x20])))) src/StatusBar.cpp:65 89 {*movdi_internal}
+     (nil))
+(call_insn 31 30 72 3 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk10Orientable15set_orientationENS_11OrientationE") [flags 0x41]  <function_decl 0x7fe75cc20a00 set_orientation>) [0 set_orientation S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:65 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(note 72 31 49 3 2 NOTE_INSN_EH_REGION_END)
+(jump_insn 49 72 50 3 (set (pc)
+        (label_ref 48)) 636 {jump}
+     (nil)
+ -> 48)
+(barrier 50 49 45)
+(code_label/s 45 50 47 4 3 "" [1 uses])
+(note 47 45 46 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 46 47 52 4 (set (reg:DI 3 bx [90])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 52 46 37 4 (set (reg:DI 0 ax [89])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:62 214 {*leadi}
+     (nil))
+(insn 37 52 38 4 (set (reg:DI 5 di)
+        (reg:DI 0 ax [89])) src/StatusBar.cpp:62 89 {*movdi_internal}
+     (nil))
+(call_insn 38 37 39 4 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7fe76255d600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:62 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -2 [0xfffffffffffffffe])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 39 38 40 4 (set (reg/f:DI 0 ax [orig:83 D.237911 ] [83])
+        (reg:DI 3 bx [90])) 89 {*movdi_internal}
+     (nil))
+(insn 40 39 73 4 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:83 D.237911 ] [83])) 89 {*movdi_internal}
+     (nil))
+(note 73 40 41 4 3 NOTE_INSN_EH_REGION_BEG)
+(call_insn 41 73 74 4 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7fe7681ae300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 74 41 42 3 NOTE_INSN_EH_REGION_END)
+(barrier 42 74 48)
+(code_label 48 42 44 5 4 "" [1 uses])
+(note 44 48 61 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(note 61 44 62 5 NOTE_INSN_EPILOGUE_BEG)
+(insn 62 61 63 5 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 40 [0x28])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:72 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(insn 63 62 64 5 (set (reg:DI 3 bx)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/StatusBar.cpp:72 75 {*popdi1}
+     (nil))
+(insn/f 64 63 65 5 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/StatusBar.cpp:72 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 65 64 66 5 (simple_return) src/StatusBar.cpp:72 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 66 65 51)
+(note 51 66 0 NOTE_INSN_DELETED)
+
+;; Function int StatusBar::run() (_ZN9StatusBar3runEv, funcdef_no=7430, decl_uid=231302, symbol_order=2927)
+
+
+
+int StatusBar::run()
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 0 [ax] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 4[si] 5[di] 6[bp] 7[sp]
+;;  ref usage 	r0={5d,3u} r1={5d} r2={5d} r4={8d,3u} r5={9d,5u} r6={3d,6u} r7={4d,11u} r8={4d} r9={4d} r10={4d} r11={4d} r12={4d} r13={4d} r14={4d} r15={4d} r17={5d} r18={4d} r19={4d} r20={1d,1u} r21={5d} r22={5d} r23={5d} r24={5d} r25={5d} r26={5d} r27={5d} r28={5d} r29={4d} r30={4d} r31={4d} r32={4d} r33={4d} r34={4d} r35={4d} r36={4d} r37={5d} r38={5d} r39={4d} r40={4d} r45={4d} r46={4d} r47={4d} r48={4d} r49={4d} r50={4d} r51={4d} r52={4d} r53={4d} r54={4d} r55={4d} r56={4d} r57={4d} r58={4d} r59={4d} r60={4d} r61={4d} r62={4d} r63={4d} r64={4d} r65={4d} r66={4d} r67={4d} r68={4d} r69={4d} r70={4d} r71={4d} r72={4d} r73={4d} r74={4d} r75={4d} r76={4d} 
+;;    total ref usage 332{303d,29u,0e} in 18{14 regular + 4 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 29 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 29 4 30 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:74 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 30 29 31 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:74 89 {*movdi_internal}
+     (nil))
+(insn/f 31 30 32 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:74 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 32 31 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 32 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:74 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZN9StatusBar3barE") [flags 0x2]  <var_decl 0x7fe75aa3ec78 bar>)) src/StatusBar.cpp:75 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:75 89 {*movdi_internal}
+     (nil))
+(call_insn 8 7 9 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk9Container3addERNS_6WidgetE") [flags 0x41]  <function_decl 0x7fe75cafae00 add>) [0 add S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:75 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 9 8 10 2 (set (reg:SI 4 si)
+        (const_int 1 [0x1])) src/StatusBar.cpp:76 90 {*movsi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:76 89 {*movdi_internal}
+     (nil))
+(call_insn 11 10 12 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk9Container17show_all_childrenEb") [flags 0x41]  <function_decl 0x7fe75cb09f00 show_all_children>) [0 show_all_children S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:76 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(insn 12 11 13 2 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3appE") [flags 0x2]  <var_decl 0x7fe75aa3eab0 app>)) src/StatusBar.cpp:78 89 {*movdi_internal}
+     (nil))
+(call_insn 13 12 15 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref/i:DI ("_ZNK4Glib6RefPtrIN3Gtk11ApplicationEEptEv") [flags 0x1]  <function_decl 0x7fe75aa49a00 operator->>) [0 operator-> S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:78 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 15 13 16 2 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:78 89 {*movdi_internal}
+     (nil))
+(insn 16 15 17 2 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:83 D.237913 ] [83])) src/StatusBar.cpp:78 89 {*movdi_internal}
+     (nil))
+(call_insn 17 16 26 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("_ZN3Gtk11Application3runERNS_6WindowE") [flags 0x41]  <function_decl 0x7fe75cb7fb00 run>) [0 run S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:78 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 26 17 33 2 (use (reg/i:SI 0 ax)) src/StatusBar.cpp:79 -1
+     (nil))
+(note 33 26 34 2 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 34 33 35 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:79 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 35 34 36 2 (simple_return) src/StatusBar.cpp:79 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 36 35 28)
+(note 28 36 0 NOTE_INSN_DELETED)
+
+;; Function StatusBar::~StatusBar() (_ZN9StatusBarD2Ev, funcdef_no=7432, decl_uid=231322, symbol_order=2929)
+
+
+
+StatusBar::~StatusBar()
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={5d,3u} r1={2d} r2={2d} r4={2d} r5={3d,2u} r6={3d,10u} r7={4d,10u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={3d,1u} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 124{97d,27u,0e} in 14{13 regular + 1 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 22 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 22 4 23 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:82 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 23 22 24 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:82 89 {*movdi_internal}
+     (nil))
+(insn/f 24 23 25 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:82 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 25 24 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 25 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:82 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [84])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:82 89 {*movdi_internal}
+     (nil))
+(insn 7 6 10 2 (set (mem/f/j:DI (reg/f:DI 0 ax [84]) [0 this_1(D)->_vptr.StatusBar+0 S8 A64])
+        (const:DI (plus:DI (symbol_ref/i:DI ("_ZTV9StatusBar")  <var_decl 0x7fe75aa3eed8 _ZTV9StatusBar>)
+                (const_int 16 [0x10])))) src/StatusBar.cpp:82 89 {*movdi_internal}
+     (nil))
+(insn 10 7 11 2 (set (reg:SI 0 ax [orig:83 D.237915 ] [83])
+        (const_int 0 [0])) src/StatusBar.cpp:84 90 {*movsi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 0 ax [orig:83 D.237915 ] [83])
+            (const_int 0 [0]))) src/StatusBar.cpp:84 3 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 12 11 13 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 19)
+            (pc))) src/StatusBar.cpp:84 596 {*jcc_1}
+     (nil)
+ -> 19)
+(note 13 12 14 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 14 13 15 3 (set (reg:DI 0 ax [85])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:84 89 {*movdi_internal}
+     (nil))
+(insn 15 14 16 3 (set (reg:DI 5 di)
+        (reg:DI 0 ax [85])) src/StatusBar.cpp:84 89 {*movdi_internal}
+     (nil))
+(call_insn 16 15 19 3 (call (mem:QI (symbol_ref:DI ("_ZdlPv") [flags 0x41]  <function_decl 0x7fe7681b4100 operator delete>) [0 operator delete S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:84 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 19 16 20 4 7 "" [1 uses])
+(note 20 19 26 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(note 26 20 27 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 27 26 28 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:84 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 28 27 29 4 (simple_return) src/StatusBar.cpp:84 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 29 28 21)
+(note 21 29 0 NOTE_INSN_DELETED)
+
+;; Function virtual StatusBar::~StatusBar() (_ZN9StatusBarD0Ev, funcdef_no=7434, decl_uid=231316, symbol_order=2931)
+
+
+
+virtual StatusBar::~StatusBar()
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 5[di] 6[bp] 7[sp]
+;;  ref usage 	r0={5d,2u} r1={3d} r2={3d} r4={3d} r5={5d,3u} r6={3d,8u} r7={4d,9u} r8={2d} r9={2d} r10={2d} r11={2d} r12={2d} r13={2d} r14={2d} r15={2d} r17={3d} r18={2d} r19={2d} r20={1d,1u} r21={3d} r22={3d} r23={3d} r24={3d} r25={3d} r26={3d} r27={3d} r28={3d} r29={2d} r30={2d} r31={2d} r32={2d} r33={2d} r34={2d} r35={2d} r36={2d} r37={3d} r38={3d} r39={2d} r40={2d} r45={2d} r46={2d} r47={2d} r48={2d} r49={2d} r50={2d} r51={2d} r52={2d} r53={2d} r54={2d} r55={2d} r56={2d} r57={2d} r58={2d} r59={2d} r60={2d} r61={2d} r62={2d} r63={2d} r64={2d} r65={2d} r66={2d} r67={2d} r68={2d} r69={2d} r70={2d} r71={2d} r72={2d} r73={2d} r74={2d} r75={2d} r76={2d} 
+;;    total ref usage 187{164d,23u,0e} in 12{10 regular + 2 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 17 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 17 4 18 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:82 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 18 17 19 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:82 89 {*movdi_internal}
+     (nil))
+(insn/f 19 18 20 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:82 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 20 19 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 20 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:82 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:DI 0 ax [83])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:84 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [83])) src/StatusBar.cpp:84 89 {*movdi_internal}
+     (nil))
+(call_insn 8 7 11 2 (call (mem:QI (symbol_ref:DI ("_ZN9StatusBarD2Ev") [flags 0x3]  <function_decl 0x7fe75aa43300 __base_dtor >) [0 __base_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:84 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 11 8 12 2 (set (reg:DI 0 ax [84])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:84 89 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [84])) src/StatusBar.cpp:84 89 {*movdi_internal}
+     (nil))
+(call_insn 13 12 21 2 (call (mem:QI (symbol_ref:DI ("_ZdlPv") [flags 0x41]  <function_decl 0x7fe7681b4100 operator delete>) [0 operator delete S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:84 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 21 13 22 2 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 22 21 23 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:84 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 23 22 24 2 (simple_return) src/StatusBar.cpp:84 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 24 23 16)
+(note 16 24 0 NOTE_INSN_DELETED)
+
+;; Function BarLabel::BarLabel() (_ZN8BarLabelC2Ev, funcdef_no=7436, decl_uid=231339, symbol_order=2933)
+
+
+
+BarLabel::BarLabel()
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 3 [bx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 3 [bx] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 3[bx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={30d,19u} r1={15d,2u} r2={12d,1u} r3={4d,3u} r4={16d,5u} r5={21d,11u} r6={3d,25u} r7={7d,31u} r8={10d} r9={10d} r10={10d} r11={10d} r12={10d} r13={10d} r14={10d} r15={10d} r16={2u} r17={17d} r18={10d} r19={10d} r20={1d,3u,5e} r21={11d} r22={11d} r23={11d} r24={11d} r25={11d} r26={11d} r27={11d} r28={11d} r29={10d} r30={10d} r31={10d} r32={10d} r33={10d} r34={10d} r35={10d} r36={10d} r37={11d} r38={11d} r39={10d} r40={10d} r45={10d} r46={10d} r47={10d} r48={10d} r49={10d} r50={10d} r51={10d} r52={10d} r53={10d} r54={10d} r55={10d} r56={10d} r57={10d} r58={10d} r59={10d} r60={10d} r61={10d} r62={10d} r63={10d} r64={10d} r65={10d} r66={10d} r67={10d} r68={10d} r69={10d} r70={10d} r71={10d} r72={10d} r73={10d} r74={10d} r75={10d} r76={10d} 
+;;    total ref usage 863{756d,102u,5e} in 59{49 regular + 10 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 91 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 91 4 92 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:88 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 92 91 93 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(insn/f 93 92 94 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg:DI 3 bx)) src/StatusBar.cpp:88 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 94 93 95 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -40 [0xffffffffffffffd8])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:88 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 95 94 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 95 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [90])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (mem/f/j:DI (reg/f:DI 0 ax [90]) [0 this_1(D)->_vptr.BarLabel+0 S8 A64])
+        (const:DI (plus:DI (symbol_ref/i:DI ("_ZTV8BarLabel")  <var_decl 0x7fe75aa46390 _ZTV8BarLabel>)
+                (const_int 16 [0x10])))) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 0 ax [91])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (parallel [
+            (set (reg/f:DI 0 ax [orig:83 D.237917 ] [83])
+                (plus:DI (reg/f:DI 0 ax [91])
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:88 221 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                    (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])
+            (const_int 8 [0x8]))
+        (nil)))
+(insn 10 9 102 2 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:83 D.237917 ] [83])) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(note 102 10 11 2 4 NOTE_INSN_EH_REGION_BEG)
+(call_insn 11 102 103 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk5LabelC1Ev") [flags 0x41]  <function_decl 0x7fe75c5c1d00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:88 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 103 11 90 2 4 NOTE_INSN_EH_REGION_END)
+(insn 90 103 13 2 (set (reg:DI 0 ax [92])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:89 214 {*leadi}
+     (nil))
+(insn 13 90 14 2 (set (reg:DI 4 si)
+        (symbol_ref/f:DI ("*.LC1") [flags 0x2]  <var_decl 0x7fe75a42ea18 *.LC1>)) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(insn 14 13 104 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [92])) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(note 104 14 15 2 5 NOTE_INSN_EH_REGION_BEG)
+(call_insn 15 104 105 2 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringC1EPKc") [flags 0x41]  <function_decl 0x7fe762551a00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:89 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 1 [0x1])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 105 15 16 5 NOTE_INSN_EH_REGION_END)
+(note 16 105 17 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 88 3 (set (reg/f:DI 0 ax [93])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(insn 88 17 89 3 (set (reg/f:DI 1 dx [orig:84 D.237917 ] [84])
+        (plus:DI (reg/f:DI 0 ax [93])
+            (const_int 8 [0x8]))) src/StatusBar.cpp:89 214 {*leadi}
+     (nil))
+(insn 89 88 20 3 (set (reg:DI 0 ax [94])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:89 214 {*leadi}
+     (nil))
+(insn 20 89 21 3 (set (reg:DI 4 si)
+        (reg:DI 0 ax [94])) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(insn 21 20 106 3 (set (reg:DI 5 di)
+        (reg/f:DI 1 dx [orig:84 D.237917 ] [84])) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(note 106 21 22 3 6 NOTE_INSN_EH_REGION_BEG)
+(call_insn 22 106 107 3 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk5Label8set_textERKN4Glib7ustringE") [flags 0x41]  <function_decl 0x7fe75c5a5a00 set_text>) [0 set_text S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:89 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 2 [0x2])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(note 107 22 23 6 NOTE_INSN_EH_REGION_END)
+(note 23 107 87 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 87 23 25 4 (set (reg:DI 0 ax [95])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:89 214 {*leadi}
+     (nil))
+(insn 25 87 108 4 (set (reg:DI 5 di)
+        (reg:DI 0 ax [95])) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(note 108 25 26 4 7 NOTE_INSN_EH_REGION_BEG)
+(call_insn 26 108 27 4 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7fe76255d600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:89 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 1 [0x1])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 27 26 28 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 28 27 29 5 (set (reg/f:DI 0 ax [96])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:90 89 {*movdi_internal}
+     (nil))
+(insn 29 28 30 5 (parallel [
+            (set (reg/f:DI 0 ax [orig:85 D.237918 ] [85])
+                (plus:DI (reg/f:DI 0 ax [96])
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:90 221 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                    (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])
+            (const_int 8 [0x8]))
+        (nil)))
+(insn 30 29 31 5 (set (reg:SI 4 si)
+        (const_int 1 [0x1])) src/StatusBar.cpp:90 90 {*movsi_internal}
+     (nil))
+(insn 31 30 32 5 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:85 D.237918 ] [85])) src/StatusBar.cpp:90 89 {*movdi_internal}
+     (nil))
+(call_insn 32 31 33 5 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk6Widget10set_halignENS_5AlignE") [flags 0x41]  <function_decl 0x7fe75cddcc00 set_halign>) [0 set_halign S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:90 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 1 [0x1])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(note 33 32 34 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 34 33 35 6 (set (reg/f:DI 0 ax [97])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:91 89 {*movdi_internal}
+     (nil))
+(insn 35 34 36 6 (parallel [
+            (set (reg/f:DI 0 ax [orig:86 D.237918 ] [86])
+                (plus:DI (reg/f:DI 0 ax [97])
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:91 221 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                    (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])
+            (const_int 8 [0x8]))
+        (nil)))
+(insn 36 35 37 6 (set (reg:SI 4 si)
+        (const_int 1 [0x1])) src/StatusBar.cpp:91 90 {*movsi_internal}
+     (nil))
+(insn 37 36 38 6 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:86 D.237918 ] [86])) src/StatusBar.cpp:91 89 {*movdi_internal}
+     (nil))
+(call_insn 38 37 39 6 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk6Widget10set_valignENS_5AlignE") [flags 0x41]  <function_decl 0x7fe75cddcf00 set_valign>) [0 set_valign S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:91 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 1 [0x1])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(note 39 38 40 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 40 39 41 7 (set (reg/f:DI 0 ax [98])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:93 89 {*movdi_internal}
+     (nil))
+(insn 41 40 42 7 (parallel [
+            (set (reg/f:DI 0 ax [orig:87 D.237918 ] [87])
+                (plus:DI (reg/f:DI 0 ax [98])
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:93 221 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                    (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])
+            (const_int 8 [0x8]))
+        (nil)))
+(insn 42 41 43 7 (set (reg:SI 2 cx)
+        (const_int 0 [0])) src/StatusBar.cpp:93 90 {*movsi_internal}
+     (nil))
+(insn 43 42 44 7 (set (reg:SI 1 dx)
+        (const_int 0 [0])) src/StatusBar.cpp:93 90 {*movsi_internal}
+     (nil))
+(insn 44 43 45 7 (set (reg:DI 4 si)
+        (reg/f:DI 0 ax [orig:87 D.237918 ] [87])) src/StatusBar.cpp:93 89 {*movdi_internal}
+     (nil))
+(insn 45 44 46 7 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3barE") [flags 0x2]  <var_decl 0x7fe75aa3ec78 bar>)) src/StatusBar.cpp:93 89 {*movdi_internal}
+     (nil))
+(call_insn 46 45 109 7 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk3Box10pack_startERNS_6WidgetENS_11PackOptionsEj") [flags 0x41]  <function_decl 0x7fe75cc33800 pack_start>) [0 pack_start S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:93 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 1 [0x1])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:SI (use (reg:SI 2 cx))
+                    (nil))))))
+(note 109 46 79 7 NOTE_INSN_EH_REGION_END)
+(note 79 109 81 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 81 79 82 8 (set (pc)
+        (label_ref 80)) src/StatusBar.cpp:98 636 {jump}
+     (nil)
+ -> 80)
+(barrier 82 81 75)
+(code_label/s 75 82 78 9 16 "" [1 uses])
+(note 78 75 76 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 76 78 86 9 (set (reg:DI 3 bx [101])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(insn 86 76 53 9 (set (reg:DI 0 ax [99])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) src/StatusBar.cpp:89 214 {*leadi}
+     (nil))
+(insn 53 86 54 9 (set (reg:DI 5 di)
+        (reg:DI 0 ax [99])) src/StatusBar.cpp:89 89 {*movdi_internal}
+     (nil))
+(call_insn 54 53 83 9 (call (mem:QI (symbol_ref:DI ("_ZN4Glib7ustringD1Ev") [flags 0x41]  <function_decl 0x7fe76255d600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:89 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -3 [0xfffffffffffffffd])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 83 54 84 9 (set (pc)
+        (label_ref 57)) 636 {jump}
+     (nil)
+ -> 57)
+(barrier 84 83 69)
+(code_label/s 69 84 74 10 15 "" [1 uses])
+(note 74 69 70 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 70 74 57 10 (set (reg:DI 3 bx [100])
+        (reg:DI 0 ax)) 89 {*movdi_internal}
+     (nil))
+(code_label 57 70 58 11 14 "" [1 uses])
+(note 58 57 59 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 59 58 60 11 (set (reg/f:DI 0 ax [104])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(insn 60 59 61 11 (parallel [
+            (set (reg/f:DI 0 ax [orig:88 D.237917 ] [88])
+                (plus:DI (reg/f:DI 0 ax [104])
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:88 221 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                    (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])
+            (const_int 8 [0x8]))
+        (nil)))
+(insn 61 60 62 11 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:88 D.237917 ] [88])) src/StatusBar.cpp:88 89 {*movdi_internal}
+     (nil))
+(call_insn 62 61 63 11 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk5LabelD1Ev") [flags 0x41]  <function_decl 0x7fe75c5c5600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:88 642 {*call}
+     (expr_list:REG_EH_REGION (const_int -4 [0xfffffffffffffffc])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 63 62 64 11 (set (reg/f:DI 0 ax [orig:89 D.237916 ] [89])
+        (reg:DI 3 bx [100])) 89 {*movdi_internal}
+     (nil))
+(insn 64 63 110 11 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:89 D.237916 ] [89])) 89 {*movdi_internal}
+     (nil))
+(note 110 64 65 11 8 NOTE_INSN_EH_REGION_BEG)
+(call_insn 65 110 111 11 (call (mem:QI (symbol_ref:DI ("_Unwind_Resume") [flags 0x41]  <function_decl 0x7fe7681ae300 __builtin_unwind_resume>) [0 __builtin_unwind_resume S1 A8])
+        (const_int 0 [0])) 642 {*call}
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (nil)))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 111 65 66 8 NOTE_INSN_EH_REGION_END)
+(barrier 66 111 80)
+(code_label 80 66 68 12 17 "" [1 uses])
+(note 68 80 96 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(note 96 68 97 12 NOTE_INSN_EPILOGUE_BEG)
+(insn 97 96 98 12 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 40 [0x28])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:98 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(insn 98 97 99 12 (set (reg:DI 3 bx)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/StatusBar.cpp:98 75 {*popdi1}
+     (nil))
+(insn/f 99 98 100 12 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/StatusBar.cpp:98 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 100 99 101 12 (simple_return) src/StatusBar.cpp:98 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 101 100 85)
+(note 85 101 0 NOTE_INSN_DELETED)
+
+;; Function BarLabel::~BarLabel() (_ZN8BarLabelD2Ev, funcdef_no=7439, decl_uid=231347, symbol_order=2936)
+
+
+
+BarLabel::~BarLabel()
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={8d,5u} r1={3d} r2={3d} r4={3d} r5={5d,3u} r6={3d,11u} r7={4d,11u} r8={2d} r9={2d} r10={2d} r11={2d} r12={2d} r13={2d} r14={2d} r15={2d} r17={5d,1u} r18={2d} r19={2d} r20={1d,1u,1e} r21={3d} r22={3d} r23={3d} r24={3d} r25={3d} r26={3d} r27={3d} r28={3d} r29={2d} r30={2d} r31={2d} r32={2d} r33={2d} r34={2d} r35={2d} r36={2d} r37={3d} r38={3d} r39={2d} r40={2d} r45={2d} r46={2d} r47={2d} r48={2d} r49={2d} r50={2d} r51={2d} r52={2d} r53={2d} r54={2d} r55={2d} r56={2d} r57={2d} r58={2d} r59={2d} r60={2d} r61={2d} r62={2d} r63={2d} r64={2d} r65={2d} r66={2d} r67={2d} r68={2d} r69={2d} r70={2d} r71={2d} r72={2d} r73={2d} r74={2d} r75={2d} r76={2d} 
+;;    total ref usage 202{169d,32u,1e} in 18{16 regular + 2 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 26 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 26 4 27 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:100 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 27 26 28 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(insn/f 28 27 29 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:100 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 29 28 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 29 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [85])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (mem/f/j:DI (reg/f:DI 0 ax [85]) [0 this_1(D)->_vptr.BarLabel+0 S8 A64])
+        (const:DI (plus:DI (symbol_ref/i:DI ("_ZTV8BarLabel")  <var_decl 0x7fe75aa46390 _ZTV8BarLabel>)
+                (const_int 16 [0x10])))) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 0 ax [86])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (parallel [
+            (set (reg/f:DI 0 ax [orig:83 D.237920 ] [83])
+                (plus:DI (reg/f:DI 0 ax [86])
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:100 221 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                    (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+            (const_int 8 [0x8]))
+        (nil)))
+(insn 10 9 11 2 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:83 D.237920 ] [83])) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(call_insn 11 10 14 2 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk5LabelD1Ev") [flags 0x41]  <function_decl 0x7fe75c5c5600 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:100 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 14 11 15 2 (set (reg:SI 0 ax [orig:84 D.237921 ] [84])
+        (const_int 0 [0])) src/StatusBar.cpp:101 90 {*movsi_internal}
+     (nil))
+(insn 15 14 16 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 0 ax [orig:84 D.237921 ] [84])
+            (const_int 0 [0]))) src/StatusBar.cpp:101 3 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 16 15 17 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 23)
+            (pc))) src/StatusBar.cpp:101 596 {*jcc_1}
+     (nil)
+ -> 23)
+(note 17 16 18 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 3 (set (reg:DI 0 ax [87])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:101 89 {*movdi_internal}
+     (nil))
+(insn 19 18 20 3 (set (reg:DI 5 di)
+        (reg:DI 0 ax [87])) src/StatusBar.cpp:101 89 {*movdi_internal}
+     (nil))
+(call_insn 20 19 23 3 (call (mem:QI (symbol_ref:DI ("_ZdlPv") [flags 0x41]  <function_decl 0x7fe7681b4100 operator delete>) [0 operator delete S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:101 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 23 20 24 4 18 "" [1 uses])
+(note 24 23 30 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(note 30 24 31 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 31 30 32 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:101 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 32 31 33 4 (simple_return) src/StatusBar.cpp:101 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 33 32 25)
+(note 25 33 0 NOTE_INSN_DELETED)
+
+;; Function virtual BarLabel::~BarLabel() (_ZN8BarLabelD0Ev, funcdef_no=7441, decl_uid=231341, symbol_order=2938)
+
+
+
+virtual BarLabel::~BarLabel()
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 5[di] 6[bp] 7[sp]
+;;  ref usage 	r0={5d,2u} r1={3d} r2={3d} r4={3d} r5={5d,3u} r6={3d,8u} r7={4d,9u} r8={2d} r9={2d} r10={2d} r11={2d} r12={2d} r13={2d} r14={2d} r15={2d} r17={3d} r18={2d} r19={2d} r20={1d,1u} r21={3d} r22={3d} r23={3d} r24={3d} r25={3d} r26={3d} r27={3d} r28={3d} r29={2d} r30={2d} r31={2d} r32={2d} r33={2d} r34={2d} r35={2d} r36={2d} r37={3d} r38={3d} r39={2d} r40={2d} r45={2d} r46={2d} r47={2d} r48={2d} r49={2d} r50={2d} r51={2d} r52={2d} r53={2d} r54={2d} r55={2d} r56={2d} r57={2d} r58={2d} r59={2d} r60={2d} r61={2d} r62={2d} r63={2d} r64={2d} r65={2d} r66={2d} r67={2d} r68={2d} r69={2d} r70={2d} r71={2d} r72={2d} r73={2d} r74={2d} r75={2d} r76={2d} 
+;;    total ref usage 187{164d,23u,0e} in 12{10 regular + 2 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 17 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 17 4 18 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:100 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 18 17 19 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(insn/f 19 18 20 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:100 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 20 19 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 20 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:100 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:DI 0 ax [83])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:101 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [83])) src/StatusBar.cpp:101 89 {*movdi_internal}
+     (nil))
+(call_insn 8 7 11 2 (call (mem:QI (symbol_ref:DI ("_ZN8BarLabelD2Ev") [flags 0x3]  <function_decl 0x7fe75aa43a00 __base_dtor >) [0 __base_dtor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:101 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 11 8 12 2 (set (reg:DI 0 ax [84])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) src/StatusBar.cpp:101 89 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [84])) src/StatusBar.cpp:101 89 {*movdi_internal}
+     (nil))
+(call_insn 13 12 21 2 (call (mem:QI (symbol_ref:DI ("_ZdlPv") [flags 0x41]  <function_decl 0x7fe7681b4100 operator delete>) [0 operator delete S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:101 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(note 21 13 22 2 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 22 21 23 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:101 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 23 22 24 2 (simple_return) src/StatusBar.cpp:101 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 24 23 16)
+(note 16 24 0 NOTE_INSN_DELETED)
+
+;; Function int StatusBar::get_percent(std::string) (_ZN9StatusBar11get_percentESs, funcdef_no=7442, decl_uid=231305, symbol_order=2939)
+
+
+
+int StatusBar::get_percent(std::string)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 0 [ax] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={36d,32u} r1={15d,5u} r2={12d,2u} r4={14d,5u} r5={19d,10u} r6={3d,45u} r7={4d,25u} r8={9d} r9={9d} r10={9d} r11={9d} r12={9d} r13={9d} r14={9d} r15={9d} r17={17d,5u} r18={9d} r19={9d} r20={1d,1u} r21={10d} r22={10d} r23={10d} r24={10d} r25={10d} r26={10d} r27={10d} r28={10d} r29={9d} r30={9d} r31={9d} r32={9d} r33={9d} r34={9d} r35={9d} r36={9d} r37={10d} r38={10d} r39={9d} r40={9d} r45={9d} r46={9d} r47={9d} r48={9d} r49={9d} r50={9d} r51={9d} r52={9d} r53={9d} r54={9d} r55={9d} r56={9d} r57={9d} r58={9d} r59={9d} r60={9d} r61={9d} r62={9d} r63={9d} r64={9d} r65={9d} r66={9d} r67={9d} r68={9d} r69={9d} r70={9d} r71={9d} r72={9d} r73={9d} r74={9d} r75={9d} r76={9d} 
+;;    total ref usage 819{689d,130u,0e} in 81{72 regular + 9 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 117 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 117 5 118 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:104 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 118 117 119 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:104 89 {*movdi_internal}
+     (nil))
+(insn/f 119 118 120 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -80 [0xffffffffffffffb0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:104 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 120 119 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 120 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -72 [0xffffffffffffffb8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) src/StatusBar.cpp:104 89 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -80 [0xffffffffffffffb0])) [0 cmd+0 S8 A64])
+        (reg:DI 4 si [ cmd ])) src/StatusBar.cpp:104 89 {*movdi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:DI 0 ax [96])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -80 [0xffffffffffffffb0])) [0 cmd+0 S8 A64])) src/StatusBar.cpp:107 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [96])) src/StatusBar.cpp:107 89 {*movdi_internal}
+     (nil))
+(call_insn 9 8 11 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("_ZNKSs5c_strEv") [flags 0x41]  <function_decl 0x7fe762de6e00 c_str>) [0 c_str S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:107 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 11 9 12 2 (set (reg:DI 4 si)
+        (symbol_ref/f:DI ("*.LC2") [flags 0x2]  <var_decl 0x7fe75a438ed8 *.LC2>)) src/StatusBar.cpp:107 89 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg:DI 5 di)
+        (reg/f:DI 0 ax [orig:83 D.237922 ] [83])) src/StatusBar.cpp:107 89 {*movdi_internal}
+     (nil))
+(call_insn 13 12 15 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("popen") [flags 0x41]  <function_decl 0x7fe75ee56100 popen>) [0 popen S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:107 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 15 13 16 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 handle+0 S8 A64])
+        (reg/f:DI 0 ax [orig:84 D.237923 ] [84])) src/StatusBar.cpp:107 89 {*movdi_internal}
+     (nil))
+(insn 16 15 17 2 (set (reg:SI 2 cx [orig:85 D.237924 ] [85])
+        (const_int 20 [0x14])) src/StatusBar.cpp:109 90 {*movsi_internal}
+     (nil))
+(insn 17 16 115 2 (set (reg:DI 1 dx [97])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 handle+0 S8 A64])) src/StatusBar.cpp:109 89 {*movdi_internal}
+     (nil))
+(insn 115 17 20 2 (set (reg:DI 0 ax [98])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -48 [0xffffffffffffffd0]))) src/StatusBar.cpp:109 214 {*leadi}
+     (nil))
+(insn 20 115 21 2 (set (reg:SI 4 si)
+        (reg:SI 2 cx [orig:85 D.237924 ] [85])) src/StatusBar.cpp:109 90 {*movsi_internal}
+     (nil))
+(insn 21 20 22 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [98])) src/StatusBar.cpp:109 89 {*movdi_internal}
+     (nil))
+(call_insn 22 21 23 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("fgets") [flags 0x41]  <function_decl 0x7fe75ee4aa00 fgets>) [0 fgets S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:109 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 23 22 24 2 (set (reg:DI 0 ax [99])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 handle+0 S8 A64])) src/StatusBar.cpp:110 89 {*movdi_internal}
+     (nil))
+(insn 24 23 25 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [99])) src/StatusBar.cpp:110 89 {*movdi_internal}
+     (nil))
+(call_insn 25 24 26 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("fclose") [flags 0x41]  <function_decl 0x7fe75ee3c700 fclose>) [0 fclose S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:110 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 26 25 27 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])
+        (const_int 0 [0])) src/StatusBar.cpp:113 90 {*movsi_internal}
+     (nil))
+(insn 27 26 116 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 j+0 S4 A32])
+        (const_int 0 [0])) src/StatusBar.cpp:114 90 {*movsi_internal}
+     (nil))
+(insn 116 27 29 2 (set (reg:DI 0 ax [100])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/StatusBar.cpp:116 214 {*leadi}
+     (nil))
+(insn 29 116 30 2 (set (reg:DI 1 dx)
+        (const_int 4 [0x4])) src/StatusBar.cpp:116 89 {*movdi_internal}
+     (nil))
+(insn 30 29 31 2 (set (reg:SI 4 si)
+        (const_int 0 [0])) src/StatusBar.cpp:116 90 {*movsi_internal}
+     (nil))
+(insn 31 30 32 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [100])) src/StatusBar.cpp:116 89 {*movdi_internal}
+     (nil))
+(call_insn 32 31 109 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("memset") [flags 0x41]  <function_decl 0x7fe768102e00 memset>) [0 __builtin_memset S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:116 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (set (reg:DI 0 ax)
+            (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:DI (use (reg:DI 1 dx))
+                    (nil))))))
+(jump_insn 109 32 110 2 (set (pc)
+        (label_ref 70)) src/StatusBar.cpp:118 636 {jump}
+     (nil)
+ -> 70)
+(barrier 110 109 81)
+(code_label 81 110 35 3 28 "" [1 uses])
+(note 35 81 36 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 36 35 37 3 (set (reg:SI 0 ax [102])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])) src/StatusBar.cpp:119 90 {*movsi_internal}
+     (nil))
+(insn 37 36 38 3 (set (reg:DI 0 ax [101])
+        (sign_extend:DI (reg:SI 0 ax [102]))) src/StatusBar.cpp:119 142 {*extendsidi2_rex64}
+     (nil))
+(insn 38 37 39 3 (set (reg:QI 0 ax [orig:89 D.237925 ] [89])
+        (mem/j:QI (plus:DI (plus:DI (reg/f:DI 6 bp)
+                    (reg:DI 0 ax [101]))
+                (const_int -48 [0xffffffffffffffd0])) [0 output S1 A8])) src/StatusBar.cpp:119 93 {*movqi_internal}
+     (nil))
+(insn 39 38 40 3 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:QI 0 ax [orig:89 D.237925 ] [89])
+            (const_int 47 [0x2f]))) src/StatusBar.cpp:119 5 {*cmpqi_1}
+     (nil))
+(jump_insn 40 39 41 3 (set (pc)
+        (if_then_else (le (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 67)
+            (pc))) src/StatusBar.cpp:119 596 {*jcc_1}
+     (nil)
+ -> 67)
+(note 41 40 42 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 42 41 43 4 (set (reg:SI 0 ax [104])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])) src/StatusBar.cpp:119 90 {*movsi_internal}
+     (nil))
+(insn 43 42 44 4 (set (reg:DI 0 ax [103])
+        (sign_extend:DI (reg:SI 0 ax [104]))) src/StatusBar.cpp:119 142 {*extendsidi2_rex64}
+     (nil))
+(insn 44 43 45 4 (set (reg:QI 0 ax [orig:90 D.237925 ] [90])
+        (mem/j:QI (plus:DI (plus:DI (reg/f:DI 6 bp)
+                    (reg:DI 0 ax [103]))
+                (const_int -48 [0xffffffffffffffd0])) [0 output S1 A8])) src/StatusBar.cpp:119 93 {*movqi_internal}
+     (nil))
+(insn 45 44 46 4 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:QI 0 ax [orig:90 D.237925 ] [90])
+            (const_int 57 [0x39]))) src/StatusBar.cpp:119 5 {*cmpqi_1}
+     (nil))
+(jump_insn 46 45 47 4 (set (pc)
+        (if_then_else (gt (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 67)
+            (pc))) src/StatusBar.cpp:119 596 {*jcc_1}
+     (nil)
+ -> 67)
+(note 47 46 48 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 48 47 49 5 (set (reg:SI 0 ax [106])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])) src/StatusBar.cpp:120 90 {*movsi_internal}
+     (nil))
+(insn 49 48 50 5 (set (reg:DI 0 ax [105])
+        (sign_extend:DI (reg:SI 0 ax [106]))) src/StatusBar.cpp:120 142 {*extendsidi2_rex64}
+     (nil))
+(insn 50 49 51 5 (set (reg:QI 1 dx [orig:91 D.237925 ] [91])
+        (mem/j:QI (plus:DI (plus:DI (reg/f:DI 6 bp)
+                    (reg:DI 0 ax [105]))
+                (const_int -48 [0xffffffffffffffd0])) [0 output S1 A8])) src/StatusBar.cpp:120 93 {*movqi_internal}
+     (nil))
+(insn 51 50 52 5 (set (reg:SI 0 ax [108])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 j+0 S4 A32])) src/StatusBar.cpp:120 90 {*movsi_internal}
+     (nil))
+(insn 52 51 53 5 (set (reg:DI 0 ax [107])
+        (sign_extend:DI (reg:SI 0 ax [108]))) src/StatusBar.cpp:120 142 {*extendsidi2_rex64}
+     (nil))
+(insn 53 52 114 5 (set (mem/j:QI (plus:DI (plus:DI (reg/f:DI 6 bp)
+                    (reg:DI 0 ax [107]))
+                (const_int -64 [0xffffffffffffffc0])) [0 level S1 A8])
+        (reg:QI 1 dx [orig:91 D.237925 ] [91])) src/StatusBar.cpp:120 93 {*movqi_internal}
+     (nil))
+(insn 114 53 55 5 (set (reg:DI 0 ax [109])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/StatusBar.cpp:121 214 {*leadi}
+     (nil))
+(insn 55 114 56 5 (set (reg:DI 5 di)
+        (reg:DI 0 ax [109])) src/StatusBar.cpp:121 89 {*movdi_internal}
+     (nil))
+(call_insn/i 56 55 58 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("atoi") [flags 0x41]  <function_decl 0x7fe760ebc500 atoi>) [0 atoi S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:121 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 58 56 59 5 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 0 ax [orig:92 D.237924 ] [92])
+            (const_int 100 [0x64]))) src/StatusBar.cpp:121 7 {*cmpsi_1}
+     (nil))
+(jump_insn 59 58 60 5 (set (pc)
+        (if_then_else (le (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 64)
+            (pc))) src/StatusBar.cpp:121 596 {*jcc_1}
+     (nil)
+ -> 64)
+(note 60 59 61 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 61 60 62 6 (set (reg:SI 0 ax [111])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 j+0 S4 A32])) src/StatusBar.cpp:122 90 {*movsi_internal}
+     (nil))
+(insn 62 61 63 6 (set (reg:DI 0 ax [110])
+        (sign_extend:DI (reg:SI 0 ax [111]))) src/StatusBar.cpp:122 142 {*extendsidi2_rex64}
+     (nil))
+(insn 63 62 64 6 (set (mem/j:QI (plus:DI (plus:DI (reg/f:DI 6 bp)
+                    (reg:DI 0 ax [110]))
+                (const_int -64 [0xffffffffffffffc0])) [0 level S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:122 93 {*movqi_internal}
+     (nil))
+(code_label 64 63 65 7 26 "" [1 uses])
+(note 65 64 66 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 66 65 67 7 (parallel [
+            (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                        (const_int -8 [0xfffffffffffffff8])) [0 j+0 S4 A32])
+                (plus:SI (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                            (const_int -8 [0xfffffffffffffff8])) [0 j+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:123 220 {*addsi_1}
+     (nil))
+(code_label 67 66 68 8 25 "" [2 uses])
+(note 68 67 69 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 69 68 70 8 (parallel [
+            (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                        (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])
+                (plus:SI (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                            (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) src/StatusBar.cpp:126 220 {*addsi_1}
+     (nil))
+(code_label 70 69 71 9 24 "" [1 uses])
+(note 71 70 72 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 72 71 73 9 (set (reg:SI 0 ax [113])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 i+0 S4 A32])) src/StatusBar.cpp:118 90 {*movsi_internal}
+     (nil))
+(insn 73 72 74 9 (set (reg:DI 0 ax [112])
+        (sign_extend:DI (reg:SI 0 ax [113]))) src/StatusBar.cpp:118 142 {*extendsidi2_rex64}
+     (nil))
+(insn 74 73 75 9 (set (reg:QI 0 ax [orig:86 D.237925 ] [86])
+        (mem/j:QI (plus:DI (plus:DI (reg/f:DI 6 bp)
+                    (reg:DI 0 ax [112]))
+                (const_int -48 [0xffffffffffffffd0])) [0 output S1 A8])) src/StatusBar.cpp:118 93 {*movqi_internal}
+     (nil))
+(insn 75 74 76 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:QI 0 ax [orig:86 D.237925 ] [86])
+            (const_int 0 [0]))) src/StatusBar.cpp:118 1 {*cmpqi_ccno_1}
+     (nil))
+(jump_insn 76 75 77 9 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 84)
+            (pc))) src/StatusBar.cpp:118 596 {*jcc_1}
+     (nil)
+ -> 84)
+(note 77 76 78 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 78 77 79 10 (set (reg:SI 0 ax [114])
+        (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 j+0 S4 A32])) src/StatusBar.cpp:118 90 {*movsi_internal}
+     (nil))
+(insn 79 78 80 10 (set (reg:DI 0 ax [orig:87 D.237926 ] [87])
+        (sign_extend:DI (reg:SI 0 ax [114]))) src/StatusBar.cpp:118 142 {*extendsidi2_rex64}
+     (nil))
+(insn 80 79 82 10 (set (reg:DI 1 dx [orig:88 D.237926 ] [88])
+        (const_int 3 [0x3])) src/StatusBar.cpp:118 89 {*movdi_internal}
+     (nil))
+(insn 82 80 83 10 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:DI 0 ax [orig:87 D.237926 ] [87])
+            (reg:DI 1 dx [orig:88 D.237926 ] [88]))) src/StatusBar.cpp:118 8 {*cmpdi_1}
+     (nil))
+(jump_insn 83 82 84 10 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 81)
+            (pc))) src/StatusBar.cpp:118 596 {*jcc_1}
+     (nil)
+ -> 81)
+(code_label 84 83 85 11 27 "" [1 uses])
+(note 85 84 86 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 86 85 87 11 (set (reg:DI 0 ax [115])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -80 [0xffffffffffffffb0])) [0 cmd+0 S8 A64])) src/StatusBar.cpp:128 89 {*movdi_internal}
+     (nil))
+(insn 87 86 88 11 (set (reg:DI 5 di)
+        (reg:DI 0 ax [115])) src/StatusBar.cpp:128 89 {*movdi_internal}
+     (nil))
+(call_insn 88 87 89 11 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("_ZNKSs5c_strEv") [flags 0x41]  <function_decl 0x7fe762de6e00 c_str>) [0 c_str S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:128 649 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 89 88 112 11 (set (reg/f:DI 2 cx [orig:93 D.237922 ] [93])
+        (reg:DI 0 ax)) src/StatusBar.cpp:128 89 {*movdi_internal}
+     (nil))
+(insn 112 89 91 11 (set (reg:DI 0 ax [116])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/StatusBar.cpp:128 214 {*leadi}
+     (nil))
+(insn 91 112 92 11 (set (reg:DI 1 dx)
+        (reg:DI 0 ax [116])) src/StatusBar.cpp:128 89 {*movdi_internal}
+     (nil))
+(insn 92 91 93 11 (set (reg:DI 4 si)
+        (reg/f:DI 2 cx [orig:93 D.237922 ] [93])) src/StatusBar.cpp:128 89 {*movdi_internal}
+     (nil))
+(insn 93 92 94 11 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC3") [flags 0x2]  <var_decl 0x7fe75a446000 *.LC3>)) src/StatusBar.cpp:128 89 {*movdi_internal}
+     (nil))
+(insn 94 93 95 11 (set (reg:QI 0 ax)
+        (const_int 0 [0])) src/StatusBar.cpp:128 93 {*movqi_internal}
+     (nil))
+(call_insn 95 94 113 11 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fe768111e00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:128 649 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:DI (use (reg:DI 1 dx))
+                    (nil))))))
+(insn 113 95 97 11 (set (reg:DI 0 ax [117])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -64 [0xffffffffffffffc0]))) src/StatusBar.cpp:129 214 {*leadi}
+     (nil))
+(insn 97 113 98 11 (set (reg:DI 5 di)
+        (reg:DI 0 ax [117])) src/StatusBar.cpp:129 89 {*movdi_internal}
+     (nil))
+(call_insn/i 98 97 107 11 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("atoi") [flags 0x41]  <function_decl 0x7fe760ebc500 atoi>) [0 atoi S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:129 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 107 98 121 11 (use (reg/i:SI 0 ax)) src/StatusBar.cpp:130 -1
+     (nil))
+(note 121 107 122 11 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 122 121 123 11 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:130 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 123 122 124 11 (simple_return) src/StatusBar.cpp:130 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 124 123 111)
+(note 111 124 0 NOTE_INSN_DELETED)
+
+;; Function Glib::RefPtr<T_CppObject>::RefPtr() [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC2Ev, funcdef_no=7718, decl_uid=231490, symbol_order=3215)
+
+
+
+Glib::RefPtr<T_CppObject>::RefPtr() [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 5[di] 6[bp]
+;;  ref usage 	r0={2d,1u} r1={1d} r2={1d} r4={1d} r5={1d,1u} r6={3d,5u} r7={3d,5u} r20={1d,1u} r21={1d} r22={1d} r23={1d} r24={1d} r25={1d} r26={1d} r27={1d} r28={1d} r37={1d} r38={1d} 
+;;    total ref usage 36{23d,13u,0e} in 9{9 regular + 0 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 11 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 11 4 12 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:199 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 12 11 13 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:199 89 {*movdi_internal}
+     (nil))
+(insn 13 12 14 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) /usr/include/glibmm-2.4/glibmm/refptr.h:199 656 {*memory_blockage}
+     (nil))
+(note 14 13 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 14 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:199 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [83])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:201 89 {*movdi_internal}
+     (nil))
+(insn 7 6 15 2 (set (mem/f/j:DI (reg/f:DI 0 ax [83]) [0 this_1(D)->pCppObject_+0 S8 A64])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:201 89 {*movdi_internal}
+     (nil))
+(note 15 7 16 2 NOTE_INSN_EPILOGUE_BEG)
+(insn 16 15 17 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) /usr/include/glibmm-2.4/glibmm/refptr.h:202 656 {*memory_blockage}
+     (nil))
+(insn/f 17 16 18 2 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) /usr/include/glibmm-2.4/glibmm/refptr.h:202 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 18 17 19 2 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:202 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 19 18 10)
+(note 10 19 0 NOTE_INSN_DELETED)
+
+;; Function Glib::RefPtr<T_CppObject>& Glib::RefPtr<T_CppObject>::operator=(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEEaSERKS3_, funcdef_no=7720, decl_uid=231405, symbol_order=3217)
+
+
+
+Glib::RefPtr<T_CppObject>& Glib::RefPtr<T_CppObject>::operator=(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 3 [bx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 0 [ax] 3 [bx] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 3[bx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={8d,5u} r1={6d,2u} r2={4d} r3={3d,3u} r4={6d,3u} r5={7d,4u} r6={3d,11u} r7={7d,14u} r8={3d} r9={3d} r10={3d} r11={3d} r12={3d} r13={3d} r14={3d} r15={3d} r17={5d} r18={3d} r19={3d} r20={1d,1u} r21={4d} r22={4d} r23={4d} r24={4d} r25={4d} r26={4d} r27={4d} r28={4d} r29={3d} r30={3d} r31={3d} r32={3d} r33={3d} r34={3d} r35={3d} r36={3d} r37={4d} r38={4d} r39={3d} r40={3d} r45={3d} r46={3d} r47={3d} r48={3d} r49={3d} r50={3d} r51={3d} r52={3d} r53={3d} r54={3d} r55={3d} r56={3d} r57={3d} r58={3d} r59={3d} r60={3d} r61={3d} r62={3d} r63={3d} r64={3d} r65={3d} r66={3d} r67={3d} r68={3d} r69={3d} r70={3d} r71={3d} r72={3d} r73={3d} r74={3d} r75={3d} r76={3d} 
+;;    total ref usage 289{246d,43u,0e} in 26{23 regular + 3 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 34 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 34 5 35 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:252 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 35 34 36 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:252 89 {*movdi_internal}
+     (nil))
+(insn/f 36 35 37 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg:DI 3 bx)) /usr/include/glibmm-2.4/glibmm/refptr.h:252 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 37 36 38 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -40 [0xffffffffffffffd8])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:252 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 38 37 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 38 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:252 89 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -48 [0xffffffffffffffd0])) [0 src+0 S8 A64])
+        (reg:DI 4 si [ src ])) /usr/include/glibmm-2.4/glibmm/refptr.h:252 89 {*movdi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 31 2 (set (reg:DI 1 dx [85])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -48 [0xffffffffffffffd0])) [0 src+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:278 89 {*movdi_internal}
+     (nil))
+(insn 31 7 9 2 (set (reg:DI 0 ax [86])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:278 214 {*leadi}
+     (nil))
+(insn 9 31 10 2 (set (reg:DI 4 si)
+        (reg:DI 1 dx [85])) /usr/include/glibmm-2.4/glibmm/refptr.h:278 89 {*movdi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [86])) /usr/include/glibmm-2.4/glibmm/refptr.h:278 89 {*movdi_internal}
+     (nil))
+(call_insn 11 10 32 2 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC1ERKS3_") [flags 0x1]  <function_decl 0x7fe75aa52800 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:278 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 32 11 13 2 (set (reg:DI 1 dx [87])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:279 214 {*leadi}
+     (nil))
+(insn 13 32 14 2 (set (reg:DI 0 ax [88])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:279 89 {*movdi_internal}
+     (nil))
+(insn 14 13 15 2 (set (reg:DI 4 si)
+        (reg:DI 1 dx [87])) /usr/include/glibmm-2.4/glibmm/refptr.h:279 89 {*movdi_internal}
+     (nil))
+(insn 15 14 16 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [88])) /usr/include/glibmm-2.4/glibmm/refptr.h:279 89 {*movdi_internal}
+     (nil))
+(call_insn 16 15 17 2 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEE4swapERS3_") [flags 0x1]  <function_decl 0x7fe75aa49500 swap>) [0 swap S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:279 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 17 16 33 2 (set (reg/f:DI 3 bx [orig:83 D.237929 ] [83])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -40 [0xffffffffffffffd8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:280 89 {*movdi_internal}
+     (nil))
+(insn 33 17 19 2 (set (reg:DI 0 ax [89])
+        (plus:DI (reg/f:DI 6 bp)
+            (const_int -32 [0xffffffffffffffe0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:280 214 {*leadi}
+     (nil))
+(insn 19 33 20 2 (set (reg:DI 5 di)
+        (reg:DI 0 ax [89])) /usr/include/glibmm-2.4/glibmm/refptr.h:280 89 {*movdi_internal}
+     (nil))
+(call_insn 20 19 23 2 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7fe75aa52e00 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:280 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 23 20 28 2 (set (reg:DI 0 ax [orig:84 <retval> ] [84])
+        (reg/f:DI 3 bx [orig:83 D.237929 ] [83])) /usr/include/glibmm-2.4/glibmm/refptr.h:280 89 {*movdi_internal}
+     (nil))
+(insn 28 23 39 2 (use (reg/i:DI 0 ax)) /usr/include/glibmm-2.4/glibmm/refptr.h:281 -1
+     (nil))
+(note 39 28 40 2 NOTE_INSN_EPILOGUE_BEG)
+(insn 40 39 41 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 40 [0x28])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:281 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(insn 41 40 42 2 (set (reg:DI 3 bx)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) /usr/include/glibmm-2.4/glibmm/refptr.h:281 75 {*popdi1}
+     (nil))
+(insn/f 42 41 43 2 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) /usr/include/glibmm-2.4/glibmm/refptr.h:281 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 43 42 44 2 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:281 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 44 43 30)
+(note 30 44 0 NOTE_INSN_DELETED)
+
+;; Function T_CppObject* Glib::RefPtr<T_CppObject>::operator->() const [with T_CppObject = Gtk::Application] (_ZNK4Glib6RefPtrIN3Gtk11ApplicationEEptEv, funcdef_no=7721, decl_uid=231423, symbol_order=3218)
+
+
+
+T_CppObject* Glib::RefPtr<T_CppObject>::operator->() const [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 0 [ax] 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 5[di] 6[bp]
+;;  ref usage 	r0={3d,3u} r1={1d} r2={1d} r4={1d} r5={1d,1u} r6={3d,5u} r7={3d,5u} r20={1d,1u} r21={1d} r22={1d} r23={1d} r24={1d} r25={1d} r26={1d} r27={1d} r28={1d} r37={1d} r38={1d} 
+;;    total ref usage 39{24d,15u,0e} in 10{10 regular + 0 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 18 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 18 4 19 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:193 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 19 18 20 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:193 89 {*movdi_internal}
+     (nil))
+(insn 20 19 21 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) /usr/include/glibmm-2.4/glibmm/refptr.h:193 656 {*memory_blockage}
+     (nil))
+(note 21 20 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 21 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:193 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [85])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:195 89 {*movdi_internal}
+     (nil))
+(insn 7 6 15 2 (set (reg/f:DI 0 ax [orig:83 D.237930 ] [83])
+        (mem/f/j:DI (reg/f:DI 0 ax [85]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:195 89 {*movdi_internal}
+     (nil))
+(insn 15 7 22 2 (use (reg/i:DI 0 ax)) /usr/include/glibmm-2.4/glibmm/refptr.h:196 -1
+     (nil))
+(note 22 15 23 2 NOTE_INSN_EPILOGUE_BEG)
+(insn 23 22 24 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) /usr/include/glibmm-2.4/glibmm/refptr.h:196 656 {*memory_blockage}
+     (nil))
+(insn/f 24 23 25 2 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) /usr/include/glibmm-2.4/glibmm/refptr.h:196 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 25 24 26 2 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:196 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 26 25 17)
+(note 17 26 0 NOTE_INSN_DELETED)
+
+;; Function Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC2ERKS3_, funcdef_no=7850, decl_uid=231479, symbol_order=3347)
+
+
+
+Glib::RefPtr<T_CppObject>::RefPtr(const Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={16d,14u} r1={11d,9u} r2={3d,1u} r4={2d,1u} r5={3d,2u} r6={3d,16u} r7={4d,10u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={8d,1u} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 178{123d,55u,0e} in 36{35 regular + 1 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 53 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 53 5 54 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:218 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 54 53 55 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:218 89 {*movdi_internal}
+     (nil))
+(insn/f 55 54 56 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:218 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 56 55 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 56 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:218 89 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])
+        (reg:DI 4 si [ src ])) /usr/include/glibmm-2.4/glibmm/refptr.h:218 89 {*movdi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:DI 0 ax [109])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -16 [0xfffffffffffffff0])) [0 src+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 1 dx [orig:83 D.237931 ] [83])
+        (mem/f/j:DI (reg/f:DI 0 ax [109]) [0 src_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (set (reg/f:DI 0 ax [110])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 10 9 11 2 (set (mem/f/j:DI (reg/f:DI 0 ax [110]) [0 this_3(D)->pCppObject_+0 S8 A64])
+        (reg/f:DI 1 dx [orig:83 D.237931 ] [83])) /usr/include/glibmm-2.4/glibmm/refptr.h:220 89 {*movdi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg/f:DI 0 ax [111])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 89 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg/f:DI 0 ax [orig:84 D.237931 ] [84])
+        (mem/f/j:DI (reg/f:DI 0 ax [111]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:222 89 {*movdi_internal}
+     (nil))
+(insn 13 12 14 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 0 ax [orig:84 D.237931 ] [84])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 4 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 14 13 15 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 50)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:222 596 {*jcc_1}
+     (nil)
+ -> 50)
+(note 15 14 25 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 25 15 26 3 (set (reg/f:DI 0 ax [114])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 26 25 27 3 (set (reg/f:DI 1 dx [orig:92 D.237931 ] [92])
+        (mem/f/j:DI (reg/f:DI 0 ax [114]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 27 26 28 3 (set (reg/f:DI 0 ax [115])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 28 27 29 3 (set (reg/f:DI 0 ax [orig:93 D.237931 ] [93])
+        (mem/f/j:DI (reg/f:DI 0 ax [115]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 29 28 30 3 (set (reg/f:DI 0 ax [orig:94 D.237932 ] [94])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:93 D.237931 ] [93]) [0 _13->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 30 29 31 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:95 D.237932 ] [95])
+                (plus:DI (reg/f:DI 0 ax [orig:94 D.237932 ] [94])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 31 30 33 3 (set (reg:DI 0 ax [orig:96 D.237933 ] [96])
+        (mem:DI (reg/f:DI 0 ax [orig:95 D.237932 ] [95]) [0 MEM[(long int *)_15]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 33 31 34 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:98 D.237935 ] [98])
+                (plus:DI (reg:DI 0 ax [orig:97 D.237934 ] [97])
+                    (reg/f:DI 1 dx [orig:92 D.237931 ] [92])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 34 33 35 3 (set (reg/f:DI 0 ax [orig:99 D.237932 ] [99])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:98 D.237935 ] [98]) [0 _18->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 35 34 36 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:100 D.237932 ] [100])
+                (plus:DI (reg/f:DI 0 ax [orig:99 D.237932 ] [99])
+                    (const_int 16 [0x10])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 36 35 37 3 (set (reg/f:DI 0 ax [orig:101 D.237936 ] [101])
+        (mem/f:DI (reg/f:DI 0 ax [orig:100 D.237932 ] [100]) [0 *_20+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 37 36 38 3 (set (reg/f:DI 1 dx [116])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 38 37 39 3 (set (reg/f:DI 2 cx [orig:102 D.237931 ] [102])
+        (mem/f/j:DI (reg/f:DI 1 dx [116]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 39 38 40 3 (set (reg/f:DI 1 dx [117])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 40 39 41 3 (set (reg/f:DI 1 dx [orig:103 D.237931 ] [103])
+        (mem/f/j:DI (reg/f:DI 1 dx [117]) [0 this_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 41 40 42 3 (set (reg/f:DI 1 dx [orig:104 D.237932 ] [104])
+        (mem/f/j:DI (reg/f:DI 1 dx [orig:103 D.237931 ] [103]) [0 _23->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 42 41 43 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:105 D.237932 ] [105])
+                (plus:DI (reg/f:DI 1 dx [orig:104 D.237932 ] [104])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 43 42 45 3 (set (reg:DI 1 dx [orig:106 D.237933 ] [106])
+        (mem:DI (reg/f:DI 1 dx [orig:105 D.237932 ] [105]) [0 MEM[(long int *)_25]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(insn 45 43 46 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:108 D.237935 ] [108])
+                (plus:DI (reg:DI 1 dx [orig:107 D.237934 ] [107])
+                    (reg/f:DI 2 cx [orig:102 D.237931 ] [102])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:223 221 {*adddi_1}
+     (nil))
+(insn 46 45 47 3 (set (reg:DI 5 di)
+        (reg/f:DI 1 dx [orig:108 D.237935 ] [108])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 89 {*movdi_internal}
+     (nil))
+(call_insn 47 46 50 3 (call (mem:QI (reg/f:DI 0 ax [orig:101 D.237936 ] [101]) [0 *OBJ_TYPE_REF(_21;(const struct ObjectBase)_11->2) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:223 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 50 47 51 4 35 "" [1 uses])
+(note 51 50 57 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(note 57 51 58 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 58 57 59 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:224 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 59 58 60 4 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:224 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 60 59 52)
+(note 52 60 0 NOTE_INSN_DELETED)
+
+;; Function Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEED2Ev, funcdef_no=7853, decl_uid=231495, symbol_order=3350)
+
+
+
+Glib::RefPtr<T_CppObject>::~RefPtr() [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 2[cx] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={14d,12u} r1={10d,8u} r2={3d,1u} r4={2d} r5={3d,2u} r6={3d,13u} r7={4d,10u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={8d,1u} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 168{120d,48u,0e} in 31{30 regular + 1 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 50 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 50 4 51 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:205 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 51 50 52 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:205 89 {*movdi_internal}
+     (nil))
+(insn/f 52 51 53 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:205 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 53 52 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 53 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:205 89 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 0 ax [108])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 89 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 0 ax [orig:83 D.237937 ] [83])
+        (mem/f/j:DI (reg/f:DI 0 ax [108]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:207 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 0 ax [orig:83 D.237937 ] [83])
+            (const_int 0 [0]))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 4 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 47)
+            (pc))) /usr/include/glibmm-2.4/glibmm/refptr.h:207 596 {*jcc_1}
+     (nil)
+ -> 47)
+(note 10 9 20 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 20 10 21 3 (set (reg/f:DI 0 ax [111])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 21 20 22 3 (set (reg/f:DI 1 dx [orig:91 D.237937 ] [91])
+        (mem/f/j:DI (reg/f:DI 0 ax [111]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 22 21 23 3 (set (reg/f:DI 0 ax [112])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 23 22 24 3 (set (reg/f:DI 0 ax [orig:92 D.237937 ] [92])
+        (mem/f/j:DI (reg/f:DI 0 ax [112]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 24 23 25 3 (set (reg/f:DI 0 ax [orig:93 D.237938 ] [93])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:92 D.237937 ] [92]) [0 _11->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 25 24 26 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:94 D.237938 ] [94])
+                (plus:DI (reg/f:DI 0 ax [orig:93 D.237938 ] [93])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 26 25 28 3 (set (reg:DI 0 ax [orig:95 D.237939 ] [95])
+        (mem:DI (reg/f:DI 0 ax [orig:94 D.237938 ] [94]) [0 MEM[(long int *)_13]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 28 26 29 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:97 D.237941 ] [97])
+                (plus:DI (reg:DI 0 ax [orig:96 D.237940 ] [96])
+                    (reg/f:DI 1 dx [orig:91 D.237937 ] [91])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 29 28 30 3 (set (reg/f:DI 0 ax [orig:98 D.237938 ] [98])
+        (mem/f/j:DI (reg/f:DI 0 ax [orig:97 D.237941 ] [97]) [0 _16->_vptr.ObjectBase+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 30 29 31 3 (parallel [
+            (set (reg/f:DI 0 ax [orig:99 D.237938 ] [99])
+                (plus:DI (reg/f:DI 0 ax [orig:98 D.237938 ] [98])
+                    (const_int 24 [0x18])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 31 30 32 3 (set (reg/f:DI 0 ax [orig:100 D.237942 ] [100])
+        (mem/f:DI (reg/f:DI 0 ax [orig:99 D.237938 ] [99]) [0 *_18+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 32 31 33 3 (set (reg/f:DI 1 dx [113])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 33 32 34 3 (set (reg/f:DI 2 cx [orig:101 D.237937 ] [101])
+        (mem/f/j:DI (reg/f:DI 1 dx [113]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 34 33 35 3 (set (reg/f:DI 1 dx [114])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 35 34 36 3 (set (reg/f:DI 1 dx [orig:102 D.237937 ] [102])
+        (mem/f/j:DI (reg/f:DI 1 dx [114]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 36 35 37 3 (set (reg/f:DI 1 dx [orig:103 D.237938 ] [103])
+        (mem/f/j:DI (reg/f:DI 1 dx [orig:102 D.237937 ] [102]) [0 _21->D.181299.D.107647._vptr.Object+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 37 36 38 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:104 D.237938 ] [104])
+                (plus:DI (reg/f:DI 1 dx [orig:103 D.237938 ] [103])
+                    (const_int -24 [0xffffffffffffffe8])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 38 37 40 3 (set (reg:DI 1 dx [orig:105 D.237939 ] [105])
+        (mem:DI (reg/f:DI 1 dx [orig:104 D.237938 ] [104]) [0 MEM[(long int *)_23]+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(insn 40 38 41 3 (parallel [
+            (set (reg/f:DI 1 dx [orig:107 D.237941 ] [107])
+                (plus:DI (reg:DI 1 dx [orig:106 D.237940 ] [106])
+                    (reg/f:DI 2 cx [orig:101 D.237937 ] [101])))
+            (clobber (reg:CC 17 flags))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:208 221 {*adddi_1}
+     (nil))
+(insn 41 40 42 3 (set (reg:DI 5 di)
+        (reg/f:DI 1 dx [orig:107 D.237941 ] [107])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 89 {*movdi_internal}
+     (nil))
+(call_insn 42 41 47 3 (call (mem:QI (reg/f:DI 0 ax [orig:100 D.237942 ] [100]) [0 *OBJ_TYPE_REF(_19;(const struct ObjectBase)_9->3) S1 A8])
+        (const_int 0 [0])) /usr/include/glibmm-2.4/glibmm/refptr.h:208 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 47 42 48 4 37 "" [1 uses])
+(note 48 47 54 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(note 54 48 55 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 55 54 56 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) /usr/include/glibmm-2.4/glibmm/refptr.h:209 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 56 55 57 4 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:209 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 57 56 49)
+(note 49 57 0 NOTE_INSN_DELETED)
+
+;; Function void Glib::RefPtr<T_CppObject>::swap(Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application] (_ZN4Glib6RefPtrIN3Gtk11ApplicationEE4swapERS3_, funcdef_no=7855, decl_uid=231402, symbol_order=3352)
+
+
+
+void Glib::RefPtr<T_CppObject>::swap(Glib::RefPtr<T_CppObject>&) [with T_CppObject = Gtk::Application]
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 4[si] 5[di] 6[bp]
+;;  ref usage 	r0={6d,5u} r1={3d,2u} r2={1d} r4={1d,1u} r5={1d,1u} r6={3d,11u} r7={3d,5u} r20={1d,1u} r21={1d} r22={1d} r23={1d} r24={1d} r25={1d} r26={1d} r27={1d} r28={1d} r37={1d} r38={1d} 
+;;    total ref usage 55{29d,26u,0e} in 18{18 regular + 0 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 20 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 20 5 21 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) /usr/include/glibmm-2.4/glibmm/refptr.h:244 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 21 20 22 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) /usr/include/glibmm-2.4/glibmm/refptr.h:244 89 {*movdi_internal}
+     (nil))
+(insn 22 21 23 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) /usr/include/glibmm-2.4/glibmm/refptr.h:244 656 {*memory_blockage}
+     (nil))
+(note 23 22 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 23 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])
+        (reg:DI 5 di [ this ])) /usr/include/glibmm-2.4/glibmm/refptr.h:244 89 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -32 [0xffffffffffffffe0])) [0 other+0 S8 A64])
+        (reg:DI 4 si [ other ])) /usr/include/glibmm-2.4/glibmm/refptr.h:244 89 {*movdi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:DI 0 ax [84])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:246 89 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 0 ax [85])
+        (mem/f/j:DI (reg/f:DI 0 ax [84]) [0 this_1(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:246 89 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 temp+0 S8 A64])
+        (reg/f:DI 0 ax [85])) /usr/include/glibmm-2.4/glibmm/refptr.h:246 89 {*movdi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg/f:DI 0 ax [86])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -32 [0xffffffffffffffe0])) [0 other+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:247 89 {*movdi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg/f:DI 1 dx [orig:83 D.237943 ] [83])
+        (mem/f/j:DI (reg/f:DI 0 ax [86]) [0 other_3(D)->pCppObject_+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:247 89 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg/f:DI 0 ax [87])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -24 [0xffffffffffffffe8])) [0 this+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:247 89 {*movdi_internal}
+     (nil))
+(insn 13 12 14 2 (set (mem/f/j:DI (reg/f:DI 0 ax [87]) [0 this_1(D)->pCppObject_+0 S8 A64])
+        (reg/f:DI 1 dx [orig:83 D.237943 ] [83])) /usr/include/glibmm-2.4/glibmm/refptr.h:247 89 {*movdi_internal}
+     (nil))
+(insn 14 13 15 2 (set (reg/f:DI 0 ax [88])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -32 [0xffffffffffffffe0])) [0 other+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:248 89 {*movdi_internal}
+     (nil))
+(insn 15 14 16 2 (set (reg/f:DI 1 dx [89])
+        (mem/f/c:DI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 temp+0 S8 A64])) /usr/include/glibmm-2.4/glibmm/refptr.h:248 89 {*movdi_internal}
+     (nil))
+(insn 16 15 24 2 (set (mem/f/j:DI (reg/f:DI 0 ax [88]) [0 other_3(D)->pCppObject_+0 S8 A64])
+        (reg/f:DI 1 dx [89])) /usr/include/glibmm-2.4/glibmm/refptr.h:248 89 {*movdi_internal}
+     (nil))
+(note 24 16 25 2 NOTE_INSN_EPILOGUE_BEG)
+(insn 25 24 26 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) /usr/include/glibmm-2.4/glibmm/refptr.h:249 656 {*memory_blockage}
+     (nil))
+(insn/f 26 25 27 2 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) /usr/include/glibmm-2.4/glibmm/refptr.h:249 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 27 26 28 2 (simple_return) /usr/include/glibmm-2.4/glibmm/refptr.h:249 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 28 27 19)
+(note 19 28 0 NOTE_INSN_DELETED)
+
+;; Function void __static_initialization_and_destruction_0(int, int) (_Z41__static_initialization_and_destruction_0ii, funcdef_no=8173, decl_uid=237758, symbol_order=3736)
+
+
+
+void __static_initialization_and_destruction_0(int, int)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 0[ax] 1[dx] 4[si] 5[di] 6[bp] 7[sp] 17[flags]
+;;  ref usage 	r0={9d} r1={14d,5u} r2={9d} r4={15d,7u} r5={17d,9u} r6={3d,12u} r7={4d,18u} r8={8d} r9={8d} r10={8d} r11={8d} r12={8d} r13={8d} r14={8d} r15={8d} r17={11d,2u} r18={8d} r19={8d} r20={1d,1u} r21={9d} r22={9d} r23={9d} r24={9d} r25={9d} r26={9d} r27={9d} r28={9d} r29={8d} r30={8d} r31={8d} r32={8d} r33={8d} r34={8d} r35={8d} r36={8d} r37={9d} r38={9d} r39={8d} r40={8d} r45={8d} r46={8d} r47={8d} r48={8d} r49={8d} r50={8d} r51={8d} r52={8d} r53={8d} r54={8d} r55={8d} r56={8d} r57={8d} r58={8d} r59={8d} r60={8d} r61={8d} r62={8d} r63={8d} r64={8d} r65={8d} r66={8d} r67={8d} r68={8d} r69={8d} r70={8d} r71={8d} r72={8d} r73={8d} r74={8d} r75={8d} r76={8d} 
+;;    total ref usage 643{589d,54u,0e} in 38{30 regular + 8 call} insns.
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 45 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 45 5 46 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:130 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 46 45 47 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:130 89 {*movdi_internal}
+     (nil))
+(insn/f 47 46 48 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -16 [0xfffffffffffffff0])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:130 946 {pro_epilogue_adjust_stack_di_add}
+     (nil))
+(note 48 47 2 2 NOTE_INSN_PROLOGUE_END)
+(insn 2 48 3 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+        (reg:SI 5 di [ __initialize_p ])) src/StatusBar.cpp:130 90 {*movsi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+        (reg:SI 4 si [ __priority ])) src/StatusBar.cpp:130 90 {*movsi_internal}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                    (const_int -4 [0xfffffffffffffffc])) [0 __initialize_p+0 S4 A32])
+            (const_int 1 [0x1]))) src/StatusBar.cpp:130 7 {*cmpsi_1}
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 42)
+            (pc))) src/StatusBar.cpp:130 596 {*jcc_1}
+     (nil)
+ -> 42)
+(note 9 8 10 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 6 bp)
+                    (const_int -8 [0xfffffffffffffff8])) [0 __priority+0 S4 A32])
+            (const_int 65535 [0xffff]))) src/StatusBar.cpp:130 7 {*cmpsi_1}
+     (nil))
+(jump_insn 11 10 12 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 42)
+            (pc))) src/StatusBar.cpp:130 596 {*jcc_1}
+     (nil)
+ -> 42)
+(note 12 11 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7fe75aa46be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(call_insn 14 13 15 4 (call (mem:QI (symbol_ref:DI ("_ZNSt8ios_base4InitC1Ev") [flags 0x41]  <function_decl 0x7fe762b7fe00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) /usr/include/c++/4.9.2/iostream:74 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 15 14 16 4 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7fe75a3b5be0 __dso_handle>)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(insn 16 15 17 4 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZStL8__ioinit") [flags 0x2]  <var_decl 0x7fe75aa46be0 __ioinit>)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(insn 17 16 18 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZNSt8ios_base4InitD1Ev") [flags 0x41]  <function_decl 0x7fe762b86000 __comp_dtor >)) /usr/include/c++/4.9.2/iostream:74 89 {*movdi_internal}
+     (nil))
+(call_insn 18 17 19 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7fe75a3c3000 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) /usr/include/c++/4.9.2/iostream:74 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 19 18 20 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3appE") [flags 0x2]  <var_decl 0x7fe75aa3eab0 app>)) src/StatusBar.cpp:56 89 {*movdi_internal}
+     (nil))
+(call_insn 20 19 21 4 (call (mem:QI (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEEC1Ev") [flags 0x1]  <function_decl 0x7fe75aa52c00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:56 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 21 20 22 4 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7fe75a3b5be0 __dso_handle>)) src/StatusBar.cpp:56 89 {*movdi_internal}
+     (nil))
+(insn 22 21 23 4 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZN9StatusBar3appE") [flags 0x2]  <var_decl 0x7fe75aa3eab0 app>)) src/StatusBar.cpp:56 89 {*movdi_internal}
+     (nil))
+(insn 23 22 24 4 (set (reg:DI 5 di)
+        (symbol_ref/i:DI ("_ZN4Glib6RefPtrIN3Gtk11ApplicationEED1Ev") [flags 0x1]  <function_decl 0x7fe75aa52e00 __comp_dtor >)) src/StatusBar.cpp:56 89 {*movdi_internal}
+     (nil))
+(call_insn 24 23 25 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7fe75a3c3000 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:56 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 25 24 26 4 (set (reg:SI 4 si)
+        (const_int 0 [0])) src/StatusBar.cpp:57 90 {*movsi_internal}
+     (nil))
+(insn 26 25 27 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:57 89 {*movdi_internal}
+     (nil))
+(call_insn 27 26 28 4 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk6WindowC1ENS_10WindowTypeE") [flags 0x41]  <function_decl 0x7fe75cc01b00 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:57 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(insn 28 27 29 4 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7fe75a3b5be0 __dso_handle>)) src/StatusBar.cpp:57 89 {*movdi_internal}
+     (nil))
+(insn 29 28 30 4 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZN9StatusBar3winE") [flags 0x2]  <var_decl 0x7fe75aa3eb48 win>)) src/StatusBar.cpp:57 89 {*movdi_internal}
+     (nil))
+(insn 30 29 31 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN3Gtk6WindowD1Ev") [flags 0x41]  <function_decl 0x7fe75cc08400 __comp_dtor >)) src/StatusBar.cpp:57 89 {*movdi_internal}
+     (nil))
+(call_insn 31 30 32 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7fe75a3c3000 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:57 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 32 31 33 4 (set (reg:SI 1 dx)
+        (const_int 0 [0])) src/StatusBar.cpp:58 90 {*movsi_internal}
+     (nil))
+(insn 33 32 34 4 (set (reg:SI 4 si)
+        (const_int 0 [0])) src/StatusBar.cpp:58 90 {*movsi_internal}
+     (nil))
+(insn 34 33 35 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN9StatusBar3barE") [flags 0x2]  <var_decl 0x7fe75aa3ec78 bar>)) src/StatusBar.cpp:58 89 {*movdi_internal}
+     (nil))
+(call_insn 35 34 36 4 (call (mem:QI (symbol_ref:DI ("_ZN3Gtk3BoxC1ENS_11OrientationEi") [flags 0x41]  <function_decl 0x7fe75cc3f700 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:58 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (nil)))))
+(insn 36 35 37 4 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("__dso_handle") [flags 0x42]  <var_decl 0x7fe75a3b5be0 __dso_handle>)) src/StatusBar.cpp:58 89 {*movdi_internal}
+     (nil))
+(insn 37 36 38 4 (set (reg:DI 4 si)
+        (symbol_ref:DI ("_ZN9StatusBar3barE") [flags 0x2]  <var_decl 0x7fe75aa3ec78 bar>)) src/StatusBar.cpp:58 89 {*movdi_internal}
+     (nil))
+(insn 38 37 39 4 (set (reg:DI 5 di)
+        (symbol_ref:DI ("_ZN3Gtk3BoxD1Ev") [flags 0x41]  <function_decl 0x7fe75cc46000 __comp_dtor >)) src/StatusBar.cpp:58 89 {*movdi_internal}
+     (nil))
+(call_insn 39 38 42 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__cxa_atexit") [flags 0x41]  <function_decl 0x7fe75a3c3000 __cxa_atexit>) [0 __cxa_atexit S1 A8])
+            (const_int 0 [0]))) src/StatusBar.cpp:58 649 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(code_label 42 39 43 5 41 "" [2 uses])
+(note 43 42 49 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(note 49 43 50 5 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 50 49 51 5 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 6 bp)
+                    (const_int 8 [0x8])))
+            (set (reg/f:DI 6 bp)
+                (mem:DI (reg/f:DI 6 bp) [0  S8 A8]))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) src/StatusBar.cpp:130 672 {leave_rex64}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 51 50 52 5 (simple_return) src/StatusBar.cpp:130 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 52 51 44)
+(note 44 52 0 NOTE_INSN_DELETED)
+
+;; Function (static initializers for src/StatusBar.cpp) (_GLOBAL__sub_I__ZN9StatusBar3appE, funcdef_no=8174, decl_uid=237764, symbol_order=4258)
+
+
+
+(static initializers for src/StatusBar.cpp)
+
+Dataflow summary:
+;;  invalidated by call 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 19 [fpcr] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 29 [mm0] 30 [mm1] 31 [mm2] 32 [mm3] 33 [mm4] 34 [mm5] 35 [mm6] 36 [mm7] 37 [r8] 38 [r9] 39 [r10] 40 [r11] 45 [xmm8] 46 [xmm9] 47 [xmm10] 48 [xmm11] 49 [xmm12] 50 [xmm13] 51 [xmm14] 52 [xmm15] 53 [] 54 [] 55 [] 56 [] 57 [] 58 [] 59 [] 60 [] 61 [] 62 [] 63 [] 64 [] 65 [] 66 [] 67 [] 68 [] 69 [] 70 [] 71 [] 72 [] 73 [] 74 [] 75 [] 76 []
+;;  hardware regs used 	 7 [sp]
+;;  regular block artificial uses 	 6 [bp] 7 [sp]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 20 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 20 [frame] 21 [xmm0] 22 [xmm1] 23 [xmm2] 24 [xmm3] 25 [xmm4] 26 [xmm5] 27 [xmm6] 28 [xmm7] 37 [r8] 38 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 20 [frame]
+;;  regs ever live 	 4[si] 5[di] 6[bp] 7[sp]
+;;  ref usage 	r0={2d} r1={2d} r2={2d} r4={3d,1u} r5={3d,1u} r6={3d,3u} r7={3d,6u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r17={1d} r18={1d} r19={1d} r20={1d,1u} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={2d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={2d} r38={2d} r39={1d} r40={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} 
+;;    total ref usage 104{92d,12u,0e} in 7{6 regular + 1 call} insns.
+(note 1 0 3 NOTE_INSN_DELETED)
+(note 3 1 11 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn/f 11 3 12 2 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [0  S8 A8])
+        (reg/f:DI 6 bp)) src/StatusBar.cpp:130 65 {*pushdi2_rex64}
+     (nil))
+(insn/f 12 11 13 2 (set (reg/f:DI 6 bp)
+        (reg/f:DI 7 sp)) src/StatusBar.cpp:130 89 {*movdi_internal}
+     (nil))
+(note 13 12 2 2 NOTE_INSN_PROLOGUE_END)
+(note 2 13 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:SI 4 si)
+        (const_int 65535 [0xffff])) src/StatusBar.cpp:130 90 {*movsi_internal}
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) src/StatusBar.cpp:130 90 {*movsi_internal}
+     (nil))
+(call_insn 7 6 14 2 (call (mem:QI (symbol_ref:DI ("_Z41__static_initialization_and_destruction_0ii") [flags 0x3]  <function_decl 0x7fe75a3adf00 __static_initialization_and_destruction_0>) [0 __static_initialization_and_destruction_0 S1 A8])
+        (const_int 0 [0])) src/StatusBar.cpp:130 642 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(note 14 7 15 2 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 15 14 16 2 (set (reg/f:DI 6 bp)
+        (mem:DI (post_inc:DI (reg/f:DI 7 sp)) [0  S8 A8])) src/StatusBar.cpp:130 75 {*popdi1}
+     (expr_list:REG_CFA_DEF_CFA (plus:DI (reg/f:DI 7 sp)
+            (const_int 8 [0x8]))
+        (nil)))
+(jump_insn 16 15 17 2 (simple_return) src/StatusBar.cpp:130 658 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 17 16 10)
+(note 10 17 0 NOTE_INSN_DELETED)

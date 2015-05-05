@@ -1,0 +1,41 @@
+
+;; Function void display_date() (_Z12display_datev, funcdef_no=7427, decl_uid=231356, symbol_order=2920)
+
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (parallel [
+            (set (reg:DI 83)
+                (plus:DI (reg/f:DI 20 frame)
+                    (const_int -80 [0xffffffffffffffb0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/date.cpp:97 221 {*adddi_1}
+     (nil))
+(insn 6 5 7 2 (set (reg:DI 5 di)
+        (reg:DI 83)) src/date.cpp:97 89 {*movdi_internal}
+     (nil))
+(call_insn 7 6 8 2 (call (mem:QI (symbol_ref:DI ("_ZN8BarLabelC1Ev") [flags 0x41]  <function_decl 0x7fb2b6d2a600 __comp_ctor >) [0 __comp_ctor  S1 A8])
+        (const_int 0 [0])) src/date.cpp:97 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 8 7 9 2 (parallel [
+            (set (reg:DI 84)
+                (plus:DI (reg/f:DI 20 frame)
+                    (const_int -80 [0xffffffffffffffb0])))
+            (clobber (reg:CC 17 flags))
+        ]) src/date.cpp:97 221 {*adddi_1}
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 5 di)
+        (reg:DI 84)) src/date.cpp:97 89 {*movdi_internal}
+     (nil))
+(call_insn 10 9 0 2 (call (mem:QI (symbol_ref:DI ("_ZN8BarLabelD1Ev") [flags 0x41]  <function_decl 0x7fb2b6d2a900 __comp_dtor >) [0 __comp_dtor  S1 A8])
+        (const_int 0 [0])) src/date.cpp:97 642 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+
