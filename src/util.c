@@ -24,23 +24,6 @@
 //     N/A
 // 
 // 
-// FUNCTIONS:
-// 
-//     get_gbar      - Get PID for running instances of GBAR
-//     kill_gbar     - Kill running instances of GBAR
-//     cleanup_child - Cleanup zombie processes
-//     
-//     widget_event  - Add events to widgets that are triggered with signals,
-//                     i.e. Mouse hover, timers, etc.
-// 
-// 
-// FILE STRUCTURE:
-// 
-//     * Includes and Declares
-//     * Update Statusbar
-//     * Add Events to Widgets
-// 
-// 
 // MODIFICATION HISTORY:
 // 	
 //     gabeg Sep 25 2014 <> created
@@ -57,113 +40,37 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/globals.h"
+#include "../hdr/util.h"
+#include "../hdr/vol.h"
+#include "../hdr/bright.h"
+#include "../hdr/atlas.h"
+#include "../hdr/tags.h"
 #include <gtk/gtk.h>
+#include <gdk/gdk.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
 #include <unistd.h>
 #include <assert.h>
+#include <time.h>
 #include <string.h>
 #include <stdlib.h>
-
-#define GBAR_LOG "/home/gabeg/.config/dwm/src/gbar/log/gbar.log"
-
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <semaphore.h>
 
 // Declares
-void setup_widget(GtkWidget *win, GtkWidget *widg, int pos[4]);
-void file_write(char *file, char *opt, const char *fmt, ...);
-char * file_read(char *file, int ln, int sz);
-void kill_gbar();
 void cleanup_child(int signal);
-void widget_event(GtkWidget *holder, GtkWidget *widget, int timer, gboolean (*func)(gpointer));
-void setup_window(GtkWidget *window, GtkWidget *bar);
 void set_style();
+void setup_widget(GtkWidget *win, GtkWidget *widg, int pos[4]);
 void widget_mouse_enter(GtkWidget *win, GtkWidget *widget, int timer, gboolean (*func)(gpointer));
-
-// Write to a file
-void file_write(char *file, char *opt, const char *fmt, ...) {
-    FILE *handle = fopen(file, opt);
-    va_list args;
-    
-    va_start(args, fmt);
-    vfprintf(handle, fmt, args);
-    va_end(args);
-    
-    fclose(handle);
-}
-
-
-// Read a file's contents
-char * file_read(char *file, int ln, int sz) {
-    
-    // Store file contents in variable
-    FILE *handle = fopen(file, "r");
-    char temp[sz];
-    
-    // Loop through file
-    int i = 0;
-    while (fgets(temp, sz, handle) != NULL ) {
-        
-        // Remove trailing newline characters
-        char *pos;
-        if ((pos=strchr(temp, '\n')) != NULL)
-            *pos = '\0';
-        
-        // Break out of loop
-        ++i;
-        if ( i == ln )
-            break;
-    }
-    
-    // Close file
-    fclose(handle);
-    
-    // Copy the line int to the return variable
-    size_t len = strlen(temp) + 1;
-    char *copy = malloc(len);
-    assert(copy);
-    snprintf(copy, len, "%s", temp);
-    
-    return copy;
-}
+void widget_updater(int sig);
 
 
 
 // ////////////////////////////
 // ///// UPDATE STATUSBAR /////
 // ////////////////////////////
-
-// Kill running instances of the gbar
-void kill_gbar() {
-    
-    // Wait until file is created
-    while ( access(GBAR_LOG, F_OK) != 0 ) {}
-    int owner = atoi( file_read(GBAR_LOG, 1, 10) );
-    
-    // Command to search for running instances of gbar
-    size_t len = 10;
-    char *cmd = "pgrep gbar";
-    FILE *handle = popen(cmd, "r");
-    char proc[len];
-    
-    // Kill PID's that are found
-    while ( fgets(proc, len, handle) != NULL ) {
-        int pid = atoi(proc);
-        if ( pid != owner ) {
-            pid_t child = fork();
-            if ( child == 0 ) {
-                kill(pid, SIGHUP);
-                exit(0);
-            }
-        }
-    }
-    
-    // Close process
-    pclose(handle);
-}
-
-
 
 // Cleanup zombie child processes
 void cleanup_child(int signal) {
@@ -175,28 +82,6 @@ void cleanup_child(int signal) {
 // /////////////////////////////////
 // ///// ADD EVENTS TO WIDGETS /////
 // /////////////////////////////////
-
-// Add events to widgets that are triggered with signals
-void widget_event(GtkWidget *holder, GtkWidget *widget, int timer, gboolean (*func)(gpointer)) {
-    
-    // Initialize widgets
-    GtkWidget *event = gtk_event_box_new();
-    
-    // Handle widget signals
-    gtk_widget_add_events(event, GDK_ENTER_NOTIFY_MASK);
-    g_signal_connect(G_OBJECT(event), "enter-notify-event", G_CALLBACK(func), NULL);
-    
-    if ( timer > 0 ) 
-        g_timeout_add_seconds(timer, (GSourceFunc)*func, event);
-        
-    // Display the widget
-    gtk_container_add(GTK_CONTAINER(event), widget);
-    gtk_box_pack_end(GTK_BOX(holder), event, 0, 0, 0);
-    
-    gtk_widget_show(widget);
-    gtk_widget_show(event);
-}
-
 
 // Add events to widgets that are triggered with signals
 void widget_mouse_enter(GtkWidget *win, GtkWidget *widget, int timer, gboolean (*func)(gpointer)) {
@@ -220,40 +105,9 @@ void widget_mouse_enter(GtkWidget *win, GtkWidget *widget, int timer, gboolean (
 }
 
 
-// //////////////////////////////////
-// ///// SETUP STATUSBAR WINDOW /////
-// //////////////////////////////////
-
-// Setup a widget
-void setup_widget(GtkWidget *win, GtkWidget *widg, int pos[4]) {
-    
-    // Set window attributes
-    gtk_window_move(GTK_WINDOW(win), pos[0], pos[1]);
-    gtk_window_set_default_size(GTK_WINDOW(win), pos[2], pos[3]);
-    gtk_widget_override_background_color(win, GTK_STATE_NORMAL, &color);
-    
-    // GTK signal
-    if ( widg != NULL )
-        gtk_container_add(GTK_CONTAINER(win), widg);
-    g_signal_connect(win, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-}
-
-
-    
-// Setup gbar root window
-void setup_window(GtkWidget *window, GtkWidget *bar) {
-        
-    // Set window attributes
-    gtk_window_move(GTK_WINDOW(window), 0, 0);
-    gtk_window_set_default_size(GTK_WINDOW(window), screen_width, 20);
-    gtk_widget_override_background_color(window, GTK_STATE_NORMAL, &color);
-    
-    // GTK signal
-    gtk_container_add(GTK_CONTAINER(window), bar);
-    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-}
-
-
+// ///////////////////////////////////
+// ///// SETUP STATUSBAR WIDGETS /////
+// ///////////////////////////////////
 
 // Setup font attributes for text on the statusbar
 void set_style() {
@@ -273,4 +127,83 @@ void set_style() {
     pango_attr_list_insert(attrList, attrSize);
     pango_attr_list_insert(attrList, attrFont);
     pango_attr_list_insert(attrList, attrColor);
+}
+
+
+
+// Setup a widget
+void setup_widget(GtkWidget *win, GtkWidget *widg, int pos[4]) {
+    
+    // Set window attributes
+    GdkRGBA color = {0.19, 0.19, 0.23, 1};
+    
+    gtk_window_move(GTK_WINDOW(win), pos[0], pos[1]);
+    gtk_window_set_default_size(GTK_WINDOW(win), pos[2], pos[3]);
+    gtk_widget_override_background_color(win, GTK_STATE_NORMAL, &color);
+    
+    // GTK signal
+    if ( widg != NULL )
+        gtk_container_add(GTK_CONTAINER(win), widg);
+    g_signal_connect(win, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+}
+
+
+void widget_updater(int sig) {
+    int key, type, val;
+    
+    sem_t *sem = sem_open("/semi", O_RDONLY, 0644, key);
+    /* FILE *handle = fopen("/home/gabeg/yuss", "a+"); */
+    /* fprintf(handle, "Signal received\n"); */
+    /* fclose(handle); */
+    
+    if ( sem == NULL )
+        return;
+    
+    sem_getvalue(sem, &key);
+    
+    type = (key >> 8);
+    val  = (key & 0xFF);
+    
+    /* handle = fopen("/home/gabeg/yuss", "a+"); */
+    /* fprintf(handle, "Key = 0x%x\n", key); */
+    /* fprintf(handle, "Type = 0x%x\n", type); */
+    /* fprintf(handle, "Val = 0x%x\n", val); */
+    /* fclose(handle); */
+    
+    switch ( type ) {
+    case 'B':
+        if ( val == 0 )
+            system("xbacklight -inc 10");
+        else if ( val == 1 )
+            system("xbacklight -dec 10");
+        
+        display_brightness();
+        break;
+    case 'P':
+        if ( val == 0 )
+            system("mocp -G");
+        else if ( val == 1 )
+            system("mocp -r");
+        else if ( val == 2 )
+            system("mocp -f");
+        
+        display_volume();
+        break;
+    case 'T':
+        val = (key & 0xFF);
+        display_tags(val);
+        break;
+    case 'V':
+        if ( val == 0 )
+            system("amixer -q set Master 5%+");
+        else if ( val == 1 )
+            system("amixer -q set Master 5%-");
+        else if ( val == 2 )
+            system("amixer -q set Master toggle");
+        
+        display_volume();
+        break;
+    default:
+        break;
+    }
 }

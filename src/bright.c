@@ -48,7 +48,7 @@
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
 //     gabeg Nov 02 2014 <> Made it so that the brightness widget did not have to 
-//                          rely on the gbar frame (being passed in as a parameter). 
+//                          rely on the Atlas frame (being passed in as a parameter). 
 // 
 // **********************************************************************************
 
@@ -59,11 +59,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/globals.h"
 #include "../hdr/bright.h"
+#include "../hdr/atlas.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
-#include <gdk/gdk.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -78,7 +77,7 @@
 
 // Declares
 static int get_brightness();
-static char * get_brightness_icon();
+static void get_brightness_icon(char *path);
 static gboolean set_brightness_icon(gpointer data);
 void display_brightness();
 
@@ -117,7 +116,7 @@ static int get_brightness() {
 
 
 // Return the proper brightness icon
-static char * get_brightness_icon() {
+static void get_brightness_icon(char *path) {
     
     // Initialize variables
     int level = get_brightness();    
@@ -144,10 +143,7 @@ static char * get_brightness_icon() {
     
     // Allocate memory for string
     size_t sz = strlen(ICON_DIR) + strlen(name) + strlen(ICON_EXT) + 1;
-    char *output = malloc(sz);
-    snprintf(output, sz, "%s%s%s", ICON_DIR, name, ICON_EXT);
-    
-    return output;
+    snprintf(path, sz, "%s%s%s", ICON_DIR, name, ICON_EXT);
 }
 
 
@@ -164,11 +160,11 @@ static gboolean set_brightness_icon(gpointer data) {
     GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
     
     // Set icon onto widget
-    char *bright_icon = get_brightness_icon();
-    gtk_image_set_from_file(GTK_IMAGE(children->data), bright_icon);
+    char path[256];
+    get_brightness_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(children->data), path);
     
     // Free memory
-    free(bright_icon);
     g_list_free(children);
     
     return TRUE;
@@ -188,11 +184,12 @@ void display_brightness() {
     GtkWidget *bright = gtk_image_new();     
     
     // Set brightness icon
-    char *bright_icon = get_brightness_icon();
-    gtk_image_set_from_file(GTK_IMAGE(bright), bright_icon);
+    char path[256];
+    get_brightness_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(bright), path);
     
     // Setup widget
-    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    int pos[4] = {1366-XPOS, YPOS, 0, 20};
     setup_widget(win, NULL, pos);
     widget_mouse_enter(win, bright, 0, set_brightness_icon);
     

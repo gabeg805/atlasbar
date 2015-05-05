@@ -47,7 +47,7 @@
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
 //     gabeg Nov 02 2014 <> Made it so that the wifi widget did not have to rely on 
-//                          the gbar frame (being passed in as a parameter). 
+//                          the Atlas frame (being passed in as a parameter). 
 // 
 // **********************************************************************************
 
@@ -58,8 +58,8 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/globals.h"
 #include "../hdr/wifi.h"
+#include "../hdr/atlas.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
 #include <string.h>
@@ -74,7 +74,7 @@
 
 // Declares
 static int get_wifi();
-static char * get_wifi_icon();
+static void get_wifi_icon(char *path);
 static gboolean set_wifi_icon(gpointer data);
 void display_wifi();
 
@@ -103,7 +103,7 @@ static int get_wifi() {
 
 
 // Return the proper wifi icon
-static char * get_wifi_icon() {
+static void get_wifi_icon(char *path) {
     
     // Initialize variables
     int level = get_wifi();    
@@ -129,10 +129,7 @@ static char * get_wifi_icon() {
     
     // Allocate memory for string
     size_t sz = strlen(ICON_DIR) + strlen(name) + strlen(ICON_EXT) + 1;
-    char *output = malloc(sz);
-    snprintf(output, sz, "%s%s%s", ICON_DIR, name, ICON_EXT);
-    
-    return output;
+    snprintf(path, sz, "%s%s%s", ICON_DIR, name, ICON_EXT);
 }
 
 
@@ -149,11 +146,11 @@ static gboolean set_wifi_icon(gpointer data) {
     GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
     
     // Get icon location
-    char *wifi_icon = get_wifi_icon();
-    gtk_image_set_from_file(GTK_IMAGE(children->data), wifi_icon);
+    char path[256];
+    get_wifi_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(children->data), path);
     
     // Free memory
-    free(wifi_icon);
     g_list_free(children);
     
     return TRUE;
@@ -173,11 +170,12 @@ void display_wifi() {
     GtkWidget *wifi = gtk_image_new();
     
     // Set widget icon
-    char *wifi_icon = get_wifi_icon();
-    gtk_image_set_from_file(GTK_IMAGE(wifi), wifi_icon);
+    char path[256];
+    get_wifi_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(wifi), path);
     
     // Setup widget
-    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    int pos[4] = {1366-XPOS, YPOS, 0, 20};
     setup_widget(win, NULL, pos);
     widget_mouse_enter(win, wifi, 5, set_wifi_icon);
     

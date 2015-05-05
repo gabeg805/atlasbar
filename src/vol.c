@@ -54,7 +54,7 @@
 //                          mute is toggled.
 // 
 //     gabeg Nov 02 2014 <> Made it so that the volume widget did not have to 
-//                          rely on the gbar frame (being passed in as a parameter). 
+//                          rely on the Atlas frame (being passed in as a parameter). 
 // 
 // **********************************************************************************
 
@@ -65,11 +65,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/globals.h"
 #include "../hdr/vol.h"
+#include "../hdr/atlas.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
-#include <gdk/gdk.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,7 +85,7 @@
 static int is_mute();
 static pid_t is_playing();
 static int get_volume();
-static char * get_volume_icon();
+static void get_volume_icon(char *path);
 static gboolean set_volume_icon(gpointer data);
 void display_volume();
 
@@ -100,16 +99,16 @@ void display_volume();
 static int is_mute() {
     
     // Get output from command
-    char *cmd = "amixer get Master | tail -1 | awk '{print $6}' | sed -e 's/\\[//; s/\\]//; s/\\%//'";
+    char *cmd = "/home/gabeg/.config/dwm/src/atlas/src/scripts/vol -p -m";
     FILE *handle = popen(cmd, "r");
     char status[5];
     fgets(status, sizeof(status), handle);    
     fclose(handle);
     
     // Convert command output to boolean 
-    if ( strcmp(status, "off\n") == 0 )
+    if ( strcmp(status, "off\n") == 0 ) 
         return 1;
-    else
+    else 
         return 0;
 }
 
@@ -145,14 +144,14 @@ static pid_t is_playing() {
 static int get_volume() {
     
     // Get output from command
-    char *cmd = "amixer get Master | tail -1 | awk '{print $4}' | sed -e 's/\\[//; s/\\]//; s/\\%//'";
+    char *cmd = "/home/gabeg/.config/dwm/src/atlas/src/scripts/vol -p -v";
     FILE *handle = popen(cmd, "r");
-    char temp[5];
-    fgets(temp, sizeof(temp), handle);    
+    char vol[5];
+    fgets(vol, sizeof(vol), handle);    
     fclose(handle);
     
     // Convert command output to integer volume level
-    int level = atoi(temp);
+    int level = atoi(vol);
     
     return level;
 }
@@ -160,10 +159,10 @@ static int get_volume() {
 
 
 // Return the proper volume icon
-static char * get_volume_icon() {
+static void get_volume_icon(char *path) {
     
     // Initialize variables
-    int level = get_volume();    
+    int level = get_volume();
     char *name;
     
     // Check if music is playing
@@ -209,10 +208,7 @@ static char * get_volume_icon() {
     
     // Allocate memory for string
     size_t sz = strlen(ICON_DIR) + strlen(name) + strlen(ICON_EXT) + 1;
-    char *output = malloc(sz);
-    snprintf(output, sz, "%s%s%s", ICON_DIR, name, ICON_EXT);
-    
-    return output;
+    snprintf(path, sz, "%s%s%s", ICON_DIR, name, ICON_EXT);
 }
 
 
@@ -229,11 +225,11 @@ static gboolean set_volume_icon(gpointer data) {
     GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
     
     // Get icon location
-    char *vol_icon = get_volume_icon();
-    gtk_image_set_from_file(GTK_IMAGE(children->data), vol_icon);
+    char path[256];
+    get_volume_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(children->data), path);
     
     // Free memory
-    free(vol_icon);
     g_list_free(children);
     
     return TRUE;
@@ -253,11 +249,12 @@ void display_volume() {
     GtkWidget *vol = gtk_image_new();
     
     // Set volume icon
-    char *vol_icon = get_volume_icon();
-    gtk_image_set_from_file(GTK_IMAGE(vol), vol_icon);
+    char path[256];
+    get_volume_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(vol), path);
     
     // Enable events on volume widget
-    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    int pos[4] = {1366-XPOS, YPOS, 0, 20};
     setup_widget(win, NULL, pos);
     widget_mouse_enter(win, vol, 0, set_volume_icon);
     

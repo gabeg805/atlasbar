@@ -3,6 +3,6 @@
 #define TAGS_H
 
 // Public functions
-void display_tags(int screen);
+void display_tags(int loc);
 
 #endif

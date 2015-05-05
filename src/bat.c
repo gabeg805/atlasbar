@@ -49,7 +49,7 @@
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
 //     gabeg Nov 02 2014 <> Made it so that the battery widget did not have to rely 
-//                          on the gbar frame (being passed in as a parameter). 
+//                          on the Atlas frame (being passed in as a parameter). 
 // 
 // **********************************************************************************
 
@@ -60,8 +60,8 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/globals.h"
 #include "../hdr/bat.h"
+#include "../hdr/atlas.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
 #include <string.h>
@@ -79,7 +79,7 @@
 
 // Declares
 static int get_charge();
-static char * get_battery_icon();
+static void get_battery_icon(char *path);
 static gboolean set_battery_icon(gpointer data);
 void display_battery();
 
@@ -129,13 +129,13 @@ static int get_charge() {
 
 
 // Return the proper battery icon
-static char * get_battery_icon() {
+static void get_battery_icon(char *path) {
     
     // Initialize variables
     int charge = get_charge();    
     
     // Determine the correct volume icon
-    size_t sz;
+    size_t sz  = 0;
     size_t sza = strlen(ICON_DIR) + strlen(ICON_SUF) + strlen(ICON_EXT) + 1;
     size_t szb = strlen(ICON_DIR) + sizeof(charge) + strlen(ICON_EXT) + 1;
     
@@ -145,13 +145,10 @@ static char * get_battery_icon() {
         sz = szb;
     
     // Allocate memory for string
-    char *output = malloc(sz);
     if ( sz == sza )
-        snprintf(output, sz, "%s%s%s", ICON_DIR, ICON_SUF, ICON_EXT);
+        snprintf(path, sz, "%s%s%s", ICON_DIR, ICON_SUF, ICON_EXT);
     else
-        snprintf(output, sz, "%s%d%s", ICON_DIR, charge, ICON_EXT);
-        
-    return output;
+        snprintf(path, sz, "%s%d%s", ICON_DIR, charge, ICON_EXT);
 }
 
 
@@ -164,8 +161,9 @@ static char * get_battery_icon() {
 static gboolean set_battery_icon(gpointer data) {
     
     // Get battery icon
-    char *bat_icon = get_battery_icon();
-    GdkPixbuf * ploob = gdk_pixbuf_new_from_file (bat_icon, NULL);
+    char path[256];
+    get_battery_icon(path);
+    GdkPixbuf * ploob = gdk_pixbuf_new_from_file(path, NULL);
     
     // Set icon onto widget
     GtkWidget *widget = (GtkWidget *) data;
@@ -173,7 +171,6 @@ static gboolean set_battery_icon(gpointer data) {
     gtk_image_set_from_pixbuf(GTK_IMAGE(children->data), ploob);
     
     // Free memory
-    free(bat_icon);
     g_list_free (children);
     
     return TRUE;
@@ -189,15 +186,16 @@ static gboolean set_battery_icon(gpointer data) {
 void display_battery() {
     
     // Initialize widgets
-    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
+    GtkWidget *win = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *bat = gtk_image_new();
     
     // Set widget icon
-    char *bat_icon = get_battery_icon();
-    gtk_image_set_from_file(GTK_IMAGE(bat), bat_icon);
+    char path[256];
+    get_battery_icon(path);
+    gtk_image_set_from_file(GTK_IMAGE(bat), path);
     
     // Setup widget
-    int pos[4] = {screen_width-XPOS, YPOS, 0, bar_height};
+    int pos[4] = {1366-XPOS, YPOS, 0, 20};
     setup_widget(win, NULL, pos);
     widget_mouse_enter(win, bat, 120, set_battery_icon);
     

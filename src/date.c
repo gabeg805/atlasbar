@@ -43,7 +43,7 @@
 //     gabeg Oct 05 2014 <> Added a header to the source file.
 // 
 //     gabeg Nov 02 2014 <> Made it so that the date widget did not have to rely on 
-//                          the gbar frame (being passed in as a parameter). 
+//                          the Atlas frame (being passed in as a parameter). 
 // 
 // **********************************************************************************
 
@@ -54,8 +54,8 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/globals.h"
 #include "../hdr/date.h"
+#include "../hdr/atlas.h"
 #include "../hdr/util.h"
 #include <gtk/gtk.h>
 #include <time.h>
@@ -66,7 +66,6 @@
 
 // Declares
 static gboolean set_date_label(gpointer data);
-void display_date();
 
 
 
@@ -107,12 +106,12 @@ static gboolean set_date_label(gpointer data) {
 void display_date() {
     
     // Setup the date widget
-    GtkWidget *win    = gtk_window_new(GTK_WINDOW_POPUP);
+    GtkWidget *win  = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget *date = gtk_label_new("");
     set_date_label(date);
     
     // Setup widget
-    int pos[4] = {XPOS, YPOS, 0, bar_height};
+    int pos[4] = {XPOS, YPOS, 0, 20};
     setup_widget(win, date, pos);
     g_timeout_add_seconds(60, set_date_label, date);
     

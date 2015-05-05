@@ -62,6 +62,4 @@ To-Do
 
 - Sometimes the volume icon mistakes a mocp pid, fix this
 
-- Add the WIN+LEFT and WIN+RIGHT to change tags
-
-- wifi does not seem to change...
+- the tags reset to 1 sometimes
