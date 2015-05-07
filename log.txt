@@ -1,263 +1,1370 @@
-ERROR: Could not match level '114'
-ERROR: Could not match level '2'
-ERROR: Could not match level '63'
-ERROR: Could not match level '117'
-ERROR: Could not match level '-122'
-ERROR: Could not match level '-128'
-ERROR: Could not match level '97'
-ERROR: Could not match level '-112'
-ERROR: Could not match level '61'
-ERROR: Could not match level '-102'
-ERROR: Could not match level '125'
-ERROR: Could not match level '20'
-ERROR: Could not match level '109'
-ERROR: Could not match level '-15'
-ERROR: Could not match level '83'
-ERROR: Could not match level '77'
-ERROR: Could not match level '46'
-ERROR: Could not match level '-10'
-ERROR: Could not match level '-8'
-ERROR: Could not match level '77'
-ERROR: Could not match level '87'
-ERROR: Could not match level '46'
-ERROR: Could not match level '-113'
-ERROR: Could not match level '-10'
-ERROR: Could not match level '120'
-ERROR: Could not match level '20'
-ERROR: Could not match level '1'
-ERROR: Could not match level '-111'
-ERROR: Could not match level '25'
-ERROR: Could not match level '-121'
-ERROR: Could not match level '9'
-ERROR: Could not match level '18'
-ERROR: Could not match level '77'
-ERROR: Could not match level '65'
-ERROR: Could not match level '82'
-ERROR: Could not match level '31'
-ERROR: Could not match level '-16'
-ERROR: Could not match level '-103'
-ERROR: Could not match level '124'
-ERROR: Could not match level '25'
-ERROR: Could not match level '114'
-ERROR: Could not match level '91'
-ERROR: Could not match level '124'
-ERROR: Could not match level '86'
-ERROR: Could not match level '120'
-ERROR: Could not match level '51'
-ERROR: Could not match level '66'
-ERROR: Could not match level '93'
-ERROR: Could not match level '-124'
-ERROR: Could not match level '21'
-ERROR: Could not match level '70'
-ERROR: Could not match level '58'
-ERROR: Could not match level '-125'
-ERROR: Could not match level '-121'
-ERROR: Could not match level '10'
-ERROR: Could not match level '42'
-ERROR: Could not match level '18'
-ERROR: Could not match level '70'
-ERROR: Could not match level '75'
-ERROR: Could not match level '16'
-ERROR: Could not match level '79'
-ERROR: Could not match level '91'
-ERROR: Could not match level '10'
-ERROR: Could not match level '78'
-ERROR: Could not match level '34'
-ERROR: Could not match level '25'
-ERROR: Could not match level '16'
-ERROR: Could not match level '1'
-ERROR: Could not match level '110'
-ERROR: Could not match level '5'
-ERROR: Could not match level '112'
-ERROR: Could not match level '23'
-ERROR: Could not match level '-100'
-ERROR: Could not match level '40'
-ERROR: Could not match level '42'
-ERROR: Could not match level '-110'
-ERROR: Could not match level '75'
-ERROR: Could not match level '9'
-ERROR: Could not match level '39'
-ERROR: Could not match level '115'
-ERROR: Could not match level '54'
-ERROR: Could not match level '25'
-ERROR: Could not match level '75'
-ERROR: Could not match level '-113'
-ERROR: Could not match level '7'
-ERROR: Could not match level '96'
-ERROR: Could not match level '108'
-ERROR: Could not match level '-126'
-ERROR: Could not match level '-4'
-ERROR: Could not match level '16'
-ERROR: Could not match level '40'
-ERROR: Could not match level '52'
-ERROR: Could not match level '34'
-ERROR: Could not match level '40'
-ERROR: Could not match level '-124'
-ERROR: Could not match level '6'
-ERROR: Could not match level '46'
-ERROR: Could not match level '-14'
-ERROR: Could not match level '24'
-ERROR: Could not match level '-18'
-ERROR: Could not match level '69'
-ERROR: Could not match level '88'
-ERROR: Could not match level '67'
-ERROR: Could not match level '13'
-ERROR: Could not match level '69'
-ERROR: Could not match level '-102'
-ERROR: Could not match level '53'
-ERROR: Could not match level '-108'
-ERROR: Could not match level '96'
-ERROR: Could not match level '-15'
-ERROR: Could not match level '38'
-ERROR: Could not match level '46'
-ERROR: Could not match level '-100'
-ERROR: Could not match level '25'
-ERROR: Could not match level '121'
-ERROR: Could not match level '69'
-ERROR: Could not match level '9'
-ERROR: Could not match level '-9'
-ERROR: Could not match level '-10'
-ERROR: Could not match level '6'
-ERROR: Could not match level '17'
-ERROR: Could not match level '4'
-ERROR: Could not match level '6'
-ERROR: Could not match level '-109'
-ERROR: Could not match level '95'
-ERROR: Could not match level '-107'
-ERROR: Could not match level '17'
-ERROR: Could not match level '6'
-ERROR: Could not match level '17'
-ERROR: Could not match level '68'
-ERROR: Could not match level '35'
-ERROR: Could not match level '6'
-ERROR: Could not match level '26'
-ERROR: Could not match level '4'
-ERROR: Could not match level '17'
-ERROR: Could not match level '35'
-ERROR: Could not match level '17'
-ERROR: Could not match level '6'
-ERROR: Could not match level '35'
-ERROR: Could not match level '122'
-ERROR: Could not match level '4'
-ERROR: Could not match level '17'
-ERROR: Could not match level '17'
-ERROR: Could not match level '17'
-ERROR: Could not match level '-121'
-ERROR: Could not match level '40'
-ERROR: Could not match level '5'
-ERROR: Could not match level '96'
-ERROR: Could not match level '7'
-ERROR: Could not match level '20'
-ERROR: Could not match level '8'
-ERROR: Could not match level '-15'
-ERROR: Could not match level '59'
-ERROR: Could not match level '1'
-ERROR: Could not match level '36'
-ERROR: Could not match level '-8'
-ERROR: Could not match level '16'
-ERROR: Could not match level '77'
-ERROR: Could not match level '58'
-ERROR: Could not match level '29'
-ERROR: Could not match level '45'
-ERROR: Could not match level '-4'
-ERROR: Could not match level '61'
-ERROR: Could not match level '46'
-ERROR: Could not match level '-12'
-ERROR: Could not match level '26'
-ERROR: Could not match level '40'
-ERROR: Could not match level '17'
-ERROR: Could not match level '25'
-ERROR: Could not match level '32'
-ERROR: Could not match level '16'
-ERROR: Could not match level '57'
-ERROR: Could not match level '-15'
-ERROR: Could not match level '96'
-ERROR: Could not match level '28'
-ERROR: Could not match level '16'
-ERROR: Could not match level '16'
-ERROR: Could not match level '-112'
-ERROR: Could not match level '-125'
-ERROR: Could not match level '43'
-ERROR: Could not match level '99'
-ERROR: Could not match level '32'
-ERROR: Could not match level '48'
-ERROR: Could not match level '66'
-ERROR: Could not match level '49'
-ERROR: Could not match level '100'
-ERROR: Could not match level '121'
-ERROR: Could not match level '46'
-ERROR: Could not match level '123'
-ERROR: Could not match level '-14'
-ERROR: Could not match level '109'
-ERROR: Could not match level '122'
-ERROR: Could not match level '98'
-ERROR: Could not match level '11'
-ERROR: Could not match level '6'
-ERROR: Could not match level '-120'
-ERROR: Could not match level '4'
-ERROR: Could not match level '-100'
-ERROR: Could not match level '-119'
-ERROR: Could not match level '-112'
-ERROR: Could not match level '8'
-ERROR: Could not match level '16'
-ERROR: Could not match level '-125'
-ERROR: Could not match level '68'
-ERROR: Could not match level '5'
-ERROR: Could not match level '99'
-ERROR: Could not match level '69'
-ERROR: Could not match level '48'
-ERROR: Could not match level '69'
-ERROR: Could not match level '61'
-ERROR: Could not match level '16'
-ERROR: Could not match level '68'
-ERROR: Could not match level '42'
-ERROR: Could not match level '90'
-ERROR: Could not match level '35'
-ERROR: Could not match level '5'
-ERROR: Could not match level '57'
-ERROR: Could not match level '-8'
-ERROR: Could not match level '35'
-ERROR: Could not match level '-11'
-ERROR: Could not match level '57'
-ERROR: Could not match level '30'
-ERROR: Could not match level '73'
-ERROR: Could not match level '-10'
-ERROR: Could not match level '114'
-ERROR: Could not match level '57'
-ERROR: Could not match level '67'
-ERROR: Could not match level '-127'
-ERROR: Could not match level '22'
-ERROR: Could not match level '-5'
-ERROR: Could not match level '115'
-ERROR: Could not match level '90'
-ERROR: Could not match level '27'
-ERROR: Could not match level '2'
-ERROR: Could not match level '1'
-ERROR: Could not match level '91'
-ERROR: Could not match level '111'
-ERROR: Could not match level '54'
-ERROR: Could not match level '25'
-ERROR: Could not match level '32'
-ERROR: Could not match level '48'
-ERROR: Could not match level '76'
-ERROR: Could not match level '106'
-ERROR: Could not match level '77'
-ERROR: Could not match level '1'
+Brightness: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+/home/gabeg/.config/dwm/src/atlas/log.txt
+Battery: 79
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat79.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Volume: 54
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Brightness: 36
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 78
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat78.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Volume: 60
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 66
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 71
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 77
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 83
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol80-100.png
+Volume: 89
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol80-100.png
+Volume: 83
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol80-100.png
+Volume: 77
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 71
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 66
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 60
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
 No outputs have backlight property
+Brightness: 47
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
 No outputs have backlight property
+Brightness: 53
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
 No outputs have backlight property
+Brightness: 60
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
 No outputs have backlight property
+Brightness: 67
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright60-75.png
 No outputs have backlight property
+Brightness: 51
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
 No outputs have backlight property
+Brightness: 45
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
 No outputs have backlight property
+Brightness: 38
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
 No outputs have backlight property
+Brightness: 32
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
 No outputs have backlight property
+Brightness: 25
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright15-30.png
 No outputs have backlight property
+Brightness: 41
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 78
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat78.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 78
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat78.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 78
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat78.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 78
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat78.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+/home/gabeg/.config/dwm/src/atlas/log.txt
+Battery: 77
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat77.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Volume: 60
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Brightness: 36
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 77
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat77.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 77
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat77.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 77
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat77.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 76
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat76.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 76
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat76.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 76
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat76.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 76
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat76.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 76
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat76.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 75
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat75.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 78
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 75
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat75.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 75
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat75.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 75
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat75.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 74
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat74.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 74
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat74.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 74
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat74.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 74
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat74.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 73
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat73.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 73
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat73.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+/home/gabeg/.config/dwm/src/atlas/log.txt
+Battery: 73
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat73.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Volume: 60
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Brightness: 36
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
 No outputs have backlight property
+Brightness: 47
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
 No outputs have backlight property
+Brightness: 53
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
 No outputs have backlight property
+Brightness: 60
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
 No outputs have backlight property
-ERROR: Could not match level '-118'
-ERROR: Could not match level '36'
-ERROR: Could not match level '34'
-ERROR: Could not match level '77'
+Brightness: 67
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright60-75.png
+No outputs have backlight property
+Brightness: 51
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright45-60.png
+No outputs have backlight property
+Brightness: 45
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+No outputs have backlight property
+Brightness: 38
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+No outputs have backlight property
+Brightness: 32
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+No outputs have backlight property
+Brightness: 25
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright15-30.png
+Volume: 54
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 48
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 43
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 37
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol20-40.png
+Volume: 31
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol20-40.png
+Volume: 25
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol20-40.png
+Volume: 31
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol20-40.png
+Volume: 37
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol20-40.png
+Volume: 43
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 48
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Volume: 54
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 60
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 66
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 71
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 66
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol60-80.png
+Volume: 60
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Volume: 54
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 73
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat73.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 72
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat72.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 72
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat72.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 72
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat72.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 72
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat72.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 72
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat72.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 0
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wireNone.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 71
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat71.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 71
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat71.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 71
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat71.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 71
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat71.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 71
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat71.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 70
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat70.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 70
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat70.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 70
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat70.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 70
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat70.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 70
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat70.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 69
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat69.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 69
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat69.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 69
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat69.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 69
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat69.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 0
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wireNone.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 69
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat69.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 68
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat68.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 68
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat68.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 68
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat68.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 68
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat68.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 67
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat67.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 67
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat67.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 67
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat67.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 67
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat67.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 66
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat66.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 66
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat66.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 66
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat66.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 66
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat66.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 66
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat66.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 65
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat65.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 65
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat65.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 65
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat65.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 65
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat65.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 65
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat65.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 64
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat64.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 64
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat64.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 79
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 64
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat64.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 64
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat64.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 64
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat64.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 63
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat63.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 63
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat63.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 63
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat63.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 62
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat62.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 62
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat62.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 79
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+/home/gabeg/.config/dwm/src/atlas/log.txt
+Battery: 61
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat61.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Volume: 54
+Volume: 0
+Volume: /home/gabeg/.config/awesome/img/icons/vol/vol40-60.png
+Brightness: 100
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright75-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 61
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat61.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 61
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat61.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 60
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat60.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 60
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat60.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Battery: 60
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat60.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 60
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat60.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 80
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire60-80.png
+Wifi: 81
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 59
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat59.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+No outputs have backlight property
+Brightness: 19
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright15-30.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+No outputs have backlight property
+Brightness: 38
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright30-45.png
+No outputs have backlight property
+Brightness: 19
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright15-30.png
+No outputs have backlight property
+Brightness: 17
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright15-30.png
+No outputs have backlight property
+Brightness: 12
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright0-15.png
+No outputs have backlight property
+Brightness: 5
+Brightness: /home/gabeg/.config/awesome/img/icons/bright/bright0-15.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 59
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat59.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 59
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat59.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Battery: 59
+Battery: /home/gabeg/.config/awesome/img/icons/bat/bat59.png
+Wifi: 82
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
+Wifi: 83
+Wifi: /home/gabeg/.config/awesome/img/icons/wifi/wire80-100.png
