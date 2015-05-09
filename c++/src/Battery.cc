@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "Battery.hpp"
+//     #include "Battery.h"
 // 
 // 
 // PURPOSE:
@@ -34,9 +34,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/Battery.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/Battery.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <iostream>
@@ -56,10 +57,12 @@ StatusItem<Gtk::Image> *Battery::widget;
 std::string Battery::icon() {
     
     // Initialize variables
+    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+    std::string cmd = Config::read(file, "battery_cmd");
+    
     std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/bat/bat";
     std::string icon_suf = "-charge";
     std::string icon_ext = ".png";
-    std::string cmd      = "/home/gabeg/.config/dwm/src/atlas/scripts/bat";
     int level            = widget->percent(cmd);
     std::cout << "Battery: " << level << std::endl;
     

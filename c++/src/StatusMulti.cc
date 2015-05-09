@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "StatusMulti.hpp"
+//     #include "StatusMulti.h"
 // 
 // 
 // PURPOSE:
@@ -32,9 +32,9 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusMulti.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/StatusMulti.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
 
 #include <gtkmm.h>
 #include <cstdlib>
@@ -68,18 +68,18 @@ StatusMulti<StatusType>::StatusMulti(Gtk::Orientation opt) {
 
 // Fill up multi item statusbar application 
 template <typename StatusType>
-void StatusMulti<StatusType>::populate(std::string arr[], int n) {
+void StatusMulti<StatusType>::populate(std::vector<std::string> arr) {
     
     // Multi item statusbar app
-    multi = new StatusItem<StatusType> *[n];
+    multi = new StatusItem<StatusType> *[arr.size()];
     
     // Setup each item in the multi item app
+    std::vector<std::string>::iterator iter;
     index = 0;
-    len = n; 
-    int i;
+    int i = 0;
     
-    for ( i=0; i < len; ++i ) {
-        multi[i] = new StatusItem<StatusType>(arr[i]);
+    for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
+        multi[i] = new StatusItem<StatusType>(*iter);
         
         if ( i == index )
             multi[i]->background("#999999");
@@ -88,6 +88,38 @@ void StatusMulti<StatusType>::populate(std::string arr[], int n) {
         
         multi[i]->attach(item, StatusBar::ALIGN_LEFT);
         multi[i]->item->set_padding(5, 0);
+        
+        ++i;
+    }
+    
+}
+
+
+
+// Fill up multi item statusbar application 
+template <>
+void StatusMulti<Gtk::Label>::populate(std::vector<std::string> arr, std::string font, int size) {
+    
+    // Multi item statusbar app
+    multi = new StatusItem<Gtk::Label> *[arr.size()];
+    
+    // Setup each item in the multi item app
+    std::vector<std::string>::iterator iter;
+    index = 0;
+    int i = 0;
+    
+    for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
+        multi[i] = new StatusItem<Gtk::Label>(*iter, font, size);
+        
+        if ( i == index )
+            multi[i]->background("#999999");
+        else
+            multi[i]->background("#333333");
+        
+        multi[i]->attach(item, StatusBar::ALIGN_LEFT);
+        multi[i]->item->set_padding(5, 0);
+        
+        ++i;
     }
     
 }

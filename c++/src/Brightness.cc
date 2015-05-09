@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "Brightness.hpp"
+//     #include "Brightness.h"
 // 
 // 
 // PURPOSE:
@@ -33,9 +33,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/Brightness.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/Brightness.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <iostream>
@@ -54,10 +55,12 @@ StatusItem<Gtk::Image> *Brightness::widget;
 std::string Brightness::icon() {
     
     // Initialize variables
+    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+    std::string cmd = Config::read(file, "brightness_cmd");
+    
     std::string name;
     std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/bright/";
     std::string icon_ext = ".png";
-    std::string cmd      = "/home/gabeg/.config/dwm/src/atlas/scripts/bright";
     int level            = widget->percent(cmd);
     std::cout << "Brightness: " << level << std::endl;
     

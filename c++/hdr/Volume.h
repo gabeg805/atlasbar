@@ -2,15 +2,15 @@
 // Header Guard
 // ============
 
-#ifndef WIFI_H
-#define WIFI_H
+#ifndef VOLUME_H
+#define VOLUME_H
 
 
 // ========
 // Includes
 // ========
 
-#include "../hdr/StatusItem.hpp"
+#include "../hdr/StatusItem.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -20,7 +20,7 @@
 // Classes
 // =======
 
-class Wifi {
+class Volume {
  public:
     static std::string               icon();
     void                             display(Gtk::Box *bar);
@@ -30,6 +30,6 @@ class Wifi {
 
 
 // Declares
-extern Wifi *wifi;
+extern Volume *volume;
 
 #endif

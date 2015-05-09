@@ -2,15 +2,15 @@
 // Header Guard
 // ============
 
-#ifndef DATE_H
-#define DATE_H
+#ifndef BRIGHTNESS_H
+#define BRIGHTNESS_H
 
 
 // ========
 // Includes
 // ========
 
-#include "../hdr/StatusItem.hpp"
+#include "../hdr/StatusItem.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -20,16 +20,16 @@
 // Classes
 // =======
 
-class Date {
- public:
-    static std::string               now();
+class Brightness {
+public:
+    static std::string               icon();
     void                             display(Gtk::Box *bar);
     
-    static StatusItem<Gtk::Label>    *widget;
+    static StatusItem<Gtk::Image>    *widget;
 };
 
 
 // Declares
-extern Date *date;
+extern Brightness *brightness;
 
 #endif

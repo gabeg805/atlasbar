@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "Volume.hpp"
+//     #include "Volume.h"
 // 
 // 
 // PURPOSE:
@@ -33,9 +33,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/Volume.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/Volume.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <iostream>
@@ -102,10 +103,12 @@ static pid_t is_playing() {
 std::string Volume::icon() {
     
     // Initialize variables
+    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+    std::string cmd = Config::read(file, "volume_cmd");
+    
     std::string name;
     std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/vol/";
     std::string icon_ext = ".png";
-    std::string cmd      = "/home/gabeg/.config/dwm/src/atlas/scripts/vol -p -v";
     int level            = widget->percent(cmd);
     pid_t pid = is_playing();
     std::cout << "Volume: " << level << std::endl;

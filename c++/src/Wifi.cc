@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "Wifi.hpp"
+//     #include "Wifi.h"
 // 
 // 
 // PURPOSE:
@@ -33,9 +33,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/Wifi.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/Wifi.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <iostream>
@@ -54,10 +55,12 @@ StatusItem<Gtk::Image> *Wifi::widget;
 std::string Wifi::icon() {
     
     // Initialize variables
+    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+    std::string cmd = Config::read(file, "wifi_cmd");
+    
     std::string name;
     std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/wifi/";
     std::string icon_ext = ".png";
-    std::string cmd      = "/home/gabeg/.config/dwm/src/atlas/scripts/wifi";
     int level            = widget->percent(cmd);
     std::cout << "Wifi: " << level << std::endl;
     

@@ -2,15 +2,15 @@
 // Header Guard
 // ============
 
-#ifndef BRIGHTNESS_H
-#define BRIGHTNESS_H
+#ifndef BATTERY_H
+#define BATTERY_H
 
 
 // ========
 // Includes
 // ========
 
-#include "../hdr/StatusItem.hpp"
+#include "../hdr/StatusItem.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -20,8 +20,8 @@
 // Classes
 // =======
 
-class Brightness {
-public:
+class Battery {
+ public:
     static std::string               icon();
     void                             display(Gtk::Box *bar);
     
@@ -30,6 +30,6 @@ public:
 
 
 // Declares
-extern Brightness *brightness;
+extern Battery *battery;
 
 #endif

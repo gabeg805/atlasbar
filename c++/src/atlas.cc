@@ -45,14 +45,14 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusBar.hpp"
-#include "../hdr/StatusWatcher.hpp"
-#include "../hdr/Battery.hpp"
-#include "../hdr/Wifi.hpp"
-#include "../hdr/Volume.hpp"
-#include "../hdr/Brightness.hpp"
-#include "../hdr/Date.hpp"
-#include "../hdr/Workspace.hpp"
+#include "../hdr/StatusBar.h"
+#include "../hdr/StatusWatcher.h"
+#include "../hdr/Battery.h"
+#include "../hdr/Wifi.h"
+#include "../hdr/Volume.h"
+#include "../hdr/Brightness.h"
+#include "../hdr/Date.h"
+#include "../hdr/Workspace.h"
 
 #include <gtkmm.h>
 #include <csignal>

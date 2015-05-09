@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "StatusWatcher.hpp"
+//     #include "StatusWatcher.h"
 // 
 // 
 // PURPOSE:
@@ -34,10 +34,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusWatcher.hpp"
-#include "../hdr/Volume.hpp"
-#include "../hdr/Brightness.hpp"
-#include "../hdr/Workspace.hpp"
+#include "../hdr/StatusWatcher.h"
+#include "../hdr/Volume.h"
+#include "../hdr/Brightness.h"
+#include "../hdr/Workspace.h"
 
 #include <fcntl.h>
 #include <sys/stat.h>

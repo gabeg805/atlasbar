@@ -2,15 +2,15 @@
 // Header Guard
 // ============
 
-#ifndef BATTERY_H
-#define BATTERY_H
+#ifndef DATE_H
+#define DATE_H
 
 
 // ========
 // Includes
 // ========
 
-#include "../hdr/StatusItem.hpp"
+#include "../hdr/StatusItem.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -20,16 +20,16 @@
 // Classes
 // =======
 
-class Battery {
+class Date {
  public:
-    static std::string               icon();
+    static std::string               now();
     void                             display(Gtk::Box *bar);
     
-    static StatusItem<Gtk::Image>    *widget;
+    static StatusItem<Gtk::Label>    *widget;
 };
 
 
 // Declares
-extern Battery *battery;
+extern Date *date;
 
 #endif

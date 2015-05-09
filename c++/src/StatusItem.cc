@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "StatusItem.hpp"
+//     #include "StatusItem.h"
 // 
 // 
 // PURPOSE:
@@ -37,10 +37,11 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
 
 #include <gtkmm.h>
+#include <pangomm/fontdescription.h>
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -62,6 +63,20 @@ StatusItem<StatusType>::StatusItem() {
 template <typename StatusType>
 StatusItem<StatusType>::StatusItem(std::string str) {
     item = Gtk::manage( new StatusType(str) ); 
+}
+
+
+
+// Construct statusbar item with the given font
+template <>
+StatusItem<Gtk::Label>::StatusItem(std::string str, std::string font, int size) {
+    item = Gtk::manage( new Gtk::Label(str) ); 
+    
+    Pango::FontDescription desc;
+    desc.set_family(font);
+    desc.set_size(size * PANGO_SCALE);
+    
+    item->override_font(desc);
 }
 
 
@@ -116,7 +131,6 @@ void StatusItem<StatusType>::call(std::string (*func)()) {
 // Try and see if you can store <int, int, int> in a variable
 template <typename StatusType>
 void StatusItem<StatusType>::update(std::string (*func)(), int time) {
-    // typedef bool (StatusItem::*uglyass)(StatusType*, string (*)());
     typedef bool (StatusItem::*uglyass)(StatusType*);
     updateCall = func;
     
@@ -202,4 +216,16 @@ template <typename StatusType>
 void StatusItem<StatusType>::foreground(std::string foreground) {
     Gdk::RGBA color(foreground);
     item->override_color(color, Gtk::STATE_FLAG_NORMAL);
+}
+
+
+
+// Construct statusbar item with the given font
+template <>
+void StatusItem<Gtk::Label>::font(std::string font, int size) {
+    Pango::FontDescription desc;
+    desc.set_family(font);
+    desc.set_size(size * PANGO_SCALE);
+    
+    item->override_font(desc);
 }

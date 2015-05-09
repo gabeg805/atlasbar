@@ -1,0 +1,17 @@
+StatusItem/StatusMulti: try and make it so that class does not require template on  
+                        everything start with status multi b/c only one app uses that
+
+StatusWatcher: Super specialized. Figure out how to add stuff to watch easier. Maybe 
+               things to the item classes themselves
+
+StatusBar: Make things attach to it, don't just display them and reference the 
+           statusbar
+
+Workspace:  Tag names
+Date:       Date format
+
+Brightness: Icon path names, brightness command
+Battery:    Icon path names, battery command
+Volume:     Icon path names, volume command
+Wifi:       Icon path names, wifi command
+

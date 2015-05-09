@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "StatusBar.hpp"
+//     #include "StatusBar.h"
 // 
 // 
 // PURPOSE:
@@ -32,7 +32,7 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/StatusBar.h"
 
 #include <gtkmm.h>
 #include <gdkmm.h>

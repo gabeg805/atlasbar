@@ -1,3 +1,5 @@
+// -*-c++-*-
+
 // ============
 // Header Guard
 // ============
@@ -10,8 +12,8 @@
 // Includes
 // ========
 
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -28,7 +30,8 @@ public:
     StatusMulti();
     StatusMulti(Gtk::Orientation opt);
     
-    void                      populate(std::string arr[], int n);
+    void                      populate(std::vector<std::string> arr);
+    void                      populate(std::vector<std::string> arr, std::string font, int size);
     void                      call(int (*func)(int));
     bool                      set(int num);
     

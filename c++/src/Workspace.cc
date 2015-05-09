@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "Workspace.hpp"
+//     #include "Workspace.h"
 // 
 // 
 // PURPOSE:
@@ -32,14 +32,16 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/Workspace.hpp"
-#include "../hdr/StatusMulti.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/Workspace.h"
+#include "../hdr/StatusMulti.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <iostream>
 #include <string>
+#include <vector>
 
 // Declares
 StatusMulti<Gtk::Label> *Workspace::widget;
@@ -70,11 +72,13 @@ int Workspace::screen(int id) {
 
 // Display the tags widget
 void Workspace::display(Gtk::Box *bar) {
-    std::string names[] = {"1", "2", "3", "4", "5"};
-    int len        = sizeof(names) / sizeof(names[0]);
+    
+    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+    std::string line = Config::read(file, "workspace_tags");
+    std::vector<std::string> taggeries = Config::parse(line, ',');
     
     widget = new StatusMulti<Gtk::Label>(Gtk::ORIENTATION_HORIZONTAL);
-    widget->populate(names, len);
+    widget->populate(taggeries, "GohuFont", 9);
     widget->call(screen);
     widget->attach(bar, StatusBar::ALIGN_LEFT);
 }

@@ -1,3 +1,5 @@
+// -*-c++-*-
+
 // ============
 // Header Guard
 // ============
@@ -10,7 +12,7 @@
 // Includes
 // ========
 
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/StatusBar.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -26,6 +28,7 @@ public:
     
     StatusItem();
     StatusItem(std::string str);
+    StatusItem(std::string str, std::string font, int size);
     
     int            percent(std::string cmd);
     void           call(std::string (*func)());
@@ -36,6 +39,7 @@ public:
     void           attach(Gtk::Box *bar, StatusBar::Section sec);
     void           background(std::string background);
     void           foreground(std::string foreground);
+    void           font(std::string font, int size);
     
     StatusType     *item;
     std::string    (*updateCall)();

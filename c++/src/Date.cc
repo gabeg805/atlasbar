@@ -9,7 +9,7 @@
 // 
 // SYNTAX: 
 // 
-//     #include "Date.hpp"
+//     #include "Date.h"
 // 
 // 
 // PURPOSE:
@@ -33,9 +33,10 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/Date.hpp"
-#include "../hdr/StatusItem.hpp"
-#include "../hdr/StatusBar.hpp"
+#include "../hdr/Date.h"
+#include "../hdr/StatusItem.h"
+#include "../hdr/StatusBar.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -54,7 +55,8 @@ StatusItem<Gtk::Label> *Date::widget;
 std::string Date::now() {
     
     // Setup time struct
-    std::string fmt = "%a %b %-d, %-I:%M:%S %p";
+    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+    std::string fmt = Config::read(file, "date_fmt");
     time_t t        = time(0);
     struct tm * now = localtime(&t);
     
@@ -75,7 +77,7 @@ std::string Date::now() {
 void Date::display(Gtk::Box *bar) {
     std::string text = now();
     
-    widget = new StatusItem<Gtk::Label>(text);
+    widget = new StatusItem<Gtk::Label>(text, "GohuFont", 9);
     widget->attach(bar, StatusBar::ALIGN_CENTER);
     widget->update(now, 1);
 }
