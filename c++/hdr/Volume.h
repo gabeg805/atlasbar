@@ -1,3 +1,5 @@
+// -*-c++-*-
+
 // ============
 // Header Guard
 // ============
@@ -10,7 +12,7 @@
 // Includes
 // ========
 
-#include "../hdr/StatusItem.h"
+#include "../hdr/StatusSimple.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -23,9 +25,9 @@
 class Volume {
  public:
     static std::string               icon();
-    void                             display(Gtk::Box *bar);
+    void                             create();
     
-    static StatusItem<Gtk::Image>    *widget;
+    static StatusSimple<Gtk::Image>    *widget;
 };
 
 

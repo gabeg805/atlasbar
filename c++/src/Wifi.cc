@@ -34,8 +34,7 @@
 
 // Includes
 #include "../hdr/Wifi.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
+#include "../hdr/StatusSimple.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
@@ -43,7 +42,7 @@
 #include <string>
 
 // Declares
-StatusItem<Gtk::Image> *Wifi::widget;
+StatusSimple<Gtk::Image> *Wifi::widget;
 
 
 
@@ -54,39 +53,31 @@ StatusItem<Gtk::Image> *Wifi::widget;
 // Return the proper wifi icon
 std::string Wifi::icon() {
     
-    // Initialize variables
-    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
-    std::string cmd = Config::read(file, "wifi_cmd");
-    
+    // Icon path variables
     std::string name;
-    std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/wifi/";
-    std::string icon_ext = ".png";
-    int level            = widget->percent(cmd);
-    std::cout << "Wifi: " << level << std::endl;
+    std::string cmd = Config::fetch("wifi_cmd");
+    std::string dir = Config::fetch("wifi_icon_dir");
+    int level       = widget->percent(cmd);
     
-    // Determine the correct wifi icon
+    // Determine correct icon name
     if ( level == 0 )
-        name = "wireNone";
+        name = "wireNone.png";
     else if ( (level > 0) && (level <= 20) )
-        name = "wire0-20";
+        name = "wire0-20.png";
     else if ( (level > 20) && (level <= 40) )
-        name = "wire20-40";
+        name = "wire20-40.png";
     else if ( (level > 40) && (level <= 60) )
-        name = "wire40-60";
+        name = "wire40-60.png";
     else if ( (level > 60) && (level <= 80) )
-        name = "wire60-80";
+        name = "wire60-80.png";
     else if ( (level > 80) && (level <= 100) )
-        name = "wire80-100";
+        name = "wire80-100.png";
     else {
         std::cout << "Wifi: Could not match level " << level << std::endl;
-        name = "wireNone";
+        name = "wireNone.png";
     }
     
-    // Allocate memory for string
-    std::string path = icon_dir + name + icon_ext;
-    std::cout << "Wifi: " << path << std::endl;
-    
-    return path;
+    return (dir + name);
 }
 
 
@@ -96,10 +87,8 @@ std::string Wifi::icon() {
 // ///////////////////////////////
 
 // Display the wifi widget
-void Wifi::display(Gtk::Box *bar) {
-    std::string path = icon();
-    
-    widget = new StatusItem<Gtk::Image>(path);
-    widget->attach(bar, StatusBar::ALIGN_RIGHT);
+void Wifi::create() {
+    widget = new StatusSimple<Gtk::Image>( icon() );
+    widget->padding(5, 0);
     widget->update(icon, 5);
 }

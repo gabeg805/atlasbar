@@ -34,16 +34,16 @@
 
 // Includes
 #include "../hdr/Date.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
+#include "../hdr/StatusSimple.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
+#include <cstdlib>
 #include <string>
 #include <ctime>
 
 // Declares
-StatusItem<Gtk::Label> *Date::widget;
+StatusSimple<Gtk::Label> *Date::widget;
 
 
 
@@ -55,8 +55,7 @@ StatusItem<Gtk::Label> *Date::widget;
 std::string Date::now() {
     
     // Setup time struct
-    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
-    std::string fmt = Config::read(file, "date_fmt");
+    std::string fmt = Config::fetch("date_fmt");
     time_t t        = time(0);
     struct tm * now = localtime(&t);
     
@@ -74,10 +73,11 @@ std::string Date::now() {
 // ///////////////////////////////
 
 // Display the date widget
-void Date::display(Gtk::Box *bar) {
+void Date::create() {
+    std::string font = Config::fetch("date_font");
+    std::string size = Config::fetch("date_font_size");
     std::string text = now();
     
-    widget = new StatusItem<Gtk::Label>(text, "GohuFont", 9);
-    widget->attach(bar, StatusBar::ALIGN_CENTER);
+    widget = new StatusSimple<Gtk::Label>( text, font, atoi(size.c_str()) );
     widget->update(now, 1);
 }

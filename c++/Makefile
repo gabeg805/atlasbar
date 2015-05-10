@@ -4,10 +4,13 @@ CFLAGS  = -g -Wall -O0
 CFLAGS += `pkg-config $(LIBS) --cflags --libs`
 
 PROGRAM = atlas
-NAMES  = $(PROGRAM) Config StatusBar StatusWatcher StatusItem StatusMulti Battery Wifi Volume Brightness Date Workspace 
+NAMES   = $(PROGRAM) 
+NAMES  += Config Statusbar StatusSimple StatusMulti StatusWatcher 
+NAMES  += Battery Wifi Volume Brightness Date Workspace 
+# NAMES  += StatusWidget 
 SOURCES = $(addprefix ./src/, $(addsuffix .cc, $(NAMES)))
-HEADERS = $(addprefix ./hdr/, $(addsuffix .h, $(NAMES)))
 OBJECTS = $(addprefix ./obj/, $(addsuffix .o, $(NAMES)))
+HEADERS = $(addprefix ./hdr/, $(addsuffix .h, $(NAMES)))
 
 all: $(PROGRAM)
 

@@ -35,17 +35,15 @@
 
 // Includes
 #include "../hdr/Battery.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
+#include "../hdr/StatusSimple.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
-#include <iostream>
 #include <sstream>
 #include <string>
 
 // Declares
-StatusItem<Gtk::Image> *Battery::widget;
+StatusSimple<Gtk::Image> *Battery::widget;
 
 
 
@@ -56,24 +54,14 @@ StatusItem<Gtk::Image> *Battery::widget;
 // Return the proper battery icon
 std::string Battery::icon() {
     
-    // Initialize variables
-    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
-    std::string cmd = Config::read(file, "battery_cmd");
-    
-    std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/bat/bat";
-    std::string icon_suf = "-charge";
-    std::string icon_ext = ".png";
-    int level            = widget->percent(cmd);
-    std::cout << "Battery: " << level << std::endl;
-    
-    // Determine the correct volume icon
+    // Icon path variables
     std::stringstream ss;
+    std::string dir = Config::fetch("battery_icon_dir");
+    std::string cmd = Config::fetch("battery_cmd");
+    int level       = widget->percent(cmd);
     ss << level;
     
-    std::string path = icon_dir + ss.str() + icon_ext;
-    std::cout << "Battery: " << path << std::endl;
-    
-    return path;
+    return (dir + "bat" + ss.str() + ".png");
 }
 
 
@@ -83,10 +71,8 @@ std::string Battery::icon() {
 // //////////////////////////////////
 
 // Display the battery widget
-void Battery::display(Gtk::Box *bar) {
-    std::string path = icon();
-    
-    widget = new StatusItem<Gtk::Image>(path);
-    widget->attach(bar, StatusBar::ALIGN_RIGHT);
+void Battery::create() {
+    widget = new StatusSimple<Gtk::Image>( icon() );
+    widget->padding(5, 0);
     widget->update(icon, 30);
 }

@@ -33,8 +33,8 @@
 
 // Includes
 #include "../hdr/StatusMulti.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
+#include "../hdr/StatusSimple.h"
+#include "../hdr/Statusbar.h"
 
 #include <gtkmm.h>
 #include <cstdlib>
@@ -47,16 +47,9 @@
 // ///// CONSTRUCTORS /////
 // ////////////////////////
 
-// Default empty constructor
-template <typename StatusType>
-StatusMulti<StatusType>::StatusMulti() {
-}
-
-
-
 // Construct a container for multiple status bar items
-template <typename StatusType>
-StatusMulti<StatusType>::StatusMulti(Gtk::Orientation opt) {
+template <typename atlas_w>
+StatusMulti<atlas_w>::StatusMulti(Gtk::Orientation opt) {
     item = Gtk::manage( new Gtk::Box(opt) ); 
 }
 
@@ -67,11 +60,11 @@ StatusMulti<StatusType>::StatusMulti(Gtk::Orientation opt) {
 // ///////////////////////
 
 // Fill up multi item statusbar application 
-template <typename StatusType>
-void StatusMulti<StatusType>::populate(std::vector<std::string> arr) {
+template <typename atlas_w>
+void StatusMulti<atlas_w>::populate(std::vector<std::string> arr) {
     
-    // Multi item statusbar app
-    multi = new StatusItem<StatusType> *[arr.size()];
+    // Multi item statusbar app (try with std::vector)
+    child = new StatusSimple<atlas_w> *[arr.size()];
     
     // Setup each item in the multi item app
     std::vector<std::string>::iterator iter;
@@ -79,15 +72,15 @@ void StatusMulti<StatusType>::populate(std::vector<std::string> arr) {
     int i = 0;
     
     for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
-        multi[i] = new StatusItem<StatusType>(*iter);
+        child[i] = new StatusSimple<atlas_w>(*iter);
         
         if ( i == index )
-            multi[i]->background("#999999");
+            StatusWidget::background(child[i]->item, "#999999");
         else
-            multi[i]->background("#333333");
+            StatusWidget::background(child[i]->item, "#333333");
         
-        multi[i]->attach(item, StatusBar::ALIGN_LEFT);
-        multi[i]->item->set_padding(5, 0);
+        StatusWidget::attach(item, child[i]->item, StatusWidget::ALIGN_LEFT);
+        StatusWidget::padding(child[i]->item, 5, 0);
         
         ++i;
     }
@@ -99,91 +92,36 @@ void StatusMulti<StatusType>::populate(std::vector<std::string> arr) {
 // Fill up multi item statusbar application 
 template <>
 void StatusMulti<Gtk::Label>::populate(std::vector<std::string> arr, std::string font, int size) {
-    
-    // Multi item statusbar app
-    multi = new StatusItem<Gtk::Label> *[arr.size()];
+    populate(arr);
     
     // Setup each item in the multi item app
-    std::vector<std::string>::iterator iter;
-    index = 0;
-    int i = 0;
+    int i;
+    int len = arr.size();
     
-    for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
-        multi[i] = new StatusItem<Gtk::Label>(*iter, font, size);
-        
-        if ( i == index )
-            multi[i]->background("#999999");
-        else
-            multi[i]->background("#333333");
-        
-        multi[i]->attach(item, StatusBar::ALIGN_LEFT);
-        multi[i]->item->set_padding(5, 0);
-        
-        ++i;
+    for ( i = 0; i < len; ++i ) {
+        StatusWidget::font(child[i]->item, font, size);
     }
-    
 }
 
 
 
 // Set a function to call when updating statusbar icon/label
-template <typename StatusType>
-void StatusMulti<StatusType>::call(int (*func)(int)) {
+template <typename atlas_w>
+void StatusMulti<atlas_w>::call(int (*func)(int)) {
     updateCall = func;
 }
 
 
 
 // Interface to choose correct icon/label setter
-template <typename StatusType>
-bool StatusMulti<StatusType>::set(int num) {
+template <typename atlas_w>
+bool StatusMulti<atlas_w>::set(int num) {
     int loc = updateCall(num);
     
-    multi[loc]->background("#999999");
-    multi[index]->background("#333333");
+    StatusWidget::background(child[loc]->item,   "#999999");
+    StatusWidget::background(child[index]->item, "#333333");
     
     index = loc;
     
     return true;
-}
-
-
-
-// ///////////////////
-// ///// STYLING /////
-// ///////////////////
-
-// StatusItem also uses this, try and make it so that it's not in both files
-// Set the region of the statusbar to display the item (left/center/right);
-template <typename StatusType>
-void StatusMulti<StatusType>::attach(Gtk::Box *bar, StatusBar::Section sec) {
-    switch ( sec ) {
-    case StatusBar::ALIGN_LEFT:
-        bar->pack_start(*item, Gtk::PACK_SHRINK);
-        break;
-    case StatusBar::ALIGN_CENTER:
-        bar->set_center_widget(*item);
-        break;
-    case StatusBar::ALIGN_RIGHT:
-        bar->pack_end(*item, Gtk::PACK_SHRINK);
-        break;
-    }
-}
-
-
-
-// set the background color of the statusbar item
-template <typename StatusType>
-void StatusMulti<StatusType>::background(std::string background) {
-    Gdk::RGBA color(background);
-    item->override_background_color(color, Gtk::STATE_FLAG_NORMAL);
-}
-
-
-
-// Set the foreground color of the statusbar item
-template <typename StatusType>
-void StatusMulti<StatusType>::foreground(std::string foreground) {
-    Gdk::RGBA color(foreground);
-    item->override_color(color, Gtk::STATE_FLAG_NORMAL);
 }

@@ -34,8 +34,7 @@
 
 // Includes
 #include "../hdr/Brightness.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
+#include "../hdr/StatusSimple.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
@@ -43,7 +42,7 @@
 #include <string>
 
 // Declares    
-StatusItem<Gtk::Image> *Brightness::widget;
+StatusSimple<Gtk::Image> *Brightness::widget;
 
 
 
@@ -54,39 +53,31 @@ StatusItem<Gtk::Image> *Brightness::widget;
 // Return the proper brightness icon
 std::string Brightness::icon() {
     
-    // Initialize variables
-    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
-    std::string cmd = Config::read(file, "brightness_cmd");
-    
+    // Icon path variables
     std::string name;
-    std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/bright/";
-    std::string icon_ext = ".png";
-    int level            = widget->percent(cmd);
-    std::cout << "Brightness: " << level << std::endl;
+    std::string cmd = Config::fetch("brightness_cmd");
+    std::string dir = Config::fetch("brightness_icon_dir");
+    int level       = widget->percent(cmd);
     
-    // Determine the correct brightness icon
+    // Determine correct icon name
     if ( (level >= 0) && (level <= 15) )
-        name = "bright0-15";
+        name = "bright0-15.png";
     else if ( (level > 15) && (level <= 30) )
-        name = "bright15-30";
+        name = "bright15-30.png";
     else if ( (level > 30) && (level <= 45) )
-        name = "bright30-45";
+        name = "bright30-45.png";
     else if ( (level > 45) && (level <= 60) )
-        name = "bright45-60";
+        name = "bright45-60.png";
     else if ( (level > 60) && (level <= 75) )
-        name = "bright60-75";
+        name = "bright60-75.png";
     else if ( (level > 75) && (level <= 100) )
-        name = "bright75-100";
+        name = "bright75-100.png";
     else {
         std::cout << "Brightness: Could not match level" << level << std::endl;
-        name = "bright75-100";
+        name = "bright75-100.png";
     }
     
-    // Allocate memory for string
-    std::string path = icon_dir + name + icon_ext;
-    std::cout << "Brightness: " << path << std::endl;
-    
-    return path;
+    return (dir + name);
 }
 
 
@@ -96,10 +87,8 @@ std::string Brightness::icon() {
 // /////////////////////////////////////
 
 // Display the brightness widget
-void Brightness::display(Gtk::Box *bar) {
-    std::string path = icon();
-    
-    widget = new StatusItem<Gtk::Image>(path);
-    widget->attach(bar, StatusBar::ALIGN_RIGHT);
+void Brightness::create() {
+    widget = new StatusSimple<Gtk::Image>( icon() );
+    widget->padding(5, 0);
     widget->call(icon);
 }

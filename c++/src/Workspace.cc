@@ -34,12 +34,11 @@
 // Includes
 #include "../hdr/Workspace.h"
 #include "../hdr/StatusMulti.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <iostream>
+#include <cstdlib>
 #include <string>
 #include <vector>
 
@@ -71,14 +70,16 @@ int Workspace::screen(int id) {
 // ///////////////////////////////
 
 // Display the tags widget
-void Workspace::display(Gtk::Box *bar) {
+void Workspace::create() {
     
-    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
-    std::string line = Config::read(file, "workspace_tags");
-    std::vector<std::string> taggeries = Config::parse(line, ',');
+    // Read workspace tag labels from config file
+    std::string line              = Config::fetch(Config::FILE, "workspace_tags");
+    std::string font              = Config::fetch(Config::FILE, "workspace_font");
+    std::string size              = Config::fetch(Config::FILE, "workspace_font_size");
+    std::vector<std::string> tags = Config::parse(line, ',');
     
+    // Setup the workspace widget
     widget = new StatusMulti<Gtk::Label>(Gtk::ORIENTATION_HORIZONTAL);
-    widget->populate(taggeries, "GohuFont", 9);
+    widget->populate( tags, font, atoi(size.c_str()) );
     widget->call(screen);
-    widget->attach(bar, StatusBar::ALIGN_LEFT);
 }

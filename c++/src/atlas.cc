@@ -45,8 +45,9 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusBar.h"
-#include "../hdr/StatusWatcher.h"
+#include "../hdr/StatusWidget.h"
+#include "../hdr/Statusbar.h"
+
 #include "../hdr/Battery.h"
 #include "../hdr/Wifi.h"
 #include "../hdr/Volume.h"
@@ -55,23 +56,20 @@
 #include "../hdr/Workspace.h"
 
 #include <gtkmm.h>
-#include <csignal>
 
-
-
-// ///////////////////////////////////
-// ///// DISPLAY ATLAS STATUSBAR /////
-// ///////////////////////////////////
-
-// LOOK AT GTKMM ONLINE
-// https://developer.gnome.org/gtkmm-tutorial/stable/sec-basics-simple-example.html.en
-
+// Declares
 Battery    *battery;
 Wifi       *wifi;
 Volume     *volume;
 Brightness *brightness;
 Date       *date;
 Workspace  *workspace;
+
+
+
+// ///////////////////////////////////
+// ///// DISPLAY ATLAS STATUSBAR /////
+// ///////////////////////////////////
 
 // Display the atlas statusbar
 int main(int argc, char *argv[]) {
@@ -82,18 +80,16 @@ int main(int argc, char *argv[]) {
                                  "org.gtkmm.examples.base");
     
     // Setup statusbar
-    StatusBar  Atlas;
-        
-    battery->display(&Atlas.bar);
-    wifi->display(&Atlas.bar);
-    volume->display(&Atlas.bar);
-    brightness->display(&Atlas.bar);
-    date->display(&Atlas.bar);
-    workspace->display(&Atlas.bar);
+    Statusbar  Atlas;
     
-    Atlas.show_all_children();
+    Atlas.attach<Battery>(battery,       StatusWidget::ALIGN_RIGHT);
+    Atlas.attach<Wifi>(wifi,             StatusWidget::ALIGN_RIGHT);
+    Atlas.attach<Volume>(volume,         StatusWidget::ALIGN_RIGHT);
+    Atlas.attach<Brightness>(brightness, StatusWidget::ALIGN_RIGHT);
+    Atlas.attach<Date>(date,             StatusWidget::ALIGN_CENTER);
+    Atlas.attach<Workspace>(workspace,   StatusWidget::ALIGN_LEFT);
     
-    signal(SIGUSR1, statusWatcher);
+    Atlas.show_all_children();    
     
     return app->run(Atlas);
 }

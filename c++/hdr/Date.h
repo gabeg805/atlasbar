@@ -1,3 +1,5 @@
+// -*-c++-*-
+
 // ============
 // Header Guard
 // ============
@@ -10,7 +12,7 @@
 // Includes
 // ========
 
-#include "../hdr/StatusItem.h"
+#include "../hdr/StatusSimple.h"
 
 #include <gtkmm.h>
 #include <string>
@@ -23,9 +25,9 @@
 class Date {
  public:
     static std::string               now();
-    void                             display(Gtk::Box *bar);
+    void                             create();
     
-    static StatusItem<Gtk::Label>    *widget;
+    static StatusSimple<Gtk::Label>    *widget;
 };
 
 

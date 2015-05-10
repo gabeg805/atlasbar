@@ -4,12 +4,12 @@
 // 
 // NAME:
 // 
-//     StatusBar.cpp
+//     Statusbar.cpp
 // 
 // 
 // SYNTAX: 
 // 
-//     #include "StatusBar.h"
+//     #include "Statusbar.h"
 // 
 // 
 // PURPOSE:
@@ -32,11 +32,14 @@
 // /////////////////////////////////
 
 // Includes
-#include "../hdr/StatusBar.h"
+#include "../hdr/Statusbar.h"
+#include "../hdr/StatusWatcher.h"
+#include "../hdr/Config.h"
 
 #include <gtkmm.h>
 #include <gdkmm.h>
 #include <cstdlib>
+#include <csignal>
 #include <iostream>
 #include <string>
 
@@ -46,21 +49,25 @@
 // ///// DISPLAY ATLAS STATUSBAR /////
 // ///////////////////////////////////
 
-StatusBar::StatusBar() :
-    Gtk::Window(Gtk::WINDOW_POPUP),
-    bar(Gtk::ORIENTATION_HORIZONTAL, 5)
+Statusbar::Statusbar() :
+    Gtk::Window(Gtk::WINDOW_POPUP)
 {
-    set_title("Atlas");
-    set_default_size(1366, 20);
+    bar = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
     
-    background = "#333333";
-    foreground = "white";
-    
+    std::string width      = Config::fetch("width");
+    std::string height     = Config::fetch("height");
+    std::string background = Config::fetch("background");
+    std::string foreground = Config::fetch("foreground");
     Gdk::RGBA back(background);
     Gdk::RGBA fore(foreground);
+    
+    set_title("Atlas");
+    set_default_size( atoi(width.c_str()), atoi(height.c_str()) );
     
     override_background_color(back, Gtk::STATE_FLAG_NORMAL);
     override_color(fore, Gtk::STATE_FLAG_NORMAL);
     
-    add(bar);
+    add(*bar);
+    
+    signal(SIGUSR1, statusWatcher);
 }

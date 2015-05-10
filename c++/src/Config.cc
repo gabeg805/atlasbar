@@ -44,8 +44,21 @@
 // ///// NAMESPACE DEFINITION /////
 // ////////////////////////////////
 
+// Define variables
+const std::string Config::FILE = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+
+
+
 // Read the config file
-std::string Config::read(std::string file, std::string key) {
+std::string Config::fetch(std::string key) {
+    return Config::fetch(Config::FILE, key);
+}
+
+
+
+
+// Read the config file
+std::string Config::fetch(std::string file, std::string key) {
     
     // Define file/line parameters
     std::ifstream is(file.c_str(), std::ifstream::in);

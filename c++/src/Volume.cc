@@ -34,8 +34,7 @@
 
 // Includes
 #include "../hdr/Volume.h"
-#include "../hdr/StatusItem.h"
-#include "../hdr/StatusBar.h"
+#include "../hdr/StatusSimple.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
@@ -46,7 +45,7 @@
 static int is_mute();
 static pid_t is_playing();
 
-StatusItem<Gtk::Image> *Volume::widget;
+StatusSimple<Gtk::Image> *Volume::widget;
 
 
 
@@ -102,60 +101,51 @@ static pid_t is_playing() {
 // Return the proper volume icon
 std::string Volume::icon() {
     
-    // Initialize variables
-    std::string file = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
-    std::string cmd = Config::read(file, "volume_cmd");
-    
+    // Icon path variables
     std::string name;
-    std::string icon_dir = "/home/gabeg/.config/awesome/img/icons/vol/";
-    std::string icon_ext = ".png";
-    int level            = widget->percent(cmd);
+    std::string dir = Config::fetch(Config::FILE, "volume_icon_dir");
+    std::string cmd = Config::fetch(Config::FILE, "volume_cmd");
+    int level = widget->percent(cmd);
     pid_t pid = is_playing();
-    std::cout << "Volume: " << level << std::endl;
-    std::cout << "Volume: " << pid << std::endl;
-        
-    // Determine the correct volume icon
+    
+    // Determine correct icon name
     if ( pid != 0 ) {
         if ( (level == 0) || (is_mute()) )
-            name = "volMusMute";
+            name = "volMusMute.png";
         else if ( (level > 0) && (level <= 20) )
-            name = "volMus0-20";
+            name = "volMus0-20.png";
         else if ( (level > 20) && (level <= 40) )
-            name = "volMus20-40";
+            name = "volMus20-40.png";
         else if ( (level > 40) && (level <= 60) )
-            name = "volMus40-60";
+            name = "volMus40-60.png";
         else if ( (level > 60) && (level <= 80) )
-            name = "volMus60-80";
+            name = "volMus60-80.png";
         else if ( (level > 80) && (level <= 100) )
-            name = "volMus80-100";
+            name = "volMus80-100.png";
         else {
             std::cout << "Volume: Could not match level" << level << std::endl;
-            name = "volMusMute";
+            name = "volMusMute.png";
         }
     } else {
         if ( (level == 0) || (is_mute()) )
-            name = "volMute";
+            name = "volMute.png";
         else if ( (level > 0) && (level <= 20) )
-            name = "vol0-20";
+            name = "vol0-20.png";
         else if ( (level > 20) && (level <= 40) )
-            name = "vol20-40";
+            name = "vol20-40.png";
         else if ( (level > 40) && (level <= 60) )
-            name = "vol40-60";
+            name = "vol40-60.png";
         else if ( (level > 60) && (level <= 80) )
-            name = "vol60-80";
+            name = "vol60-80.png";
         else if ( (level > 80) && (level <= 100) )
-            name = "vol80-100";
+            name = "vol80-100.png";
         else {
-            std::cout << "Volume: Could not match level" << level << std::endl;
-            name = "volMusMute";
+            std::cout << "Volume Music: Could not match level" << level << std::endl;
+            name = "volMusMute.png";
         }
     }
     
-    // Allocate memory for string
-    std::string path = icon_dir + name+ icon_ext;
-    std::cout << "Volume: " << path << std::endl;
-    
-    return path;
+    return (dir + name);
 }
 
 
@@ -165,10 +155,8 @@ std::string Volume::icon() {
 // /////////////////////////////////
 
 // Display the volume widget
-void Volume::display(Gtk::Box *bar) {
-    std::string path = icon();
-    
-    widget = new StatusItem<Gtk::Image>(path);
-    widget->attach(bar, StatusBar::ALIGN_RIGHT);
+void Volume::create() {
+    widget = new StatusSimple<Gtk::Image>( icon() );
+    widget->padding(5, 0);
     widget->call(icon);
 }
