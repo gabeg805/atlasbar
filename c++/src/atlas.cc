@@ -1,40 +1,19 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    atlas.cc
+// Class:   main()
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
+// Syntax: $ g++ -g -Wall `pkg-config gtkmm-3.0 --cflags --libs` src/*.cc -o atlas
+//         $ ./atlas
 // 
-// NAME:
-// 
-//     atlas.cpp
-// 
-// 
-// SYNTAX: 
-// 
-//     $ g++ -g -Wall `pkg-config gtkmm-3.0 --cflags --libs` src/*.cc -o atlas
-//     $ ./atlas
-// 
-// 
-// PURPOSE:
-// 
-//     Creates a statusbar at the top of the screen that contains:
-//         
-//         - Workspace tags
-//         - Date and time
-//         - Screen brightness
-//         - Volume level
-//         - Wifi strength
-//         - Battery charge level
-// 
-// 
-// KEYWORDS:
-// 
-//     N/A
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: Pieces together the statusbar unit, all the widgets for the
+//              statusbar, and the signal catcher, in order to form a completed
+//              statusbar.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 

@@ -1,29 +1,16 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Battery.cc
+// Class:   <Battery>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Battery.cc
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Battery.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Creates a battery icon and attaches it to the status bar. Displays battery
-//     level as a circular icon that changes color (from green to yellow to red)
-//     as the battery level decreases.
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: A battery charge indicator. Displays the battery in a circular icon
+//              and as the charge decreases, the icon changes color from green to 
+//              yellow, and then red.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -61,7 +48,7 @@ std::string Battery::icon() {
     int level       = widget->percent(cmd);
     ss << level;
     
-    return (dir + "bat" + ss.str() + ".png");
+    return (dir + ss.str() + ".png");
 }
 
 

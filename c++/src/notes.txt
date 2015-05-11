@@ -1,2 +1,0 @@
-StatusWatcher: Super specialized. Figure out how to add stuff to watch easier. Maybe 
-               things to the item classes themselves

@@ -1,27 +1,15 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Statusbar.cc
+// Class:   <Statusbar>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Statusbar.cpp
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Statusbar.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Write shit.
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: The Atlas Statusbar container. It contains all applications that will
+//              go on the statusbar.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -33,7 +21,7 @@
 
 // Includes
 #include "../hdr/Statusbar.h"
-#include "../hdr/StatusWatcher.h"
+#include "../hdr/StatusSignal.h"
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
@@ -52,22 +40,26 @@
 Statusbar::Statusbar() :
     Gtk::Window(Gtk::WINDOW_POPUP)
 {
-    bar = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
-    
-    std::string width      = Config::fetch("width");
-    std::string height     = Config::fetch("height");
-    std::string background = Config::fetch("background");
-    std::string foreground = Config::fetch("foreground");
+    // Determine bar orientation
+    std::string width       = Config::fetch("width");
+    std::string height      = Config::fetch("height");
+    std::string background  = Config::fetch("background");
+    std::string foreground  = Config::fetch("foreground");
+    std::string orientation = Config::fetch("orientation");
     Gdk::RGBA back(background);
     Gdk::RGBA fore(foreground);
     
     set_title("Atlas");
     set_default_size( atoi(width.c_str()), atoi(height.c_str()) );
-    
     override_background_color(back, Gtk::STATE_FLAG_NORMAL);
     override_color(fore, Gtk::STATE_FLAG_NORMAL);
     
+    if ( orientation.compare("vertical") == 0 )
+        bar = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
+    else
+        bar = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
+    
     add(*bar);
     
-    signal(SIGUSR1, statusWatcher);
+    signal(SIGUSR1, StatusSignal::statusSigCatcher);
 }

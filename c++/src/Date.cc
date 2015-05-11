@@ -1,28 +1,15 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Date.cc
+// Class:   <Date>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Date.cc
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Date.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Creates a date label on the status bar that displays the current date in the 
-//     following format: "Sun Oct 5, 12:48 PM".
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: A date label. Displays the date in the following format:
+//              "Sun Oct 5, 12:48 PM".
+//              
+// Notes: Change to shorter update time once Atlas is more complete.
 // 
 // **********************************************************************************
 

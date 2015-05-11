@@ -1,28 +1,16 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Brightness.cc
+// Class:   <Brightness>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Brightness.c
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Brightness.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Creates a brightness icon and attaches it to the status bar. Displays 
-//     brightness level as a sun that fills up as the brightness increases.
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: A brightness level indicator. Displays the brightness as a sun, and
+//              as the brightness increases or decreases, the sun fills up or 
+//              empties, respectively.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -61,23 +49,23 @@ std::string Brightness::icon() {
     
     // Determine correct icon name
     if ( (level >= 0) && (level <= 15) )
-        name = "bright0-15.png";
+        name = "0-15";
     else if ( (level > 15) && (level <= 30) )
-        name = "bright15-30.png";
+        name = "15-30";
     else if ( (level > 30) && (level <= 45) )
-        name = "bright30-45.png";
+        name = "30-45";
     else if ( (level > 45) && (level <= 60) )
-        name = "bright45-60.png";
+        name = "45-60";
     else if ( (level > 60) && (level <= 75) )
-        name = "bright60-75.png";
+        name = "60-75";
     else if ( (level > 75) && (level <= 100) )
-        name = "bright75-100.png";
+        name = "75-100";
     else {
         std::cout << "Brightness: Could not match level" << level << std::endl;
-        name = "bright75-100.png";
+        name = "75-100";
     }
     
-    return (dir + name);
+    return (dir + name + ".png");
 }
 
 

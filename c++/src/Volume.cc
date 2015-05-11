@@ -1,28 +1,15 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Volume.cc
+// Class:   <Volume>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Volume.cc
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Volume.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Creates a volume icon and attaches it to the status bar. Displays volume 
-//     level and the icon changes color if music is playing.
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: Creates a volume icon and attaches it to the status bar. Displays volume 
+//              level and the icon changes color if music is playing.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -55,18 +42,12 @@ StatusSimple<Gtk::Image> *Volume::widget;
 
 // Check if mute is toggled
 static int is_mute() {
+    std::string cmd    = Config::fetch("volume_mute_cmd");
+    std::string output = StatusWidget::command(cmd);
     
-    // Get output from command
-    std::string cmd = "/home/gabeg/.config/dwm/src/atlas/scripts/vol -p -m";
-    FILE *handle    = popen(cmd.c_str(), "r");
-    char status[5];
-    fgets(status, sizeof(status), handle);    
-    fclose(handle);
-    
-    // Convert command output to boolean 
-    if ( strcmp(status, "off\n") == 0 ) 
+    if ( output.compare("off\n") == 0 ) {
         return 1;
-    else 
+    } else 
         return 0;
 }
 
@@ -74,22 +55,10 @@ static int is_mute() {
 
 // Check if music player is running
 static pid_t is_playing() {
+    std::string cmd    = Config::fetch("volume_player_cmd");
+    std::string output = StatusWidget::command(cmd);
     
-    // Piece together command to check if music player is running
-    std::string pidof        = "pidof";
-    std::string music_player = "mocp";
-    std::string cmd          = pidof + " " +  music_player;
-    
-    // Check if music player is running
-    char line[3];
-    FILE *proc = popen(cmd.c_str(), "r");
-    fgets(line, sizeof(line), proc);
-    pclose(proc);
-    
-    // Return pid of music player process
-    pid_t pid = strtoul(line, NULL, 10);
-    
-    return pid;
+    return atol( output.c_str() );
 }
 
 
@@ -103,49 +72,33 @@ std::string Volume::icon() {
     
     // Icon path variables
     std::string name;
-    std::string dir = Config::fetch(Config::FILE, "volume_icon_dir");
-    std::string cmd = Config::fetch(Config::FILE, "volume_cmd");
-    int level = widget->percent(cmd);
-    pid_t pid = is_playing();
+    std::string qualifier = "";
+    std::string dir       = Config::fetch(Config::FILE, "volume_icon_dir");
+    std::string cmd       = Config::fetch(Config::FILE, "volume_cmd");
+    int level             = widget->percent(cmd);
     
     // Determine correct icon name
-    if ( pid != 0 ) {
-        if ( (level == 0) || (is_mute()) )
-            name = "volMusMute.png";
-        else if ( (level > 0) && (level <= 20) )
-            name = "volMus0-20.png";
-        else if ( (level > 20) && (level <= 40) )
-            name = "volMus20-40.png";
-        else if ( (level > 40) && (level <= 60) )
-            name = "volMus40-60.png";
-        else if ( (level > 60) && (level <= 80) )
-            name = "volMus60-80.png";
-        else if ( (level > 80) && (level <= 100) )
-            name = "volMus80-100.png";
-        else {
-            std::cout << "Volume: Could not match level" << level << std::endl;
-            name = "volMusMute.png";
-        }
-    } else {
-        if ( (level == 0) || (is_mute()) )
-            name = "volMute.png";
-        else if ( (level > 0) && (level <= 20) )
-            name = "vol0-20.png";
-        else if ( (level > 20) && (level <= 40) )
-            name = "vol20-40.png";
-        else if ( (level > 40) && (level <= 60) )
-            name = "vol40-60.png";
-        else if ( (level > 60) && (level <= 80) )
-            name = "vol60-80.png";
-        else if ( (level > 80) && (level <= 100) )
-            name = "vol80-100.png";
-        else {
-            std::cout << "Volume Music: Could not match level" << level << std::endl;
-            name = "volMusMute.png";
-        }
+    if ( is_playing() != 0 ) 
+        qualifier = "_music";
+    
+    if ( (level == 0) || (is_mute()) )
+        name = "Mute";
+    else if ( (level > 0) && (level <= 20) )
+        name = "0-20";
+    else if ( (level > 20) && (level <= 40) )
+        name = "20-40";
+    else if ( (level > 40) && (level <= 60) )
+        name = "40-60";
+    else if ( (level > 60) && (level <= 80) )
+        name = "60-80";
+    else if ( (level > 80) && (level <= 100) )
+        name = "80-100";
+    else {
+        std::cout << "Volume " << qualifier << ": Could not match level" << level << std::endl;
+        name = "Mute";
     }
     
-    return (dir + name);
+    return (dir + name + qualifier + ".png");
 }
 
 

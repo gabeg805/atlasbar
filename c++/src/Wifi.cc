@@ -1,28 +1,15 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Wifi.cc
+// Class:   <Wifi>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Wifi.cc
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Wifi.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Creates a wifi icon and attaches it to the status bar. Displays wifi
-//     level as a series of bars showing the reception level.
-// 
-// 
-// MODIFICATION HISTORY:
-// 	
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: A wifi strength indicator. Displays wifi strength as a series of bars
+//              (like a phone's signal strength icon) showing the reception level.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -61,23 +48,23 @@ std::string Wifi::icon() {
     
     // Determine correct icon name
     if ( level == 0 )
-        name = "wireNone.png";
+        name = "None";
     else if ( (level > 0) && (level <= 20) )
-        name = "wire0-20.png";
+        name = "0-20";
     else if ( (level > 20) && (level <= 40) )
-        name = "wire20-40.png";
+        name = "20-40";
     else if ( (level > 40) && (level <= 60) )
-        name = "wire40-60.png";
+        name = "40-60";
     else if ( (level > 60) && (level <= 80) )
-        name = "wire60-80.png";
+        name = "60-80";
     else if ( (level > 80) && (level <= 100) )
-        name = "wire80-100.png";
+        name = "80-100";
     else {
         std::cout << "Wifi: Could not match level " << level << std::endl;
-        name = "wireNone.png";
+        name = "None";
     }
     
-    return (dir + name);
+    return (dir + name + ".png");
 }
 
 

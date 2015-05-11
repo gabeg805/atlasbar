@@ -1,25 +1,14 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Config.cc
+// Class:   <Config>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     Config.cc
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Config.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Provides the necessary functionality to parse the config file.
-// 
-// 
-// MODIFICATION HISTORY:
-// 
-//     gabeg May 09 2015 <> Created.
+// Description: Read and parse the config file.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -45,7 +34,7 @@
 // ////////////////////////////////
 
 // Define variables
-const std::string Config::FILE = "/home/gabeg/.config/dwm/src/atlas/c++/config/Atlas.config";
+const std::string Config::FILE = "/home/gabeg/scripts/programs/atlas/c++/config/Atlas.config";
 
 
 

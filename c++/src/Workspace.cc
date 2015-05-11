@@ -1,27 +1,15 @@
+// **********************************************************************************
 // 
-// CREATED BY: Gabriel Gonzalez (contact me at gabeg@bu.edu) 
+// Name:    Workspace.cc
+// Class:   <Workspace>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
 // 
-// 
-// NAME:
-// 
-//     tags.cpp
-// 
-// 
-// SYNTAX: 
-// 
-//     #include "Workspace.h"
-// 
-// 
-// PURPOSE:
-// 
-//     Creates workspace indicator labels and attaches the labels to the status bar.
-// 
-// 
-// MODIFICATION HISTORY:
-// 	
-//     gabeg May 02 2015 <> Created.
-// 
-//     gabeg May 07 2015 <> Finished converting the C implementation to C++.
+// Description: A workspace indicator. Each workspace is given a name (via the config  
+//              file), and the current workspace is highlighted.
+//              
+// Notes: None.
 // 
 // **********************************************************************************
 
@@ -37,8 +25,6 @@
 #include "../hdr/Config.h"
 
 #include <gtkmm.h>
-#include <iostream>
-#include <cstdlib>
 #include <string>
 #include <vector>
 
@@ -76,10 +62,12 @@ void Workspace::create() {
     std::string line              = Config::fetch(Config::FILE, "workspace_tags");
     std::string font              = Config::fetch(Config::FILE, "workspace_font");
     std::string size              = Config::fetch(Config::FILE, "workspace_font_size");
+    std::string bg                = Config::fetch(Config::FILE, "workspace_background");
+    std::string hl                = Config::fetch(Config::FILE, "workspace_highlight");
     std::vector<std::string> tags = Config::parse(line, ',');
     
     // Setup the workspace widget
-    widget = new StatusMulti<Gtk::Label>(Gtk::ORIENTATION_HORIZONTAL);
+    widget = new StatusMulti<Gtk::Label>(bg, hl, Gtk::ORIENTATION_HORIZONTAL);
     widget->populate( tags, font, atoi(size.c_str()) );
     widget->call(screen);
 }
