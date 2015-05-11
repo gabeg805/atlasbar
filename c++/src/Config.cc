@@ -34,7 +34,7 @@
 // ////////////////////////////////
 
 // Define variables
-const std::string Config::FILE = "/home/gabeg/scripts/programs/atlas/c++/config/Atlas.config";
+const std::string Config::FILE = "/home/gabeg/scripts/programs/atlas/c++/config/atlas.config";
 
 
 
