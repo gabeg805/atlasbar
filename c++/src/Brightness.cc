@@ -30,7 +30,7 @@
 #include <string>
 
 // Declares    
-StatusSimple<Gtk::Image> *Brightness::widget;
+StatusSimple* Brightness::widget;
 
 
 
@@ -45,7 +45,7 @@ std::string Brightness::icon() {
     std::string name;
     std::string cmd = Config::fetch("brightness_cmd");
     std::string dir = Config::fetch("brightness_icon_dir");
-    int level       = widget->percent(cmd);
+    int level       = StatusWidget::percent(cmd);
     
     // Determine correct icon name
     if ( (level >= 0) && (level <= 15) )
@@ -76,7 +76,8 @@ std::string Brightness::icon() {
 
 // Display the brightness widget
 void Brightness::create() {
-    widget = new StatusSimple<Gtk::Image>( icon() );
-    widget->padding(5, 0);
+    widget = new StatusSimple();
+    widget->init    <Gtk::Image> (icon());
+    widget->padding <Gtk::Image> (5, 0);
     widget->call(icon);
 }

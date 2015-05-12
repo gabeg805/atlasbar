@@ -32,7 +32,7 @@
 static int is_mute();
 static pid_t is_playing();
 
-StatusSimple<Gtk::Image> *Volume::widget;
+StatusSimple* Volume::widget;
 
 
 
@@ -75,7 +75,7 @@ std::string Volume::icon() {
     std::string qualifier = "";
     std::string dir       = Config::fetch(Config::FILE, "volume_icon_dir");
     std::string cmd       = Config::fetch(Config::FILE, "volume_cmd");
-    int level             = widget->percent(cmd);
+    int level             = StatusWidget::percent(cmd);
     
     // Determine correct icon name
     if ( is_playing() != 0 ) 
@@ -109,7 +109,8 @@ std::string Volume::icon() {
 
 // Display the volume widget
 void Volume::create() {
-    widget = new StatusSimple<Gtk::Image>( icon() );
-    widget->padding(5, 0);
+    widget = new StatusSimple();
+    widget->init    <Gtk::Image> (icon());
+    widget->padding <Gtk::Image> (5, 0);
     widget->call(icon);
 }

@@ -30,7 +30,7 @@
 #include <string>
 
 // Declares
-StatusSimple<Gtk::Image> *Battery::widget;
+StatusSimple* Battery::widget;
 
 
 
@@ -40,12 +40,10 @@ StatusSimple<Gtk::Image> *Battery::widget;
 
 // Return the proper battery icon
 std::string Battery::icon() {
-    
-    // Icon path variables
     std::stringstream ss;
     std::string dir = Config::fetch("battery_icon_dir");
     std::string cmd = Config::fetch("battery_cmd");
-    int level       = widget->percent(cmd);
+    int level       = StatusWidget::percent(cmd);
     ss << level;
     
     return (dir + ss.str() + ".png");
@@ -59,7 +57,8 @@ std::string Battery::icon() {
 
 // Display the battery widget
 void Battery::create() {
-    widget = new StatusSimple<Gtk::Image>( icon() );
-    widget->padding(5, 0);
-    widget->update(icon, 30);
+    widget = new StatusSimple();
+    widget->init    <Gtk::Image> (icon());
+    widget->padding <Gtk::Image> (5, 0);
+    widget->update  <Gtk::Image> (icon, 30);
 }

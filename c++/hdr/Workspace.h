@@ -1,4 +1,17 @@
 // -*-c++-*-
+// **********************************************************************************
+// 
+// Name:    Workspace.h
+// Class:   <Workspace>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
+// 
+// Description: The Workspace widget skeleton.
+//              
+// Notes: Member variables are static, try and find a way around this.
+// 
+// **********************************************************************************
 
 // ============
 // Header Guard
@@ -22,15 +35,29 @@
 // =======
 
 class Workspace {
- public:
-    static int                        screen(int id);
-    void                              create();
+public:
     
-    static StatusMulti<Gtk::Label>    *widget;
+    // Determines the array index of the given workspace.
+    static void                        screen(int ws);
+    
+    // Creates a new widget.
+    void                               create();
+    
+    // Container for the widget.
+    static StatusMulti*                widget;
+    
+private:
+    
+    // Workspace labels
+    static std::vector<std::string>    tags;
+    
+    // Workspace colors
+    static std::string                 background;
+    static std::string                 highlight;
 };
 
 
 // Declares
-extern Workspace *workspace;
+extern Workspace* workspace;
 
 #endif

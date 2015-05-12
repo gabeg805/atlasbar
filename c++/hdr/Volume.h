@@ -1,4 +1,17 @@
 // -*-c++-*-
+// **********************************************************************************
+// 
+// Name:    Volume.h
+// Class:   <Volume>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
+// 
+// Description: The Volume widget skeleton.
+//              
+// Notes: None.
+// 
+// **********************************************************************************
 
 // ============
 // Header Guard
@@ -24,14 +37,19 @@
 
 class Volume {
  public:
-    static std::string               icon();
-    void                             create();
     
-    static StatusSimple<Gtk::Image>    *widget;
+    // Determines the correct icon for the widget and sets it as the widget icon.
+    static std::string      icon();
+    
+    // Creates a new widget.
+    void                    create();
+    
+    // Container for the widget.
+    static StatusSimple*    widget;
 };
 
 
 // Declares
-extern Volume *volume;
+extern Volume* volume;
 
 #endif

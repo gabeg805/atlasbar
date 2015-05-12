@@ -29,7 +29,10 @@
 #include <vector>
 
 // Declares
-StatusMulti<Gtk::Label> *Workspace::widget;
+StatusMulti*                Workspace::widget;
+std::string                 Workspace::background;
+std::string                 Workspace::highlight;
+std::vector<std::string>    Workspace::tags;
 
 
 
@@ -38,15 +41,20 @@ StatusMulti<Gtk::Label> *Workspace::widget;
 // ////////////////////////////
 
 // Return the index of the screen tag
-int Workspace::screen(int id) {
-    int i = 0;
+void Workspace::screen(int ws) {
+    size_t index;
+    size_t loc = 0;
     
-    while ( id != 0 ) {
-        id >>= 1;
-        ++i;
+    // Determine the index of the workspace to highlight
+    while ( (ws >>= 1) != 0 ) { ++loc; }
+    
+    // Highlight the specified workspace    
+    for ( index = 0; index < tags.size(); ++index ) {
+        if ( index == loc )
+            StatusWidget::background(widget->multi[index]->item, highlight);
+        else
+            StatusWidget::background(widget->multi[index]->item, background);
     }
-    
-    return (i-1);
 }
 
 
@@ -62,12 +70,13 @@ void Workspace::create() {
     std::string line              = Config::fetch(Config::FILE, "workspace_tags");
     std::string font              = Config::fetch(Config::FILE, "workspace_font");
     std::string size              = Config::fetch(Config::FILE, "workspace_font_size");
-    std::string bg                = Config::fetch(Config::FILE, "workspace_background");
-    std::string hl                = Config::fetch(Config::FILE, "workspace_highlight");
-    std::vector<std::string> tags = Config::parse(line, ',');
+    background                    = Config::fetch(Config::FILE, "workspace_background");
+    highlight                     = Config::fetch(Config::FILE, "workspace_highlight");
+    tags                          = Config::parse(line, ',');
     
     // Setup the workspace widget
-    widget = new StatusMulti<Gtk::Label>(bg, hl, Gtk::ORIENTATION_HORIZONTAL);
-    widget->populate( tags, font, atoi(size.c_str()) );
+    widget = new StatusMulti(Gtk::ORIENTATION_HORIZONTAL);
+    widget->populate(tags, font, atoi(size.c_str()));
     widget->call(screen);
+    screen(0);
 }

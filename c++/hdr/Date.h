@@ -1,4 +1,17 @@
 // -*-c++-*-
+// **********************************************************************************
+// 
+// Name:    Date.h
+// Class:   <Date>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
+// 
+// Description: The Date widget skeleton.
+//              
+// Notes: None.
+// 
+// **********************************************************************************
 
 // ============
 // Header Guard
@@ -24,14 +37,20 @@
 
 class Date {
  public:
-    static std::string               now();
-    void                             create();
     
-    static StatusSimple<Gtk::Label>    *widget;
+    // Determines the current time.
+    static std::string      now();
+    
+    // Creates a new widget.
+    void                    create();
+    
+    // Container for the widget.
+    static StatusSimple*    widget;
+
 };
 
 
 // Declares
-extern Date *date;
+extern Date* date;
 
 #endif

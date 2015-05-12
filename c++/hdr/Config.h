@@ -1,4 +1,18 @@
 // -*-c++-*-
+// **********************************************************************************
+// 
+// Name:    Config.h
+// Class:   <Config>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
+// 
+// Description: The Config skeleton for reading and parsing the configuration file.
+//              
+// Notes: None.
+// 
+// **********************************************************************************
+
 
 // ============
 // Header Guard
@@ -25,7 +39,7 @@ namespace Config {
     std::string                 fetch(std::string file, std::string key);
     std::vector<std::string>    parse(std::string str, char delim);
     
-    extern const std::string FILE;
+    extern const std::string    FILE;
 };
 
 #endif

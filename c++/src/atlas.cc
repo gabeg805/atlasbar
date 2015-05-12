@@ -37,12 +37,12 @@
 #include <gtkmm.h>
 
 // Declares
-Battery    *battery;
-Wifi       *wifi;
-Volume     *volume;
-Brightness *brightness;
-Date       *date;
-Workspace  *workspace;
+Battery*    battery;
+Wifi*       wifi;
+Volume*     volume;
+Brightness* brightness;
+Date*       date;
+Workspace*  workspace;
 
 
 
@@ -51,7 +51,7 @@ Workspace  *workspace;
 // ///////////////////////////////////
 
 // Display the atlas statusbar
-int main(int argc, char *argv[]) {
+int main(int argc, char** argv) {
     
     // Initialize gtkmm application
     Glib::RefPtr<Gtk::Application> app =

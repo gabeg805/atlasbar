@@ -29,7 +29,7 @@
 #include <string>
 
 // Declares
-StatusSimple<Gtk::Image> *Wifi::widget;
+StatusSimple* Wifi::widget;
 
 
 
@@ -39,12 +39,10 @@ StatusSimple<Gtk::Image> *Wifi::widget;
 
 // Return the proper wifi icon
 std::string Wifi::icon() {
-    
-    // Icon path variables
     std::string name;
     std::string cmd = Config::fetch("wifi_cmd");
     std::string dir = Config::fetch("wifi_icon_dir");
-    int level       = widget->percent(cmd);
+    int level       = StatusWidget::percent(cmd);
     
     // Determine correct icon name
     if ( level == 0 )
@@ -75,7 +73,8 @@ std::string Wifi::icon() {
 
 // Display the wifi widget
 void Wifi::create() {
-    widget = new StatusSimple<Gtk::Image>( icon() );
-    widget->padding(5, 0);
-    widget->update(icon, 5);
+    widget = new StatusSimple();
+    widget->init    <Gtk::Image> (icon());
+    widget->padding <Gtk::Image> (5, 0);
+    widget->update  <Gtk::Image> (icon, 5);
 }

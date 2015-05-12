@@ -1,4 +1,19 @@
 // -*-c++-*-
+// **********************************************************************************
+// 
+// Name:    StatusSignal.h
+// Class:   <StatusSignal>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
+// 
+// Description: Catches signals that are sent from the window manager, and executes
+//              tasks based on the signal.
+//              
+// Notes: None.
+// 
+// **********************************************************************************
+
 
 // ============
 // Header Guard
@@ -37,7 +52,7 @@ class StatusSignal {
         
         // Retrieve value from semaphore
         int key;
-        sem_t *sem = sem_open("/semi", O_RDONLY, 0644, key);
+        sem_t* sem = sem_open("/semi", O_RDONLY, 0644, key);
     
         if ( sem == NULL )
             return;
@@ -55,7 +70,7 @@ class StatusSignal {
             else if ( val == 1 )
                 system("xbacklight -dec 10");
             
-            brightness->widget->set();
+            brightness->widget->set <Gtk::Image> ();
             break;
         case 'P':
             if ( val == 0 )
@@ -64,8 +79,8 @@ class StatusSignal {
                 system("mocp -r");
             else if ( val == 2 )
                 system("mocp -f");
-            
-            volume->widget->set();
+                        
+            volume->widget->set <Gtk::Image> ();
             break;
         case 'T':
             val = (key & 0xFF);
@@ -80,7 +95,7 @@ class StatusSignal {
             else if ( val == 2 )
                 system("amixer -q set Master toggle");
             
-            volume->widget->set();
+            volume->widget->set <Gtk::Image> ();
             break;
         default:
             break;

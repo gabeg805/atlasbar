@@ -30,7 +30,7 @@
 #include <ctime>
 
 // Declares
-StatusSimple<Gtk::Label> *Date::widget;
+StatusSimple* Date::widget;
 
 
 
@@ -44,7 +44,7 @@ std::string Date::now() {
     // Setup time struct
     std::string fmt = Config::fetch("date_fmt");
     time_t t        = time(0);
-    struct tm * now = localtime(&t);
+    struct tm* now  = localtime(&t);
     
     // Convert time struct to readable format
     char time_string[30];
@@ -65,6 +65,7 @@ void Date::create() {
     std::string size = Config::fetch("date_font_size");
     std::string text = now();
     
-    widget = new StatusSimple<Gtk::Label>( text, font, atoi(size.c_str()) );
-    widget->update(now, 1);
+    widget = new StatusSimple();
+    widget->init(text, font, atoi(size.c_str()));
+    widget->update <Gtk::Label> (now, 1);
 }

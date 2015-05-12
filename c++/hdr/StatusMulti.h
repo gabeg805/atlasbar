@@ -1,4 +1,19 @@
 // -*-c++-*-
+// **********************************************************************************
+// 
+// Name:    StatusMulti.h
+// Class:   <StatusMulti>
+// Author:  Gabriel Gonzalez
+// Email:   gabeg@bu.edu
+// License: The MIT License (MIT)
+// 
+// Description: The tools to contruct a series of simple widgets (Image/Label) and
+//              their container.
+//              
+// Notes: The setter is specific to Workspace, try and change this. Change the way,
+//        it populates items, make it more flexible to set a region for each item.
+// 
+// **********************************************************************************
 
 // ============
 // Header Guard
@@ -17,162 +32,82 @@
 
 #include <gtkmm.h>
 #include <string>
+#include <iostream>
 
 
 // =======
 // Classes
 // =======
 
-template <typename atlas_w> 
 class StatusMulti {
 public:
     
     // Class variables
-    Gtk::Box                 *item;
-    StatusSimple<atlas_w>    **multi;
-    std::vector<std::string> list;
-    int                      (*updateCall)(int);
-    int                      index;
-    std::string              background;
-    std::string              highlight;
+    typedef std::vector<std::string>    stdvec;
+    Gtk::Box*                           item;
+    StatusSimple**                      multi;
+    void                                (*updateCall)(int);
     
-    // Constructors
+    
+    
+    // Construct the container to hold multiple widgets
     StatusMulti(Gtk::Orientation opt) { 
-        item       = Gtk::manage( new Gtk::Box(opt) ); 
-        background = Config::fetch("background");
-        highlight  = background;
+        item = Gtk::manage( new Gtk::Box(opt) ); 
     }
     
-    StatusMulti(std::vector<std::string> arr, 
-                Gtk::Orientation opt) 
-    { 
-        item       = Gtk::manage( new Gtk::Box(opt) ); 
-        background = Config::fetch("background");
-        highlight  = background;
-        list       = arr;
+    
+    
+    // Add each widget to the container
+    template <typename atlas_w>
+    void populate(stdvec arr) {
+        stdvec::iterator iter;
+        multi = new StatusSimple* [arr.size()];
+        int i = 0;
+        
+        // Attach each widget to the multi container
+        for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
+            multi[i] = new StatusSimple();
+            multi[i]->init <atlas_w> (*iter);
+            
+            StatusWidget::attach(item, multi[i], StatusWidget::ALIGN_LEFT);
+            StatusWidget::padding((atlas_w*)multi[i]->item, 5, 0);
+            
+            ++i;
+        }
     }
     
-    StatusMulti(std::vector<std::string> arr, 
-                std::string bg, 
-                std::string hl, 
-                Gtk::Orientation opt) 
-    { 
-        item       = Gtk::manage( new Gtk::Box(opt) ); 
-        background = Config::fetch("background");
-        highlight  = background;
-        list       = arr;
+    
+    
+    // Fill up multi item statusbar application 
+    void populate(stdvec arr, std::string fnt, int size) {
+        populate <Gtk::Label> (arr);
+        font(fnt, size, arr.size());
     }
     
-    StatusMulti(std::string bg, 
-                std::string hl, 
-                Gtk::Orientation opt) 
-    { 
-        item       = Gtk::manage( new Gtk::Box(opt) ); 
-        background = bg;
-        highlight  = hl;
+    
+    
+    // Set the font and text size for label widgets
+    void font(std::string font, int size, size_t num) {
+        size_t i;
+        
+        for ( i = 0; i < num; ++i ) 
+            StatusWidget::font((Gtk::Label*)multi[i]->item, font, size);
     }
     
-    // Member functions
-    void                   populate();
-    void                   populate(std::string font, int size);
-    void                   populate(std::vector<std::string> arr);
-    void                   populate(std::vector<std::string> arr, std::string font, int size);
-    void                   call(int (*func)(int)) { updateCall = func; }
-    bool                   set(int num);
-    void                   color(std::string bg, std::string hl);
+    
+    
+    // Set the function to call periodically
+    void call(void (*func)(int)) { 
+        updateCall = func; 
+    }
+    
+    
+    
+    // Set the correct icon/label through the specified periodic function
+    bool set(int num) {
+        updateCall(num);
+        return true;
+    }
 };
-
-
-
-// ///////////////////////
-// ///// APPLICATION /////
-// ///////////////////////
-
-// Fill up multi item statusbar application 
-template <typename atlas_w>
-inline void StatusMulti<atlas_w>::populate() {
-    populate(list);
-}
-
-
-
-// Fill up multi item statusbar application 
-template <>
-inline void StatusMulti<Gtk::Label>::populate(std::string font, int size) {
-    populate(list);
-    
-    // Setup each item in the multi item app
-    for ( size_t i = 0; i < list.size(); ++i ) 
-        StatusWidget::font(multi[i]->item, font, size);
-}
-
-
-
-// Fill up multi item statusbar application 
-template <typename atlas_w>
-inline void StatusMulti<atlas_w>::populate(std::vector<std::string> arr) {
-    
-    // Multi item statusbar app (try with std::vector)
-    multi = new StatusSimple<atlas_w> *[arr.size()];
-    
-    // Setup each item in the multi item app
-    std::vector<std::string>::iterator iter;
-    index = 0;
-    int i = 0;
-    
-    for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
-        multi[i] = new StatusSimple<atlas_w>(*iter);
-        
-        if ( i == index )
-            StatusWidget::background(multi[i], highlight);
-        else
-            StatusWidget::background(multi[i], background);
-        
-        StatusWidget::attach(item, multi[i], StatusWidget::ALIGN_LEFT);
-        StatusWidget::padding(multi[i], 5, 0);
-        
-        ++i;
-    }
-    
-}
-
-
-
-// Fill up multi item statusbar application 
-template <>
-inline void StatusMulti<Gtk::Label>::populate(std::vector<std::string> arr, 
-                                              std::string font, 
-                                              int size) 
-{
-    populate(arr);
-    
-    // Setup each item in the multi item app
-    for ( size_t i = 0; i < arr.size(); ++i ) 
-        StatusWidget::font(multi[i]->item, font, size);
-}
-
-
-
-// Interface to choose correct icon/label setter
-template <typename atlas_w>
-inline bool StatusMulti<atlas_w>::set(int num) {
-    int loc = updateCall(num);
-    
-    StatusWidget::background(multi[loc],   highlight);
-    StatusWidget::background(multi[index], background);
-    
-    index = loc;
-    
-    return true;
-}
-
-
-
-// Interface to choose correct icon/label setter
-template <typename atlas_w>
-inline void StatusMulti<atlas_w>::color(std::string bg, std::string hl) {
-    background = bg;
-    highlight  = hl;
-}
 
 #endif
