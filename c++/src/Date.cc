@@ -30,7 +30,7 @@
 #include <ctime>
 
 // Declares
-StatusSimple* Date::widget;
+StatusSimple Date::widget;
 
 
 
@@ -65,7 +65,7 @@ void Date::create() {
     std::string size = Config::fetch("date_font_size");
     std::string text = now();
     
-    widget = new StatusSimple();
-    widget->init(text, font, atoi(size.c_str()));
-    widget->update <Gtk::Label> (now, 1);
+    // widget = new StatusSimple();
+    widget.init(text, font, atoi(size.c_str()));
+    widget.update <Gtk::Label> (now, 1);
 }

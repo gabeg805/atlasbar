@@ -30,7 +30,7 @@
 #include <string>
 
 // Declares
-StatusSimple* Battery::widget;
+StatusSimple Battery::widget;
 
 
 
@@ -57,8 +57,8 @@ std::string Battery::icon() {
 
 // Display the battery widget
 void Battery::create() {
-    widget = new StatusSimple();
-    widget->init    <Gtk::Image> (icon());
-    widget->padding <Gtk::Image> (5, 0);
-    widget->update  <Gtk::Image> (icon, 30);
+    // widget = new StatusSimple();
+    widget.init    <Gtk::Image> (icon());
+    widget.padding <Gtk::Image> (5, 0);
+    widget.update  <Gtk::Image> (icon, 30);
 }

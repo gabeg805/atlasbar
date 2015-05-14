@@ -30,7 +30,7 @@
 #include <string>
 
 // Declares    
-StatusSimple* Brightness::widget;
+StatusSimple Brightness::widget;
 
 
 
@@ -76,8 +76,7 @@ std::string Brightness::icon() {
 
 // Display the brightness widget
 void Brightness::create() {
-    widget = new StatusSimple();
-    widget->init    <Gtk::Image> (icon());
-    widget->padding <Gtk::Image> (5, 0);
-    widget->call(icon);
+    widget.init    <Gtk::Image> (icon());
+    widget.padding <Gtk::Image> (5, 0);
+    widget.call(icon);
 }

@@ -43,55 +43,73 @@ class StatusMulti {
 public:
     
     // Class variables
-    typedef std::vector<std::string>    stdvec;
-    Gtk::Box*                           item;
-    StatusSimple**                      multi;
-    void                                (*updateCall)(int);
-    
+    Gtk::Box*                    item;
+    std::vector<StatusSimple>    multi;
+    void                         (*updateCall)(int);
+    StatusWidget::Section        alignment;
     
     
     // Construct the container to hold multiple widgets
-    StatusMulti(Gtk::Orientation opt) { 
-        item = Gtk::manage( new Gtk::Box(opt) ); 
+    void init () { 
+        item      = Gtk::manage( new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL) ); 
+        alignment = StatusWidget::ALIGN_LEFT;
+    }
+    
+    // Construct the container to hold multiple widgets
+    void init (StatusWidget::Section sec) { 
+        item      = Gtk::manage( new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL) ); 
+        alignment = sec;
+    }
+    
+    
+    
+    
+    // Set the orientation of the Multi container
+    void orientation(Gtk::Orientation opt) { 
+        StatusWidget::orientation(item, opt); 
+    }
+    
+    
+    
+    // Set the orientation of the Multi container
+    void align(StatusWidget::Section sec) { 
+        alignment = sec;
     }
     
     
     
     // Add each widget to the container
     template <typename atlas_w>
-    void populate(stdvec arr) {
-        stdvec::iterator iter;
-        multi = new StatusSimple* [arr.size()];
-        int i = 0;
+    void populate(std::vector<std::string> arr) {
+        std::vector<std::string>::iterator iter;
         
-        // Attach each widget to the multi container
         for ( iter = arr.begin(); iter != arr.end(); ++iter ) {
-            multi[i] = new StatusSimple();
-            multi[i]->init <atlas_w> (*iter);
+            StatusSimple ss;
+            ss.init <atlas_w> (*iter);
             
-            StatusWidget::attach(item, multi[i], StatusWidget::ALIGN_LEFT);
-            StatusWidget::padding((atlas_w*)multi[i]->item, 5, 0);
+            multi.push_back(ss);
             
-            ++i;
+            StatusWidget::attach(item, ss, alignment);
+            StatusWidget::padding((atlas_w*)ss.item, 5, 0);
         }
     }
     
     
     
     // Fill up multi item statusbar application 
-    void populate(stdvec arr, std::string fnt, int size) {
+    void populate(std::vector<std::string> arr, std::string fnt, int size) {
         populate <Gtk::Label> (arr);
-        font(fnt, size, arr.size());
+        font(fnt, size);
     }
     
     
     
     // Set the font and text size for label widgets
-    void font(std::string font, int size, size_t num) {
-        size_t i;
+    void font(std::string font, int size) {
+        std::vector<StatusSimple>::iterator iter;
         
-        for ( i = 0; i < num; ++i ) 
-            StatusWidget::font((Gtk::Label*)multi[i]->item, font, size);
+        for ( iter = multi.begin(); iter != multi.end(); ++iter ) 
+            StatusWidget::font((Gtk::Label*)(*iter).item, font, size);
     }
     
     

@@ -39,13 +39,13 @@ class Volume {
  public:
     
     // Determines the correct icon for the widget and sets it as the widget icon.
-    static std::string      icon();
+    static std::string     icon();
     
     // Creates a new widget.
-    void                    create();
+    void                   create();
     
     // Container for the widget.
-    static StatusSimple*    widget;
+    static StatusSimple    widget;
 };
 
 

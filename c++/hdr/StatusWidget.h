@@ -59,6 +59,18 @@ public:
             box->pack_end(*widg->item, Gtk::PACK_SHRINK);
     }
     
+    template <typename atlas_w> 
+    static void attach(Gtk::Box* box, atlas_w& widg, StatusWidget::Section section) {
+        if ( section == StatusWidget::ALIGN_LEFT )
+            box->pack_start(*widg.item, Gtk::PACK_SHRINK);
+        
+        if ( section == StatusWidget::ALIGN_CENTER)
+            box->set_center_widget(*widg.item);
+        
+        if ( section == StatusWidget::ALIGN_RIGHT)
+            box->pack_end(*widg.item, Gtk::PACK_SHRINK);
+    }
+    
     // Attach the widget onto the container in the given region
     template <typename atlas_w> 
     static void attach(Gtk::Box& box, atlas_w* widg, StatusWidget::Section section) {
@@ -71,6 +83,20 @@ public:
         if ( section == StatusWidget::ALIGN_RIGHT)
             box.pack_end(*widg->item, Gtk::PACK_SHRINK);
     }
+    
+    // Attach the widget onto the container in the given region
+    template <typename atlas_w> 
+    static void attach(Gtk::Box& box, atlas_w& widg, StatusWidget::Section section) {
+        if ( section == StatusWidget::ALIGN_LEFT )
+            box.pack_start(*widg.item, Gtk::PACK_SHRINK);
+        
+        if ( section == StatusWidget::ALIGN_CENTER)
+            box.set_center_widget(*widg.item);
+        
+        if ( section == StatusWidget::ALIGN_RIGHT)
+            box.pack_end(*widg.item, Gtk::PACK_SHRINK);
+    }
+
 
     
     
@@ -108,6 +134,13 @@ public:
         desc.set_size(size * PANGO_SCALE);
         
         label->override_font(desc);
+    }
+    
+    
+    
+    // Change the orientation of the widget container
+    static void orientation(Gtk::Box* box, Gtk::Orientation opt) {
+        box->set_orientation(opt);
     }
     
     

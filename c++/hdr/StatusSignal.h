@@ -70,7 +70,7 @@ class StatusSignal {
             else if ( val == 1 )
                 system("xbacklight -dec 10");
             
-            brightness.widget->set <Gtk::Image> ();
+            brightness.widget.set <Gtk::Image> ();
             break;
         case 'P':
             if ( val == 0 )
@@ -80,12 +80,12 @@ class StatusSignal {
             else if ( val == 2 )
                 system("mocp -f");
                         
-            volume.widget->set <Gtk::Image> ();
+            volume.widget.set <Gtk::Image> ();
             break;
         case 'T':
             val = (key & 0xFF);
             
-            workspace.widget->set(val);
+            workspace.widget.set(val);
             break;
         case 'V':
             if ( val == 0 )
@@ -95,7 +95,7 @@ class StatusSignal {
             else if ( val == 2 )
                 system("amixer -q set Master toggle");
             
-            volume.widget->set <Gtk::Image> ();
+            volume.widget.set <Gtk::Image> ();
             break;
         default:
             break;

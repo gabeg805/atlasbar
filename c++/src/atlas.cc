@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
     Atlas.attach<Date>(date,             StatusWidget::ALIGN_CENTER);
     Atlas.attach<Workspace>(workspace,   StatusWidget::ALIGN_LEFT);
     
-    Atlas.show_all_children();    
+    Atlas.show_all_children();
     
     return app->run(Atlas);
 }

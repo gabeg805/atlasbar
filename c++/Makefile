@@ -1,7 +1,7 @@
 ## Compiler
 CC      = g++
 LIBS    = gtkmm-3.0
-CFLAGS  = -g -Wall -O0 
+CFLAGS  = -g -Wall -O0 # -std=c++11 
 CFLAGS += `pkg-config $(LIBS) --cflags --libs`
 
 ## Program source files

@@ -42,6 +42,7 @@ class StatusSimple {
 public:
     
     // Class variables
+    // std::unique_ptr<Gtk::Widget>    stuff;
     Gtk::Widget*    item;
     std::string     (*updateCall)();
     

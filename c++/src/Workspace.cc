@@ -29,7 +29,7 @@
 #include <vector>
 
 // Declares
-StatusMulti*                Workspace::widget;
+StatusMulti                 Workspace::widget;
 std::string                 Workspace::background;
 std::string                 Workspace::highlight;
 std::vector<std::string>    Workspace::tags;
@@ -51,9 +51,9 @@ void Workspace::screen(int ws) {
     // Highlight the specified workspace    
     for ( index = 0; index < tags.size(); ++index ) {
         if ( index == loc )
-            StatusWidget::background(widget->multi[index]->item, highlight);
+            StatusWidget::background(widget.multi.at(index).item, highlight);
         else
-            StatusWidget::background(widget->multi[index]->item, background);
+            StatusWidget::background(widget.multi.at(index).item, background);
     }
 }
 
@@ -75,8 +75,9 @@ void Workspace::create() {
     tags                          = Config::parse(line, ',');
     
     // Setup the workspace widget
-    widget = new StatusMulti(Gtk::ORIENTATION_HORIZONTAL);
-    widget->populate(tags, font, atoi(size.c_str()));
-    widget->call(screen);
+    // widget = new StatusMulti(Gtk::ORIENTATION_HORIZONTAL);
+    widget.init();
+    widget.populate(tags, font, atoi(size.c_str()));
+    widget.call(screen);
     screen(0);
 }

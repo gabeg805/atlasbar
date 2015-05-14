@@ -29,7 +29,7 @@
 #include <string>
 
 // Declares
-StatusSimple* Wifi::widget;
+StatusSimple Wifi::widget;
 
 
 
@@ -73,8 +73,8 @@ std::string Wifi::icon() {
 
 // Display the wifi widget
 void Wifi::create() {
-    widget = new StatusSimple();
-    widget->init    <Gtk::Image> (icon());
-    widget->padding <Gtk::Image> (5, 0);
-    widget->update  <Gtk::Image> (icon, 5);
+    // widget = new StatusSimple();
+    widget.init    <Gtk::Image> (icon());
+    widget.padding <Gtk::Image> (5, 0);
+    widget.update  <Gtk::Image> (icon, 5);
 }

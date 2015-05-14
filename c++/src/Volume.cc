@@ -32,7 +32,7 @@
 static int is_mute();
 static pid_t is_playing();
 
-StatusSimple* Volume::widget;
+StatusSimple Volume::widget;
 
 
 
@@ -109,8 +109,8 @@ std::string Volume::icon() {
 
 // Display the volume widget
 void Volume::create() {
-    widget = new StatusSimple();
-    widget->init    <Gtk::Image> (icon());
-    widget->padding <Gtk::Image> (5, 0);
-    widget->call(icon);
+    // widget = new StatusSimple();
+    widget.init    <Gtk::Image> (icon());
+    widget.padding <Gtk::Image> (5, 0);
+    widget.call(icon);
 }

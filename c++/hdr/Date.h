@@ -39,13 +39,13 @@ class Date {
  public:
     
     // Determines the current time.
-    static std::string      now();
+    static std::string     now();
     
     // Creates a new widget.
-    void                    create();
+    void                   create();
     
     // Container for the widget.
-    static StatusSimple*    widget;
+    static StatusSimple    widget;
 };
 
 

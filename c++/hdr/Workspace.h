@@ -44,7 +44,7 @@ public:
     void                               create();
     
     // Container for the widget.
-    static StatusMulti*                widget;
+    static StatusMulti                 widget;
     
 private:
     
