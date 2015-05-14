@@ -50,6 +50,6 @@ class Volume {
 
 
 // Declares
-extern Volume* volume;
+extern Volume volume;
 
 #endif

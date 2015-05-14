@@ -46,11 +46,10 @@ class Date {
     
     // Container for the widget.
     static StatusSimple*    widget;
-
 };
 
 
 // Declares
-extern Date* date;
+extern Date date;
 
 #endif

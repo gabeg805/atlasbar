@@ -50,6 +50,6 @@ public:
 
 
 // Declares
-extern Brightness* brightness;
+extern Brightness brightness;
 
 #endif

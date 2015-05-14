@@ -58,6 +58,6 @@ private:
 
 
 // Declares
-extern Workspace* workspace;
+extern Workspace workspace;
 
 #endif

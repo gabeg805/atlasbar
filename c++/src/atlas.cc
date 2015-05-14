@@ -37,12 +37,12 @@
 #include <gtkmm.h>
 
 // Declares
-Battery*    battery;
-Wifi*       wifi;
-Volume*     volume;
-Brightness* brightness;
-Date*       date;
-Workspace*  workspace;
+Battery    battery;
+Wifi       wifi;
+Volume     volume;
+Brightness brightness;
+Date       date;
+Workspace  workspace;
 
 
 

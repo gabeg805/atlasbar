@@ -50,6 +50,6 @@ class Battery {
 
 
 // Declares
-extern Battery* battery;
+extern Battery battery;
 
 #endif

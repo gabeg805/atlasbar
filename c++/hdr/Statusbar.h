@@ -40,13 +40,14 @@ class Statusbar : public Gtk::Window {
 public:
     Statusbar();
     
-    Gtk::Box*    bar;
-        
+    // Container for the Atlas Statusbar widgets
+    Gtk::Box    bar;
+    
     // Set the desired widget onto the statusbar
     template <typename atlas_a>
-    void attach(atlas_a* app, StatusWidget::Section section) {
-        app->create();
-        StatusWidget::attach(bar, app->widget, section);
+    void attach(atlas_a& app, StatusWidget::Section section) {
+        app.create();
+        StatusWidget::attach(bar, app.widget, section);
     }
 };
 

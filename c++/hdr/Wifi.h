@@ -51,6 +51,6 @@ class Wifi {
 
 
 // Declares
-extern Wifi* wifi;
+extern Wifi wifi;
 
 #endif

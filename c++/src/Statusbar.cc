@@ -38,7 +38,8 @@
 // ///////////////////////////////////
 
 Statusbar::Statusbar() :
-    Gtk::Window(Gtk::WINDOW_POPUP)
+    Gtk::Window(Gtk::WINDOW_POPUP),
+    bar(Gtk::ORIENTATION_HORIZONTAL)
 {
     // Determine bar orientation
     std::string width       = Config::fetch("width");
@@ -55,11 +56,11 @@ Statusbar::Statusbar() :
     override_color(fore, Gtk::STATE_FLAG_NORMAL);
     
     if ( orientation.compare("vertical") == 0 )
-        bar = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
+        bar.set_orientation(Gtk::ORIENTATION_VERTICAL);
     else
-        bar = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
+        bar.set_orientation(Gtk::ORIENTATION_HORIZONTAL);
     
-    add(*bar);
+    add(bar);
     
     signal(SIGUSR1, StatusSignal::statusSigCatcher);
 }
