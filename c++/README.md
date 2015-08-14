@@ -2,7 +2,7 @@
 What is it?
 ===========
 
-This is a status bar for your linux system that displays items such as:
+Atlas is a status bar for your linux system that displays items such as:
     
     - Workspace
     - Date and time
@@ -10,35 +10,26 @@ This is a status bar for your linux system that displays items such as:
     - Volume level
     - Wifi strength
     - Battery level
+    - and more!
 
-and more items can be added to it, removed from it, or moved around, if the user
-wishes to do so. The user also has the option of adding more workspaces, 
-changing the size and location of the status bar, and many more things as well.
-
-
+Using the API, users can easily create, add, and modify new or existing status
+bar applications. Atlas was primarily built as an improvement to the DWM window
+manager, which did not allow for graphical status bar items. Consequently, Atlas
+accepts graphical status bar applications.
 
 =============
 Documentation
 =============
 
-This status bar was primarily built to be used under the DWM window manager 
-because I did not like the one that DWM comes with. I wanted to have the 
-option of adding icon widgets to the status bar if I wanted to, and since 
-DWM's status bar does not have that option, I made my own.
-
-
-The documentation for each script is available in the headers of each respective
-script.
-
-
+The documentation for each program can be found in the header of each respective
+file.
 
 ============
 Installation
 ============
 
-Unkwown
-
-
+$ make
+$ ./atlas
 
 ========
 Contacts
@@ -46,20 +37,16 @@ Contacts
 
 If you have any problems, feel free to email me at 'gabeg@bu.edu'.
 
-
-
 ==================
 Potential Problems
 ==================
 
-Unknown
-
-
+- Occasionally, DWM resets and all windows move to the first workspace.
 
 =====
 To-Do
 =====
 
 - Sometimes the volume icon mistakes a mocp pid, fix this
-
-- the tags reset to 1 sometimes
+- Check which is faster, socket or semaphore (or alternative IPC)
+- Remove file opening and printing to stuff.txt

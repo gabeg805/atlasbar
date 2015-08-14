@@ -1,44 +1,64 @@
 ## Compiler
 CC      = g++
 LIBS    = gtkmm-3.0
-CFLAGS  = -g -Wall -O0 # -std=c++11 
+CFLAGS  = -g -Wall -O0
 CFLAGS += `pkg-config $(LIBS) --cflags --libs`
+CINC    = 
 
 ## Program source files
 PROGRAM = atlas
-NAMES   = $(PROGRAM) 
-NAMES  += Config Statusbar 
-NAMES  += Battery Wifi Volume Brightness Date Workspace 
-
-## File extensions used
-SRC_EXT = .cc
-HDR_EXT = .h
-OBJ_EXT = .o
+APP     = Battery Brightness Date Volume Wifi Workspace
+COMMON  = AtlasApp AtlasAppSettings AtlasCommand AtlasConfig
+CORE    = $(PROGRAM) Statusbar
+NAMES   = $(APP) $(COMMON) $(CORE)
 
 ## Directories used
+APP_DIR    = ./app
+COMMON_DIR = ./common
+CORE_DIR   = ./core
+
 SRC_DIR = ./src
-HDR_DIR = ./hdr
+INC_DIR = ./include
 OBJ_DIR = ./obj
 
-## Add extension to file names
-SRC = $(addprefix $(SRC_DIR)/, $(addsuffix $(SRC_EXT), $(NAMES)))
-HDR = $(addprefix $(HDR_DIR)/, $(addsuffix $(HDR_EXT), $(NAMES)))
-OBJ = $(addprefix $(OBJ_DIR)/, $(addsuffix $(OBJ_EXT), $(NAMES)))
+## Determine source and object files
+APP_SRC    = $(addprefix $(APP_DIR)/$(SRC_DIR)/,    $(addsuffix .cc, $(APP)))
+COMMON_SRC = $(addprefix $(COMMON_DIR)/$(SRC_DIR)/, $(addsuffix .cc, $(COMMON)))
+CORE_SRC   = $(addprefix $(CORE_DIR)/$(SRC_DIR)/,   $(addsuffix .cc, $(CORE)))
+OBJ        = $(addprefix $(OBJ_DIR)/,               $(addsuffix .o,  $(NAMES)))
+
+## Update compiler include flags
+CINC += -I $(APP_DIR)/$(INC_DIR)
+CINC += -I $(COMMON_DIR)/$(INC_DIR)
+CINC += -I $(CORE_DIR)/$(INC_DIR)
 
 ## Makefile actions
 all: $(PROGRAM)
 
-$(OBJ_DIR)/%$(OBJ_EXT): $(SRC_DIR)/%$(SRC_EXT)
-	$(CC) $(CFLAGS) \
-		-c $< \
-		-o $@
-
 $(PROGRAM): $(OBJ)
 	$(CC) $(CFLAGS) \
-		-o $(PROGRAM) $(OBJ)
+		-o $(PROGRAM) $(OBJ) \
+		$(CINC)
+
+$(OBJ_DIR)/%.o: $(APP_DIR)/$(SRC_DIR)/%.cc
+	$(CC) $(CFLAGS) \
+		-c $< \
+		-o $@ \
+		$(CINC)
+
+$(OBJ_DIR)/%.o: $(COMMON_DIR)/$(SRC_DIR)/%.cc
+	$(CC) $(CFLAGS) \
+		-c $< \
+		-o $@ \
+		$(CINC)
+
+$(OBJ_DIR)/%.o: $(CORE_DIR)/$(SRC_DIR)/%.cc
+	$(CC) $(CFLAGS) \
+		-c $< \
+		-o $@ \
+		$(CINC)
 
 .PHONY: clean
 clean : 
 	@rm -v -f $(OBJ)
-	@rm -v -f $(OBJ_DIR)/*
 	@rm -v -f $(PROGRAM)
