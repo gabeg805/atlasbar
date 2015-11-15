@@ -30,6 +30,7 @@
 static bool do_stuff_please(GdkEventCrossing *event)
 {
     system("aria --body \"$(wifi -s)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
+
     return true;
 }
 
