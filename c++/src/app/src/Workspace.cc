@@ -29,11 +29,8 @@
 /* Declares */
 uint8_t Workspace::screen = 0;
 
-/* *******************************
- * ***** DISPLAY TAGS WIDGET *****
- * *******************************
- */
-
+/* ************************************************************************** */
+/* Create the application */
 void Workspace::create(void)
 {
     std::vector<std::string> tags      = get_tags();
@@ -53,17 +50,16 @@ void Workspace::create(void)
     update(this->widget, 0);
 }
 
-/* ****************************
- * ***** SCREEN TAG INDEX *****
- * ****************************
- */
-
+/* ************************************************************************** */
+/* Callback wrapper function to periodically update the application icon */
 bool Workspace::update(void *w)
 {
     update(static_cast<Gtk::Label*>(w), screen);
     return true;
 }
 
+/* ************************************************************************** */
+/* Callback function to periodically update the application icon */
 void Workspace::update(Gtk::Label *w, uint8_t workspace)
 {
     static uint8_t     size     = get_tag_size();
@@ -84,17 +80,16 @@ void Workspace::update(Gtk::Label *w, uint8_t workspace)
     std::cout << "Workspace: " << int(screen) << std::endl;
 }
 
-/* ***********************
- * ***** SCREEN TAGS *****
- * ***********************
- */
-
+/* ************************************************************************** */
+/* Return the workspace tags defined in the configuration file */
 std::vector<std::string> Workspace::get_tags(void)
 {
     static std::vector<std::string> tags = AtlasConfig::parse(AtlasConfig::FILE, "workspace_tags", ',');
     return tags;
 }
 
+/* ************************************************************************** */
+/* Return the number of workspace tags */
 uint8_t Workspace::get_tag_size(void)
 {
     static size_t size = get_tags().size();

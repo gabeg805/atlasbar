@@ -24,7 +24,7 @@
 
 /* Classes */
 class Wifi:
-    public AtlasApp<Gtk::Image>
+    public AtlasApp<Gtk::EventBox>
 {
 public:
     void               create(void);

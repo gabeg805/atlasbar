@@ -23,11 +23,8 @@
 #include <ctime>
 #include <string>
 
-/* ***********************************
- * ***** CREATE DATE APPLICATION *****
- * ***********************************
- */
-
+/* ************************************************************************** */
+/* Create the application */
 void Date::create(void)
 {
     Gtk::Label *label = new Gtk::Label(get_time());
@@ -39,17 +36,16 @@ void Date::create(void)
     connect_callback(update, 1);
 }
 
-/* ****************
- * ***** DATE *****
- * ****************
- */
-
+/* ************************************************************************** */
+/* Callback function to periodically update the application text */
 bool Date::update(void *w)
 {
     static_cast<Gtk::Label*>(w)->set_text(get_time());
     return true;
 }
 
+/* ************************************************************************** */
+/* Return the text to be used */
 std::string Date::get_time(void)
 {
     static char        str[30];

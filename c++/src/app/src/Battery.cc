@@ -23,11 +23,8 @@
 #include <sstream>
 #include <string>
 
-/* **************************************
- * ***** CREATE BATTERY APPLICATION *****
- * **************************************
- */
-
+/* ************************************************************************** */
+/* Create the application */
 void Battery::create(void)
 {
     Gtk::Image *image = new Gtk::Image(get_icon());
@@ -36,17 +33,16 @@ void Battery::create(void)
     connect_callback(update, 2);
 }
 
-/* ************************
- * ***** BATTERY ICON *****
- * ************************
- */
-
+/* ************************************************************************** */
+/* Callback function to periodically update the application icon */
 bool Battery::update(void *w)
 {
     static_cast<Gtk::Image*>(w)->set(get_icon());
     return true;
 }
 
+/* ************************************************************************** */
+/* Return the path of the icon to be used */
 std::string Battery::get_icon(void)
 {
     static std::string dir   = AtlasConfig::fetch("battery_icon_dir");

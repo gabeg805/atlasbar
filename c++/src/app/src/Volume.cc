@@ -27,11 +27,8 @@
 static int is_mute(void);
 static pid_t is_playing(void);
 
-/* *************************************
- * ***** CREATE VOLUME APPLICATION *****
- * *************************************
- */
-
+/* ************************************************************************** */
+/* Create the application */
 void Volume::create(void)
 {
     Gtk::Image *image = new Gtk::Image(get_icon());
@@ -39,17 +36,16 @@ void Volume::create(void)
     init(image, update);
 }
 
-/* ***********************
- * ***** VOLUME ICON *****
- * ***********************
- */
-
+/* ************************************************************************** */
+/* Callback function to periodically update the application icon */
 bool Volume::update(void *w)
 {
     static_cast<Gtk::Image*>(w)->set(get_icon());
     return true;
 }
 
+/* ************************************************************************** */
+/* Return the path of the icon to be used */
 std::string Volume::get_icon(void)
 {
     static std::string dir   = AtlasConfig::fetch("volume_icon_dir");
@@ -84,11 +80,7 @@ std::string Volume::get_icon(void)
     return (dir + name + qualifier + ext);
 }
 
-/* ********************************
- * ***** CHECK AUDIO SETTINGS *****
- * ********************************
- */
-
+/* ************************************************************************** */
 /* Check if mute is toggled */
 static int is_mute(void)
 {
@@ -97,6 +89,7 @@ static int is_mute(void)
     return (output.compare("off\n") == 0);
 }
 
+/* ************************************************************************** */
 /* Check if music player is running */
 static pid_t is_playing(void)
 {

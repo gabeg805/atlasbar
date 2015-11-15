@@ -23,11 +23,8 @@
 #include <iostream>
 #include <string>
 
-/* *****************************************
- * ***** CREATE BRIGHTNESS APPLICATION *****
- * *****************************************
- */
-
+/* ************************************************************************** */
+/* Create the application */
 void Brightness::create(void)
 {
     Gtk::Image *image = new Gtk::Image(get_icon());
@@ -35,17 +32,16 @@ void Brightness::create(void)
     init(image, update);
 }
 
-/* ***************************
- * ***** BRIGHTNESS ICON *****
- * ***************************
- */
-
+/* ************************************************************************** */
+/* Callback function to periodically update the application icon */
 bool Brightness::update(void *w)
 {
     static_cast<Gtk::Image*>(w)->set(get_icon());
     return true;
 }
 
+/* ************************************************************************** */
+/* Return the path of the icon to be used */
 std::string Brightness::get_icon(void)
 {
     static std::string cmd   = AtlasConfig::fetch("brightness_cmd");

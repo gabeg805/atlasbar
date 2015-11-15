@@ -6,8 +6,8 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: An Atlas application utility for executing commands and parsing
- *              command output.
+ * Description: An Atlas utility for executing commands and parsing command
+ *              output.
  * 
  * Notes: None.
  * 
@@ -22,12 +22,8 @@
 #include <cstddef>
 #include <string>
 
-/* ************************
- * ***** COMMAND EXEC *****
- * ************************
- */
-
-/* Return program command output */
+/* ************************************************************************** */
+/* Execute the specified command and return the output */
 std::string AtlasCommand::exec_cmd(std::string cmd)
 {
     FILE       *stream = popen(cmd.c_str(), "r");
@@ -44,12 +40,8 @@ std::string AtlasCommand::exec_cmd(std::string cmd)
     return output;
 }
 
-/* **********************************************
- * ***** GET PERCENTAGE FROM COMMAND OUTPUT *****
- * **********************************************
- */
-
-/* Return program command output as a percentage */
+/* ************************************************************************** */
+/* Execute the command and treat the output as a percentage (0-100) */
 int AtlasCommand::get_cmd_percent(std::string cmd)
 {
     std::string output = exec_cmd(cmd);

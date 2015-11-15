@@ -20,33 +20,43 @@
 #include "AtlasConfig.h"
 #include "AtlasCommand.h"
 #include <gtkmm.h>
+#include <gdkmm.h>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
-/* ***********************************
- * ***** CREATE WIFI APPLICATION *****
- * ***********************************
- */
-
-void Wifi::create(void)
+/* ************************************************************************** */
+/* Display the Aria notification bubble on an event */
+static bool do_stuff_please(GdkEventCrossing *event)
 {
-    Gtk::Image *image = new Gtk::Image(get_icon());
-    set_margin(*image, 5, 0);
-    init(image);
-    connect_callback(update, 5);
-}
-
-/* *********************
- * ***** WIFI ICON *****
- * *********************
- */
-
-bool Wifi::update(void *w)
-{
-    static_cast<Gtk::Image*>(w)->set(get_icon());
+    system("aria --body \"$(wifi -s)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
     return true;
 }
 
+/* ************************************************************************** */
+/* Create the application */
+void Wifi::create(void)
+{
+    Gtk::Image *image = new Gtk::Image(get_icon());
+    Gtk::EventBox *event = new Gtk::EventBox();
+    set_margin(*image, 5, 0);
+    event->add(*image);
+    event->signal_enter_notify_event().connect(sigc::ptr_fun(&do_stuff_please));
+    init(event);
+    connect_callback(update, 5);
+}
+
+/* ************************************************************************** */
+/* Callback function to periodically update the application icon */
+bool Wifi::update(void *w)
+{
+    Gtk::Widget *widget = static_cast<Gtk::EventBox*>(w)->get_child();
+    static_cast<Gtk::Image*>(widget)->set(get_icon());
+    return true;
+}
+
+/* ************************************************************************** */
+/* Return the path of the icon to be used */
 std::string Wifi::get_icon(void)
 {
     static std::string cmd   = AtlasConfig::fetch("wifi_cmd");

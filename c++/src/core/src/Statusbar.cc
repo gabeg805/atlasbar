@@ -6,7 +6,7 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas Status Bar application container. 
+ * Description: The Atlas status bar - contains all status bar applications.
  * 
  * Notes: None.
  * 
@@ -23,11 +23,8 @@
 #include <csignal>
 #include <string>
 
-/* *************************************
- * ***** CONSTRUCT ATLAS STATUSBAR *****
- * *************************************
- */
-
+/* ************************************************************************** */
+/* Construct the Atlas status bar */
 Statusbar::Statusbar():
     Gtk::Window(Gtk::WINDOW_POPUP),
     AtlasApp(new Gtk::Box())
@@ -36,11 +33,8 @@ Statusbar::Statusbar():
     signal(SIGUSR1, StatusSignal::statusSigCatcher);
 }
 
-/* **********************************
- * ***** CREATE ATLAS STATUSBAR *****
- * **********************************
- */
-
+/* ************************************************************************** */
+/* Create Atlas status bar */
 void Statusbar::create(void)
 {
     int         width       = AtlasConfig::fetch_int("width");

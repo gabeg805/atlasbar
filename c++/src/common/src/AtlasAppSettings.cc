@@ -27,18 +27,16 @@
 #include <string>
 #include <vector>
 
-/* ******************
- * ***** IMAGES *****
- * ******************
- */
-
-/* Set application image */
+/* ************************************************************************** */
+/* Set the image of an application */
 int set_image(Gtk::Image &w, std::string str)
 {
     w.set(str);
     return 0;
 }
 
+/* ************************************************************************** */
+/* Set the images of an application */
 int set_image(Gtk::Image &w, size_t s, std::vector<std::string> vec)
 {
     std::vector<std::string>::iterator iter;
@@ -53,18 +51,16 @@ int set_image(Gtk::Image &w, size_t s, std::vector<std::string> vec)
     return 0;
 }
 
-/* ******************
- * ***** LABELS *****
- * ******************
- */
-
-/* Set application label */
+/* ************************************************************************** */
+/* Set the label of an application */
 int set_label(Gtk::Label &w, std::string str)
 {
     w.set_label(str);
     return 0;
 }
 
+/* ************************************************************************** */
+/* Set the labels of an application */
 int set_label(Gtk::Label &w, size_t s, std::vector<std::string> vec)
 {
     std::vector<std::string>::iterator iter;
@@ -79,18 +75,16 @@ int set_label(Gtk::Label &w, size_t s, std::vector<std::string> vec)
     return 0;
 }
 
-/* *******************
- * ***** SPACING *****
- * *******************
- */
-
-/* Set application spacing */
+/* ************************************************************************** */
+/* Set the application's XY window padding */
 int set_padding(Gtk::Misc &w, int x, int y)
 {
     w.set_padding(x, y);
     return 0;
 }
 
+/* ************************************************************************** */
+/* Set the application's XY window margins */
 int set_margin(Gtk::Widget &w, int x, int y)
 {
     w.set_margin_start(x);
@@ -100,12 +94,8 @@ int set_margin(Gtk::Widget &w, int x, int y)
     return 0;
 }
 
-/* *****************
- * ***** COLOR *****
- * *****************
- */
-
-/* Set application background color */
+/* ************************************************************************** */
+/* Set the background color of the application  */
 int set_background(Gtk::Widget &w, std::string background)
 {
     Gdk::RGBA color(background);
@@ -113,7 +103,8 @@ int set_background(Gtk::Widget &w, std::string background)
     return 0;
 }
 
-/* Set application foreground color */
+/* ************************************************************************** */
+/* Set foreground color of the application */
 int set_foreground(Gtk::Widget &w, std::string foreground)
 {
     Gdk::RGBA color(foreground);
@@ -121,12 +112,8 @@ int set_foreground(Gtk::Widget &w, std::string foreground)
     return 0;
 }
 
-/* ****************
- * ***** FONT *****
- * ****************
- */
-
-/* Set application font and text size */
+/* ************************************************************************** */
+/* Set the font of the application */
 int set_font(Gtk::Widget &w, std::string font)
 {
     Pango::FontDescription fd;
@@ -135,6 +122,8 @@ int set_font(Gtk::Widget &w, std::string font)
     return 0;
 }
 
+/* ************************************************************************** */
+/* Set the font and text size of the application */
 int set_font(Gtk::Widget &w, std::string font, int size)
 {
     Pango::FontDescription fd;
@@ -144,12 +133,8 @@ int set_font(Gtk::Widget &w, std::string font, int size)
     return 0;
 }
 
-/* ***********************
- * ***** ORIENTATION *****
- * ***********************
- */
-
-/* Set application orientation */
+/* ************************************************************************** */
+/* Set the orientation of the application */
 int set_orientation(Gtk::Orientable &w, std::string orientation)
 {
     if ( orientation.compare("vertical") == 0 )

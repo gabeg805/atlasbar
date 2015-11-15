@@ -40,12 +40,10 @@ Workspace  workspace;
 
 int main(int argc, char** argv)
 {
-    /* Initialize gtkmm application */
     Glib::RefPtr<Gtk::Application> app =
         Gtk::Application::create(argc, argv,
                                  "org.gtkmm.examples.base");
 
-    /* Create applications */
     static Statusbar atlas;
     static Battery   battery;
     static Wifi      wifi;
@@ -59,7 +57,6 @@ int main(int argc, char** argv)
     date.create();
     workspace.create();
 
-    /* Setup statusbar */
     atlas.attach(battery,    AtlasAlign::RIGHT);
     atlas.attach(wifi,       AtlasAlign::RIGHT);
     atlas.attach(volume,     AtlasAlign::RIGHT);

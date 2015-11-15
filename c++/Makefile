@@ -1,7 +1,7 @@
 ## Compiler
 CC      = g++
 LIBS    = gtkmm-3.0
-CFLAGS  = -g -Wall -O0
+CFLAGS  = -g -Wall -O0 -std=c++11
 CFLAGS += `pkg-config $(LIBS) --cflags --libs`
 CINC    = 
 
@@ -13,12 +13,11 @@ CORE    = $(PROGRAM) Statusbar
 NAMES   = $(APP) $(COMMON) $(CORE)
 
 ## Directories used
-APP_DIR    = ./app
-COMMON_DIR = ./common
-CORE_DIR   = ./core
-
-SRC_DIR = ./src
-INC_DIR = ./include
+APP_DIR    = ./src/app
+COMMON_DIR = ./src/common
+CORE_DIR   = ./src/core
+SRC_DIR = src
+INC_DIR = include
 OBJ_DIR = ./obj
 
 ## Determine source and object files

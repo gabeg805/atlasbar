@@ -6,7 +6,7 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas application config reader and parser.
+ * Description: The Atlas application configuration file reader and parser.
  * 
  * Notes: None.
  * 
@@ -23,19 +23,17 @@
 #include <vector>
 
 /* Declares */
-std::string AtlasConfig::FILE = "/home/gabeg/scripts/programs/atlas/c++/config/atlas.config";
+std::string AtlasConfig::FILE = "/home/gabeg/scripts/programs/atlas/c++/src/common/atlas.config";
 
-/* ****************************************
- * ***** GET VALUE PAIR OF CONFIG KEY *****
- * ****************************************
- */
-
+/* ************************************************************************** */
 /* Read the config file for value pair of key */
 std::string AtlasConfig::fetch(std::string key)
 {
     return fetch(AtlasConfig::FILE, key);
 }
 
+/* ************************************************************************** */
+/* Read the specified file for value pair of key */
 std::string AtlasConfig::fetch(std::string file, std::string key)
 {
     std::ifstream stream(file.c_str(), std::ifstream::in);
@@ -65,30 +63,30 @@ std::string AtlasConfig::fetch(std::string file, std::string key)
     return "";
 }
 
-/* Read integer value pairs */
+/* ************************************************************************** */
+/* Read value pairs from config file and treat it as an integer */
 int AtlasConfig::fetch_int(std::string key)
 {
     return atoi(fetch(AtlasConfig::FILE, key).c_str());
 }
 
+/* ************************************************************************** */
+/* Read value pairs from the specified file and treat it as an integer */
 int AtlasConfig::fetch_int(std::string file, std::string key)
 {
     return atoi(fetch(file, key).c_str());
 }
 
-
-/* ***********************************
- * ***** PARSE LINE ON DELIMETER *****
- * ***********************************
- */
-
-/* Parse line based on delimeter */
+/* ************************************************************************** */
+/* Parse the value pair on the delimeter and put each piece into a vector */
 std::vector<std::string> AtlasConfig::parse(std::string file, std::string key, char delim)
 {
     std::string str = fetch(file, key);
     return parse(str, delim);
 }
 
+/* ************************************************************************** */
+/* Parse a string on the delimeter and put each piece into a vector */
 std::vector<std::string> AtlasConfig::parse(std::string str, char delim)
 {
     std::stringstream stream(str);
