@@ -20,18 +20,23 @@
 #include "AtlasApp.h"
 #include "AtlasAlignType.h"
 #include "Statusbar.h"
-#include "Battery.h"
-#include "Wifi.h"
-#include "Volume.h"
-#include "Brightness.h"
-#include "Date.h"
-#include "Workspace.h"
+// #include "Battery.h"
+// #include "Wifi.h"
+// #include "Volume.h"
+// #include "Brightness.h"
+// #include "Date.h"
+// #include "Workspace.h"
+#include "AtlasUserApp.h"
 #include <gtkmm.h>
 
+#include "AtlasApple.h"
+
 /* Declares */
-Volume     volume;
-Brightness brightness;
-Workspace  workspace;
+// Volume     volume;
+// Brightness brightness;
+// Workspace  workspace;
+
+NameApp *head = NULL;
 
 /* ***********************************
  * ***** DISPLAY ATLAS STATUSBAR *****
@@ -45,24 +50,15 @@ int main(int argc, char** argv)
                                  "org.gtkmm.examples.base");
 
     static Statusbar atlas;
-    static Battery   battery;
-    static Wifi      wifi;
-    static Date      date;
 
-    atlas.create();
-    battery.create();
-    wifi.create();
-    volume.create();
-    brightness.create();
-    date.create();
-    workspace.create();
-
-    atlas.attach(battery,    AtlasAlign::RIGHT);
-    atlas.attach(wifi,       AtlasAlign::RIGHT);
-    atlas.attach(volume,     AtlasAlign::RIGHT);
-    atlas.attach(brightness, AtlasAlign::RIGHT);
-    atlas.attach(date,       AtlasAlign::CENTER);
-    atlas.attach(workspace,  AtlasAlign::LEFT);
+    atlas.init();
+    atlas.creation("[battery]",    get_battery_icon);
+    atlas.creation("[wifi]",       get_wifi_icon,       wifi_event);
+    atlas.creation("[volume]",     get_volume_icon,     NULL,       volume_signal);
+    atlas.creation("[brightness]", get_brightness_icon, NULL,       brightness_signal);
+    atlas.creation("[date]",       get_date_text);
+    /* atlas.creation("[workspace]", get_workspace); */
+    atlas.build();
     atlas.show_all_children();
 
     return app->run(atlas);

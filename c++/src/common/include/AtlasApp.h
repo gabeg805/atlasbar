@@ -19,8 +19,10 @@
 
 /* Includes */
 #include "AtlasAlignType.h"
+#include "AtlasAppSettings.h"
 #include <gtkmm.h>
 #include <stdint.h>
+#include <cstdlib>
 #include <cstddef>
 #include <iostream>
 #include <string>
@@ -159,13 +161,29 @@ public:
     /* Connect application callback function */
     void connect_callback(uint16_t time)
     {
-        connect_callback(callback, time);
+        connect_callback(update, time);
     }
 
     void connect_callback(bool (*f)(void*), uint16_t time)
     {
         sigc::slot<bool, void*> slot = sigc::ptr_fun(f);
         Glib::signal_timeout().connect_seconds(sigc::bind<void*>(slot, static_cast<void*>(widget)), time);
+    }
+
+    /* ********************************* */
+
+
+    /* ************************************************************************** */
+    /* Callback function to periodically update the application icon */
+    bool update(void *w)
+    {
+        // std::string type = AtlasConfig::fetch(sac, "type");
+        // std::cout << type << " " << "update" << std::endl;
+        // if ( type.compare("image") == 0 )
+        //     static_cast<Gtk::Image*>(w)->set(this->get_icon());
+        // else if ( type.compare("label") == 0 )
+        //     static_cast<Gtk::Label*>(w)->set_text(get_text());
+        return true;
     }
 
     /* *********************************
@@ -176,6 +194,32 @@ public:
     GtkType *widget;
     size_t   size;
     bool   (*callback)(void*);
+    // struct NameApp fucker;
 };
+
+
+    // std::string type;
+    // unsigned int size;
+
+    // /* add signal */
+
+    // std::string  command;
+    // std::string  directory;
+    // unsigned int update;
+
+    // /* NameAppSpace */
+    // int xmargin;
+    // int ymargin;
+    // int xpadding;
+    // int ypadding;
+
+    // /* NameAppText */
+    // std::string  format;
+    // std::string  font;
+    // unsigned int size
+
+    // /* NameAppColor */
+    // std::string background;
+    // std::string foreground;
 
 #endif /* ATLAS_APP_H */

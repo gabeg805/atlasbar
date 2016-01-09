@@ -20,9 +20,9 @@
 
 /* Includes */
 #include "AtlasSignalType.h"
-#include "Volume.h"
-#include "Brightness.h"
-#include "Workspace.h"
+/* #include "Volume.h" */
+/* #include "Brightness.h" */
+/* #include "Workspace.h" */
 #include <stdint.h>
 #include <fcntl.h>
 #include <semaphore.h>

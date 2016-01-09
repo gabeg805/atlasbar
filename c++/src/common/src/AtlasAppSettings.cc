@@ -85,12 +85,12 @@ int set_padding(Gtk::Misc &w, int x, int y)
 
 /* ************************************************************************** */
 /* Set the application's XY window margins */
-int set_margin(Gtk::Widget &w, int x, int y)
+int set_margin(void *w, int x, int y)
 {
-    w.set_margin_start(x);
-    w.set_margin_end(x);
-    w.set_margin_top(y);
-    w.set_margin_bottom(y);
+    static_cast<Gtk::Widget*>(w)->set_margin_start(x);
+    static_cast<Gtk::Widget*>(w)->set_margin_end(x);
+    static_cast<Gtk::Widget*>(w)->set_margin_top(y);
+    static_cast<Gtk::Widget*>(w)->set_margin_bottom(y);
     return 0;
 }
 

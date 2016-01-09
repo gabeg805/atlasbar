@@ -22,6 +22,7 @@
 
 struct AtlasAlign {
     enum AlignType {
+        NONE = 0,
         TOP  = 1,
         LEFT = TOP,
         CENTER,

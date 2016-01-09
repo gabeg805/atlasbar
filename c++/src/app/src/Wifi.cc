@@ -29,7 +29,7 @@
 /* Display the Aria notification bubble on an event */
 static bool do_stuff_please(GdkEventCrossing *event)
 {
-    system("aria --body \"$(wifi -s)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
+    system("aria --body \"$(wifi -s 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
 
     return true;
 }

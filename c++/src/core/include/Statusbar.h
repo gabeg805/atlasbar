@@ -19,16 +19,19 @@
 
 /* Includes */
 #include "AtlasApp.h"
+#include "AtlasApple.h"
 #include <gtkmm.h>
 
 /* Classes */
 class Statusbar:
     public Gtk::Window,
-    public AtlasApp<Gtk::Box>
+    public AtlasApp<Gtk::Box>,
+    public AtlasApple
 {
 public:
     Statusbar();
-    void create(void);
+    void init(void);
+    void build(void);
 };
 
 #endif /* ATLAS_STATUSBAR_H */
