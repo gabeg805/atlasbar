@@ -7,9 +7,9 @@ CINC    =
 
 ## Program source files
 PROGRAM = atlas
-APP     = Battery Brightness Date Volume Wifi Workspace
+APP     = AtlasUserApp #Battery Brightness Date Volume Wifi Workspace
 COMMON  = AtlasApp AtlasAppSettings AtlasCommand AtlasConfig
-CORE    = $(PROGRAM) Statusbar
+CORE    = $(PROGRAM) Statusbar AtlasApple
 NAMES   = $(APP) $(COMMON) $(CORE)
 
 ## Directories used
