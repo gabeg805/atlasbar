@@ -79,6 +79,7 @@ static pid_t volume_is_playing(void)
     return atol(output.c_str());
 }
 
+/* ************************************************************************** */
 std::string get_volume_icon(void)
 {
     static std::string ext   = ".png";
@@ -115,6 +116,7 @@ std::string get_volume_icon(void)
     return (dir + name + qualifier + ext);
 }
 
+/* ************************************************************************** */
 std::string get_brightness_icon(void)
 {
     static std::string ext   = ".png";
@@ -153,27 +155,28 @@ std::string get_brightness_icon(void)
     return (dir + name + ext);
 }
 
+/* ************************************************************************** */
 std::string get_date_text(void)
 {
-    static char        str[30];
-    static std::string fmt  = AtlasConfig::fetch("[date]", "format");
-    time_t             t    = time(NULL);
-    struct tm*         now  = localtime(&t);
+    std::string fmt  = AtlasConfig::fetch("[date]", "format");
+    time_t      t    = time(NULL);
+    struct tm*  now  = localtime(&t);
+    static char str[30];
 
     strftime(str, sizeof(str), fmt.c_str(), now);
 
     return std::string(str);
 }
 
-bool wifi_event(void *event)
+/* ************************************************************************** */
+int wifi_event(void *event)
 {
     system("aria --body \"$(wifi -s 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
-    return true;
+    return 0;
 }
 
 /* ************************************************************************** */
-
-bool volume_signal(unsigned int key)
+int volume_signal(unsigned int key)
 {
     switch ( key ) {
     case AtlasSignal::TRACK_PLAY:
@@ -195,14 +198,14 @@ bool volume_signal(unsigned int key)
         system("amixer -q set Master toggle");
         break;
     default:
-        break;
+        return -1;
     }
 
-    AtlasApple::update("[volume]");
-    return true;
+    return 0;
 }
 
-bool brightness_signal(unsigned int key)
+/* ************************************************************************** */
+int brightness_signal(unsigned int key)
 {
     switch ( key ) {
     case AtlasSignal::BRIGHT_UP:
@@ -212,9 +215,31 @@ bool brightness_signal(unsigned int key)
         system("xbacklight -dec 10");
         break;
     default:
-        return false;
+        return -1;
     }
 
-    AtlasApple::update("[brightness]");    
-    return true;
+    return 0;
+}
+
+/* ************************************************************************** */
+std::string get_workspace_text(void)
+{
+    std::string text = AtlasConfig::fetch("[workspace]", "text");
+    return text;
+}
+
+/* ************************************************************************** */
+int workspace_signal(unsigned int key)
+{
+    if ( (key & 0xf0) == AtlasSignal::SCREEN ) {
+        unsigned int  val = (key & 0xf);
+        FILE         *fp  = fopen("/home/gabeg/.config/dwm/stuffers.txt", "a+");
+        fprintf(fp, "val 0x%0x\n", val);
+        fclose(fp);
+        std::cout << "val: " << val << std::endl;
+        // workspace.screen = val;
+        // workspace.update(workspace.widget);
+        return val+1;
+    }
+    return -1;
 }

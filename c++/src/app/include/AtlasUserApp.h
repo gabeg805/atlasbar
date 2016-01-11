@@ -9,8 +9,10 @@ std::string get_wifi_icon(void);
 std::string get_volume_icon(void);
 std::string get_brightness_icon(void);
 std::string get_date_text(void);
-bool        wifi_event(void *event);
-bool        volume_signal(unsigned int key);
-bool        brightness_signal(unsigned int key);
+int         wifi_event(void *event);
+int         volume_signal(unsigned int key);
+int         brightness_signal(unsigned int key);
+std::string get_workspace_text(void);
+int         workspace_signal(unsigned int key);
 
 #endif

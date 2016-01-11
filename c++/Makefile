@@ -3,12 +3,12 @@ CC      = g++
 LIBS    = gtkmm-3.0
 CFLAGS  = -g -Wall -O0 -std=c++11
 CFLAGS += `pkg-config $(LIBS) --cflags --libs`
-CINC    = 
+CINC    =
 
 ## Program source files
 PROGRAM = atlas
-APP     = AtlasUserApp #Battery Brightness Date Volume Wifi Workspace
-COMMON  = AtlasApp AtlasAppSettings AtlasCommand AtlasConfig
+APP     = AtlasUserApp
+COMMON  = AtlasCommand AtlasConfig
 CORE    = $(PROGRAM) Statusbar AtlasApple
 NAMES   = $(APP) $(COMMON) $(CORE)
 

@@ -4,52 +4,74 @@
 #include "AtlasAlignType.h"
 #include <gtkmm.h>
 #include <string>
+#include <vector>
+
+typedef std::string (*AtlasGetFunc)(void);
+typedef int         (*AtlasEventFunc)(void*);
+typedef int         (*AtlasSignalFunc)(unsigned int);
 
 struct NameApp {
     std::string             name;
     std::string             type;
     AtlasAlign::AlignType   align;
     unsigned int            length;
-    std::string           (*getstr)(void);
-    bool                  (*event)(void*);
-    bool                  (*signal)(unsigned int);
+    // std::string           (*getstr)(void);
+    // int                   (*event)(void*);
+    // bool                  (*signal)(unsigned int);
+    AtlasGetFunc            getstr;
+    AtlasEventFunc          event;
+    AtlasSignalFunc         signal;
     void                   *app;
     struct NameApp         *next;
 };
-
-extern NameApp *head;
-
 
 class AtlasApple
 {
 public:
     AtlasApple();
 
-    NameApp * get_head(void);
-    NameApp * get_node(void);
-    static Gtk::Widget * get_app(NameApp *node);
-    static int           update(std::string name);
-    static void          signal(int sig);
-    int       set_name(NameApp *node, std::string name);
-    int       set_func(NameApp *node, std::string (*getstr)(void));
-    int       set_func(NameApp *node, std::string (*getstr)(void), bool (*event)(void*));
-    int       set_func(NameApp *node, std::string (*getstr)(void), bool (*event)(void*), bool (*signal)(unsigned int));
-    int       set_type(NameApp *node);
-    int       set_app(void **app, std::string type, std::string str);
-    int       set_app(NameApp *node);
-    int       set_align(NameApp *node);
-    int       set_length(NameApp *node);
-    int       set_update(NameApp *node);
-    int       set_margin(NameApp *node);
-    int       set_padding(NameApp *node);
-    int       set_background(NameApp *node);
-    int       set_foreground(NameApp *node);
-    int       set_font(NameApp *node);
-    NameApp * clear_node(NameApp *node);
+    void        create(std::string name, AtlasGetFunc getstr);
+    void        create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
+    void        create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    int         attach_all_to_parent(Gtk::Box *parent);
+    static int  attach_to_parent(Gtk::Box &parent, NameApp *node);
+    static void signal(int sig);
+    static int  set_background(Gtk::Widget &app, std::string background);
+    static int  set_foreground(Gtk::Widget &app, std::string foreground);
+    static int  set_margin(Gtk::Widget &app, int xmargin, int ymargin);
+    static int  set_padding(Gtk::Misc &app, int xpadding, int ypadding);
+    static int  set_font(Gtk::Widget &app, std::string font);
+    static int  set_font(Gtk::Widget &app, std::string font, int size);
+    static int  set_orientation(Gtk::Orientable &app, std::string orientation);
+    static int  set_size(Gtk::Window &app, int width, int height);
 
-    void creation(std::string name, std::string (*getstr)(void));
-    void creation(std::string name, std::string (*getstr)(void), bool (*event)(void*));
-    void creation(std::string name, std::string (*getstr)(void), bool (*event)(void*), bool (*signal)(unsigned int));
+private:
+    static int           doimage(NameApp *node, int val);
+    static int           dolabel(NameApp *node, int val);
+    static bool          update(NameApp *node);
+    static bool          update(NameApp *node, int val);
+    static Gtk::Widget * get_app(NameApp *node);
+    Gtk::Widget *        get_app(std::string name);
+    int                  set_next(void);
+    int                  set_name(std::string name);
+    int                  set_func(AtlasGetFunc getstr);
+    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event);
+    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    int                  set_type(void);
+    int                  set_app(void **app);
+    int                  set_app(void);
+    int                  set_align(void);
+    int                  set_length(void);
+    int                  set_update(void);
+    int                  set_margin(void);
+    int                  set_padding(void);
+    int                  set_background(void);
+    int                  set_foreground(void);
+    int                  set_font(void);
+    int                  clear(NameApp **node);
+
+    static NameApp *head;
+    NameApp *current;
 };
 
 #endif
