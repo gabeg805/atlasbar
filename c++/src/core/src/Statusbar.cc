@@ -17,6 +17,7 @@
 #include "Statusbar.h"
 #include "AtlasConfig.h"
 #include "AtlasApple.h"
+#include "AtlasAppGeneric.h"
 #include <gtkmm.h>
 #include <gdkmm.h>
 #include <cstdlib>
@@ -38,17 +39,17 @@ Statusbar::Statusbar():
 void Statusbar::init(void)
 {
     std::string o = AtlasConfig::fetch("[main]", "orientation");
-    AtlasApple::set_orientation(*this->widget, o);
+    AtlasAppGeneric::set_orientation(*this->widget, o);
 
     std::string bg = AtlasConfig::fetch("[main]", "background");
-    AtlasApple::set_background(*this->widget, bg);
+    AtlasAppGeneric::set_background(*this->widget, bg);
 
     std::string fg = AtlasConfig::fetch("[main]", "foreground");
-    AtlasApple::set_foreground(*this->widget, fg);
+    AtlasAppGeneric::set_foreground(*this->widget, fg);
 
     int width  = AtlasConfig::fetch_int("[main]", "width");
     int height = AtlasConfig::fetch_int("[main]", "height");
-    AtlasApple::set_size(*this, width, height);
+    AtlasAppGeneric::set_size(*this, width, height);
 
     this->set_title("Atlas");
     this->add(*this->widget);

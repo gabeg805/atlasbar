@@ -236,10 +236,8 @@ int workspace_signal(unsigned int key)
         FILE         *fp  = fopen("/home/gabeg/.config/dwm/stuffers.txt", "a+");
         fprintf(fp, "val 0x%0x\n", val);
         fclose(fp);
-        std::cout << "val: " << val << std::endl;
-        // workspace.screen = val;
-        // workspace.update(workspace.widget);
-        return val+1;
+        std::cout << "key: 0x" << std::hex << key << " | val: " << val << std::endl;
+        return val;
     }
     return -1;
 }

@@ -34,14 +34,14 @@ public:
     int         attach_all_to_parent(Gtk::Box *parent);
     static int  attach_to_parent(Gtk::Box &parent, NameApp *node);
     static void signal(int sig);
-    static int  set_background(Gtk::Widget &app, std::string background);
-    static int  set_foreground(Gtk::Widget &app, std::string foreground);
-    static int  set_margin(Gtk::Widget &app, int xmargin, int ymargin);
-    static int  set_padding(Gtk::Misc &app, int xpadding, int ypadding);
-    static int  set_font(Gtk::Widget &app, std::string font);
-    static int  set_font(Gtk::Widget &app, std::string font, int size);
-    static int  set_orientation(Gtk::Orientable &app, std::string orientation);
-    static int  set_size(Gtk::Window &app, int width, int height);
+    // static int  set_background(Gtk::Widget &app, std::string background);
+    // static int  set_foreground(Gtk::Widget &app, std::string foreground);
+    // static int  set_margin(Gtk::Widget &app, int xmargin, int ymargin);
+    // static int  set_padding(Gtk::Misc &app, int xpadding, int ypadding);
+    // static int  set_font(Gtk::Widget &app, std::string font);
+    // static int  set_font(Gtk::Widget &app, std::string font, int size);
+    // static int  set_orientation(Gtk::Orientable &app, std::string orientation);
+    // static int  set_size(Gtk::Window &app, int width, int height);
 
 private:
     static int           doimage(NameApp *node, int val);
@@ -68,13 +68,6 @@ private:
     static int                  set_focus(NameApp *node, int index);
     static int                  set_focus(NameApp *node);
     int                  set_update(NameApp *node);
-
-    int                  set_margin(std::string name, Gtk::Widget &app);
-    int                  set_padding(std::string name, Gtk::Misc &app);
-    int                  set_background(std::string name, Gtk::Widget &app);
-    int                  set_foreground(std::string name, Gtk::Widget &app);
-    int                  set_font(std::string name, Gtk::Widget &app);
-
     int                  clear(NameApp **node);
 
     static NameApp *head;

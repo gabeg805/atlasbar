@@ -1,5 +1,7 @@
 #include "AtlasAppGeneric.h"
+#include "AtlasConfig.h"
 #include <gtkmm.h>
+#include <cstdlib>
 #include <string>
 
 /* ************************************************************************** */
@@ -28,6 +30,16 @@ int AtlasAppGeneric::set_foreground(Gtk::Widget &app, std::string foreground)
 
 /* ************************************************************************** */
 /* Set the margin size for an application */
+int AtlasAppGeneric::set_margin(Gtk::Widget &app, std::string margin)
+{
+    int xmargin = atoi(AtlasConfig::cut(margin, 1, ',').c_str());
+    int ymargin = atoi(AtlasConfig::cut(margin, 2, ',').c_str());
+    AtlasAppGeneric::set_margin(app, xmargin, ymargin);
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the margin size for an application */
 int AtlasAppGeneric::set_margin(Gtk::Widget &app, int margin)
 {
     AtlasAppGeneric::set_margin(app, margin, margin);
@@ -42,6 +54,16 @@ int AtlasAppGeneric::set_margin(Gtk::Widget &app, int xmargin, int ymargin)
     app.set_margin_end(xmargin);
     app.set_margin_top(ymargin);
     app.set_margin_bottom(ymargin);
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the padding size for an application */
+int AtlasAppGeneric::set_padding(Gtk::Misc &app, std::string padding)
+{
+    int xpadding = atoi(AtlasConfig::cut(padding, 1, ',').c_str());
+    int ypadding = atoi(AtlasConfig::cut(padding, 2, ',').c_str());
+    AtlasAppGeneric::set_padding(app, xpadding, ypadding);
     return 0;
 }
 

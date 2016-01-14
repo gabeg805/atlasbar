@@ -1,5 +1,5 @@
 #include "AtlasApple.h"
-// #include "AtlasAppGeneric.h"
+#include "AtlasAppGeneric.h"
 #include "AtlasConfig.h"
 #include <gtkmm.h>
 #include <cstdlib>
@@ -128,94 +128,6 @@ void AtlasApple::signal(int sig)
     }
 
     fclose(fp);
-}
-
-/* ************************************************************************** */
-/* Set the background color of an application  */
-int AtlasApple::set_background(Gtk::Widget &app, std::string background)
-{
-    if ( background.empty() )
-        return -1;
-
-    Gdk::RGBA color(background);
-    app.override_background_color(color, Gtk::STATE_FLAG_NORMAL);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the foreground color of an application */
-int AtlasApple::set_foreground(Gtk::Widget &app, std::string foreground)
-{
-    if ( foreground.empty() )
-        return -1;
-
-    Gdk::RGBA color(foreground);
-    app.override_color(color, Gtk::STATE_FLAG_NORMAL);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the margin size for an application */
-int AtlasApple::set_margin(Gtk::Widget &app, int xmargin, int ymargin)
-{
-    app.set_margin_start(xmargin);
-    app.set_margin_end(xmargin);
-    app.set_margin_top(ymargin);
-    app.set_margin_bottom(ymargin);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the padding size for an application */
-int AtlasApple::set_padding(Gtk::Misc &app, int xpadding, int ypadding)
-{
-    app.set_padding(xpadding, ypadding);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the font of an application */
-int AtlasApple::set_font(Gtk::Widget &app, std::string font)
-{
-    if ( font.empty() )
-        return -1;
-    Pango::FontDescription fd;
-    fd.set_family(font);
-    app.override_font(fd);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the font and text size of an application */
-int AtlasApple::set_font(Gtk::Widget &app, std::string font, int size)
-{
-    if ( font.empty() || (size <= 0) )
-        return -1;
-    Pango::FontDescription fd;
-    fd.set_family(font);
-    fd.set_size(size * PANGO_SCALE);
-    app.override_font(fd);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the orientation of an application */
-int AtlasApple::set_orientation(Gtk::Orientable &app, std::string orientation)
-{
-    if ( orientation.compare("vertical") == 0 )
-        app.set_orientation(Gtk::ORIENTATION_VERTICAL);
-    else if ( orientation.compare("horizontal") == 0 )
-        app.set_orientation(Gtk::ORIENTATION_HORIZONTAL);
-    else
-        return -1;
-    return 0;
-}
-
-/* ************************************************************************** */
-int AtlasApple::set_size(Gtk::Window &app, int width, int height)
-{
-    app.set_default_size(width, height);
-    return 0;
 }
 
 /* ************************************************************************** */
@@ -360,17 +272,21 @@ int AtlasApple::set_type(NameApp *node)
 /* Initialize and set an image application */
 int AtlasApple::set_image(NameApp *node, void **app)
 {
-    Gtk::Image               *img    = static_cast<Gtk::Image*>(*app);
-    std::vector<std::string>  strvec = AtlasConfig::parse(node->getstr(), '|');
-    std::string               name   = node->name;
-    int                       len    = node->length;
+    Gtk::Image               *img        = static_cast<Gtk::Image*>(*app);
+    std::vector<std::string>  strvec     = AtlasConfig::parse(node->getstr(), '|');
+    std::string               name       = node->name;
+    int                       len        = node->length;
+    std::string               margin     = AtlasConfig::fetch(name, "margin");
+    std::string               padding    = AtlasConfig::fetch(name, "padding");
+    std::string               background = AtlasConfig::fetch(name, "background");
+    std::string               foreground = AtlasConfig::fetch(name, "foreground");
     int i;
     for ( i = 0; i < len; ++i ) {
         img[i].set(strvec[i]);
-        set_margin(name, img[i]);
-        set_padding(name, img[i]);
-        set_background(name, img[i]);
-        set_foreground(name, img[i]);
+        AtlasAppGeneric::set_margin(img[i], margin);
+        AtlasAppGeneric::set_padding(img[i], padding);
+        AtlasAppGeneric::set_background(img[i], background);
+        AtlasAppGeneric::set_foreground(img[i], foreground);
     }
 
     return 0;
@@ -390,7 +306,7 @@ int AtlasApple::set_focuser(Gtk::Widget &app, int index, int focus, std::string 
         return -1;
     else {
         if ( index == focus )
-            set_foreground(app, color);
+            AtlasAppGeneric::set_foreground(app, color);
         else
             return -1;
     }
@@ -401,26 +317,26 @@ int AtlasApple::set_focuser(Gtk::Widget &app, int index, int focus, std::string 
 /* Initialize and set a label application */
 int AtlasApple::set_label(NameApp *node, void **app)
 {
-    Gtk::Label               *label      = static_cast<Gtk::Label*>(*app);
-    std::string               name       = node->name;
-    std::vector<std::string>  strvec     = AtlasConfig::parse(node->getstr(), '|');
-    std::string               font       = AtlasConfig::fetch(name, "font");
-    int                       size       = AtlasConfig::fetch_int(name, "font-size");
-    int                       margin     = AtlasConfig::fetch_int(name, "margin");
-    int                       padding    = AtlasConfig::fetch_int(name, "padding");
-    std::string               background = AtlasConfig::fetch(name, "background");
-    std::string               foreground = AtlasConfig::fetch(name, "foreground");
+    Gtk::Label               *label       = static_cast<Gtk::Label*>(*app);
+    std::string               name        = node->name;
+    int                       len         = node->length;
+    int                       focus       = node->focus;
+    std::vector<std::string>  strvec      = AtlasConfig::parse(node->getstr(), '|');
+    std::string               font        = AtlasConfig::fetch(name, "font");
+    int                       size        = AtlasConfig::fetch_int(name, "font-size");
+    std::string               margin      = AtlasConfig::fetch(name, "margin");
+    std::string               padding     = AtlasConfig::fetch(name, "padding");
+    std::string               background  = AtlasConfig::fetch(name, "background");
+    std::string               foreground  = AtlasConfig::fetch(name, "foreground");
     std::string               focus_color = AtlasConfig::fetch(name, "focus-color");
-    int                       focus      = node->focus;
-    int                       len        = node->length;
     int i;
     for ( i = 0; i < len; ++i ) {
         label[i].set_text(strvec[i]);
-        set_font(label[i], font, size);
-        set_margin(label[i], margin, margin);
-        set_padding(label[i], padding, padding);
-        set_background(label[i], background);
-        set_foreground(label[i], foreground);
+        AtlasAppGeneric::set_font(label[i], font, size);
+        AtlasAppGeneric::set_margin(label[i], margin);
+        AtlasAppGeneric::set_padding(label[i], padding);
+        AtlasAppGeneric::set_background(label[i], background);
+        AtlasAppGeneric::set_foreground(label[i], foreground);
         set_focuser(label[i], i, focus, focus_color);
     }
 
@@ -541,71 +457,6 @@ int AtlasApple::set_update(NameApp *node)
 
     sigc::slot<bool, NameApp*> slot = sigc::ptr_fun((bool (*)(NameApp*))update);
     Glib::signal_timeout().connect_seconds(sigc::bind<NameApp*>(slot, node), time);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the application x-y margins */
-int AtlasApple::set_margin(std::string name, Gtk::Widget &app)
-{
-    std::string margin = AtlasConfig::fetch(name, "margin");
-    if ( margin.empty() )
-        return -1;
-
-    int xmargin = atoi(AtlasConfig::cut(margin, 1, ',').c_str());
-    int ymargin = atoi(AtlasConfig::cut(margin, 2, ',').c_str());
-    AtlasApple::set_margin(app, xmargin, ymargin);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the application x-y padding */
-int AtlasApple::set_padding(std::string name, Gtk::Misc &app)
-{
-    std::string padding = AtlasConfig::fetch(name, "padding");
-    if ( padding.empty() )
-        return -1;
-
-    int xpadding = atoi(AtlasConfig::cut(padding, 1, ',').c_str());
-    int ypadding = atoi(AtlasConfig::cut(padding, 2, ',').c_str());
-    AtlasApple::set_padding(app, xpadding, ypadding);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the application background */
-int AtlasApple::set_background(std::string name, Gtk::Widget &app)
-{
-    std::string background = AtlasConfig::fetch(name, "background");
-    if ( background.empty() )
-        return -1;
-
-    AtlasApple::set_background(app, background);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the application foreground */
-int AtlasApple::set_foreground(std::string name, Gtk::Widget &app)
-{
-    std::string foreground = AtlasConfig::fetch(name, "foreground");
-    if ( foreground.empty() )
-        return -1;
-
-    AtlasApple::set_foreground(app, foreground);
-    return 0;
-}
-
-/* ************************************************************************** */
-/* Set the application font */
-int AtlasApple::set_font(std::string name, Gtk::Widget &app)
-{
-    std::string font = AtlasConfig::fetch(name,     "font");
-    int         size = AtlasConfig::fetch_int(name, "font-size");
-    if ( font.empty() || (size <= 0) )
-        return -1;
-
-    AtlasApple::set_font(app, font, size);
     return 0;
 }
 

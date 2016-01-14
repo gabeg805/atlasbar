@@ -8,8 +8,10 @@ namespace AtlasAppGeneric
 {
     int set_background(Gtk::Widget &app, std::string background);
     int set_foreground(Gtk::Widget &app, std::string foreground);
+    int set_margin(Gtk::Widget &app, std::string margin);
     int set_margin(Gtk::Widget &app, int margin);
     int set_margin(Gtk::Widget &app, int xmargin, int ymargin);
+    int set_padding(Gtk::Misc &app, std::string padding);
     int set_padding(Gtk::Misc &app, int padding);
     int set_padding(Gtk::Misc &app, int xpadding, int ypadding);
     int set_font(Gtk::Widget &app, std::string font);
