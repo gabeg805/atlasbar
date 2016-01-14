@@ -15,9 +15,7 @@ struct NameApp {
     std::string             type;
     AtlasAlign::AlignType   align;
     unsigned int            length;
-    // std::string           (*getstr)(void);
-    // int                   (*event)(void*);
-    // bool                  (*signal)(unsigned int);
+    int                     focus;
     AtlasGetFunc            getstr;
     AtlasEventFunc          event;
     AtlasSignalFunc         signal;
@@ -52,22 +50,31 @@ private:
     static bool          update(NameApp *node, int val);
     static Gtk::Widget * get_app(NameApp *node);
     Gtk::Widget *        get_app(std::string name);
-    int                  set_next(void);
-    int                  set_name(std::string name);
-    int                  set_func(AtlasGetFunc getstr);
-    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event);
-    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-    int                  set_type(void);
-    int                  set_app(void **app);
-    int                  set_app(void);
-    int                  set_align(void);
-    int                  set_length(void);
-    int                  set_update(void);
-    int                  set_margin(void);
-    int                  set_padding(void);
-    int                  set_background(void);
-    int                  set_foreground(void);
-    int                  set_font(void);
+    int                  set_next(NameApp **node);
+    int                  set_name(NameApp *node, std::string name);
+    int                  set_func(NameApp *node, AtlasGetFunc getstr);
+    int                  set_func(NameApp *node, AtlasGetFunc getstr, AtlasEventFunc event);
+    int                  set_func(NameApp *node, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    int                  set_type(NameApp *node);
+    int                  set_image(NameApp *node, void **app);
+    static int                  set_focuser(Gtk::Widget &app, int index, int focus, std::string color);
+    static int                  set_label(NameApp *node, void **app);
+    static int                  set_label(NameApp *node);
+    int                  set_app(NameApp *node, void **app);
+    int                  init_app(NameApp *node, void **app);
+    int                  set_app(NameApp *node);
+    int                  set_align(NameApp *node);
+    int                  set_length(NameApp *node);
+    static int                  set_focus(NameApp *node, int index);
+    static int                  set_focus(NameApp *node);
+    int                  set_update(NameApp *node);
+
+    int                  set_margin(std::string name, Gtk::Widget &app);
+    int                  set_padding(std::string name, Gtk::Misc &app);
+    int                  set_background(std::string name, Gtk::Widget &app);
+    int                  set_foreground(std::string name, Gtk::Widget &app);
+    int                  set_font(std::string name, Gtk::Widget &app);
+
     int                  clear(NameApp **node);
 
     static NameApp *head;

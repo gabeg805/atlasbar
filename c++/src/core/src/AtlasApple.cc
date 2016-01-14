@@ -1,4 +1,5 @@
 #include "AtlasApple.h"
+// #include "AtlasAppGeneric.h"
 #include "AtlasConfig.h"
 #include <gtkmm.h>
 #include <cstdlib>
@@ -44,23 +45,16 @@ void AtlasApple::create(std::string name, AtlasGetFunc getstr, AtlasEventFunc ev
     if ( !AtlasConfig::exists(name) )
         return;
 
-    AtlasApple::set_next();
-    AtlasApple::set_name(name);
-    AtlasApple::set_func(getstr, event, signal);
-    AtlasApple::set_type();
-    AtlasApple::set_length();
-    AtlasApple::set_app();
-    AtlasApple::set_align();
-    AtlasApple::set_background();
-    AtlasApple::set_foreground();
-    AtlasApple::set_font();
-    AtlasApple::set_margin();
-    AtlasApple::set_padding();
-    AtlasApple::set_update();
+    AtlasApple::set_next(&current);
+    AtlasApple::set_name(current, name);
+    AtlasApple::set_func(current, getstr, event, signal);
+    AtlasApple::set_type(current);
+    AtlasApple::set_length(current);
+    AtlasApple::set_focus(current);
+    AtlasApple::set_align(current);
+    AtlasApple::set_app(current);
+    AtlasApple::set_update(current);
 }
-
-    // // std::string text      = AtlasConfig::fetch(name,     "text");
-    // // std::string format    = AtlasConfig::fetch(name,     "format");
 
 /* ************************************************************************** */
 /* */
@@ -140,6 +134,9 @@ void AtlasApple::signal(int sig)
 /* Set the background color of an application  */
 int AtlasApple::set_background(Gtk::Widget &app, std::string background)
 {
+    if ( background.empty() )
+        return -1;
+
     Gdk::RGBA color(background);
     app.override_background_color(color, Gtk::STATE_FLAG_NORMAL);
     return 0;
@@ -149,6 +146,9 @@ int AtlasApple::set_background(Gtk::Widget &app, std::string background)
 /* Set the foreground color of an application */
 int AtlasApple::set_foreground(Gtk::Widget &app, std::string foreground)
 {
+    if ( foreground.empty() )
+        return -1;
+
     Gdk::RGBA color(foreground);
     app.override_color(color, Gtk::STATE_FLAG_NORMAL);
     return 0;
@@ -177,6 +177,8 @@ int AtlasApple::set_padding(Gtk::Misc &app, int xpadding, int ypadding)
 /* Set the font of an application */
 int AtlasApple::set_font(Gtk::Widget &app, std::string font)
 {
+    if ( font.empty() )
+        return -1;
     Pango::FontDescription fd;
     fd.set_family(font);
     app.override_font(fd);
@@ -187,6 +189,8 @@ int AtlasApple::set_font(Gtk::Widget &app, std::string font)
 /* Set the font and text size of an application */
 int AtlasApple::set_font(Gtk::Widget &app, std::string font, int size)
 {
+    if ( font.empty() || (size <= 0) )
+        return -1;
     Pango::FontDescription fd;
     fd.set_family(font);
     fd.set_size(size * PANGO_SCALE);
@@ -219,19 +223,6 @@ int AtlasApple::set_size(Gtk::Window &app, int width, int height)
 bool AtlasApple::update(NameApp *node)
 {
     return AtlasApple::update(node, 0);
-    // if ( node == NULL )
-    //     return false;
-
-    // Gtk::Widget *app = AtlasApple::get_app(node);
-    // std::string type = node->type;
-    // if ( type.compare("image") == 0 )
-    //     static_cast<Gtk::Image*>(app)->set(node->getstr());
-    // else if ( type.compare("label") == 0 )
-    //     static_cast<Gtk::Label*>(app)->set_text(node->getstr());
-    // else
-    //     ;
-
-    // return true;
 }        
 
 /* ************************************************************************** */
@@ -241,13 +232,10 @@ bool AtlasApple::update(NameApp *node, int ret)
     if ( node == NULL )
         return false;
 
-    // Gtk::Widget *app = AtlasApple::get_app(node);
     std::string type = node->type;
     if ( type.compare("image") == 0 )
         AtlasApple::doimage(node, ret);
-        // static_cast<Gtk::Image*>(app)->set(node->getstr());
     else if ( type.compare("label") == 0 )
-        /* static_cast<Gtk::Label*>(app)->set_text(node->getstr()); */
         AtlasApple::dolabel(node, ret);
     else
         ;
@@ -267,52 +255,15 @@ int AtlasApple::doimage(NameApp *node, int ret)
         return 0;
     }
 
-    // unsigned int len = node->length;
-    // std::string bg_color = AtlasConfig::fetch("workspace_background");
-    // std::string hl_color = AtlasConfig::fetch("workspace_highlight");
-    // Gdk::RGBA   background(bg_color);
-    // Gdk::RGBA   highlight(hl_color);
-
-    // size_t i;
-    // for ( i = 0; i < len; ++i ) {
-    //     if ( i == (unsigned int)ret )
-    //         static_cast<Gtk::Label*>(node->app)[i].override_background_color(highlight, Gtk::STATE_FLAG_NORMAL);
-    //     else
-    //         static_cast<Gtk::Label*>(node->app)[i].override_background_color(background, Gtk::STATE_FLAG_NORMAL);
-    // }
-
-    // std::cout << "Workspace: " << ret << std::endl;
-
     return 0;
 }
 
 int AtlasApple::dolabel(NameApp *node, int ret)
 {
-    if ( ret == 0 ) {
-        Gtk::Widget *app = AtlasApple::get_app(node);
-        std::vector<std::string>  vec = AtlasConfig::parse(node->getstr(), '|');
-        int                       len = node->length;
-        int                       i;
-        for ( i = 0; i < len; ++i )
-            static_cast<Gtk::Label*>(app)[i].set_text(vec[i]);
-        return 0;
-    }
-    ret = ret - 1;
-
-    unsigned int len = node->length;
-    std::string bg_color = AtlasConfig::fetch("workspace_background");
-    std::string hl_color = AtlasConfig::fetch("workspace_highlight");
-    Gdk::RGBA   background(bg_color);
-    Gdk::RGBA   highlight(hl_color);
-
-    size_t i;
-    for ( i = 0; i < len; ++i ) {
-        if ( i == (unsigned int)ret )
-            static_cast<Gtk::Label*>(node->app)[i].override_background_color(highlight, Gtk::STATE_FLAG_NORMAL);
-        else
-            static_cast<Gtk::Label*>(node->app)[i].override_background_color(background, Gtk::STATE_FLAG_NORMAL);
-    }
-
+    std::cout << "doing label: " << node->name << std::endl;
+    std::cout << "setting focus: " << ret << std::endl;
+    AtlasApple::set_focus(node, ret);
+    AtlasApple::set_label(node);
     std::cout << "Workspace: " << ret << std::endl;
 
     return 0;
@@ -347,109 +298,184 @@ Gtk::Widget * AtlasApple::get_app(std::string name)
 
 /* ************************************************************************** */
 /* Allocate space for, and return, the next available node */
-int AtlasApple::set_next(void)
+int AtlasApple::set_next(NameApp **node)
 {
     if ( head == NULL ) {
-        head    = new NameApp();
-        current = head;
+        head = new NameApp();
+        *node = head;
     }
     else {
-        current->next = new NameApp();
-        current       = current->next;
+        (*node)->next = new NameApp();
+        *node         = (*node)->next;
     }
 
-    AtlasApple::clear(&current);
+    AtlasApple::clear(node);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the name of the node */
-int AtlasApple::set_name(std::string name)
+int AtlasApple::set_name(NameApp *node, std::string name)
 {
-    current->name = name;
+    node->name = name;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the "get" function of the node */
-int AtlasApple::set_func(AtlasGetFunc getstr)
+int AtlasApple::set_func(NameApp *node, AtlasGetFunc getstr)
 {
-    current->getstr = getstr;
+    node->getstr = getstr;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the "get" and "event" functions of the node */
-int AtlasApple::set_func(AtlasGetFunc getstr, AtlasEventFunc event)
+int AtlasApple::set_func(NameApp *node, AtlasGetFunc getstr, AtlasEventFunc event)
 {
-    current->getstr = getstr;
-    current->event  = event;
+    node->getstr = getstr;
+    node->event  = event;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the "get", "event", and "signal" functions of the node */
-int AtlasApple::set_func(AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
+int AtlasApple::set_func(NameApp *node, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
 {
-    current->getstr = getstr;
-    current->event  = event;
-    current->signal = signal;
+    node->getstr = getstr;
+    node->event  = event;
+    node->signal = signal;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the type of the node */
-int AtlasApple::set_type(void)
+int AtlasApple::set_type(NameApp *node)
 {
-    current->type = AtlasConfig::fetch(current->name, "type");
+    node->type = AtlasConfig::fetch(node->name, "type");
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Initialize and set an image application */
+int AtlasApple::set_image(NameApp *node, void **app)
+{
+    Gtk::Image               *img    = static_cast<Gtk::Image*>(*app);
+    std::vector<std::string>  strvec = AtlasConfig::parse(node->getstr(), '|');
+    std::string               name   = node->name;
+    int                       len    = node->length;
+    int i;
+    for ( i = 0; i < len; ++i ) {
+        img[i].set(strvec[i]);
+        set_margin(name, img[i]);
+        set_padding(name, img[i]);
+        set_background(name, img[i]);
+        set_foreground(name, img[i]);
+    }
+
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Initialize and set a label application */
+int AtlasApple::set_label(NameApp *node)
+{
+    void *app = AtlasApple::get_app(node);
+    return AtlasApple::set_label(node, &app);
+}
+
+int AtlasApple::set_focuser(Gtk::Widget &app, int index, int focus, std::string color)
+{
+    if ( focus < 0 )
+        return -1;
+    else {
+        if ( index == focus )
+            set_foreground(app, color);
+        else
+            return -1;
+    }
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Initialize and set a label application */
+int AtlasApple::set_label(NameApp *node, void **app)
+{
+    Gtk::Label               *label      = static_cast<Gtk::Label*>(*app);
+    std::string               name       = node->name;
+    std::vector<std::string>  strvec     = AtlasConfig::parse(node->getstr(), '|');
+    std::string               font       = AtlasConfig::fetch(name, "font");
+    int                       size       = AtlasConfig::fetch_int(name, "font-size");
+    int                       margin     = AtlasConfig::fetch_int(name, "margin");
+    int                       padding    = AtlasConfig::fetch_int(name, "padding");
+    std::string               background = AtlasConfig::fetch(name, "background");
+    std::string               foreground = AtlasConfig::fetch(name, "foreground");
+    std::string               focus_color = AtlasConfig::fetch(name, "focus-color");
+    int                       focus      = node->focus;
+    int                       len        = node->length;
+    int i;
+    for ( i = 0; i < len; ++i ) {
+        label[i].set_text(strvec[i]);
+        set_font(label[i], font, size);
+        set_margin(label[i], margin, margin);
+        set_padding(label[i], padding, padding);
+        set_background(label[i], background);
+        set_foreground(label[i], foreground);
+        set_focuser(label[i], i, focus, focus_color);
+    }
+
     return 0;
 }
 
 /* ************************************************************************** */
 /* Generalized function to initialize and set the application */
-int AtlasApple::set_app(void **app)
+int AtlasApple::set_app(NameApp *node, void **app)
 {
-    std::string type = current->type;
-    int         len  = current->length;
-    std::string              str = current->getstr();
-    std::vector<std::string> vec = AtlasConfig::parse(str, '|');
-    if ( type.compare("image") == 0 ) {
-        *app = new Gtk::Image[len];
-        int i;
-        for ( i = 0; i < len; ++i )
-            static_cast<Gtk::Image*>(*app)[i].set(vec[i]);
-    }
-    else if ( type.compare("label") == 0 ) {
-        *app = new Gtk::Label[len];
-        int i;
-        for ( i = 0; i < len; ++i )
-            static_cast<Gtk::Label*>(*app)[i].set_text(vec[i]);
-    }
+    std::string type = node->type;
+    if ( type.compare("image") == 0 )
+        AtlasApple::set_image(node, app);
+    else if ( type.compare("label") == 0 )
+        AtlasApple::set_label(node, app);
     else
         return -1;
 
     return 0;
 }
 
+/* ************************************************************************** */
+/* Initialize and set an image application */
+int AtlasApple::init_app(NameApp *node, void **app)
+{
+    std::string type = node->type;
+    int         len  = node->length;
+    if ( type.compare("image") == 0 )
+        *app = new Gtk::Image[len];
+    else if ( type.compare("label") == 0 )
+        *app = new Gtk::Label[len];
+    else
+        return -1;
+    return 0;
+}
 
 /* ************************************************************************** */
 /* Initialize and set the application */
-int AtlasApple::set_app(void)
+int AtlasApple::set_app(NameApp *node)
 {
-    if ( current->name.empty() )
+    if ( node->name.empty() )
         return -1;
 
     void *app;
-    AtlasApple::set_app(&app);
-    if ( current->event == NULL )
-        current->app = app;
+    AtlasApple::init_app(node, &app);
+    AtlasApple::set_app(node, &app);
+    if ( node->event == NULL )
+        node->app = app;
     else {
-        current->app = new Gtk::EventBox();
-        static_cast<Gtk::Container*>(current->app)->add(*static_cast<Gtk::Widget*>(app));
+        node->app = new Gtk::EventBox();
+        static_cast<Gtk::Container*>(node->app)->add(*static_cast<Gtk::Widget*>(app));
 
-        std::string event = AtlasConfig::fetch(current->name, "event");
+        std::string event = AtlasConfig::fetch(node->name, "event");
         if ( event.compare("hover") == 0 )
-            static_cast<Gtk::EventBox*>(current->app)->signal_enter_notify_event().connect(sigc::ptr_fun(current->event));
+            static_cast<Gtk::EventBox*>(node->app)->signal_enter_notify_event().connect(sigc::ptr_fun(node->event));
     }
 
     return 0;
@@ -457,129 +483,129 @@ int AtlasApple::set_app(void)
 
 /* ************************************************************************** */
 /* Set the application alignment */
-int AtlasApple::set_align(void)
+int AtlasApple::set_align(NameApp *node)
 {
-    std::string align = AtlasConfig::fetch(current->name, "align");
+    std::string align = AtlasConfig::fetch(node->name, "align");
     if ( align.empty() )
         return -1;
 
     if ( align.compare("left") == 0 )
-        current->align = AtlasAlign::LEFT;
+        node->align = AtlasAlign::LEFT;
     else if ( (align.compare("center") == 0) || align.compare("middle") == 0 )
-        current->align = AtlasAlign::CENTER;
+        node->align = AtlasAlign::CENTER;
     else if ( align.compare("right") == 0 )
-        current->align = AtlasAlign::RIGHT;
+        node->align = AtlasAlign::RIGHT;
     else
-        current->align = AtlasAlign::RIGHT;
+        node->align = AtlasAlign::RIGHT;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the number of sub-applications, within the application */
-int AtlasApple::set_length(void)
+int AtlasApple::set_length(NameApp *node)
 {
-    unsigned int length = AtlasConfig::fetch_int(current->name, "length");
+    unsigned int length = AtlasConfig::fetch_int(node->name, "length");
     if ( length == 0 )
         ++length;
-    current->length = length;
+    node->length = length;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the number of sub-applications, within the application */
+int AtlasApple::set_focus(NameApp *node)
+{
+    std::string str = AtlasConfig::fetch(node->name, "focus");
+    if ( str.empty() )
+        node->focus = -1;
+    else
+        node->focus = atoi(str.c_str());
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the number of sub-applications, within the application */
+int AtlasApple::set_focus(NameApp *node, int index)
+{
+    node->focus = index;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application to update/refresh every given number of seconds */
-int AtlasApple::set_update(void)
+int AtlasApple::set_update(NameApp *node)
 {
-    int time = AtlasConfig::fetch_int(current->name, "update");
+    int time = AtlasConfig::fetch_int(node->name, "update");
     if ( time <= 0 )
         return -1;
 
     sigc::slot<bool, NameApp*> slot = sigc::ptr_fun((bool (*)(NameApp*))update);
-    Glib::signal_timeout().connect_seconds(sigc::bind<NameApp*>(slot, current), time);
+    Glib::signal_timeout().connect_seconds(sigc::bind<NameApp*>(slot, node), time);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application x-y margins */
-int AtlasApple::set_margin(void)
+int AtlasApple::set_margin(std::string name, Gtk::Widget &app)
 {
-    std::string margin = AtlasConfig::fetch(current->name, "margin");
+    std::string margin = AtlasConfig::fetch(name, "margin");
     if ( margin.empty() )
         return -1;
 
-    int          xmargin = atoi(AtlasConfig::cut(margin, 1, ',').c_str());
-    int          ymargin = atoi(AtlasConfig::cut(margin, 2, ',').c_str());
-    Gtk::Widget *app     = static_cast<Gtk::Widget*>(current->app);
-    if ( current->event != NULL )
-        app = static_cast<Gtk::EventBox*>(current->app)->get_child();
-
-    AtlasApple::set_margin(*app, xmargin, ymargin);
+    int xmargin = atoi(AtlasConfig::cut(margin, 1, ',').c_str());
+    int ymargin = atoi(AtlasConfig::cut(margin, 2, ',').c_str());
+    AtlasApple::set_margin(app, xmargin, ymargin);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application x-y padding */
-int AtlasApple::set_padding(void)
+int AtlasApple::set_padding(std::string name, Gtk::Misc &app)
 {
-    std::string padding = AtlasConfig::fetch(current->name, "padding");
+    std::string padding = AtlasConfig::fetch(name, "padding");
     if ( padding.empty() )
         return -1;
 
-    int        xpadding = atoi(AtlasConfig::cut(padding, 1, ',').c_str());
-    int        ypadding = atoi(AtlasConfig::cut(padding, 2, ',').c_str());
-    Gtk::Misc *app      = static_cast<Gtk::Misc*>(current->app);
-    if ( current->event != NULL )
-        app = static_cast<Gtk::Misc*>(static_cast<Gtk::EventBox*>(current->app)->get_child());
-
-    AtlasApple::set_padding(*app, xpadding, ypadding);
+    int xpadding = atoi(AtlasConfig::cut(padding, 1, ',').c_str());
+    int ypadding = atoi(AtlasConfig::cut(padding, 2, ',').c_str());
+    AtlasApple::set_padding(app, xpadding, ypadding);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application background */
-int AtlasApple::set_background(void)
+int AtlasApple::set_background(std::string name, Gtk::Widget &app)
 {
-    std::string background = AtlasConfig::fetch(current->name, "background");
+    std::string background = AtlasConfig::fetch(name, "background");
     if ( background.empty() )
         return -1;
 
-    Gtk::Widget *app = static_cast<Gtk::Widget*>(current->app);
-    if ( current->event != NULL )
-        app = static_cast<Gtk::EventBox*>(current->app)->get_child();
-
-    AtlasApple::set_background(*app, background);
+    AtlasApple::set_background(app, background);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application foreground */
-int AtlasApple::set_foreground(void)
+int AtlasApple::set_foreground(std::string name, Gtk::Widget &app)
 {
-    std::string foreground = AtlasConfig::fetch(current->name, "foreground");
+    std::string foreground = AtlasConfig::fetch(name, "foreground");
     if ( foreground.empty() )
         return -1;
 
-    Gtk::Widget *app = static_cast<Gtk::Widget*>(current->app);
-    if ( current->event != NULL )
-        app = static_cast<Gtk::EventBox*>(current->app)->get_child();
-
-    AtlasApple::set_foreground(*app, foreground);
+    AtlasApple::set_foreground(app, foreground);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application font */
-int AtlasApple::set_font(void)
+int AtlasApple::set_font(std::string name, Gtk::Widget &app)
 {
-    std::string font = AtlasConfig::fetch(current->name,     "font");
-    int         size = AtlasConfig::fetch_int(current->name, "font-size");
-    if ( font.empty() && (size <= 0) )
+    std::string font = AtlasConfig::fetch(name,     "font");
+    int         size = AtlasConfig::fetch_int(name, "font-size");
+    if ( font.empty() || (size <= 0) )
         return -1;
 
-    Gtk::Widget *app = static_cast<Gtk::Widget*>(current->app);
-    if ( current->event != NULL )
-        app = static_cast<Gtk::EventBox*>(current->app)->get_child();
-
-    AtlasApple::set_font(*app, font, size);
+    AtlasApple::set_font(app, font, size);
     return 0;
 }
 

@@ -9,7 +9,7 @@ CINC    =
 PROGRAM = atlas
 APP     = AtlasUserApp
 COMMON  = AtlasCommand AtlasConfig
-CORE    = $(PROGRAM) Statusbar AtlasApple
+CORE    = $(PROGRAM) Statusbar AtlasApple AtlasAppGeneric
 NAMES   = $(APP) $(COMMON) $(CORE)
 
 ## Directories used
