@@ -2,6 +2,7 @@
 #define ATLAS_APPLE_H
 
 #include "AtlasAlignType.h"
+#include <stdint.h>
 #include <gtkmm.h>
 #include <string>
 #include <vector>
@@ -20,7 +21,6 @@ struct NameApp {
     AtlasEventFunc          event;
     AtlasSignalFunc         signal;
     void                   *app;
-    struct NameApp         *next;
 };
 
 class AtlasApple
@@ -30,48 +30,39 @@ public:
 
     void        create(std::string name, AtlasGetFunc getstr);
     void        create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
+    void        create(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal);
     void        create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-    int         attach_all_to_parent(Gtk::Box *parent);
-    static int  attach_to_parent(Gtk::Box &parent, NameApp *node);
     static void signal(int sig);
-    // static int  set_background(Gtk::Widget &app, std::string background);
-    // static int  set_foreground(Gtk::Widget &app, std::string foreground);
-    // static int  set_margin(Gtk::Widget &app, int xmargin, int ymargin);
-    // static int  set_padding(Gtk::Misc &app, int xpadding, int ypadding);
-    // static int  set_font(Gtk::Widget &app, std::string font);
-    // static int  set_font(Gtk::Widget &app, std::string font, int size);
-    // static int  set_orientation(Gtk::Orientable &app, std::string orientation);
-    // static int  set_size(Gtk::Window &app, int width, int height);
+
+    NameApp        *app;
 
 private:
     static int           doimage(NameApp *node, int val);
     static int           dolabel(NameApp *node, int val);
     static bool          update(NameApp *node);
     static bool          update(NameApp *node, int val);
-    static Gtk::Widget * get_app(NameApp *node);
-    Gtk::Widget *        get_app(std::string name);
-    int                  set_next(NameApp **node);
-    int                  set_name(NameApp *node, std::string name);
-    int                  set_func(NameApp *node, AtlasGetFunc getstr);
-    int                  set_func(NameApp *node, AtlasGetFunc getstr, AtlasEventFunc event);
-    int                  set_func(NameApp *node, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-    int                  set_type(NameApp *node);
-    int                  set_image(NameApp *node, void **app);
-    static int                  set_focuser(Gtk::Widget &app, int index, int focus, std::string color);
-    static int                  set_label(NameApp *node, void **app);
-    static int                  set_label(NameApp *node);
-    int                  set_app(NameApp *node, void **app);
-    int                  init_app(NameApp *node, void **app);
-    int                  set_app(NameApp *node);
-    int                  set_align(NameApp *node);
-    int                  set_length(NameApp *node);
-    static int                  set_focus(NameApp *node, int index);
-    static int                  set_focus(NameApp *node);
-    int                  set_update(NameApp *node);
-    int                  clear(NameApp **node);
+    static Gtk::Widget * get_widget(NameApp *node);
 
-    static NameApp *head;
-    NameApp *current;
+    int                  new_app(void);
+    int                  set_name(std::string name);
+    int                  set_func(AtlasGetFunc getstr);
+    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event);
+    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    int                  set_type(void);
+    int                  set_image(void **widget);
+    static int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
+    static int           set_label(NameApp *node, void **widget);
+    static int           set_label(NameApp *node);
+
+    int                  init_widget(void **widget);
+    int                  set_widget(void);
+    int                  set_widget(void **widget);
+    int                  set_align(void);
+    int                  set_length(void);
+    static int           set_focus(NameApp *node, int index);
+    int                  set_focus(void);
+    int                  set_update(void);
+    int                  clear(void);
 };
 
 #endif

@@ -16,6 +16,7 @@
 #include <cstdlib>
 
 /* ************************************************************************** */
+/* Return the battery icon string */
 std::string get_battery_icon(void)
 {
     static std::string ext   = ".png";
@@ -31,6 +32,7 @@ std::string get_battery_icon(void)
 }
 
 /* ************************************************************************** */
+/* Return the wifi icon string */
 std::string get_wifi_icon(void)
 {
     static std::string ext   = ".png";
@@ -80,6 +82,7 @@ static pid_t volume_is_playing(void)
 }
 
 /* ************************************************************************** */
+/* Return the volume icon string */
 std::string get_volume_icon(void)
 {
     static std::string ext   = ".png";
@@ -117,6 +120,7 @@ std::string get_volume_icon(void)
 }
 
 /* ************************************************************************** */
+/* Return the brightness icon string */
 std::string get_brightness_icon(void)
 {
     static std::string ext   = ".png";
@@ -156,6 +160,7 @@ std::string get_brightness_icon(void)
 }
 
 /* ************************************************************************** */
+/* Return the date text string */
 std::string get_date_text(void)
 {
     std::string fmt  = AtlasConfig::fetch("[date]", "format");
@@ -169,6 +174,7 @@ std::string get_date_text(void)
 }
 
 /* ************************************************************************** */
+/* Execute the wifi event */
 int wifi_event(void *event)
 {
     system("aria --body \"$(wifi -s 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
@@ -176,6 +182,7 @@ int wifi_event(void *event)
 }
 
 /* ************************************************************************** */
+/* Execute the volume signal */
 int volume_signal(unsigned int key)
 {
     switch ( key ) {
@@ -205,6 +212,7 @@ int volume_signal(unsigned int key)
 }
 
 /* ************************************************************************** */
+/* Execute the brightness signal */
 int brightness_signal(unsigned int key)
 {
     switch ( key ) {
@@ -222,6 +230,7 @@ int brightness_signal(unsigned int key)
 }
 
 /* ************************************************************************** */
+/* Return the workspace text string */
 std::string get_workspace_text(void)
 {
     std::string text = AtlasConfig::fetch("[workspace]", "text");
@@ -229,6 +238,7 @@ std::string get_workspace_text(void)
 }
 
 /* ************************************************************************** */
+/* Execute the workspace signal */
 int workspace_signal(unsigned int key)
 {
     if ( (key & 0xf0) == AtlasSignal::SCREEN ) {

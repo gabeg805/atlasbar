@@ -21,25 +21,25 @@
 #include "AtlasApple.h"
 #include "AtlasUserApp.h"
 #include <gtkmm.h>
+#include <iostream>
 
 /* ************************************************************************** */
 /* Display Atlas Statusbar */
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
-    Glib::RefPtr<Gtk::Application> app =
+    Glib::RefPtr<Gtk::Application> stuff =
         Gtk::Application::create(argc, argv,
                                  "org.gtkmm.examples.base");
 
     static Statusbar atlas;
     atlas.init();
-    atlas.create("[battery]",    get_battery_icon);
-    atlas.create("[wifi]",       get_wifi_icon,       wifi_event);
-    atlas.create("[volume]",     get_volume_icon,     NULL,       volume_signal);
-    atlas.create("[brightness]", get_brightness_icon, NULL,       brightness_signal);
-    atlas.create("[date]",       get_date_text);
-    atlas.create("[workspace]",  get_workspace_text,  NULL,       workspace_signal);
-    atlas.build();
+    atlas.new_app("[battery]",    get_battery_icon);
+    atlas.new_app("[wifi]",       get_wifi_icon,       wifi_event);
+    atlas.new_app("[volume]",     get_volume_icon,     volume_signal);
+    atlas.new_app("[brightness]", get_brightness_icon, brightness_signal);
+    atlas.new_app("[date]",       get_date_text);
+    atlas.new_app("[workspace]",  get_workspace_text,  workspace_signal);
     atlas.show_all_children();
 
-    return app->run(atlas);
+    return stuff->run(atlas);
 }

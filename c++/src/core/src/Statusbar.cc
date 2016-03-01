@@ -31,28 +31,26 @@ Statusbar::Statusbar():
     Gtk::Window(Gtk::WINDOW_POPUP),
     AtlasApple()
 {
-    this->widget = new Gtk::Box();
+    this->statusbar = new Gtk::Box();
 }
 
 /* ************************************************************************** */
 /* Create Atlas status bar */
 void Statusbar::init(void)
 {
-    std::string o = AtlasConfig::fetch("[main]", "orientation");
-    AtlasAppGeneric::set_orientation(*this->widget, o);
-
+    std::string o  = AtlasConfig::fetch("[main]", "orientation");
     std::string bg = AtlasConfig::fetch("[main]", "background");
-    AtlasAppGeneric::set_background(*this->widget, bg);
-
     std::string fg = AtlasConfig::fetch("[main]", "foreground");
-    AtlasAppGeneric::set_foreground(*this->widget, fg);
+    int width      = AtlasConfig::fetch_int("[main]", "width");
+    int height     = AtlasConfig::fetch_int("[main]", "height");
 
-    int width  = AtlasConfig::fetch_int("[main]", "width");
-    int height = AtlasConfig::fetch_int("[main]", "height");
+    AtlasAppGeneric::set_orientation(*this->statusbar, o);
+    AtlasAppGeneric::set_background(*this->statusbar, bg);
+    AtlasAppGeneric::set_foreground(*this->statusbar, fg);
     AtlasAppGeneric::set_size(*this, width, height);
 
     this->set_title("Atlas");
-    this->add(*this->widget);
+    this->add(*this->statusbar);
     std::signal(SIGUSR1, AtlasApple::signal);
 }
 
@@ -60,5 +58,78 @@ void Statusbar::init(void)
 /* Attach apps to the Atlas status bar */
 void Statusbar::build(void)
 {
-    attach_all_to_parent(this->widget);
+    // attach_all_to_parent(this->statusbar);
+}
+
+/* ************************************************************************** */
+// int AtlasApple::attach(NameApp *app)
+// {
+    // std::vector<NameApp*>::iterator itr;
+    // for ( itr = statusbar.begin(); itr != statusbar.end(); ++itr ) {
+    //     std::cout << "Loop: " << (*itr)->name << std::endl;
+    //     AtlasApple::attach_to_parent(*parent, container[i]);
+    // }
+//     statusbar.push_back(app);
+//     return 0;
+// }
+
+/* ************************************************************************** */
+int Statusbar::attach(NameApp *app)
+{
+    size_t len = app->length;
+    size_t i;
+    std::cout << "Len: " << len << std::endl;
+    std::cout << "Align: " << app->align << std::endl;
+    switch ( app->align ) {
+    case AtlasAlign::NONE:
+        break;
+    case AtlasAlign::LEFT:
+        Gtk::Label *labs;
+        labs = static_cast<Gtk::Label*>(app->app);
+        for ( i = 0; i < len; ++i )
+            this->statusbar->pack_start(static_cast<Gtk::Widget&>(labs[i]), Gtk::PACK_SHRINK);
+        break;
+    case AtlasAlign::CENTER:
+        for ( i = 0; i < len; ++i )
+            this->statusbar->set_center_widget(*static_cast<Gtk::Widget*>(app->app));
+        break;
+    case AtlasAlign::RIGHT:
+        for ( i = 0; i < len; ++i )
+            this->statusbar->pack_end(*static_cast<Gtk::Widget*>(app->app), Gtk::PACK_SHRINK);
+        break;
+    default:
+        return -1;
+    }
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Create an application (no event and no signal) */
+void Statusbar::new_app(std::string name, AtlasGetFunc getstr)
+{
+    Statusbar::new_app(name, getstr, NULL, NULL);
+}
+
+/* ************************************************************************** */
+/* Create an application (event and no signal) */
+void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event)
+{
+    Statusbar::new_app(name, getstr, event, NULL);
+}
+
+/* ************************************************************************** */
+/* Create an application (signal and no event) */
+void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal)
+{
+    Statusbar::new_app(name, getstr, NULL, signal);
+}
+
+/* ************************************************************************** */
+/* Create an application (event and signal) */
+void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
+{
+    AtlasApple *app = new AtlasApple();
+    app->create(name, getstr, event, signal);
+    std::cout << "Attaching..." << std::endl;
+    Statusbar::attach(app->app);
 }
