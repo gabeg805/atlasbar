@@ -32,37 +32,36 @@ public:
     void        create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
     void        create(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal);
     void        create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-    static void signal(int sig);
 
     NameApp        *app;
 
 private:
-    static int           doimage(NameApp *node, int val);
-    static int           dolabel(NameApp *node, int val);
-    static bool          update(NameApp *node);
-    static bool          update(NameApp *node, int val);
-    static Gtk::Widget * get_widget(NameApp *node);
+    // static int           doimage(NameApp *node, int val);
+    // static int           dolabel(NameApp *node, int val);
+    // static bool          update(NameApp *node);
+    // static bool          update(NameApp *node, int val);
+    // static Gtk::Widget * get_widget(NameApp *node);
 
     int                  new_app(void);
-    int                  set_name(std::string name);
-    int                  set_func(AtlasGetFunc getstr);
-    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event);
-    int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-    int                  set_type(void);
+    // int                  set_name(std::string name);
+    // int                  set_func(AtlasGetFunc getstr);
+    // int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event);
+    // int                  set_func(AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    // int                  set_type(void);
     int                  set_image(void **widget);
-    static int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
-    static int           set_label(NameApp *node, void **widget);
-    static int           set_label(NameApp *node);
+    // static int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
+    // static int           set_label(NameApp *node, void **widget);
+    // static int           set_label(NameApp *node);
 
     int                  init_widget(void **widget);
     int                  set_widget(void);
     int                  set_widget(void **widget);
-    int                  set_align(void);
-    int                  set_length(void);
-    static int           set_focus(NameApp *node, int index);
-    int                  set_focus(void);
-    int                  set_update(void);
-    int                  clear(void);
+    // int                  set_align(void);
+    // int                  set_length(void);
+    // static int           set_focus(NameApp *node, int index);
+    // int                  set_focus(void);
+    // int                  set_update(void);
+    // int                  clear(void);
 };
 
 #endif

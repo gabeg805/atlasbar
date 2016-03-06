@@ -18,6 +18,7 @@
 #include "AtlasConfig.h"
 #include "AtlasApple.h"
 #include "AtlasAppGeneric.h"
+#include "AtlasEvent.h"
 #include <gtkmm.h>
 #include <gdkmm.h>
 #include <cstdlib>
@@ -38,11 +39,11 @@ Statusbar::Statusbar():
 /* Create Atlas status bar */
 void Statusbar::init(void)
 {
-    std::string o  = AtlasConfig::fetch("[main]", "orientation");
-    std::string bg = AtlasConfig::fetch("[main]", "background");
-    std::string fg = AtlasConfig::fetch("[main]", "foreground");
-    int width      = AtlasConfig::fetch_int("[main]", "width");
-    int height     = AtlasConfig::fetch_int("[main]", "height");
+    std::string o      = AtlasConfig::fetch("[main]",     "orientation");
+    std::string bg     = AtlasConfig::fetch("[main]",     "background");
+    std::string fg     = AtlasConfig::fetch("[main]",     "foreground");
+    int         width  = AtlasConfig::fetch_int("[main]", "width");
+    int         height = AtlasConfig::fetch_int("[main]", "height");
 
     AtlasAppGeneric::set_orientation(*this->statusbar, o);
     AtlasAppGeneric::set_background(*this->statusbar, bg);
@@ -51,56 +52,7 @@ void Statusbar::init(void)
 
     this->set_title("Atlas");
     this->add(*this->statusbar);
-    std::signal(SIGUSR1, AtlasApple::signal);
-}
-
-/* ************************************************************************** */
-/* Attach apps to the Atlas status bar */
-void Statusbar::build(void)
-{
-    // attach_all_to_parent(this->statusbar);
-}
-
-/* ************************************************************************** */
-// int AtlasApple::attach(NameApp *app)
-// {
-    // std::vector<NameApp*>::iterator itr;
-    // for ( itr = statusbar.begin(); itr != statusbar.end(); ++itr ) {
-    //     std::cout << "Loop: " << (*itr)->name << std::endl;
-    //     AtlasApple::attach_to_parent(*parent, container[i]);
-    // }
-//     statusbar.push_back(app);
-//     return 0;
-// }
-
-/* ************************************************************************** */
-int Statusbar::attach(NameApp *app)
-{
-    size_t len = app->length;
-    size_t i;
-    std::cout << "Len: " << len << std::endl;
-    std::cout << "Align: " << app->align << std::endl;
-    switch ( app->align ) {
-    case AtlasAlign::NONE:
-        break;
-    case AtlasAlign::LEFT:
-        Gtk::Label *labs;
-        labs = static_cast<Gtk::Label*>(app->app);
-        for ( i = 0; i < len; ++i )
-            this->statusbar->pack_start(static_cast<Gtk::Widget&>(labs[i]), Gtk::PACK_SHRINK);
-        break;
-    case AtlasAlign::CENTER:
-        for ( i = 0; i < len; ++i )
-            this->statusbar->set_center_widget(*static_cast<Gtk::Widget*>(app->app));
-        break;
-    case AtlasAlign::RIGHT:
-        for ( i = 0; i < len; ++i )
-            this->statusbar->pack_end(*static_cast<Gtk::Widget*>(app->app), Gtk::PACK_SHRINK);
-        break;
-    default:
-        return -1;
-    }
-    return 0;
+    std::signal(SIGUSR1, AtlasEvent::signal);
 }
 
 /* ************************************************************************** */
@@ -130,6 +82,38 @@ void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc ev
 {
     AtlasApple *app = new AtlasApple();
     app->create(name, getstr, event, signal);
-    std::cout << "Attaching..." << std::endl;
     Statusbar::attach(app->app);
+}
+
+/* ************************************************************************** */
+/* Attach an Atlas application to the statusbar */
+int Statusbar::attach(NameApp *app)
+{
+    container.push_back(app);
+
+    size_t len = app->length;
+    size_t i;
+    std::cout << "Len: " << len << std::endl;
+    std::cout << "Align: " << app->align << std::endl;
+    switch ( app->align ) {
+    case AtlasAlign::NONE:
+        break;
+    case AtlasAlign::LEFT:
+        Gtk::Label *labs;
+        labs = static_cast<Gtk::Label*>(app->app);
+        for ( i = 0; i < len; ++i )
+            this->statusbar->pack_start(static_cast<Gtk::Widget&>(labs[i]), Gtk::PACK_SHRINK);
+        break;
+    case AtlasAlign::CENTER:
+        for ( i = 0; i < len; ++i )
+            this->statusbar->set_center_widget(*static_cast<Gtk::Widget*>(app->app));
+        break;
+    case AtlasAlign::RIGHT:
+        for ( i = 0; i < len; ++i )
+            this->statusbar->pack_end(*static_cast<Gtk::Widget*>(app->app), Gtk::PACK_SHRINK);
+        break;
+    default:
+        return -1;
+    }
+    return 0;
 }

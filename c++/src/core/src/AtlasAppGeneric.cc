@@ -1,8 +1,147 @@
 #include "AtlasAppGeneric.h"
+#include "AtlasApple.h"
 #include "AtlasConfig.h"
+#include "AtlasEvent.h"
 #include <gtkmm.h>
 #include <cstdlib>
 #include <string>
+
+/* ************************************************************************** */
+/* Set the name of the node */
+int AtlasAppGeneric::set_name(NameApp *app, std::string name)
+{
+    if ( app == NULL )
+        return -1;
+    app->name = name;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the "get" function of the node */
+int AtlasAppGeneric::set_func(NameApp *app, AtlasGetFunc getstr)
+{
+    if ( app == NULL )
+        return -1;
+    app->getstr = getstr;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the "get" and "event" functions of the node */
+int AtlasAppGeneric::set_func(NameApp *app, AtlasGetFunc getstr, AtlasEventFunc event)
+{
+    if ( app == NULL )
+        return -1;
+    app->getstr = getstr;
+    app->event  = event;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the "get", "event", and "signal" functions of the node */
+int AtlasAppGeneric::set_func(NameApp *app, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
+{
+    if ( app == NULL )
+        return -1;
+    app->getstr = getstr;
+    app->event  = event;
+    app->signal = signal;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the type of the node */
+int AtlasAppGeneric::set_type(NameApp *app)
+{
+    if ( app == NULL )
+        return -1;
+    app->type = AtlasConfig::fetch(app->name, "type");
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the application alignment */
+int AtlasAppGeneric::set_align(NameApp *app)
+{
+    if ( app == NULL )
+        return -1;
+
+    std::string align = AtlasConfig::fetch(app->name, "align");
+    if ( align.empty() )
+        return -1;
+    if ( align.compare("left") == 0 )
+        app->align = AtlasAlign::LEFT;
+    else if ( (align.compare("center") == 0) || align.compare("middle") == 0 )
+        app->align = AtlasAlign::CENTER;
+    else if ( align.compare("right") == 0 )
+        app->align = AtlasAlign::RIGHT;
+    else
+        app->align = AtlasAlign::RIGHT;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the number of sub-applications, within the application */
+int AtlasAppGeneric::set_length(NameApp *app)
+{
+    if ( app == NULL )
+        return -1;
+    unsigned int length = AtlasConfig::fetch_int(app->name, "length");
+    if ( length == 0 )
+        ++length;
+    app->length = length;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the number of sub-applications, within the application */
+int AtlasAppGeneric::set_focus(NameApp *app)
+{
+    if ( app == NULL )
+        return -1;
+    std::string str = AtlasConfig::fetch(app->name, "focus");
+    if ( str.empty() )
+        app->focus = -1;
+    else
+        app->focus = atoi(str.c_str());
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Set the application to update/refresh every given number of seconds */
+int AtlasAppGeneric::set_update(NameApp *app)
+{
+    if ( app == NULL )
+        return -1;
+
+    int time = AtlasConfig::fetch_int(app->name, "update");
+    if ( time <= 0 )
+        return -1;
+    sigc::slot<bool, NameApp*> slot = sigc::ptr_fun((bool (*)(NameApp*))AtlasEvent::update);
+    Glib::signal_timeout().connect_seconds(sigc::bind<NameApp*>(slot, app), time);
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Clear the node structure */
+int AtlasAppGeneric::clear(NameApp *app)
+{
+    if ( app == NULL )
+        return -1;
+    app->name   = "";
+    app->type   = "";
+    app->align  = AtlasAlign::NONE;
+    app->length = 0;
+    app->getstr = NULL;
+    app->event  = NULL;
+    app->signal = NULL;
+    app->app    = NULL;
+    return 0;
+}
+
+/* ************************************************************************** */
+/* ************************************************************************** */
+/* ************************************************************************** */
 
 /* ************************************************************************** */
 /* Set the background color of an application  */

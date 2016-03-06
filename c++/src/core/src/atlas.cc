@@ -23,11 +23,13 @@
 #include <gtkmm.h>
 #include <iostream>
 
+std::vector<NameApp*> container;
+
 /* ************************************************************************** */
 /* Display Atlas Statusbar */
 int main(int argc, char **argv)
 {
-    Glib::RefPtr<Gtk::Application> stuff =
+    Glib::RefPtr<Gtk::Application> app =
         Gtk::Application::create(argc, argv,
                                  "org.gtkmm.examples.base");
 
@@ -41,5 +43,5 @@ int main(int argc, char **argv)
     atlas.new_app("[workspace]",  get_workspace_text,  workspace_signal);
     atlas.show_all_children();
 
-    return stuff->run(atlas);
+    return app->run(atlas);
 }

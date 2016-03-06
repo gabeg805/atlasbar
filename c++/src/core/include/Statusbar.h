@@ -29,14 +29,15 @@ class Statusbar:
 public:
     Statusbar();
     void init(void);
-    void build(void);
-    int attach(NameApp *app);
-    void        new_app(std::string name, AtlasGetFunc getstr);
-    void        new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
-    void        new_app(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal);
-    void        new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    void new_app(std::string name, AtlasGetFunc getstr);
+    void new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
+    void new_app(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal);
+    void new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
 
-    Gtk::Box              *statusbar;
+private:
+    int attach(NameApp *app);
+
+    Gtk::Box *statusbar;
 };
 
 #endif /* CORE_ATLAS_STATUSBAR_H */
