@@ -26,7 +26,7 @@
 
 
 /* Declares */
-std::string AtlasConfig::FILE = "/home/gabeg/scripts/programs/atlas/c++/src/common/atlas.config";
+std::string AtlasConfig::FILE = "/home/gabeg/scripts/programs/atlas/c++/conf/atlas.config";
 
 bool is_white_space(std::string str)
 {
