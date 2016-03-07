@@ -14,17 +14,18 @@
  */
 
 /* Header guard */
-#ifndef CORE_ATLAS_STATUSBAR_H
-#define CORE_ATLAS_STATUSBAR_H
+#ifndef ATLAS_STATUSBAR_H
+#define ATLAS_STATUSBAR_H
 
 /* Includes */
-#include "AtlasApple.h"
+#include "AtlasApp.h"
+#include "AtlasAppLib.h"
 #include <gtkmm.h>
 
-/* Classes */
+/* Class */
 class Statusbar:
     public Gtk::Window,
-    public AtlasApple
+    public AtlasApp
 {
 public:
     Statusbar();
@@ -40,4 +41,4 @@ private:
     Gtk::Box *statusbar;
 };
 
-#endif /* CORE_ATLAS_STATUSBAR_H */
+#endif /* ATLAS_STATUSBAR_H */

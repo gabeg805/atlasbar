@@ -16,8 +16,8 @@
 /* Includes */
 #include "Statusbar.h"
 #include "AtlasConfig.h"
-#include "AtlasApple.h"
-#include "AtlasAppGeneric.h"
+#include "AtlasApp.h"
+#include "AtlasAppUtil.h"
 #include "AtlasEvent.h"
 #include <gtkmm.h>
 #include <gdkmm.h>
@@ -30,7 +30,7 @@
 /* Construct the Atlas status bar */
 Statusbar::Statusbar():
     Gtk::Window(Gtk::WINDOW_POPUP),
-    AtlasApple()
+    AtlasApp()
 {
     this->statusbar = new Gtk::Box();
 }
@@ -45,10 +45,10 @@ void Statusbar::init(void)
     int         width  = AtlasConfig::fetch_int("[main]", "width");
     int         height = AtlasConfig::fetch_int("[main]", "height");
 
-    AtlasAppGeneric::set_orientation(*this->statusbar, o);
-    AtlasAppGeneric::set_background(*this->statusbar, bg);
-    AtlasAppGeneric::set_foreground(*this->statusbar, fg);
-    AtlasAppGeneric::set_size(*this, width, height);
+    AtlasAppUtil::set_orientation(*this->statusbar, o);
+    AtlasAppUtil::set_background(*this->statusbar, bg);
+    AtlasAppUtil::set_foreground(*this->statusbar, fg);
+    AtlasAppUtil::set_size(*this, width, height);
 
     this->set_title("Atlas");
     this->add(*this->statusbar);
@@ -80,7 +80,7 @@ void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasSignalFunc s
 /* Create an application (event and signal) */
 void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
 {
-    AtlasApple *app = new AtlasApple();
+    AtlasApp *app = new AtlasApp();
     app->create(name, getstr, event, signal);
     Statusbar::attach(app->app);
 }
@@ -89,12 +89,10 @@ void Statusbar::new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc ev
 /* Attach an Atlas application to the statusbar */
 int Statusbar::attach(NameApp *app)
 {
-    container.push_back(app);
+    AtlasEvent::container.push_back(app);
 
     size_t len = app->length;
     size_t i;
-    std::cout << "Len: " << len << std::endl;
-    std::cout << "Align: " << app->align << std::endl;
     switch ( app->align ) {
     case AtlasAlign::NONE:
         break;

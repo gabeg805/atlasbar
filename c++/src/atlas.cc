@@ -17,13 +17,9 @@
  */
 
 /* Includes */
-#include "Statusbar.h"
-#include "AtlasApple.h"
 #include "AtlasUserApp.h"
+#include "Statusbar.h"
 #include <gtkmm.h>
-#include <iostream>
-
-std::vector<NameApp*> container;
 
 /* ************************************************************************** */
 /* Display Atlas Statusbar */

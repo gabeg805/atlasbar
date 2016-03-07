@@ -1,28 +1,37 @@
+/* *****************************************************************************
+ * 
+ * Name:      AtlasEvent.h
+ * Namespace: <AtlasEvent>
+ * Author:    Gabriel Gonzalez
+ * Email:     gabeg@bu.edu
+ * License:   The MIT License (MIT)
+ * 
+ * Description: The Atlas event handler. Once a signal is raised, the event
+ *              handler will update the Statusbar in the appropriate manner.
+ * Notes: None.
+ * 
+ * *****************************************************************************
+ */
+
+/* Header guard */
 #ifndef ATLAS_EVENT_H
 #define ATLAS_EVENT_H
 
-#include "AtlasApple.h"
-#include <gtkmm.h>
-#include <string>
+/* Includes */
+#include "AtlasAppLib.h"
 #include <vector>
 
+/* Namespace */
 namespace AtlasEvent
 {
-    void          signal(int sig);
+    void signal(int sig);
+    int  doimage(NameApp *node, int val);
+    int  dolabel(NameApp *node, int val);
+    bool update(NameApp *node);
+    bool update(NameApp *node, int val);
 
-    int           doimage(NameApp *node, int val);
-    int           dolabel(NameApp *node, int val);
-    bool          update(NameApp *node);
-    bool          update(NameApp *node, int val);
-    Gtk::Widget * get_widget(NameApp *node);
-
-    int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
-    int           set_label(NameApp *node, void **widget);
-    int           set_label(NameApp *node);
-
-    int           set_focus(NameApp *node, int index);
+    extern std::vector<NameApp*> container;
 };
 
-extern std::vector<NameApp*> container;
 
 #endif /* ATLAS_EVENT_H */
