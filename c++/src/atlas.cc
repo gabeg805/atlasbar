@@ -21,7 +21,7 @@
 #include <gtkmm.h>
 
 /* Global */
-std::string PROG = "atlas";
+std::string atlas::prog = "atlas";
 
 /* ************************************************************************** */
 /* Display Atlas Statusbar */

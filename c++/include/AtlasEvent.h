@@ -25,12 +25,12 @@
 namespace AtlasEvent
 {
     void signal(int sig);
-    int  doimage(NameApp *node, int val);
-    int  dolabel(NameApp *node, int val);
-    bool update(NameApp *node);
-    bool update(NameApp *node, int val);
+    int  doimage(atlas::app *node, int val);
+    int  dolabel(atlas::app *node, int val);
+    bool update(atlas::app *node);
+    bool update(atlas::app *node, int val);
 
-    extern std::vector<NameApp*> container;
+    extern std::vector<atlas::app*> container;
 };
 
 

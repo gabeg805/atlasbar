@@ -29,7 +29,7 @@
 #include <string>
 #include <vector>
 
-std::vector<NameApp*> AtlasEvent::container;
+std::vector<atlas::app*> AtlasEvent::container;
 
 /* ************************************************************************** */
 /* Update an app by their name*/
@@ -47,7 +47,7 @@ void AtlasEvent::signal(int sig)
     atlasio::debug(stream.str());
 
     /* Update statusbar and call application command */
-    std::vector<NameApp*>::iterator app;
+    std::vector<atlas::app*>::iterator app;
     for ( app = AtlasEvent::container.begin(); app != AtlasEvent::container.end(); ++app ) {
         if ( (*app)->func->signal != NULL ) {
             int ret = (*app)->func->signal(key);
@@ -63,14 +63,14 @@ void AtlasEvent::signal(int sig)
 
 /* ************************************************************************** */
 /* Update applications */
-bool AtlasEvent::update(NameApp *app)
+bool AtlasEvent::update(atlas::app *app)
 {
     return AtlasEvent::update(app, 0);
 }        
 
 /* ************************************************************************** */
 /* Update applications */
-bool AtlasEvent::update(NameApp *app, int ret)
+bool AtlasEvent::update(atlas::app *app, int ret)
 {
     if ( app == NULL )
         return false;
@@ -88,7 +88,7 @@ bool AtlasEvent::update(NameApp *app, int ret)
 }
 
 /* ************************************************************************** */
-int AtlasEvent::doimage(NameApp *app, int ret)
+int AtlasEvent::doimage(atlas::app *app, int ret)
 {
     if ( ret == 0 ) {
         Gtk::Widget              *widget = AtlasAppUtil::get_widget(app);
@@ -104,7 +104,7 @@ int AtlasEvent::doimage(NameApp *app, int ret)
 }
 
 /* ************************************************************************** */
-int AtlasEvent::dolabel(NameApp *app, int ret)
+int AtlasEvent::dolabel(atlas::app *app, int ret)
 {
     AtlasAppUtil::set_focus(app, ret);
     AtlasAppUtil::set_label(app);

@@ -15,7 +15,7 @@
 
 /* Includes */
 #include "AtlasUserAppBuilder.h"
-#include "AtlasUserApp.h"
+#include "AtlasApp.h"
 #include <stdint.h>
 #include <string.h>
 #include <cstdlib>
@@ -23,20 +23,20 @@
 #include <string>
 
 /* Globals */
-AtlasUserApp *AtlasUserAppBuilder::container;
-uint8_t       AtlasUserAppBuilder::index;
+atlas::uapp *AtlasUserAppBuilder::container;
+uint8_t      AtlasUserAppBuilder::index;
 
 /* ************************************************************************** */
 /* Constructor */
 AtlasUserAppBuilder::AtlasUserAppBuilder(uint8_t size)
 {
-    this->container = (AtlasUserApp*) calloc(size+1, sizeof(AtlasUserApp));
+    this->container = (atlas::uapp*) calloc(size+1, sizeof(atlas::uapp));
     this->index     = 0;
 }
 
 /* ************************************************************************** */
 /* Create a new user app */
-int AtlasUserAppBuilder::new_app(std::string name, AtlasFunc func)
+int AtlasUserAppBuilder::new_app(std::string name, atlas::func func)
 {
     this->container[this->index].name = name;
     this->container[this->index].func = func;
@@ -80,9 +80,9 @@ int AtlasUserAppBuilder::remove_app(uint8_t i)
 
 /* ************************************************************************** */
 /* Clear app */
-int AtlasUserAppBuilder::clear_app(AtlasUserApp *app)
+int AtlasUserAppBuilder::clear_app(atlas::uapp *uapp)
 {
-    memset(app, 0, sizeof(*app));
+    memset(uapp, 0, sizeof(*uapp));
     return 0;
 }
 

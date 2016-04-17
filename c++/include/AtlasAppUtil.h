@@ -27,30 +27,30 @@
 /* Namespace */
 namespace AtlasAppUtil
 {
-    int           new_app(NameApp **app);
-    int           set_widget(NameApp *app);
+    int           new_app(atlas::app **app);
+    int           set_widget(atlas::app *app);
 
-    int           init_widget(NameApp *app, void **widget);
-    int           set_widget(NameApp *app, void **widget);
-    int           set_event_widget(NameApp *app, void **widget);
+    int           init_widget(atlas::app *app, void **widget);
+    int           set_widget(atlas::app *app, void **widget);
+    int           set_event_widget(atlas::app *app, void **widget);
 
-    Gtk::Widget * get_widget(NameApp *app);
-    int           set_image(NameApp *app, void **widget);
-    int           set_label(NameApp *app, void **widget);
-    int           set_label(NameApp *app);
+    Gtk::Widget * get_widget(atlas::app *app);
+    int           set_image(atlas::app *app, void **widget);
+    int           set_label(atlas::app *app, void **widget);
+    int           set_label(atlas::app *app);
 
-    int           set_name(NameApp *app, std::string name);
-    // int           set_func(NameApp *app, AtlasGetFunc getstr);
-    // int           set_func(NameApp *app, AtlasGetFunc getstr, AtlasEventFunc event);
-    // int           set_func(NameApp *app, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-    int           set_func(NameApp *app, AtlasFunc *func);
-    int           set_type(NameApp *app);
-    int           set_align(NameApp *app);
-    int           set_length(NameApp *app);
-    int           set_focus(NameApp *app);
-    int           set_focus(NameApp *app, int index);
-    int           set_update(NameApp *app);
-    int           clear(NameApp *app);
+    int           set_name(atlas::app *app, std::string name);
+    // int           set_func(atlas::app *app, AtlasGetFunc getstr);
+    // int           set_func(atlas::app *app, AtlasGetFunc getstr, AtlasEventFunc event);
+    // int           set_func(atlas::app *app, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+    int           set_func(atlas::app *app, AtlasFunc *func);
+    int           set_type(atlas::app *app);
+    int           set_align(atlas::app *app);
+    int           set_length(atlas::app *app);
+    int           set_focus(atlas::app *app);
+    int           set_focus(atlas::app *app, int index);
+    int           set_update(atlas::app *app);
+    int           clear(atlas::app *app);
 
     int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
     int           set_background(Gtk::Widget &app, std::string background);

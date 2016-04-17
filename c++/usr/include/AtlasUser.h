@@ -1,7 +1,6 @@
 /* *****************************************************************************
  * 
  * Name:    AtlasUser.h
- * Class:   None
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
@@ -18,12 +17,12 @@
 #define ATLAS_USER_H
 
 /* Includes */
-#include "AtlasUserApp.h"
+#include "AtlasApp.h"
 #include <stdint.h>
 #include <string>
 
 /* Create user apps */
-AtlasUserApp* create_user_apps(void);
+atlas::uapp * create_user_apps(void);
 
 /* Battery */
 std::string get_battery_icon(void);

@@ -17,6 +17,7 @@
 /* Includes */
 #include "atlasio.h"
 #include "atlas.h"
+#include "AtlasConfig.h"
 #include <time.h>
 #include <fstream>
 #include <iostream>
@@ -37,7 +38,7 @@ std::string strtimenow(void)
 void atlasio::print(std::string str)
 {
 #ifdef ATLAS_DEBUG
-    std::cout << PROG << ": " << str << std::endl;
+    std::cout << atlas::prog << ": " << str << std::endl;
 #endif
 }
 
@@ -46,7 +47,7 @@ void atlasio::print(std::string str)
 void atlasio::printerr(std::string str)
 {
 #ifdef ATLAS_DEBUG
-    std::cerr << PROG << ": " << str << std::endl;
+    std::cerr << atlas::prog << ": " << str << std::endl;
 #endif
 }
 

@@ -33,11 +33,11 @@ public:
     Statusbar();
 
     void create(void);
-    void new_app(std::string, AtlasFunc *func);
+    void new_app(std::string, atlas::func *func);
 
 private:
     void init(void);
-    int  attach(NameApp *app);
+    int  attach(atlas::app *app);
 
     Gtk::Box *statusbar;
 };

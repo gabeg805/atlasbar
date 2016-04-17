@@ -1,12 +1,12 @@
 /* *****************************************************************************
  * 
- * Name:    AtlasFunc.h
- * Type:    <AtlasFunc>
+ * Name:    AtlasAlign.h
+ * Type:    <AtlasAlign>
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas Function type.
+ * Description: The Atlas Alignment types.
  * 
  * Notes: None.
  * 
@@ -14,25 +14,25 @@
  */
 
 /* Header guard */
-#ifndef ATLAS_FUNC_H
-#define ATLAS_FUNC_H
-
-/* Includes */
-#include <stdint.h>
-#include <string>
+#ifndef ATLAS_ALIGN_H
+#define ATLAS_ALIGN_H
 
 /* Structure */
-struct AtlasFunc
-{
-    std::string (*info)(void);
-    int         (*event)(void*);
-    int         (*signal)(uint8_t);
+struct AtlasAlign {
+    enum Align {
+        NONE = 0,
+        TOP  = 1,
+        LEFT = TOP,
+        CENTER,
+        BOTTOM,
+        RIGHT = BOTTOM
+    };
 };
 
 /* Namespace extension */
 namespace atlas
 {
-    typedef AtlasFunc func;
+    typedef AtlasAlign::Align align;
 };
 
-#endif /* ATLAS_FUNC_H */
+#endif /* ATLAS_ALIGN_H */

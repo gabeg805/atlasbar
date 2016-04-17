@@ -26,16 +26,16 @@
 
 /* ************************************************************************** */
 /* Allocate space for a new application */
-int AtlasAppUtil::new_app(NameApp **app)
+int AtlasAppUtil::new_app(atlas::app **app)
 {
-    *app = new NameApp();
+    *app = new atlas::app();
     AtlasAppUtil::clear(*app);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Initialize and set the application */
-int AtlasAppUtil::set_widget(NameApp *app)
+int AtlasAppUtil::set_widget(atlas::app *app)
 {
     if ( app == NULL )
         return -1;
@@ -54,7 +54,7 @@ int AtlasAppUtil::set_widget(NameApp *app)
 
 /* ************************************************************************** */
 /* Initialize and set one or more widgets */
-int AtlasAppUtil::init_widget(NameApp *app, void **widget)
+int AtlasAppUtil::init_widget(atlas::app *app, void **widget)
 {
     if ( app == NULL )
         return -1;
@@ -72,7 +72,7 @@ int AtlasAppUtil::init_widget(NameApp *app, void **widget)
 
 /* ************************************************************************** */
 /* Generalized function to initialize and set the application */
-int AtlasAppUtil::set_widget(NameApp *app, void **widget)
+int AtlasAppUtil::set_widget(atlas::app *app, void **widget)
 {
     if ( app == NULL )
         return -1;
@@ -91,7 +91,7 @@ int AtlasAppUtil::set_widget(NameApp *app, void **widget)
 
 /* ************************************************************************** */
 /* Set the application widget as an event widget */
-int AtlasAppUtil::set_event_widget(NameApp *app, void **widget)
+int AtlasAppUtil::set_event_widget(atlas::app *app, void **widget)
 {
     if ( app->func->event == NULL )
         return -1;
@@ -108,7 +108,7 @@ int AtlasAppUtil::set_event_widget(NameApp *app, void **widget)
 
 /* ************************************************************************** */
 /* Return the application's widget */
-Gtk::Widget * AtlasAppUtil::get_widget(NameApp *app)
+Gtk::Widget * AtlasAppUtil::get_widget(atlas::app *app)
 {
     if ( app == NULL )
         return NULL;
@@ -124,7 +124,7 @@ Gtk::Widget * AtlasAppUtil::get_widget(NameApp *app)
 
 /* ************************************************************************** */
 /* Set the applications image widget */
-int AtlasAppUtil::set_image(NameApp *app, void **widget)
+int AtlasAppUtil::set_image(atlas::app *app, void **widget)
 {
     if ( app == NULL )
         return -1;
@@ -152,7 +152,7 @@ int AtlasAppUtil::set_image(NameApp *app, void **widget)
 
 /* ************************************************************************** */
 /* Set the application's label widget */
-int AtlasAppUtil::set_label(NameApp *app)
+int AtlasAppUtil::set_label(atlas::app *app)
 {
     void *widget = AtlasAppUtil::get_widget(app);
     return AtlasAppUtil::set_label(app, &widget);
@@ -160,7 +160,7 @@ int AtlasAppUtil::set_label(NameApp *app)
 
 /* ************************************************************************** */
 /* Set the application's label widget */
-int AtlasAppUtil::set_label(NameApp *app, void **widget)
+int AtlasAppUtil::set_label(atlas::app *app, void **widget)
 {
     Gtk::Label               *label       = static_cast<Gtk::Label*>(*widget);
     std::string               name        = app->name;
@@ -191,7 +191,7 @@ int AtlasAppUtil::set_label(NameApp *app, void **widget)
 
 /* ************************************************************************** */
 /* Set the name of the application */
-int AtlasAppUtil::set_name(NameApp *app, std::string name)
+int AtlasAppUtil::set_name(atlas::app *app, std::string name)
 {
     if ( app == NULL )
         return -1;
@@ -201,7 +201,7 @@ int AtlasAppUtil::set_name(NameApp *app, std::string name)
 
 // /* ************************************************************************** */
 // /* Set the "get" function of the application */
-// int AtlasAppUtil::set_func(NameApp *app, AtlasGetFunc getstr)
+// int AtlasAppUtil::set_func(atlas::app *app, AtlasGetFunc getstr)
 // {
 //     if ( app == NULL )
 //         return -1;
@@ -211,7 +211,7 @@ int AtlasAppUtil::set_name(NameApp *app, std::string name)
 
 // /* ************************************************************************** */
 // /* Set the "get" and "event" functions of the application */
-// int AtlasAppUtil::set_func(NameApp *app, AtlasGetFunc getstr, AtlasEventFunc event)
+// int AtlasAppUtil::set_func(atlas::app *app, AtlasGetFunc getstr, AtlasEventFunc event)
 // {
 //     if ( app == NULL )
 //         return -1;
@@ -222,8 +222,8 @@ int AtlasAppUtil::set_name(NameApp *app, std::string name)
 
 /* ************************************************************************** */
 /* Set the "get", "event", and "signal" functions of the application */
-// int AtlasAppUtil::set_func(NameApp *app, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
-int AtlasAppUtil::set_func(NameApp *app, AtlasFunc *func)
+// int AtlasAppUtil::set_func(atlas::app *app, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal)
+int AtlasAppUtil::set_func(atlas::app *app, AtlasFunc *func)
 {
     if ( app == NULL )
         return -1;
@@ -236,7 +236,7 @@ int AtlasAppUtil::set_func(NameApp *app, AtlasFunc *func)
 
 /* ************************************************************************** */
 /* Set the type of the application */
-int AtlasAppUtil::set_type(NameApp *app)
+int AtlasAppUtil::set_type(atlas::app *app)
 {
     if ( app == NULL )
         return -1;
@@ -246,7 +246,7 @@ int AtlasAppUtil::set_type(NameApp *app)
 
 /* ************************************************************************** */
 /* Set the application alignment */
-int AtlasAppUtil::set_align(NameApp *app)
+int AtlasAppUtil::set_align(atlas::app *app)
 {
     if ( app == NULL )
         return -1;
@@ -267,7 +267,7 @@ int AtlasAppUtil::set_align(NameApp *app)
 
 /* ************************************************************************** */
 /* Set the number of widgets within the application */
-int AtlasAppUtil::set_length(NameApp *app)
+int AtlasAppUtil::set_length(atlas::app *app)
 {
     if ( app == NULL )
         return -1;
@@ -280,7 +280,7 @@ int AtlasAppUtil::set_length(NameApp *app)
 
 /* ************************************************************************** */
 /* Set the number of sub-applications, within the application */
-int AtlasAppUtil::set_focus(NameApp *app)
+int AtlasAppUtil::set_focus(atlas::app *app)
 {
     if ( app == NULL )
         return -1;
@@ -294,7 +294,7 @@ int AtlasAppUtil::set_focus(NameApp *app)
 
 /* ************************************************************************** */
 /* Set the number of sub-applications, within the application */
-int AtlasAppUtil::set_focus(NameApp *app, int index)
+int AtlasAppUtil::set_focus(atlas::app *app, int index)
 {
     app->focus = index;
     return 0;
@@ -302,7 +302,7 @@ int AtlasAppUtil::set_focus(NameApp *app, int index)
 
 /* ************************************************************************** */
 /* Set the application to update/refresh every given number of seconds */
-int AtlasAppUtil::set_update(NameApp *app)
+int AtlasAppUtil::set_update(atlas::app *app)
 {
     if ( app == NULL )
         return -1;
@@ -310,14 +310,14 @@ int AtlasAppUtil::set_update(NameApp *app)
     int time = AtlasConfig::fetch_int(app->name, "update");
     if ( time <= 0 )
         return -1;
-    sigc::slot<bool, NameApp*> slot = sigc::ptr_fun((bool (*)(NameApp*))AtlasEvent::update);
-    Glib::signal_timeout().connect_seconds(sigc::bind<NameApp*>(slot, app), time);
+    sigc::slot<bool, atlas::app*> slot = sigc::ptr_fun((bool (*)(atlas::app*))AtlasEvent::update);
+    Glib::signal_timeout().connect_seconds(sigc::bind<atlas::app*>(slot, app), time);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Clear the application struct */
-int AtlasAppUtil::clear(NameApp *app)
+int AtlasAppUtil::clear(atlas::app *app)
 {
     if ( app == NULL )
         return -1;

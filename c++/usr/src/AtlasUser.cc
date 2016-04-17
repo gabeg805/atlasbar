@@ -1,12 +1,13 @@
 /* *****************************************************************************
  * 
- * Name:    StatusBar.h
- * Class:   <StatusBar>
+ * Name:    AtlasUser.h
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas Status Bar container.
+ * Description: The Atlas User handler. This is where users will put their
+ *              application functions and build them using the Atlas User
+ *              Application Builder.
  * 
  * Notes: None.
  * 
@@ -15,7 +16,6 @@
 
 /* Includes */
 #include "AtlasUser.h"
-#include "AtlasUserApp.h"
 #include "AtlasUserAppBuilder.h"
 #include "AtlasCommand.h"
 #include "AtlasConfig.h"
@@ -31,9 +31,9 @@
 
 /* ************************************************************************** */
 /* Return the user defined status bar applications */
-AtlasUserApp* create_user_apps(void)
+atlas::uapp * create_user_apps(void)
 {
-    static AtlasUserAppBuilder *builder = new AtlasUserAppBuilder(6);
+    AtlasUserAppBuilder *builder = new AtlasUserAppBuilder(6);
     builder->new_app("battery",    {get_battery_icon,    battery_event,    NULL});
     builder->new_app("wifi",       {get_wifi_icon,       wifi_event,       NULL});
     builder->new_app("volume",     {get_volume_icon,     volume_event,     volume_signal});

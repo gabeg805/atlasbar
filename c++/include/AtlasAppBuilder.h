@@ -6,7 +6,7 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas application builder.
+ * Description: The Atlas Application builder.
  * 
  * Notes: None.
  * 
@@ -28,9 +28,9 @@ class AtlasAppBuilder
 public:
     AtlasAppBuilder();
 
-    void create (std::string name, AtlasFunc *func);
+    void create (std::string name, atlas::func *func);
 
-    NameApp *app;
+    atlas::app *app;
 };
 
 #endif /* ATLAS_APP_H */

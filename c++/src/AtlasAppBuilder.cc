@@ -30,7 +30,7 @@ AtlasAppBuilder::AtlasAppBuilder()
 
 /* ************************************************************************** */
 /* Create an application (event and signal) */
-void AtlasAppBuilder::create(std::string name, AtlasFunc *func)
+void AtlasAppBuilder::create(std::string name, atlas::func *func)
 {
     if ( !AtlasAppUtil::is_app(name) )
         return;
