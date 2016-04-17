@@ -18,7 +18,7 @@
 #define ATLAS_EVENT_H
 
 /* Includes */
-#include "AtlasAppLib.h"
+#include "AtlasApp.h"
 #include <vector>
 
 /* Namespace */

@@ -1,19 +1,47 @@
+/* *****************************************************************************
+ * 
+ * Name:    StatusBar.h
+ * Class:   <StatusBar>
+ * Author:  Gabriel Gonzalez
+ * Email:   gabeg@bu.edu
+ * License: The MIT License (MIT)
+ * 
+ * Description: The Atlas Status Bar container.
+ * 
+ * Notes: None.
+ * 
+ * *****************************************************************************
+ */
+
+/* Includes */
+#include "AtlasUser.h"
 #include "AtlasUserApp.h"
-#include "AtlasApp.h"
-#include "AtlasSignalType.h"
-#include "AtlasConfig.h"
+#include "AtlasUserAppBuilder.h"
 #include "AtlasCommand.h"
+#include "AtlasConfig.h"
+#include "AtlasSignalType.h"
+#include "atlasio.h"
+#include <stdint.h>
+#include <cstdlib>
+#include <ctime>
 #include <gdkmm.h>
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <ctime>
+#include <vector>
 
-#include <stdint.h>
-#include <fcntl.h>
-#include <semaphore.h>
-#include <sys/stat.h>
-#include <cstdlib>
+/* ************************************************************************** */
+/* Return the user defined status bar applications */
+AtlasUserApp* create_user_apps(void)
+{
+    static AtlasUserAppBuilder *builder = new AtlasUserAppBuilder(6);
+    builder->new_app("battery",    {get_battery_icon,    battery_event,    NULL});
+    builder->new_app("wifi",       {get_wifi_icon,       wifi_event,       NULL});
+    builder->new_app("volume",     {get_volume_icon,     volume_event,     volume_signal});
+    builder->new_app("brightness", {get_brightness_icon, brightness_event, brightness_signal});
+    builder->new_app("date",       {get_date_text,       NULL,             NULL});
+    builder->new_app("workspace",  {get_workspace_text,  NULL,             workspace_signal});
+    return builder->get_apps();
+}
 
 /* ************************************************************************** */
 /* Return the battery icon string */
@@ -23,12 +51,7 @@ std::string get_battery_icon(void)
     static std::string dir   = AtlasConfig::fetch("[battery]", "directory");
     static std::string cmd   = AtlasConfig::fetch("[battery]", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
-    std::stringstream ss;
-    ss << level;
-
-    std::cout << (dir + ss.str() + ext) << std::endl;
-
-    return (dir + ss.str() + ext);
+    return (dir+std::to_string(level)+ext);
 }
 
 /* ************************************************************************** */
@@ -39,7 +62,7 @@ std::string get_wifi_icon(void)
     static std::string dir   = AtlasConfig::fetch("[wifi]", "directory");
     static std::string cmd   = AtlasConfig::fetch("[wifi]", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
-    std::string name;
+    std::string        name;
 
     if ( level == 0 )
         name = "None";
@@ -54,13 +77,10 @@ std::string get_wifi_icon(void)
     else if ( (level > 80) && (level <= 100) )
         name = "80-100";
     else {
-        std::cout << "Wifi: Could not match level ~" << level << "~" << std::endl;
+        atlasio::debug("Unkown wifi strength '"+std::to_string(level)+"'.");
         name = "None";
     }
-
-    std::cout << (dir + name + ext) << std::endl;
-
-    return (dir + name + ext);
+    return (dir+name+ext);
 }
 
 /* ************************************************************************** */
@@ -89,8 +109,8 @@ std::string get_volume_icon(void)
     static std::string dir   = AtlasConfig::fetch("[volume]", "directory");
     static std::string cmd   = AtlasConfig::fetch("[volume]", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
-    std::string name;
-    std::string qualifier;
+    std::string        name;
+    std::string        qualifier;
 
     if ( volume_is_playing() ) 
         qualifier = "_music";
@@ -108,15 +128,11 @@ std::string get_volume_icon(void)
     else if ( (level > 80) && (level <= 100) )
         name = "80-100";
     else {
-        std::cout << 
-            "Volume " << 
-            qualifier << ": Could not match level ~" << level << "~" << std::endl;
+        atlasio::debug("Unkown volume level '"+std::to_string(level)+"'.");
         name = "Mute";
     }
 
-    std::cout << (dir + name + qualifier + ext) << std::endl;
-
-    return (dir + name + qualifier + ext);
+    return (dir+name+qualifier+ext);
 }
 
 /* ************************************************************************** */
@@ -127,7 +143,7 @@ std::string get_brightness_icon(void)
     static std::string dir   = AtlasConfig::fetch("[brightness]", "directory");
     static std::string cmd   = AtlasConfig::fetch("[brightness]", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
-    std::string name;
+    std::string        name;
 
     if ( (level >= 0) && (level <= 10) )
         name = "0-10";
@@ -150,40 +166,61 @@ std::string get_brightness_icon(void)
     else if ( (level > 90) && (level <= 100) )
         name = "90-100";
     else {
-        std::cout << "Brightness: Could not match level ~" << level << "~" << std::endl;
+        atlasio::debug("Unkown brightness level '"+std::to_string(level)+"'.");
         name = "0-10";
     }
 
-    std::cout << (dir + name + ext) << std::endl;
-
-    return (dir + name + ext);
+    return (dir+name+ext);
 }
 
 /* ************************************************************************** */
 /* Return the date text string */
 std::string get_date_text(void)
 {
-    std::string fmt  = AtlasConfig::fetch("[date]", "format");
+    std::string fmt  = AtlasConfig::fetch("date", "format");
     time_t      t    = time(NULL);
     struct tm*  now  = localtime(&t);
     static char str[30];
 
     strftime(str, sizeof(str), fmt.c_str(), now);
-
     return std::string(str);
+}
+
+/* ************************************************************************** */
+/* Execute the battery event */
+int battery_event(void *event)
+{
+    system("aria --body \"$(/home/gabeg/scripts/programs/battery/bat -c 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 1 &");
+    return 0;
 }
 
 /* ************************************************************************** */
 /* Execute the wifi event */
 int wifi_event(void *event)
 {
-    system("aria --body \"$(wifi -s 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 2 &");
+    system("aria --body \"$(wifi -s 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 1 &");
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Execute the volume event */
+int volume_event(void *event)
+{
+    system("aria --body \"$(vol 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 1 &");
+    return 0;
+}
+
+/* ************************************************************************** */
+/* Execute the brightness event */
+int brightness_event(void *event)
+{
+    system("aria --body \"$(bright 2>&1)\" --xpos 10 --ypos 20 --time 2 --delay 1 &");
     return 0;
 }
 
 /* ************************************************************************** */
 /* Execute the volume signal */
-int volume_signal(unsigned int key)
+int volume_signal(uint8_t key)
 {
     switch ( key ) {
     case AtlasSignal::TRACK_PLAY:
@@ -213,7 +250,7 @@ int volume_signal(unsigned int key)
 
 /* ************************************************************************** */
 /* Execute the brightness signal */
-int brightness_signal(unsigned int key)
+int brightness_signal(uint8_t key)
 {
     switch ( key ) {
     case AtlasSignal::BRIGHT_UP:
@@ -233,21 +270,16 @@ int brightness_signal(unsigned int key)
 /* Return the workspace text string */
 std::string get_workspace_text(void)
 {
-    std::string text = AtlasConfig::fetch("[workspace]", "text");
+    std::string text = AtlasConfig::fetch("workspace", "text");
     return text;
 }
 
 /* ************************************************************************** */
 /* Execute the workspace signal */
-int workspace_signal(unsigned int key)
+int workspace_signal(uint8_t key)
 {
-    if ( (key & 0xf0) == AtlasSignal::SCREEN ) {
-        unsigned int  val = (key & 0xf);
-        FILE         *fp  = fopen("/home/gabeg/.config/dwm/stuffers.txt", "a+");
-        fprintf(fp, "val 0x%0x\n", val);
-        fclose(fp);
-        std::cout << "key: 0x" << std::hex << key << " | val: " << val << std::endl;
-        return val;
-    }
-    return -1;
+    if ( (key & 0xf0) == AtlasSignal::SCREEN )
+        return (key & 0xf);
+    else
+        return -1;
 }

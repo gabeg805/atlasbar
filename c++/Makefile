@@ -9,9 +9,9 @@ CFLAGS += `pkg-config $(LIBS) --cflags --libs`
 PROGRAM = atlas
 
 # Directories used
-USR_DIR      = ./usr
 CORE_DIR     = .
-OBJ_DIR      = ./obj
+USR_DIR      = $(CORE_DIR)/usr
+OBJ_DIR      = $(CORE_DIR)/obj
 USR_SRC_DIR  = $(USR_DIR)/src
 USR_INC_DIR  = $(USR_DIR)/include
 CORE_SRC_DIR = $(CORE_DIR)/src

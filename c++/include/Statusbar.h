@@ -19,24 +19,25 @@
 
 /* Includes */
 #include "AtlasApp.h"
-#include "AtlasAppLib.h"
+#include "AtlasAppBuilder.h"
+#include "AtlasFunc.h"
 #include <gtkmm.h>
+#include <string>
 
 /* Class */
 class Statusbar:
     public Gtk::Window,
-    public AtlasApp
+    public AtlasAppBuilder
 {
 public:
     Statusbar();
-    void init(void);
-    void new_app(std::string name, AtlasGetFunc getstr);
-    void new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
-    void new_app(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal);
-    void new_app(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
+
+    void create(void);
+    void new_app(std::string, AtlasFunc *func);
 
 private:
-    int attach(NameApp *app);
+    void init(void);
+    int  attach(NameApp *app);
 
     Gtk::Box *statusbar;
 };

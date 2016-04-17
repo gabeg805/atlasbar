@@ -1,12 +1,12 @@
 /* *****************************************************************************
  * 
  * Name:    AtlasApp.h
- * Class:   <AtlasApp>
+ * Class:   None
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas application creater.
+ * Description: The Atlas application type.
  * 
  * Notes: None.
  * 
@@ -18,21 +18,20 @@
 #define ATLAS_APP_H
 
 /* Includes */
-#include "AtlasAppLib.h"
+#include "AtlasAlignType.h"
+#include "AtlasFunc.h"
+#include <stdint.h>
 #include <string>
 
-/* Class */
-class AtlasApp
-{
-public:
-    AtlasApp();
-
-    void create(std::string name, AtlasGetFunc getstr);
-    void create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event);
-    void create(std::string name, AtlasGetFunc getstr, AtlasSignalFunc signal);
-    void create(std::string name, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
-
-    NameApp *app;
+/* Structure */
+struct NameApp {
+    std::string             name;
+    std::string             type;
+    AtlasAlign::AlignType   align;
+    uint8_t                 length;
+    int                     focus;
+    AtlasFunc              *func;
+    void                   *widget;
 };
 
 #endif /* ATLAS_APP_H */

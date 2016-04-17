@@ -6,7 +6,7 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas application config reader and parser.
+ * Description: The Atlas configuration file utility.
  * 
  * Notes: None.
  * 
@@ -33,12 +33,11 @@ namespace AtlasConfig
     std::vector<std::string> parse(std::string file, std::string key, char delim);
     std::vector<std::string> parse(std::string str,  char        delim);
     std::string              cut(std::string str, int field, char delim);
-    bool                     exists(std::string section);
+    std::string              trim(std::string str);
     std::string              trim_lead(std::string str);
     std::string              trim_trail(std::string str);
-    std::string              trim(std::string str);
-
-    extern std::string FILE;
+    std::string              get_config_file(void);
+    bool                     exists(std::string section);
 };
 
 #endif /* ATLAS_CONFIG_H */

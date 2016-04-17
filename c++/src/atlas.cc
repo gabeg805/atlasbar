@@ -9,7 +9,7 @@
  * Syntax: $ g++ -g -Wall -o atlas *.cc `pkg-config gtkmm-3.0 --cflags --libs`
  *         $ ./atlas
  * 
- * Description: The Atlas Status Bar.
+ * Description: The Atlas program.
  * 
  * Notes: None.
  * 
@@ -17,9 +17,11 @@
  */
 
 /* Includes */
-#include "AtlasUserApp.h"
-#include "Statusbar.h"
+#include "atlas.h"
 #include <gtkmm.h>
+
+/* Global */
+std::string PROG = "atlas";
 
 /* ************************************************************************** */
 /* Display Atlas Statusbar */
@@ -30,14 +32,6 @@ int main(int argc, char **argv)
                                  "org.gtkmm.examples.base");
 
     static Statusbar atlas;
-    atlas.init();
-    atlas.new_app("[battery]",    get_battery_icon);
-    atlas.new_app("[wifi]",       get_wifi_icon,       wifi_event);
-    atlas.new_app("[volume]",     get_volume_icon,     volume_signal);
-    atlas.new_app("[brightness]", get_brightness_icon, brightness_signal);
-    atlas.new_app("[date]",       get_date_text);
-    atlas.new_app("[workspace]",  get_workspace_text,  workspace_signal);
-    atlas.show_all_children();
-
+    atlas.create();
     return app->run(atlas);
 }

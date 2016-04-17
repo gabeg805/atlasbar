@@ -6,9 +6,7 @@
  * Email:     gabeg@bu.edu
  * License:   The MIT License (MIT)
  * 
- * Syntax: #include "AtlasSignalType.h"
- * 
- * Description: Atlas Status Bar signal types.
+ * Description: The Atlas Status Bar signal types.
  * 
  * Notes: None.
  * 

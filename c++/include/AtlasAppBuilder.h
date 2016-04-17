@@ -1,12 +1,12 @@
 /* *****************************************************************************
  * 
- * Name:    AtlasUserApp.h
- * Class:   None
+ * Name:    AtlasAppBuilder.h
+ * Class:   <AtlasAppBuilder>
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas User Application type.
+ * Description: The Atlas application builder.
  * 
  * Notes: None.
  * 
@@ -14,18 +14,23 @@
  */
 
 /* Header guard */
-#ifndef ATLAS_USER_APP_H
-#define ATLAS_USER_APP_H
+#ifndef ATLAS_APP_BUILDER_H
+#define ATLAS_APP_BUILDER_H
 
 /* Includes */
+#include "AtlasApp.h"
 #include "AtlasFunc.h"
 #include <string>
 
-/* Structure */
-struct AtlasUserApp
+/* Class */
+class AtlasAppBuilder
 {
-    std::string  name;
-    AtlasFunc    func;
+public:
+    AtlasAppBuilder();
+
+    void create (std::string name, AtlasFunc *func);
+
+    NameApp *app;
 };
 
-#endif /* ATLAS_USER_APP_H */
+#endif /* ATLAS_APP_H */

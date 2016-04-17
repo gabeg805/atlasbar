@@ -1,12 +1,12 @@
 /* *****************************************************************************
  * 
- * Name:    AtlasUserApp.h
+ * Name:    AtlasFunc.h
  * Class:   None
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas User Application type.
+ * Description: The Atlas application function data type.
  * 
  * Notes: None.
  * 
@@ -14,18 +14,19 @@
  */
 
 /* Header guard */
-#ifndef ATLAS_USER_APP_H
-#define ATLAS_USER_APP_H
+#ifndef ATLAS_FUNC_H
+#define ATLAS_FUNC_H
 
 /* Includes */
-#include "AtlasFunc.h"
+#include <stdint.h>
 #include <string>
 
 /* Structure */
-struct AtlasUserApp
+struct AtlasFunc
 {
-    std::string  name;
-    AtlasFunc    func;
+    std::string (*info)(void);
+    int         (*event)(void*);
+    int         (*signal)(uint8_t);
 };
 
-#endif /* ATLAS_USER_APP_H */
+#endif /* ATLAS_FUNC_H */
