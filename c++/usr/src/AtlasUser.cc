@@ -16,9 +16,9 @@
 
 /* Includes */
 #include "AtlasUser.h"
-#include "AtlasUserAppBuilder.h"
+#include "AtlasAppBuilder.h"
 #include "AtlasCommand.h"
-#include "AtlasConfig.h"
+#include "atlasconf.h"
 #include "AtlasSignalType.h"
 #include "atlasio.h"
 #include <stdint.h>
@@ -34,33 +34,33 @@
 atlas::uapp * create_user_apps(void)
 {
     AtlasUserAppBuilder *builder = new AtlasUserAppBuilder(6);
-    builder->new_app("battery",    {get_battery_icon,    battery_event,    NULL});
-    builder->new_app("wifi",       {get_wifi_icon,       wifi_event,       NULL});
-    builder->new_app("volume",     {get_volume_icon,     volume_event,     volume_signal});
-    builder->new_app("brightness", {get_brightness_icon, brightness_event, brightness_signal});
-    builder->new_app("date",       {get_date_text,       NULL,             NULL});
-    builder->new_app("workspace",  {get_workspace_text,  NULL,             workspace_signal});
-    return builder->get_apps();
+    builder->new_uapp("battery",    {get_battery_info,    battery_event,    NULL});
+    builder->new_uapp("wifi",       {get_wifi_info,       wifi_event,       NULL});
+    builder->new_uapp("volume",     {get_volume_info,     volume_event,     volume_signal});
+    builder->new_uapp("brightness", {get_brightness_info, brightness_event, brightness_signal});
+    builder->new_uapp("date",       {get_date_info,       NULL,             NULL});
+    builder->new_uapp("workspace",  {get_workspace_info,  NULL,             workspace_signal});
+    return builder->get_uapps();
 }
 
 /* ************************************************************************** */
 /* Return the battery icon string */
-std::string get_battery_icon(void)
+std::string get_battery_info(void)
 {
     static std::string ext   = ".png";
-    static std::string dir   = AtlasConfig::fetch("[battery]", "directory");
-    static std::string cmd   = AtlasConfig::fetch("[battery]", "command");
+    static std::string dir   = atlasconf::find("battery", "directory");
+    static std::string cmd   = atlasconf::find("battery", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
     return (dir+std::to_string(level)+ext);
 }
 
 /* ************************************************************************** */
 /* Return the wifi icon string */
-std::string get_wifi_icon(void)
+std::string get_wifi_info(void)
 {
     static std::string ext   = ".png";
-    static std::string dir   = AtlasConfig::fetch("[wifi]", "directory");
-    static std::string cmd   = AtlasConfig::fetch("[wifi]", "command");
+    static std::string dir   = atlasconf::find("wifi", "directory");
+    static std::string cmd   = atlasconf::find("wifi", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
     std::string        name;
 
@@ -87,7 +87,7 @@ std::string get_wifi_icon(void)
 /* Check if mute is toggled */
 static int volume_is_mute(void)
 {
-    static std::string cmd    = AtlasConfig::fetch("[volume]", "mute");
+    static std::string cmd    = atlasconf::find("volume", "mute");
     std::string        output = AtlasCommand::exec_cmd(cmd);
     return (output.compare("off\n") == 0);
 }
@@ -96,18 +96,18 @@ static int volume_is_mute(void)
 /* Check if music player is running */
 static pid_t volume_is_playing(void)
 {
-    static std::string cmd    = AtlasConfig::fetch("[volume]", "player");
+    static std::string cmd    = atlasconf::find("volume", "player");
     std::string        output = AtlasCommand::exec_cmd(cmd);
     return atol(output.c_str());
 }
 
 /* ************************************************************************** */
 /* Return the volume icon string */
-std::string get_volume_icon(void)
+std::string get_volume_info(void)
 {
     static std::string ext   = ".png";
-    static std::string dir   = AtlasConfig::fetch("[volume]", "directory");
-    static std::string cmd   = AtlasConfig::fetch("[volume]", "command");
+    static std::string dir   = atlasconf::find("volume", "directory");
+    static std::string cmd   = atlasconf::find("volume", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
     std::string        name;
     std::string        qualifier;
@@ -137,11 +137,11 @@ std::string get_volume_icon(void)
 
 /* ************************************************************************** */
 /* Return the brightness icon string */
-std::string get_brightness_icon(void)
+std::string get_brightness_info(void)
 {
     static std::string ext   = ".png";
-    static std::string dir   = AtlasConfig::fetch("[brightness]", "directory");
-    static std::string cmd   = AtlasConfig::fetch("[brightness]", "command");
+    static std::string dir   = atlasconf::find("brightness", "directory");
+    static std::string cmd   = atlasconf::find("brightness", "command");
     int                level = AtlasCommand::get_cmd_percent(cmd);
     std::string        name;
 
@@ -175,9 +175,9 @@ std::string get_brightness_icon(void)
 
 /* ************************************************************************** */
 /* Return the date text string */
-std::string get_date_text(void)
+std::string get_date_info(void)
 {
-    std::string fmt  = AtlasConfig::fetch("date", "format");
+    std::string fmt  = atlasconf::find("date", "format");
     time_t      t    = time(NULL);
     struct tm*  now  = localtime(&t);
     static char str[30];
@@ -268,9 +268,9 @@ int brightness_signal(uint8_t key)
 
 /* ************************************************************************** */
 /* Return the workspace text string */
-std::string get_workspace_text(void)
+std::string get_workspace_info(void)
 {
-    std::string text = AtlasConfig::fetch("workspace", "text");
+    std::string text = atlasconf::find("workspace", "text");
     return text;
 }
 

@@ -15,12 +15,12 @@
 
 /* Includes */
 #include "Statusbar.h"
-#include "AtlasConfig.h"
+#include "atlasconf.h"
 #include "AtlasApp.h"
 #include "AtlasAppBuilder.h"
 #include "AtlasAppUtil.h"
 #include "AtlasAlign.h"
-#include "AtlasEvent.h"
+#include "atlasevent.h"
 #include "AtlasFunc.h"
 #include "atlasio.h"
 #include "AtlasUser.h"
@@ -45,19 +45,19 @@ Statusbar::Statusbar():
 /* Initialize the Atlas Status Bar */
 void Statusbar::init(void)
 {
-    std::string o      = AtlasConfig::fetch("statusbar",     "orientation");
-    std::string bg     = AtlasConfig::fetch("statusbar",     "background");
-    std::string fg     = AtlasConfig::fetch("statusbar",     "foreground");
-    int         width  = AtlasConfig::fetch_int("statusbar", "width");
-    int         height = AtlasConfig::fetch_int("statusbar", "height");
-    AtlasAppUtil::set_orientation(*this->statusbar, o);
-    AtlasAppUtil::set_background(*this->statusbar, bg);
-    AtlasAppUtil::set_foreground(*this->statusbar, fg);
+    std::string o      = atlasconf::find("statusbar",     "orientation");
+    std::string bg     = atlasconf::find("statusbar",     "background");
+    std::string fg     = atlasconf::find("statusbar",     "foreground");
+    int         width  = atlasconf::find_int("statusbar", "width");
+    int         height = atlasconf::find_int("statusbar", "height");
+    AtlasAppUtil::set_orientation(*this->statusbar,  o);
+    AtlasAppUtil::set_background(*this->statusbar,  bg);
+    AtlasAppUtil::set_foreground(*this->statusbar,  fg);
     AtlasAppUtil::set_size(*this, width, height);
 
     this->set_title("Atlas");
     this->add(*this->statusbar);
-    std::signal(SIGUSR1, AtlasEvent::signal);
+    std::signal(SIGUSR1, atlasevent::signal);
 
     atlasio::debug("Initialized Atlas Status Bar.");
 }
@@ -66,19 +66,24 @@ void Statusbar::init(void)
 /* Create the Atlas Status Bar */
 void Statusbar::create(void)
 {
-    atlas::uapp *uapps = create_user_apps();
-    uint8_t       i;
-    if ( uapps == NULL )
-        return;
-    for ( i=0; !uapps[i].name.empty(); ++i )
+    atlas::uapp *uapps  = create_user_apps();
+    // this->apps
+    uint8_t      length = reinterpret_cast<uint8_t&>(*(uapps-1));
+    uint8_t      i;
+    for ( i=0; i < length; ++i )
         this->new_app(uapps[i].name, &uapps[i].func);
     this->show_all_children();
     atlasio::debug("Created status bar.");
 }
 
+/* I say that I (statusbar) am an atlasappbuilder but I don't utilize it Maybe
+ * jsut hae the creation in th constructor (for both builders) Also have app
+ * builder give a size so that I know and there's consistencty for both
+ * builders */
+
 /* ************************************************************************** */
 /* Create an application (event and signal) */
-void Statusbar::new_app(std::string name, AtlasFunc *func)
+void Statusbar::new_app(std::string name, atlas::func *func)
 {
     AtlasAppBuilder *app = new AtlasAppBuilder();
     app->create(name, func);
@@ -89,32 +94,26 @@ void Statusbar::new_app(std::string name, AtlasFunc *func)
 /* Attach an Atlas application to the statusbar */
 int Statusbar::attach(atlas::app *app)
 {
-    AtlasEvent::container.push_back(app);
+    Gtk::Widget  *widget = AtlasAppUtil::get_widget(app->widget, app->type);
+    atlas::align  align  = app->align;
+    size_t        len    = app->length;
+    size_t        i;
 
-    atlas::align align = app->align;
-    std::string  type  = app->type;
-    size_t       len   = app->length;
-    size_t       i;
-    atlasio::print("name: "+app->name+" | type: "+app->type+" | len: "+std::to_string(len));
-
+    /* Set widget on status bar */
     if ( align == atlas::align::NONE )
         ;
-    else if ( align == atlas::align::LEFT ) {
-        Gtk::Widget *labs = static_cast<Gtk::Label*>(app->widget);
+    else if ( align == atlas::align::LEFT )
         for ( i = 0; i < len; ++i )
-            this->statusbar->pack_start(static_cast<Gtk::Widget&>(labs[i]), Gtk::PACK_SHRINK);
-    }
-    else if ( align == atlas::align::CENTER ) {
+            this->statusbar->pack_start(widget[i], Gtk::PACK_SHRINK);
+    else if ( align == atlas::align::CENTER )
         for ( i = 0; i < len; ++i )
-            this->statusbar->set_center_widget(*static_cast<Gtk::Widget*>(app->widget));
-    }
-    else if ( align == atlas::align::RIGHT ) {
-        Gtk::Image *img = static_cast<Gtk::Image*>(app->widget);
+            this->statusbar->set_center_widget(widget[i]);
+    else if ( align == atlas::align::RIGHT )
         for ( i = 0; i < len; ++i )
-            this->statusbar->pack_end(static_cast<Gtk::Widget&>(img[i]), Gtk::PACK_SHRINK);
-            // this->statusbar->pack_end(*static_cast<Gtk::Widget*>(app->widget), Gtk::PACK_SHRINK);
-    }
+            this->statusbar->pack_end(widget[i], Gtk::PACK_SHRINK);
     else
         return -1;
+
+    atlasevent::container.push_back(app);
     return 0;
 }

@@ -24,6 +24,7 @@
 #include <string>
 
 /* Structures */
+/* Atlas application */
 struct AtlasApp
 {
     std::string   name;
@@ -34,7 +35,7 @@ struct AtlasApp
     atlas::func  *func;
     void         *widget;
 };
-
+/* Atlas user application */
 struct AtlasUserApp
 {
     std::string name;

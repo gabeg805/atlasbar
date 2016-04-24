@@ -20,17 +20,32 @@
 /* Includes */
 #include "AtlasApp.h"
 #include "AtlasFunc.h"
+#include <stdint.h>
 #include <string>
 
-/* Class */
+/* Classes */
+/* Atlas application builder */
 class AtlasAppBuilder
 {
 public:
     AtlasAppBuilder();
 
-    void create (std::string name, atlas::func *func);
+    void alloc(uint8_t num);
+    void create(std::string name, atlas::func *func);
 
     atlas::app *app;
+};
+/* Atlas user application builder */
+class AtlasUserAppBuilder
+{
+public:
+    AtlasUserAppBuilder(uint8_t num);
+    void          alloc(uint8_t num);
+    void          new_uapp(std::string name, atlas::func func);
+    atlas::uapp * get_uapps(void);
+
+private:
+    atlas::uapp *uapps;
 };
 
 #endif /* ATLAS_APP_H */

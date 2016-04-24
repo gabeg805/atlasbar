@@ -29,20 +29,14 @@ namespace AtlasAppUtil
 {
     int           new_app(atlas::app **app);
     int           set_widget(atlas::app *app);
-
-    int           init_widget(atlas::app *app, void **widget);
-    int           set_widget(atlas::app *app, void **widget);
-    int           set_event_widget(atlas::app *app, void **widget);
-
+    int           set_widget_info(atlas::app *app);
+    int           set_widget_event(atlas::app *app);
     Gtk::Widget * get_widget(atlas::app *app);
-    int           set_image(atlas::app *app, void **widget);
-    int           set_label(atlas::app *app, void **widget);
+    Gtk::Widget * get_widget(void *widget, std::string type);
+    int           set_image(atlas::app *app);
     int           set_label(atlas::app *app);
 
     int           set_name(atlas::app *app, std::string name);
-    // int           set_func(atlas::app *app, AtlasGetFunc getstr);
-    // int           set_func(atlas::app *app, AtlasGetFunc getstr, AtlasEventFunc event);
-    // int           set_func(atlas::app *app, AtlasGetFunc getstr, AtlasEventFunc event, AtlasSignalFunc signal);
     int           set_func(atlas::app *app, AtlasFunc *func);
     int           set_type(atlas::app *app);
     int           set_align(atlas::app *app);
