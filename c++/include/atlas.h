@@ -1,7 +1,6 @@
 /* *****************************************************************************
  * 
  * Name:    atlas.h
- * Class:   <atlas>
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
@@ -28,8 +27,8 @@ namespace atlas
     extern std::string prog;
 }
 
-#include "AtlasAlign.h"
-#include "AtlasApp.h"
-#include "AtlasFunc.h"
+#include "atlasalign.h"
+#include "atlastypes.h"
+#include "atlasfunc.h"
 
 #endif /* ATLAS_H */

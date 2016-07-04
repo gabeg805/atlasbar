@@ -18,17 +18,17 @@
 #define ATLAS_EVENT_H
 
 /* Includes */
-#include "AtlasApp.h"
+#include "atlastypes.h"
 #include <vector>
 
 /* Namespace */
 namespace atlasevent
 {
     void signal(int sig);
-    bool update(atlas::app *node);
-    bool update(atlas::app *node, int val);
+    bool update(atlas::app_t *node);
+    bool update(atlas::app_t *node, int val);
 
-    extern std::vector<atlas::app*> container;
+    extern std::vector<atlas::app_t*> container;
 };
 
 

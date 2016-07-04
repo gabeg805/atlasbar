@@ -18,26 +18,24 @@
 #define ATLAS_STATUSBAR_H
 
 /* Includes */
-#include "AtlasApp.h"
-#include "AtlasAppBuilder.h"
-#include "AtlasFunc.h"
+#include "atlastypes.h"
+#include "atlasapp.h"
+#include "atlasfunc.h"
 #include <gtkmm.h>
 #include <string>
 
 /* Class */
 class Statusbar:
     public Gtk::Window,
-    public AtlasAppBuilder
+    public AtlasApp
 {
 public:
     Statusbar();
-
     void create(void);
-    void new_app(std::string, atlas::func *func);
 
 private:
     void init(void);
-    int  attach(atlas::app *app);
+    int  attach(atlas::app_t *app);
 
     Gtk::Box *statusbar;
 };

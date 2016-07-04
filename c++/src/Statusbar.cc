@@ -16,14 +16,15 @@
 /* Includes */
 #include "Statusbar.h"
 #include "atlasconf.h"
-#include "AtlasApp.h"
-#include "AtlasAppBuilder.h"
+#include "atlastypes.h"
+#include "atlasapp.h"
 #include "AtlasAppUtil.h"
-#include "AtlasAlign.h"
+#include "atlasalign.h"
 #include "atlasevent.h"
-#include "AtlasFunc.h"
+#include "atlasfunc.h"
 #include "atlasio.h"
-#include "AtlasUser.h"
+#include "atlasipc.h"
+#include "atlasuser.h"
 #include <gtkmm.h>
 #include <gdkmm.h>
 #include <cstdlib>
@@ -35,7 +36,7 @@
 /* Construct the Atlas status bar */
 Statusbar::Statusbar():
     Gtk::Window(Gtk::WINDOW_POPUP),
-    AtlasAppBuilder()
+    AtlasApp(0)
 {
     this->statusbar = new Gtk::Box();
     this->init();
@@ -50,14 +51,16 @@ void Statusbar::init(void)
     std::string fg     = atlasconf::find("statusbar",     "foreground");
     int         width  = atlasconf::find_int("statusbar", "width");
     int         height = atlasconf::find_int("statusbar", "height");
-    AtlasAppUtil::set_orientation(*this->statusbar,  o);
-    AtlasAppUtil::set_background(*this->statusbar,  bg);
-    AtlasAppUtil::set_foreground(*this->statusbar,  fg);
-    AtlasAppUtil::set_size(*this, width, height);
+    atlas::app::util::set_orientation(*this->statusbar,  o);
+    atlas::app::util::set_background(*this->statusbar,  bg);
+    atlas::app::util::set_foreground(*this->statusbar,  fg);
+    atlas::app::util::set_size(*this, width, height);
 
     this->set_title("Atlas");
     this->add(*this->statusbar);
-    std::signal(SIGUSR1, atlasevent::signal);
+
+    initipc();
+    std::signal(SIGIO, atlasevent::signal);
 
     atlasio::debug("Initialized Atlas Status Bar.");
 }
@@ -66,38 +69,26 @@ void Statusbar::init(void)
 /* Create the Atlas Status Bar */
 void Statusbar::create(void)
 {
-    atlas::uapp *uapps  = create_user_apps();
-    // this->apps
-    uint8_t      length = reinterpret_cast<uint8_t&>(*(uapps-1));
-    uint8_t      i;
-    for ( i=0; i < length; ++i )
-        this->new_app(uapps[i].name, &uapps[i].func);
+    atlas::uapp_t *uapps  = create_user_apps();
+    uint8_t        length = reinterpret_cast<uint8_t&>(*(uapps-1));
+    uint8_t        i;
+    this->alloc(length);
+    for ( i=0; i < length; ++i ) {
+        this->new_app(uapps[i].name, &uapps[i].func, uapps[i].signal);
+        this->attach(this->get_app());
+    }
     this->show_all_children();
     atlasio::debug("Created status bar.");
 }
 
-/* I say that I (statusbar) am an atlasappbuilder but I don't utilize it Maybe
- * jsut hae the creation in th constructor (for both builders) Also have app
- * builder give a size so that I know and there's consistencty for both
- * builders */
-
-/* ************************************************************************** */
-/* Create an application (event and signal) */
-void Statusbar::new_app(std::string name, atlas::func *func)
-{
-    AtlasAppBuilder *app = new AtlasAppBuilder();
-    app->create(name, func);
-    Statusbar::attach(app->app);
-}
-
 /* ************************************************************************** */
 /* Attach an Atlas application to the statusbar */
-int Statusbar::attach(atlas::app *app)
+int Statusbar::attach(atlas::app_t *app)
 {
-    Gtk::Widget  *widget = AtlasAppUtil::get_widget(app->widget, app->type);
-    atlas::align  align  = app->align;
-    size_t        len    = app->length;
-    size_t        i;
+    Gtk::Widget    *widget = atlas::app::util::get_widget(app->widget, app->type);
+    atlas::align_t  align  = app->align;
+    size_t          len    = app->length;
+    size_t          i;
 
     /* Set widget on status bar */
     if ( align == atlas::align::NONE )

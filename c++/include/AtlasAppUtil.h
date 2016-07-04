@@ -19,48 +19,57 @@
 #define ATLAS_APP_UTIL_H
 
 /* Includes */
-#include "AtlasApp.h"
-#include "AtlasFunc.h"
+#include "atlas.h"
+#include "atlastypes.h"
+#include "atlasfunc.h"
 #include <gtkmm.h>
+#include <stdint.h>
 #include <string>
 
 /* Namespace */
-namespace AtlasAppUtil
+namespace atlas
 {
-    int           new_app(atlas::app **app);
-    int           set_widget(atlas::app *app);
-    int           set_widget_info(atlas::app *app);
-    int           set_widget_event(atlas::app *app);
-    Gtk::Widget * get_widget(atlas::app *app);
-    Gtk::Widget * get_widget(void *widget, std::string type);
-    int           set_image(atlas::app *app);
-    int           set_label(atlas::app *app);
+    namespace app
+    {
+        namespace util
+        {
+            int           new_app(atlas::app_t **app);
+            int           set_widget(atlas::app_t *app);
+            int           set_widget_info(atlas::app_t *app);
+            int           set_widget_event(atlas::app_t *app);
+            Gtk::Widget * get_widget(atlas::app_t *app);
+            Gtk::Widget * get_widget(void *widget, std::string type);
+            int           set_image(atlas::app_t *app);
+            int           set_label(atlas::app_t *app);
 
-    int           set_name(atlas::app *app, std::string name);
-    int           set_func(atlas::app *app, AtlasFunc *func);
-    int           set_type(atlas::app *app);
-    int           set_align(atlas::app *app);
-    int           set_length(atlas::app *app);
-    int           set_focus(atlas::app *app);
-    int           set_focus(atlas::app *app, int index);
-    int           set_update(atlas::app *app);
-    int           clear(atlas::app *app);
+            int           set_name(atlas::app_t *app, std::string name);
+            int           set_func(atlas::app_t *app, atlas::func_t *func);
+            int           set_signal(atlas::app_t *app, uint32_t signal);
+            int           set_type(atlas::app_t *app);
+            int           set_align(atlas::app_t *app);
+            int           set_length(atlas::app_t *app);
+            int           set_focus(atlas::app_t *app);
+            int           set_focus(atlas::app_t *app, int index);
+            int           set_update(atlas::app_t *app);
+            int           clear(atlas::app_t *app);
 
-    int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
-    int           set_background(Gtk::Widget &app, std::string background);
-    int           set_foreground(Gtk::Widget &app, std::string foreground);
-    int           set_margin(Gtk::Widget &app, std::string margin);
-    int           set_margin(Gtk::Widget &app, int margin);
-    int           set_margin(Gtk::Widget &app, int xmargin, int ymargin);
-    int           set_padding(Gtk::Misc &app, std::string padding);
-    int           set_padding(Gtk::Misc &app, int padding);
-    int           set_padding(Gtk::Misc &app, int xpadding, int ypadding);
-    int           set_font(Gtk::Widget &app, std::string font);
-    int           set_font(Gtk::Widget &app, std::string font, int size);
-    int           set_orientation(Gtk::Orientable &app, std::string orientation);
-    int           set_size(Gtk::Window &app, int width, int height);
+            int           set_focuser(Gtk::Widget &widget, int index, int focus, std::string color);
+            int           set_background(Gtk::Widget &app, std::string background);
+            int           set_foreground(Gtk::Widget &app, std::string foreground);
+            int           set_margin(Gtk::Widget &app, std::string margin);
+            int           set_margin(Gtk::Widget &app, int margin);
+            int           set_margin(Gtk::Widget &app, int xmargin, int ymargin);
+            int           set_padding(Gtk::Misc &app, std::string padding);
+            int           set_padding(Gtk::Misc &app, int padding);
+            int           set_padding(Gtk::Misc &app, int xpadding, int ypadding);
+            int           set_font(Gtk::Widget &app, std::string font);
+            int           set_font(Gtk::Widget &app, std::string font, int size);
+            int           set_orientation(Gtk::Orientable &app, std::string orientation);
+            int           set_size(Gtk::Window &app, int width, int height);
 
-    bool          is_app(std::string name);
+            bool          is_app(std::string name);
+        };
+    };
 };
 
 #endif /* ATLAS_APP_UTIL_H */

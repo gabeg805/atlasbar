@@ -1,13 +1,9 @@
 /* *****************************************************************************
  * 
  * Name:    atlas.cc
- * Class:   main()
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
- * 
- * Syntax: $ g++ -g -Wall -o atlas *.cc `pkg-config gtkmm-3.0 --cflags --libs`
- *         $ ./atlas
  * 
  * Description: The Atlas program.
  * 

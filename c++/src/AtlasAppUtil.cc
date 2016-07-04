@@ -16,26 +16,27 @@
 
 /* Includes */
 #include "AtlasAppUtil.h"
-#include "AtlasApp.h"
+#include "atlastypes.h"
 #include "atlasconf.h"
 #include "atlasevent.h"
 #include "atlasio.h"
 #include <gtkmm.h>
+#include <stdint.h>
 #include <cstdlib>
 #include <string>
 
 /* ************************************************************************** */
 /* Allocate space for a new application */
-int AtlasAppUtil::new_app(atlas::app **app)
+int atlas::app::util::new_app(atlas::app_t **app)
 {
-    *app = new atlas::app();
-    AtlasAppUtil::clear(*app);
+    *app = new atlas::app_t();
+    atlas::app::util::clear(*app);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Initialize and set the application */
-int AtlasAppUtil::set_widget(atlas::app *app)
+int atlas::app::util::set_widget(atlas::app_t *app)
 {
     if ( (app == NULL) || app->name.empty() )
         return -1;
@@ -50,23 +51,23 @@ int AtlasAppUtil::set_widget(atlas::app *app)
     else
         return -1;
 
-    AtlasAppUtil::set_widget_event(app);
-    AtlasAppUtil::set_widget_info(app);
+    atlas::app::util::set_widget_event(app);
+    atlas::app::util::set_widget_info(app);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the widget information */
-int AtlasAppUtil::set_widget_info(atlas::app *app)
+int atlas::app::util::set_widget_info(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
 
     std::string type = app->type;
     if ( type.compare("image") == 0 )
-        AtlasAppUtil::set_image(app);
+        atlas::app::util::set_image(app);
     else if ( type.compare("label") == 0 )
-        AtlasAppUtil::set_label(app);
+        atlas::app::util::set_label(app);
     else
         return -1;
     return 0;
@@ -74,7 +75,7 @@ int AtlasAppUtil::set_widget_info(atlas::app *app)
 
 /* ************************************************************************** */
 /* Set the widget event */
-int AtlasAppUtil::set_widget_event(atlas::app *app)
+int atlas::app::util::set_widget_event(atlas::app_t *app)
 {
     std::string event = atlasconf::find(app->name, "event");
     if ( event.empty() || (app->func->event == NULL) )
@@ -99,7 +100,7 @@ int AtlasAppUtil::set_widget_event(atlas::app *app)
 
 /* ************************************************************************** */
 /* Return the application's widget */
-Gtk::Widget * AtlasAppUtil::get_widget(atlas::app *app)
+Gtk::Widget * atlas::app::util::get_widget(atlas::app_t *app)
 {
     if ( app == NULL )
         return NULL;
@@ -113,7 +114,7 @@ Gtk::Widget * AtlasAppUtil::get_widget(atlas::app *app)
 
 /* ************************************************************************** */
 /* Return the application's widget */
-Gtk::Widget * AtlasAppUtil::get_widget(void *widget, std::string type)
+Gtk::Widget * atlas::app::util::get_widget(void *widget, std::string type)
 {
     if ( widget == NULL )
         return NULL;
@@ -128,12 +129,12 @@ Gtk::Widget * AtlasAppUtil::get_widget(void *widget, std::string type)
 
 /* ************************************************************************** */
 /* Set the applications image widget */
-int AtlasAppUtil::set_image(atlas::app *app)
+int atlas::app::util::set_image(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
 
-    Gtk::Widget              *widget     = AtlasAppUtil::get_widget(app);
+    Gtk::Widget              *widget     = atlas::app::util::get_widget(app);
     Gtk::Image               *image      = static_cast<Gtk::Image*>(widget);
     std::vector<std::string>  split      = atlasio::split(app->func->info(), '|');
     std::string               name       = app->name;
@@ -145,10 +146,10 @@ int AtlasAppUtil::set_image(atlas::app *app)
     int i;
     for ( i = 0; i < len; ++i ) {
         image[i].set(split[i]);
-        AtlasAppUtil::set_margin(image[i], margin);
-        AtlasAppUtil::set_padding(image[i], padding);
-        AtlasAppUtil::set_background(image[i], background);
-        AtlasAppUtil::set_foreground(image[i], foreground);
+        atlas::app::util::set_margin(image[i], margin);
+        atlas::app::util::set_padding(image[i], padding);
+        atlas::app::util::set_background(image[i], background);
+        atlas::app::util::set_foreground(image[i], foreground);
     }
 
     return 0;
@@ -156,9 +157,9 @@ int AtlasAppUtil::set_image(atlas::app *app)
 
 /* ************************************************************************** */
 /* Set the application's label widget */
-int AtlasAppUtil::set_label(atlas::app *app)
+int atlas::app::util::set_label(atlas::app_t *app)
 {
-    Gtk::Widget              *widget      = AtlasAppUtil::get_widget(app);
+    Gtk::Widget              *widget      = atlas::app::util::get_widget(app);
     Gtk::Label               *label       = static_cast<Gtk::Label*>(widget);
     std::string               name        = app->name;
     std::vector<std::string>  split       = atlasio::split(app->func->info(), '|');
@@ -174,12 +175,12 @@ int AtlasAppUtil::set_label(atlas::app *app)
     int i;
     for ( i = 0; i < len; ++i ) {
         label[i].set_text(split[i]);
-        AtlasAppUtil::set_font(label[i], font, size);
-        AtlasAppUtil::set_margin(label[i], margin);
-        AtlasAppUtil::set_padding(label[i], padding);
-        AtlasAppUtil::set_background(label[i], background);
-        AtlasAppUtil::set_foreground(label[i], foreground);
-        AtlasAppUtil::set_focuser(label[i], i, focus, focus_color);
+        atlas::app::util::set_font(label[i], font, size);
+        atlas::app::util::set_margin(label[i], margin);
+        atlas::app::util::set_padding(label[i], padding);
+        atlas::app::util::set_background(label[i], background);
+        atlas::app::util::set_foreground(label[i], foreground);
+        atlas::app::util::set_focuser(label[i], i, focus, focus_color);
     }
 
     return 0;
@@ -187,7 +188,7 @@ int AtlasAppUtil::set_label(atlas::app *app)
 
 /* ************************************************************************** */
 /* Set the name of the application */
-int AtlasAppUtil::set_name(atlas::app *app, std::string name)
+int atlas::app::util::set_name(atlas::app_t *app, std::string name)
 {
     if ( app == NULL )
         return -1;
@@ -197,7 +198,7 @@ int AtlasAppUtil::set_name(atlas::app *app, std::string name)
 
 /* ************************************************************************** */
 /* Set the "get", "event", and "signal" functions of the application */
-int AtlasAppUtil::set_func(atlas::app *app, AtlasFunc *func)
+int atlas::app::util::set_func(atlas::app_t *app, atlas::func_t *func)
 {
     if ( app == NULL )
         return -1;
@@ -206,8 +207,18 @@ int AtlasAppUtil::set_func(atlas::app *app, AtlasFunc *func)
 }
 
 /* ************************************************************************** */
+/* Set signal value of the application */
+int atlas::app::util::set_signal(atlas::app_t *app, uint32_t signal)
+{
+    if ( app == NULL )
+        return -1;
+    app->signal = signal;
+    return 0;
+}
+
+/* ************************************************************************** */
 /* Set the type of the application */
-int AtlasAppUtil::set_type(atlas::app *app)
+int atlas::app::util::set_type(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
@@ -217,7 +228,7 @@ int AtlasAppUtil::set_type(atlas::app *app)
 
 /* ************************************************************************** */
 /* Set the application alignment */
-int AtlasAppUtil::set_align(atlas::app *app)
+int atlas::app::util::set_align(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
@@ -226,19 +237,19 @@ int AtlasAppUtil::set_align(atlas::app *app)
     if ( align.empty() )
         return -1;
     if ( align.compare("left") == 0 )
-        app->align = AtlasAlign::LEFT;
+        app->align = atlas::align::LEFT;
     else if ( (align.compare("center") == 0) || align.compare("middle") == 0 )
-        app->align = AtlasAlign::CENTER;
+        app->align = atlas::align::CENTER;
     else if ( align.compare("right") == 0 )
-        app->align = AtlasAlign::RIGHT;
+        app->align = atlas::align::RIGHT;
     else
-        app->align = AtlasAlign::RIGHT;
+        app->align = atlas::align::RIGHT;
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the number of widgets within the application */
-int AtlasAppUtil::set_length(atlas::app *app)
+int atlas::app::util::set_length(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
@@ -251,7 +262,7 @@ int AtlasAppUtil::set_length(atlas::app *app)
 
 /* ************************************************************************** */
 /* Set the number of sub-applications, within the application */
-int AtlasAppUtil::set_focus(atlas::app *app)
+int atlas::app::util::set_focus(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
@@ -265,15 +276,16 @@ int AtlasAppUtil::set_focus(atlas::app *app)
 
 /* ************************************************************************** */
 /* Set the number of sub-applications, within the application */
-int AtlasAppUtil::set_focus(atlas::app *app, int index)
+int atlas::app::util::set_focus(atlas::app_t *app, int index)
 {
     app->focus = index;
+    atlasio::print("Focus: "+std::to_string(index));
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the application to update/refresh every given number of seconds */
-int AtlasAppUtil::set_update(atlas::app *app)
+int atlas::app::util::set_update(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
@@ -281,20 +293,20 @@ int AtlasAppUtil::set_update(atlas::app *app)
     int time = atlasconf::find_int(app->name, "update");
     if ( time <= 0 )
         return -1;
-    sigc::slot<bool, atlas::app*> slot = sigc::ptr_fun((bool (*)(atlas::app*))atlasevent::update);
-    Glib::signal_timeout().connect_seconds(sigc::bind<atlas::app*>(slot, app), time);
+    sigc::slot<bool, atlas::app_t*> slot = sigc::ptr_fun((bool (*)(atlas::app_t*))atlasevent::update);
+    Glib::signal_timeout().connect_seconds(sigc::bind<atlas::app_t*>(slot, app), time);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Clear the application struct */
-int AtlasAppUtil::clear(atlas::app *app)
+int atlas::app::util::clear(atlas::app_t *app)
 {
     if ( app == NULL )
         return -1;
     app->name   = "";
     app->type   = "";
-    app->align  = AtlasAlign::NONE;
+    app->align  = atlas::align::NONE;
     app->length = 0;
     app->func   = NULL;
     app->widget = NULL;
@@ -302,13 +314,13 @@ int AtlasAppUtil::clear(atlas::app *app)
 }
 
 /* ************************************************************************** */
-int AtlasAppUtil::set_focuser(Gtk::Widget &widget, int index, int focus, std::string color)
+int atlas::app::util::set_focuser(Gtk::Widget &widget, int index, int focus, std::string color)
 {
     if ( focus < 0 )
         return -1;
     else {
         if ( index == focus )
-            AtlasAppUtil::set_foreground(widget, color);
+            atlas::app::util::set_foreground(widget, color);
         else
             return -1;
     }
@@ -321,7 +333,7 @@ int AtlasAppUtil::set_focuser(Gtk::Widget &widget, int index, int focus, std::st
 
 /* ************************************************************************** */
 /* Set the background color of an application  */
-int AtlasAppUtil::set_background(Gtk::Widget &app, std::string background)
+int atlas::app::util::set_background(Gtk::Widget &app, std::string background)
 {
     if ( background.empty() )
         return -1;
@@ -333,7 +345,7 @@ int AtlasAppUtil::set_background(Gtk::Widget &app, std::string background)
 
 /* ************************************************************************** */
 /* Set the foreground color of an application */
-int AtlasAppUtil::set_foreground(Gtk::Widget &app, std::string foreground)
+int atlas::app::util::set_foreground(Gtk::Widget &app, std::string foreground)
 {
     if ( foreground.empty() )
         return -1;
@@ -345,25 +357,25 @@ int AtlasAppUtil::set_foreground(Gtk::Widget &app, std::string foreground)
 
 /* ************************************************************************** */
 /* Set the margin size for an application */
-int AtlasAppUtil::set_margin(Gtk::Widget &app, std::string margin)
+int atlas::app::util::set_margin(Gtk::Widget &app, std::string margin)
 {
     int xmargin = atoi(atlasio::cut(margin, 1, ',').c_str());
     int ymargin = atoi(atlasio::cut(margin, 2, ',').c_str());
-    AtlasAppUtil::set_margin(app, xmargin, ymargin);
+    atlas::app::util::set_margin(app, xmargin, ymargin);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the margin size for an application */
-int AtlasAppUtil::set_margin(Gtk::Widget &app, int margin)
+int atlas::app::util::set_margin(Gtk::Widget &app, int margin)
 {
-    AtlasAppUtil::set_margin(app, margin, margin);
+    atlas::app::util::set_margin(app, margin, margin);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the margin size for an application */
-int AtlasAppUtil::set_margin(Gtk::Widget &app, int xmargin, int ymargin)
+int atlas::app::util::set_margin(Gtk::Widget &app, int xmargin, int ymargin)
 {
     app.set_margin_start(xmargin);
     app.set_margin_end(xmargin);
@@ -374,25 +386,25 @@ int AtlasAppUtil::set_margin(Gtk::Widget &app, int xmargin, int ymargin)
 
 /* ************************************************************************** */
 /* Set the padding size for an application */
-int AtlasAppUtil::set_padding(Gtk::Misc &app, std::string padding)
+int atlas::app::util::set_padding(Gtk::Misc &app, std::string padding)
 {
     int xpadding = atoi(atlasio::cut(padding, 1, ',').c_str());
     int ypadding = atoi(atlasio::cut(padding, 2, ',').c_str());
-    AtlasAppUtil::set_padding(app, xpadding, ypadding);
+    atlas::app::util::set_padding(app, xpadding, ypadding);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the padding size for an application */
-int AtlasAppUtil::set_padding(Gtk::Misc &app, int padding)
+int atlas::app::util::set_padding(Gtk::Misc &app, int padding)
 {
-    AtlasAppUtil::set_padding(app, padding, padding);
+    atlas::app::util::set_padding(app, padding, padding);
     return 0;
 }
 
 /* ************************************************************************** */
 /* Set the padding size for an application */
-int AtlasAppUtil::set_padding(Gtk::Misc &app, int xpadding, int ypadding)
+int atlas::app::util::set_padding(Gtk::Misc &app, int xpadding, int ypadding)
 {
     app.set_padding(xpadding, ypadding);
     return 0;
@@ -400,7 +412,7 @@ int AtlasAppUtil::set_padding(Gtk::Misc &app, int xpadding, int ypadding)
 
 /* ************************************************************************** */
 /* Set the font of an application */
-int AtlasAppUtil::set_font(Gtk::Widget &app, std::string font)
+int atlas::app::util::set_font(Gtk::Widget &app, std::string font)
 {
     if ( font.empty() )
         return -1;
@@ -414,7 +426,7 @@ int AtlasAppUtil::set_font(Gtk::Widget &app, std::string font)
 
 /* ************************************************************************** */
 /* Set the font and text size of an application */
-int AtlasAppUtil::set_font(Gtk::Widget &app, std::string font, int size)
+int atlas::app::util::set_font(Gtk::Widget &app, std::string font, int size)
 {
     if ( font.empty() || (size <= 0) )
         return -1;
@@ -429,7 +441,7 @@ int AtlasAppUtil::set_font(Gtk::Widget &app, std::string font, int size)
 
 /* ************************************************************************** */
 /* Set the orientation of an application */
-int AtlasAppUtil::set_orientation(Gtk::Orientable &app, std::string orientation)
+int atlas::app::util::set_orientation(Gtk::Orientable &app, std::string orientation)
 {
     if ( orientation.compare("vertical") == 0 )
         app.set_orientation(Gtk::ORIENTATION_VERTICAL);
@@ -441,7 +453,7 @@ int AtlasAppUtil::set_orientation(Gtk::Orientable &app, std::string orientation)
 }
 
 /* ************************************************************************** */
-int AtlasAppUtil::set_size(Gtk::Window &app, int width, int height)
+int atlas::app::util::set_size(Gtk::Window &app, int width, int height)
 {
     app.set_default_size(width, height);
     return 0;
@@ -449,7 +461,7 @@ int AtlasAppUtil::set_size(Gtk::Window &app, int width, int height)
 
 /* ************************************************************************** */
 /* Check if valid application or not */
-bool AtlasAppUtil::is_app(std::string name)
+bool atlas::app::util::is_app(std::string name)
 {
     if ( !atlasconf::find(name, "").empty() )
         return true;
