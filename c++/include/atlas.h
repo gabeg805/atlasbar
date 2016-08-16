@@ -18,17 +18,21 @@
 #define ATLAS_H
 
 /* Includes */
-#include "Statusbar.h"
-#include <string>
-
-/* Namespace */
-namespace atlas
-{
-    extern std::string prog;
-}
-
 #include "atlasalign.h"
-#include "atlastypes.h"
-#include "atlasfunc.h"
+#include "atlasapp.h"
+#include "atlasapputil.h"
+#include "atlasatom.h"
+#include "atlasbuilder.h"
+#include "atlascmdutil.h"
+#include "atlasglobals.h"
+#include "atlaskeys.h"
+#include "atlassignal.h"
+#include "atlasstatusbar.h"
+#include "atlasutil.h"
+#include <gtkmm.h>
+#include <stdint.h>
+#include <cstdbool>
+#include <cstdlib>
+#include <string>
 
 #endif /* ATLAS_H */

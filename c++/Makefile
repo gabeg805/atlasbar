@@ -1,67 +1,55 @@
 # Compiler
-CC      = g++
-LIBS    = gtkmm-3.0
-CFLAGS  = -g -Wall -O0 -std=c++11
-CFLAGS += `pkg-config $(LIBS) --cflags --libs`
-# CINC (c-include) defined below
+CC        = g++
+LIBS      = gtkmm-3.0
+CFLAGS    = -g -Wall -O0
+CPPFLAGS  = $(CFLAGS) -std=c++11 `pkg-config $(LIBS) --cflags --libs`
 
 # Program source files
 PROGRAM     = atlas
-MEMMAP_FILE = /tmp/atlasmap
+MEMMAP_FILE = /dev/shm/atlas-shm
+LOG_FILE    = /tmp/atlas.log
 
 # Directories used
-CORE_DIR      = .
-USR_DIR       = $(CORE_DIR)/usr
-EXTRA_DIR     = $(CORE_DIR)/extra
-OBJ_DIR       = $(CORE_DIR)/obj
-USR_SRC_DIR   = $(USR_DIR)/src
-USR_INC_DIR   = $(USR_DIR)/include
-CORE_SRC_DIR  = $(CORE_DIR)/src
-CORE_INC_DIR  = $(CORE_DIR)/include
-EXTRA_SRC_DIR = $(EXTRA_DIR)/src
-EXTRA_INC_DIR = $(EXTRA_DIR)/include
+ROOT_DIR = .
+OBJ_DIR  = $(ROOT_DIR)/obj
+SRC_DIR  = $(ROOT_DIR)/src
+INC_DIR  = $(ROOT_DIR)/include
 
 # Determine source and object files
-USR_SRC   = $(wildcard $(USR_SRC_DIR)/*.cc)
-CORE_SRC  = $(wildcard $(CORE_SRC_DIR)/*.cc)
-SRC       = $(USR_SRC) $(CORE_SRC)
-EXTRA_OBJ = $(OBJ_DIR)/atlasipc.o
-OBJ       = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.cc=.o))) $(EXTRA_OBJ)
+CSRC   = $(wildcard $(SRC_DIR)/*.c)
+CPPSRC = $(wildcard $(SRC_DIR)/*.cc)
+COBJ   = $(addprefix $(OBJ_DIR)/, $(notdir $(CSRC:.c=.o)))
+CPPOBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(CPPSRC:.cc=.o)))
+OBJ    = $(COBJ) $(CPPOBJ)
 
 # Compiler include flags
-CINC = -I $(USR_INC_DIR) -I $(CORE_INC_DIR) -I $(EXTRA_INC_DIR)
-EXTRA_CINC = $(CINC) -I X11
+CINC = -I $(INC_DIR) -lX11
 
 # Makefile actions
 all: $(PROGRAM)
 	@rm -v -f $(MEMMAP_FILE)
+	@rm -v -f $(LOG_FILE)
 
 $(PROGRAM): $(OBJ)
-	$(CC) $(CFLAGS) \
+	$(CC) $(CPPFLAGS) \
 		-o $(PROGRAM) $(OBJ) \
 		$(CINC)
 
-$(OBJ_DIR)/%.o: $(USR_SRC_DIR)/%.cc
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc
+	$(CC) $(CPPFLAGS) \
+		-c $< \
+		-o $@ \
+		$(CINC)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) \
 		-c $< \
 		-o $@ \
 		$(CINC)
 
-$(OBJ_DIR)/%.o: $(CORE_SRC_DIR)/%.cc
-	$(CC) $(CFLAGS) \
-		-c $< \
-		-o $@ \
-		$(CINC)
-
-$(OBJ_DIR)/%.o: $(EXTRA_SRC_DIR)/%.c
-	$(CC) $(CFLAGS) \
-		-c $< \
-		-o $@ \
-		$(EXTRA_CINC)
-
-.PHONY: clean ipc
+.PHONY: clean
 clean: 
 	@rm -v -f $(OBJ_DIR)/*.o
 	@rm -v -f $(PROGRAM)
-
-ipc: $(EXTRA_OBJ)
+	@rm -v -f $(MEMMAP_FILE)
+	@rm -v -f $(LOG_FILE)

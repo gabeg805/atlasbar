@@ -14,10 +14,10 @@
 
 /* Includes */
 #include "atlas.h"
-#include <gtkmm.h>
 
 /* Global */
-std::string atlas::prog = "atlas";
+std::string  atlas::prog = "atlas";
+atlas::vec_t atlas::signal::container;
 
 /* ************************************************************************** */
 /* Display Atlas Statusbar */
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         Gtk::Application::create(argc, argv,
                                  "org.gtkmm.examples.base");
 
-    static Statusbar atlas;
+    static AtlasStatusBar atlas;
     atlas.create();
     return app->run(atlas);
 }

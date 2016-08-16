@@ -6,8 +6,7 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas Application builder. Creates an Atlas App by reading
- *              information in the configuration file.
+ * Description: The Atlas Application.
  * 
  * Notes: None.
  * 
@@ -16,108 +15,112 @@
 
 /* Includes */
 #include "atlasapp.h"
-#include "atlastypes.h"
-#include "AtlasAppUtil.h"
-#include "atlasfunc.h"
-#include "atlasio.h"
+#include "atlasalign.h"
+#include "atlassignal.h"
+#include <gtkmm.h>
 #include <stdint.h>
-#include <string.h>
-#include <strings.h>
-#include <cstdlib>
-#include <string>
 
 /* ************************************************************************** */
 /* Constructor */
-AtlasApp::AtlasApp(uint8_t num)
+AtlasApp::AtlasApp(void)
 {
-    this->apps = new atlas::app_t[num+1];
-    uint8_t *length = reinterpret_cast<uint8_t*>(this->apps);
-    *length = 0;
-    this->apps++;
+    this->init(NULL, 0, atlas::align::NONE);
 }
-
-#include <iostream>
-
-/* ************************************************************************** */
-/* Reallocate memory for applications */
-void AtlasApp::alloc(uint8_t num)
-{
-    this->apps--;
-    this->apps      = new atlas::app_t[num+1];
-    uint8_t *length = reinterpret_cast<uint8_t*>(this->apps);
-    *length         = 0;
-    this->apps++;
-}
-
-/* ************************************************************************** */
-/* Create a new application */
-void AtlasApp::new_app(std::string name, atlas::func_t *func, uint32_t signal)
-{
-    static uint8_t  index  = 0;
-    static uint8_t *length = reinterpret_cast<uint8_t*>(this->apps-1);
-    if ( !atlas::app::util::is_app(name) )
-        return;
-
-    atlas::app_t *app = &this->apps[index];
-    atlas::app::util::set_name(app, name);
-    atlas::app::util::set_func(app, func);
-    atlas::app::util::set_signal(app, signal);
-    atlas::app::util::set_type(app);
-    atlas::app::util::set_length(app);
-    atlas::app::util::set_focus(app);
-    atlas::app::util::set_align(app);
-    atlas::app::util::set_widget(app);
-    atlas::app::util::set_update(app);
-    (*length)++;
-    index++;
-    atlasio::debug("Created application '"+name+"'.");
-}
-
-/* ************************************************************************** */
-/* Return the newest application */
-atlas::app_t * AtlasApp::get_app(void)
-{
-    uint8_t length = reinterpret_cast<uint8_t&>(*(this->apps-1));
-    return &this->apps[length-1];
-}
-
-
 
 /* ************************************************************************** */
 /* Constructor */
-AtlasUserApp::AtlasUserApp(uint8_t num)
+AtlasApp::AtlasApp(Gtk::Widget *widget)
 {
-    this->uapps = (atlas::uapp_t*) calloc(num+1, sizeof(atlas::uapp_t));
-    this->uapps++;
+    this->init(widget, 1, atlas::align::NONE);
 }
 
 /* ************************************************************************** */
-/* Reallocate memory for applications */
-void AtlasUserApp::alloc(uint8_t num)
+/* Constructor */
+AtlasApp::AtlasApp(Gtk::Widget *widget, atlas::align_t align)
 {
-    uint8_t size = (num+1)*sizeof(atlas::uapp_t);
-    this->uapps--;
-    this->uapps  = (atlas::uapp_t*) realloc(this->uapps, size);
-    memset(this->uapps, 0, size);
-    this->uapps++;
+    this->init(widget, 1, align);
 }
 
 /* ************************************************************************** */
-/* Create a new user app */
-void AtlasUserApp::new_uapp(std::string name, atlas::func_t func, uint32_t signal)
+/* Constructor */
+AtlasApp::AtlasApp(Gtk::Widget *widget, uint8_t size, atlas::align_t align)
 {
-    static uint8_t  index     = 0;
-    static uint8_t *length    = reinterpret_cast<uint8_t*>(this->uapps-1);
-    this->uapps[index].name   = name;
-    this->uapps[index].func   = func;
-    this->uapps[index].signal = signal;
-    (*length)++;
-    index++;
+    this->init(widget, size, align);
 }
 
 /* ************************************************************************** */
-/* Return app container */
-atlas::uapp_t * AtlasUserApp::get_uapps(void)
+/* Initialize application elements */
+void AtlasApp::init(Gtk::Widget *widget, uint8_t size, atlas::align_t align)
 {
-    return this->uapps;
+    this->app         = new atlas::app_t();
+    this->app->widget = widget;
+    this->app->size   = size;
+    this->app->signal = NULL;
+    this->app->align  = align;
+}
+
+/* ************************************************************************** */
+/* Set application widget */
+void AtlasApp::set_widget(Gtk::Widget *widget)
+{
+    this->app->widget = widget;
+}
+
+/* ************************************************************************** */
+/* Set number of widgets in application */
+void AtlasApp::set_size(uint8_t size)
+{
+    this->app->size = size;
+}
+
+/* ************************************************************************** */
+/* Set application signal callback function */
+void AtlasApp::set_signal(atlas::clbk_t signal, atlas::key_t key)
+{
+    if ( this->app->signal == NULL )
+        this->app->signal = new atlas::sig_t();
+    this->app->signal->callback = signal;
+    this->app->signal->key      = key;
+}
+
+/* ************************************************************************** */
+/* Set statusbar alignment */
+void AtlasApp::set_align(atlas::align_t align)
+{
+    this->app->align = align;
+}
+
+/* ************************************************************************** */
+/* Return application widget */
+Gtk::Widget * AtlasApp::get_widget(void)
+{
+    return this->app->widget;
+}
+
+/* ************************************************************************** */
+/* Return number of widgets in application */
+uint8_t AtlasApp::get_size(void)
+{
+    return this->app->size;
+}
+
+/* ************************************************************************** */
+/* Return application signal callback function */
+atlas::clbk_t AtlasApp::get_signal(void)
+{
+    return ( this->app->signal != NULL ) ? this->app->signal->callback : NULL;
+}
+
+/* ************************************************************************** */
+/* Return application signal key */
+atlas::key_t AtlasApp::get_key(void)
+{
+    return ( this->app->signal != NULL ) ? this->app->signal->key : 0;
+}
+
+/* ************************************************************************** */
+/* Return statusbar alignment */
+atlas::align_t AtlasApp::get_align(void)
+{
+    return this->app->align;
 }

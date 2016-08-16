@@ -6,7 +6,7 @@
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The Atlas Application builder.
+ * Description: The Atlas Application.
  * 
  * Notes: None.
  * 
@@ -18,34 +18,50 @@
 #define ATLAS_APP_H
 
 /* Includes */
-#include "atlastypes.h"
-#include "atlasfunc.h"
+#include "atlasalign.h"
+#include "atlassignal.h"
+#include <gtkmm.h>
 #include <stdint.h>
-#include <string>
+
+/* Structures */
+struct _AtlasAppType
+{
+    Gtk::Widget    *widget;
+    atlas::sig_t   *signal;
+    atlas::align_t  align;
+    uint8_t         size;
+};
+
+/* Namespace */
+namespace atlas
+{
+    typedef _AtlasAppType app_t;
+};
 
 /* Classes */
-/* Atlas application */
 class AtlasApp
 {
 public:
-    AtlasApp(uint8_t num);
-    void           alloc(uint8_t num);
-    void           new_app(std::string name, atlas::func_t *func, uint32_t signal);
-    atlas::app_t * get_app(void);
+    AtlasApp(void);
+    AtlasApp(Gtk::Widget *widget);
+    AtlasApp(Gtk::Widget *widget, atlas::align_t align);
+    AtlasApp(Gtk::Widget *widget, uint8_t size, atlas::align_t align);
 
-    atlas::app_t *apps;
-};
-/* Atlas user application */
-class AtlasUserApp
-{
-public:
-    AtlasUserApp(uint8_t num);
-    void            alloc(uint8_t num);
-    void            new_uapp(std::string name, atlas::func_t func, uint32_t signal);
-    atlas::uapp_t * get_uapps(void);
+    void set_widget(Gtk::Widget *widget);
+    void set_size(uint8_t size);
+    void set_signal(atlas::clbk_t signal, atlas::key_t key);
+    void set_align(atlas::align_t align);
+
+    Gtk::Widget *  get_widget(void);
+    uint8_t        get_size(void);
+    atlas::clbk_t  get_signal(void);
+    atlas::key_t   get_key(void);
+    atlas::align_t get_align(void);
 
 private:
-    atlas::uapp_t *uapps;
+    void init(Gtk::Widget *widget, uint8_t size, atlas::align_t align);
+
+    atlas::app_t *app;
 };
 
 #endif /* ATLAS_APP_H */
