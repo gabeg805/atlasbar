@@ -18,6 +18,7 @@
 #include "atlasglobals.h"
 #include "atlasipc.h"
 #include "atlaskeys.h"
+#include "atlasutil.h"
 #include <stdint.h>
 
 /* ************************************************************************** */
@@ -30,6 +31,7 @@ void atlas::signal::handler(int sig)
     uint32_t appkey;
     atlas::clbk_t  callback;
     atlas::vecit_t app;
+    atlasprintf(LOG, "Received signal: 0x%0X", data);
 
     for ( app=atlas::signal::container.begin();
           app != atlas::signal::container.end();
@@ -38,6 +40,7 @@ void atlas::signal::handler(int sig)
         /* Execute callback function for given signal */
         appkey = (*app).get_key();
         if ( appkey == datakey ) {
+            atlasprintf(LOG, "Executing signal handler for matched app.");
             callback = (*app).get_signal();
             callback(data);
             break;

@@ -38,6 +38,7 @@ typedef union {
 
 /* Public functions */
 int  wmatlasinit(uint32_t current, uint32_t ndesktop);
+void wmcleanup(int signal);
 void wmsendtoatlas(const Arg *arg);
 
 #ifdef __cplusplus

@@ -40,6 +40,7 @@ AtlasStatusBar::AtlasStatusBar():
 /* Initialize the Atlas Status Bar */
 void AtlasStatusBar::init(void)
 {
+    atlasprintf(LOG, "\nInitializing Atlas Status Bar.");
     atlas::app::set_orientation(*this->statusbar,  "horizontal");
     atlas::app::set_background(*this->statusbar,  "#333333");
     atlas::app::set_foreground(*this->statusbar,  "#FFFFFF");
@@ -50,17 +51,16 @@ void AtlasStatusBar::init(void)
 
     initipc();
     std::signal(SIGIO, atlas::signal::handler);
-    atlasprintf(INFO, "Initialized Atlas Status Bar.");
 }
 
 /* ************************************************************************** */
 /* Create the Atlas Status Bar */
 void AtlasStatusBar::create(void)
 {
+    atlasprintf(LOG, "Creating Status Bar.");
     AtlasBuilder *builder = app_builder();
     this->attach(builder);
     this->show_all_children();
-    atlasprintf(INFO, "Created status bar.");
 }
 
 /* ************************************************************************** */
@@ -75,6 +75,7 @@ int AtlasStatusBar::attach(AtlasBuilder *builder)
     for ( i = 0; builder[i] != NULL; ++i ) {
         app   = builder[i]();
         align = app.get_align();
+        atlasprintf(LOG, "Attaching application to '%u'.", align);
 
         /* Attach to statusbar */
         for ( j = 0; j < app.get_size(); ++j ) {
@@ -90,8 +91,10 @@ int AtlasStatusBar::attach(AtlasBuilder *builder)
                 return -1;
         }
         /* Add to signal event handler */
-        if (app.get_signal() != NULL)
+        if (app.get_signal() != NULL) {
+            atlasprintf(LOG, "Registering signal for application.");
             atlas::signal::container.push_back(app);
+        }
     }
 
 

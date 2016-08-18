@@ -14,12 +14,14 @@
 
 /* Includes */
 #include "atlasutil.h"
+#include <ctype.h>
 #include <dirent.h>
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <sys/file.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -48,7 +50,7 @@ uint32_t logbase2(uint32_t val)
 
 /* ************************************************************************** */
 /* Return PID of a program */
-uint16_t pidof(const char *prog)
+pid_t pidof(const char *prog)
 {
     const char    *parent  = "/proc";
     DIR           *dstream = opendir(parent);
@@ -88,8 +90,8 @@ void atlasprintf(AtlasPrint_t mode, const char *fmt, ...)
 {
     /* Format line label */
     static const char *timefmt = "%Y-%m-%d %X";
-    static char label[256];
-    static char linefmt[64];
+    static char label[128];
+    static char linefmt[256];
     snprintf(label, sizeof(label), "[%s] %s:", strtimenow(timefmt),
              modetostr(mode));
     snprintf(linefmt, sizeof(linefmt), "%s %s\n", label, fmt);
@@ -175,8 +177,7 @@ void errprintf(const char *fmt, va_list ap)
 /* Print messages for logging to log */
 void logprintf(const char *fmt, va_list ap)
 {
-    static const char *file = "/tmp/atlas.log";
-    FILE *stream = fopen(file, "a+");
+    FILE *stream = fopen(getlogfile(), "a+");
     vfprintf(stream, fmt, ap);
     fclose(stream);
 }
@@ -187,4 +188,11 @@ void debugprintf(const char *fmt, va_list ap)
 {
     infoprintf(fmt, ap);
     logprintf(fmt, ap);
+}
+
+/* ************************************************************************** */
+/* Return log file */
+const char * getlogfile(void)
+{
+    return "/tmp/atlas.log";
 }

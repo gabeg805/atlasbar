@@ -27,12 +27,13 @@ extern "C" {
 #include <sys/types.h>
 
 /* Public functions */
-int     initipc(void);
-int32_t rdipc(int fd);
-int32_t wripc(int fd, uint32_t buf);
-int     memmap(int fd);
-int     memunmap(long *addr);
-int     getipcfd(int flags, mode_t mode);
+int          initipc(void);
+int32_t      rdipc(int fd);
+int32_t      wripc(int fd, uint32_t buf);
+int          memmap(int fd);
+int          memunmap(long *addr);
+int          getipcfd(int flags, mode_t mode);
+const char * getipcfile(void);
 
 #ifdef __cplusplus
 }

@@ -22,6 +22,7 @@
 #include "atlasutil.h"
 #include <signal.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <sys/file.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -39,6 +40,12 @@ int wmatlasinit(uint32_t current, uint32_t ndesktop)
     setdefaultatomval("_NET_NUMBER_OF_DESKTOPS", (unsigned char*)&ndesktop);
     setdefaultatomval("_NET_CURRENT_DESKTOP", (unsigned char*)&current);
 
+    /* Set up signal handling */
+    signal(SIGHUP, wmcleanup);
+    signal(SIGINT, wmcleanup);
+    signal(SIGQUIT, wmcleanup);
+    signal(SIGKILL, wmcleanup);
+
     /* Execute Atlas */
     pid_t pid = fork();
     if ( pid == 0 )
@@ -47,6 +54,15 @@ int wmatlasinit(uint32_t current, uint32_t ndesktop)
     int status;
     waitpid(pid, &status, WNOHANG);
     return 0;
+}
+
+/* ************************************************************************** */
+/* Cleanup processes when termination signal received */
+void wmcleanup(int signal)
+{
+    remove(getipcfile());
+    /* remove(getlogfile()); */
+    _exit(signal);
 }
 
 /* ************************************************************************** */

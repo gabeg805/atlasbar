@@ -23,14 +23,16 @@ extern "C" {
 
 /* Includes */
 #include <stdint.h>
+#include <sys/types.h>
 
 /* Typedefs */
 typedef enum { NONE, INFO, WARNING, ERROR, LOG, DEBUG } AtlasPrint_t;
 
 /* Public functions */
-uint32_t logbase2(uint32_t val);
-uint16_t pidof(const char *prog);
-void     atlasprintf(AtlasPrint_t type, const char *fmt, ...);
+uint32_t     logbase2(uint32_t val);
+pid_t        pidof(const char *prog);
+void         atlasprintf(AtlasPrint_t type, const char *fmt, ...);
+const char * getlogfile(void);
 
 #ifdef __cplusplus
 }

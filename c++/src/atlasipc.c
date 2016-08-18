@@ -21,9 +21,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-/* Globals */
-static const char *IPCFILE = "/dev/shm/atlas-shm";
-
 /* ************************************************************************** */
 /* Initialize the IPC pipe */
 int initipc(void)
@@ -34,9 +31,9 @@ int initipc(void)
 
     if ( fd != -1 )
         return fd;
-    if ( access(IPCFILE, F_OK) == 0 ) {
+    if ( access(getipcfile(), F_OK) == 0 ) {
         if ( (fd=getipcfd(flags,0)) < 0 ) {
-            remove(IPCFILE);
+            remove(getipcfile());
             return fd;
         }
     }
@@ -110,5 +107,13 @@ int memunmap(long *addr)
 /* Initialize the IPC pipe */
 int getipcfd(int flags, mode_t mode)
 {
-    return (mode == 0) ? open(IPCFILE, flags) : open(IPCFILE, flags, mode);
+    return (mode == 0) ? open(getipcfile(), flags) : open(getipcfile(), flags,
+                                                          mode);
+}
+
+/* ************************************************************************** */
+/* Return IPC file */
+const char * getipcfile(void)
+{
+    return "/dev/shm/atlas-shm";
 }
