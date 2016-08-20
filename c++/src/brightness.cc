@@ -46,9 +46,9 @@ AtlasApp & brightness(void)
 void signalbrightness(uint32_t key)
 {
    if ( key == ATLAS_SIG_BRT_UP )
-        system("xbacklight -inc 5 1> /dev/null");
+        system("xbacklight -inc 5 2> /dev/null");
     else if ( key == ATLAS_SIG_BRT_DOWN )
-        system("xbacklight -dec 5 1> /dev/null");
+        system("xbacklight -dec 5 2> /dev/null");
     else
         ;
     setbrightnessimage();

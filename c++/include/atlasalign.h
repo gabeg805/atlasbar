@@ -28,12 +28,12 @@ struct AtlasAlign {
         RIGHT = BOTTOM
     };
 };
-
+ 
 /* Namespace extension */
 namespace atlas
 {
     typedef AtlasAlign::Align align;
-    typedef AtlasAlign::Align align_t;
+    typedef align             align_t;
 };
 
 #endif /* ATLAS_ALIGN_H */

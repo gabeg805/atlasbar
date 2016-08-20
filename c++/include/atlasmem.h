@@ -1,11 +1,11 @@
 /* *****************************************************************************
  * 
- * Name:    atlasipc.h
+ * Name:    atlasmem.h
  * Author:  Gabriel Gonzalez
  * Email:   gabeg@bu.edu
  * License: The MIT License (MIT)
  * 
- * Description: The interprocess communication method between Atlas and the
+ * Description: The Atlas method for managing shared memory between it and the
  *              system window manager.
  * 
  * Notes: None.
@@ -14,26 +14,20 @@
  */
 
 /* Header guard */
-#ifndef ATLAS_IPC_H
-#define ATLAS_IPC_H
+#ifndef ATLAS_MEM_H
+#define ATLAS_MEM_H
 
 /* C++ to C guard */
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* Includes */
-#include <stdint.h>
-
 /* Public functions */
-int          setupipc(void);
-int          openipc(void);
-int32_t      readipc(int fd);
-int32_t      writeipc(int fd, uint32_t buf);
-const char * getipcfile(void);
+int memmap(int fd);
+int memunmap(long *addr);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* ATLAS_IPC_H */
+#endif /* ATLAS_MEM_H */

@@ -18,17 +18,13 @@
 
 /* Includes */
 #include "atlassignal.h"
-#include "atlasvector.h"
+#include "atlasmap.h"
 
 /* Globals */
 namespace atlas
 {
     extern std::string prog;
-
-    namespace signal
-    {
-        extern atlas::vec_t container;
-    };
+    namespace signal { extern atlas::map_t container; };
 };
 
 #endif /* ATLAS_GLOBALS_H */

@@ -25,6 +25,7 @@
 /* Namespace */
 namespace atlas
 {
+    /* Public functions */
     namespace app
     {
         int set_background(Gtk::Widget &app, std::string background);

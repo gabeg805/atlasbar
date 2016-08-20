@@ -25,6 +25,7 @@
 /* Namespaces */
 namespace atlas
 {
+    /* Public functions */
     namespace cmd
     {
         std::string exec(std::string cmd);

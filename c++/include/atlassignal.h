@@ -20,24 +20,20 @@
 /* Includes */
 #include <stdint.h>
 
-/* Typedefs */
-typedef void                  (*AtlasCallback)(uint32_t);
-typedef uint32_t                AtlasKey;
-
-/* Structures */
-struct AtlasSignal
-{
-    AtlasCallback callback;
-    AtlasKey      key;
-};
-
 /* Namespace */
 namespace atlas
 {
-    typedef AtlasSignal         sig_t;
-    typedef AtlasCallback       clbk_t;
-    typedef AtlasKey            key_t;
+    typedef void     (*clbk_t)(uint32_t);
+    typedef uint32_t   key_t;
 
+    /* Structures */
+    typedef struct
+    {
+        clbk_t callback;
+        key_t  key;
+    } sig_t;
+
+    /* Public functions */
     namespace signal
     {
         void handler(int sig);

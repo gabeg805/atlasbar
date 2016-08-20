@@ -75,11 +75,11 @@ void AtlasApp::set_size(uint8_t size)
 
 /* ************************************************************************** */
 /* Set application signal callback function */
-void AtlasApp::set_signal(atlas::clbk_t signal, atlas::key_t key)
+void AtlasApp::set_signal(atlas::clbk_t callback, atlas::key_t key)
 {
     if ( this->app->signal == NULL )
         this->app->signal = new atlas::sig_t();
-    this->app->signal->callback = signal;
+    this->app->signal->callback = callback;
     this->app->signal->key      = key;
 }
 
@@ -106,9 +106,9 @@ uint8_t AtlasApp::get_size(void)
 
 /* ************************************************************************** */
 /* Return application signal callback function */
-atlas::clbk_t AtlasApp::get_signal(void)
+atlas::sig_t * AtlasApp::get_signal(void)
 {
-    return ( this->app->signal != NULL ) ? this->app->signal->callback : NULL;
+    return ( this->app->signal != NULL ) ? this->app->signal : NULL;
 }
 
 /* ************************************************************************** */

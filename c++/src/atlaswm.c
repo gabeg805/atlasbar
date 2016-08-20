@@ -70,9 +70,9 @@ void wmcleanup(int signal)
 void wmsendtoatlas(const Arg *arg)
 {
     static int fd = -1;
-    if ( (fd < 0) && ((fd=getipcfd(O_RDWR,0)) < 0) )
+    if ( (fd < 0) && ((fd=openipc()) < 0) )
         return;
-    if ( wripc(fd, wmdecode(arg->ui)) < 0 )
+    if ( writeipc(fd, wmdecode(arg->ui)) < 0 )
         return;
 
     uint16_t pid = pidof("atlas");

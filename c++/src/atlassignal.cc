@@ -18,6 +18,7 @@
 #include "atlasglobals.h"
 #include "atlasipc.h"
 #include "atlaskeys.h"
+#include "atlasmap.h"
 #include "atlasutil.h"
 #include <stdint.h>
 
@@ -25,25 +26,18 @@
 /* Update an app by their name*/
 void atlas::signal::handler(int sig)
 {
-    int      fd      = initipc();
-    uint32_t data    = rdipc(fd);
-    uint32_t datakey = (data & ATLAS_SIG_MASK);
-    uint32_t appkey;
-    atlas::clbk_t  callback;
-    atlas::vecit_t app;
+    int      fd   = openipc();
+    uint32_t data = readipc(fd);
+    uint32_t key  = (data & ATLAS_SIG_MASK);
     atlasprintf(LOG, "Received signal: 0x%0X", data);
 
-    for ( app=atlas::signal::container.begin();
-          app != atlas::signal::container.end();
-          ++app )
-    {
-        /* Execute callback function for given signal */
-        appkey = (*app).get_key();
-        if ( appkey == datakey ) {
-            atlasprintf(LOG, "Executing signal handler for matched app.");
-            callback = (*app).get_signal();
-            callback(data);
-            break;
-        }
+    /* Find signal key match */
+    atlas::mapiter_t search = atlas::signal::container.find(key);
+    if ( search == atlas::signal::container.end() ) {
+        atlasprintf(LOG, "Signal not found in container.");
+        return;
     }
+    /* Execute callback */
+    atlas::sig_t *signal = search->second.get_signal();
+    signal->callback(data);
 }

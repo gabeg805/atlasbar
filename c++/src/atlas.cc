@@ -17,7 +17,7 @@
 
 /* Global */
 std::string  atlas::prog = "atlas";
-atlas::vec_t atlas::signal::container;
+atlas::map_t atlas::signal::container;
 
 /* ************************************************************************** */
 /* Display Atlas Statusbar */

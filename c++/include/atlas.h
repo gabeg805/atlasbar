@@ -25,14 +25,15 @@
 #include "atlasbuilder.h"
 #include "atlascmdutil.h"
 #include "atlasglobals.h"
+#include "atlasipc.h"
 #include "atlaskeys.h"
+#include "atlasmap.h"
+#include "atlasmem.h"
 #include "atlassignal.h"
 #include "atlasstatusbar.h"
 #include "atlasutil.h"
 #include <gtkmm.h>
 #include <stdint.h>
-#include <cstdbool>
-#include <cstdlib>
 #include <string>
 
 #endif /* ATLAS_H */
