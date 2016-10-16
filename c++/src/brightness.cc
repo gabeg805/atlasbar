@@ -58,7 +58,9 @@ void signalbrightness(uint32_t key)
 /* Set brightness image */
 bool setbrightnessimage(void)
 {
-    widget->set(getbrightnessimage());
+    std::string imgfile = getbrightnessimage();
+    if (access(imgfile.c_str(), F_OK) == 0)
+        widget->set(imgfile);
     return true;
 }
 

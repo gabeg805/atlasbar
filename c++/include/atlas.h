@@ -34,6 +34,7 @@
 #include "atlasutil.h"
 #include <gtkmm.h>
 #include <stdint.h>
+#include <unistd.h>
 #include <string>
 
 #endif /* ATLAS_H */
